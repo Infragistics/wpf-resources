@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AssemblyNotIncluded" xml:space="preserve">
+    <value>Cannot load {0}.dll. You need to make sure that this assembly is included in the XAP that is deployed to the Windows Phone, for example, by adding a reference to it from any of your projects.</value>
+  </data>
+  <data name="BubbleSeries_Radius" xml:space="preserve">
+    <value>Radius</value>
+  </data>
+  <data name="DataProviderNotInitialized" xml:space="preserve">
+    <value>Data provider was used without initializing first. Data provider must be initialized before use.</value>
+  </data>
+  <data name="Default_Series_Title" xml:space="preserve">
+    <value>Series Title</value>
+  </data>
+  <data name="FinancialSeries_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="FinancialSeries_High" xml:space="preserve">
+    <value>High</value>
+  </data>
+  <data name="FinancialSeries_Low" xml:space="preserve">
+    <value>Low</value>
+  </data>
+  <data name="FinancialSeries_Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="FinancialSeries_Volume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="NoEncodingsLoaded" xml:space="preserve">
+    <value>No Encodings are found! Please load the Infragistics.Encoding assembly or look at the documentation how to create custom encodings.</value>
+  </data>
+  <data name="NotSupportedEncoding" xml:space="preserve">
+    <value>The encoding corresponding under the {0} {1} is not supported.</value>
+  </data>
+  <data name="Object_Sealed" xml:space="preserve">
+    <value>Modifications are not permitted after the object has been sealed.</value>
+  </data>
+  <data name="OPD_DefaultInteraction" xml:space="preserve">
+    <value>Select the default mouse drag interaction</value>
+  </data>
+  <data name="OPD_DragPan" xml:space="preserve">
+    <value>Pan the surface</value>
+  </data>
+  <data name="OPD_DragZoom" xml:space="preserve">
+    <value>Zoom in to selection area</value>
+  </data>
+  <data name="OPD_ScaleToFit" xml:space="preserve">
+    <value>Fit to Screen</value>
+  </data>
+  <data name="OPD_ScaleToFit_SeriesViewer" xml:space="preserve">
+    <value>Reset Zoom (100%)</value>
+  </data>
+  <data name="OPD_ZoomIn" xml:space="preserve">
+    <value>Zoom in</value>
+  </data>
+  <data name="OPD_ZoomOut" xml:space="preserve">
+    <value>Zoom out</value>
+  </data>
+  <data name="OPD_ZoomTo100" xml:space="preserve">
+    <value>Zoom to 100%</value>
+  </data>
+  <data name="PieChart_Others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="RangeModificationsNotSupportRangeModificationsNotSupported" xml:space="preserve">
+    <value>Range based modifications of the data source are not currently supported</value>
+  </data>
+  <data name="TRIAL_VERSION" xml:space="preserve">
+    <value>UNLICENSED TRIAL Buy at Infragistics.com</value>
+  </data>
+  <data name="DataChart_InteractivityNotLoaded" xml:space="preserve">
+    <value>Interactivity functionality was accessed but chart interaction module has not been loaded.</value>
+  </data>
+  <data name="DataChart_VisualDataNotLoaded" xml:space="preserve">
+    <value>VisualData functionality was accessed but chart interaction module has not been loaded.</value>
+  </data>
+  <data name="ScatterSeries_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="DataChart_NumberAbbreviatorNotLoaded" xml:space="preserve">
+    <value>Number abbreviation functionality was used, but the number abbreviator module has not been loaded.</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_OneMonth" xml:space="preserve">
+    <value>1M</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_ThreeMonths" xml:space="preserve">
+    <value>3M</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_SixMonths" xml:space="preserve">
+    <value>6M</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_YearToDate" xml:space="preserve">
+    <value>YTD</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_OneYear" xml:space="preserve">
+    <value>1Y</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_From" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="FinancialChart_RangeSelector_To" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="BreakEvenTitle_BreakEven" xml:space="preserve">
+    <value>Break Even</value>
+  </data>
+  <data name="BreakEvenTitle_FixedCost" xml:space="preserve">
+    <value>Fixed Cost</value>
+  </data>
+  <data name="BreakEvenTitle_LossArea" xml:space="preserve">
+    <value>Loss Area</value>
+  </data>
+  <data name="BreakEvenTitle_MarginalProfit" xml:space="preserve">
+    <value>Marginal Profit</value>
+  </data>
+  <data name="BreakEvenTitle_ProfitArea" xml:space="preserve">
+    <value>Profit Area</value>
+  </data>
+  <data name="BreakEvenTitle_SafetyMargin" xml:space="preserve">
+    <value>Safety Margin</value>
+  </data>
+  <data name="BreakEvenTitle_SalesRevenue" xml:space="preserve">
+    <value>Sales Revenue</value>
+  </data>
+  <data name="BreakEvenTitle_TotalCost" xml:space="preserve">
+    <value>Total Cost</value>
+  </data>
+  <data name="BreakEvenTitle_VariableCost" xml:space="preserve">
+    <value>Variable Cost</value>
+  </data>
+  <data name="FinancialChart_IndicatorMenu_Header" xml:space="preserve">
+    <value>Indicators</value>
+  </data>
+  <data name="FinancialChart_IndicatorMenu_OverlaysCategoryHeader" xml:space="preserve">
+    <value>Overlays</value>
+  </data>
+  <data name="FinancialChart_IndicatorMenu_TrendlinesCategoryHeader" xml:space="preserve">
+    <value>Trendlines</value>
+  </data>
+  <data name="FinancialChart_IndicatorMenu_VolumeCategoryHeader" xml:space="preserve">
+    <value>Volumes</value>
+  </data>
+  <data name="FinancialChart_IndicatorMenu_IndicatorsCategoryHeader" xml:space="preserve">
+    <value>Standalone Indicators</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Overlay_BollingerBands" xml:space="preserve">
+    <value>Bollinger Bands</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Overlay_PriceChannel" xml:space="preserve">
+    <value>Price Channel</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_LinearFit" xml:space="preserve">
+    <value>Linear Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_QuadraticFit" xml:space="preserve">
+    <value>Quadratic Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_CubicFit" xml:space="preserve">
+    <value>Cubic Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_QuarticFit" xml:space="preserve">
+    <value>Quartic Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_QuinticFit" xml:space="preserve">
+    <value>Quintic Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_LogarithmicFit" xml:space="preserve">
+    <value>Logarithmic Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_ExponentialFit" xml:space="preserve">
+    <value>Exponential Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_PowerLawFit" xml:space="preserve">
+    <value>PowerLaw Fit</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_SimpleAverage" xml:space="preserve">
+    <value>Simple Average</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_ExponentialAverage" xml:space="preserve">
+    <value>Exponential Average</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_ModifiedAverage" xml:space="preserve">
+    <value>Modified Average</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_CumulativeAverage" xml:space="preserve">
+    <value>Cumulative Average</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_TrendLine_WeightedAverage" xml:space="preserve">
+    <value>Weighted Average</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Volume_Column" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Volume_Line" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Volume_Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_AbsoluteVolumeOscillator" xml:space="preserve">
+    <value>Absolute Volume Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_AccumulationDistribution" xml:space="preserve">
+    <value>Accumulation/Distribution</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_AverageDirectionalIndex" xml:space="preserve">
+    <value>Average Directional Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_AverageTrueRange" xml:space="preserve">
+    <value>Average True Range</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_BollingerBandWidth" xml:space="preserve">
+    <value>Bollinger Band Width</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_ChaikinOscillator" xml:space="preserve">
+    <value>Chaikin Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_ChaikinVolatility" xml:space="preserve">
+    <value>Chaikin Volatility</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_CommodityChannelIndex" xml:space="preserve">
+    <value>Commodity Channel Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_DetrendedPriceOscillator" xml:space="preserve">
+    <value>Detrended Price Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_EaseOfMovement" xml:space="preserve">
+    <value>Ease Of Movement</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_FastStochasticOscillator" xml:space="preserve">
+    <value>Fast Stochastic Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_ForceIndex" xml:space="preserve">
+    <value>Force Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_FullStochasticOscillator" xml:space="preserve">
+    <value>Full Stochastic Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_MarketFacilitationIndex" xml:space="preserve">
+    <value>Market Facilitation Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_MassIndex" xml:space="preserve">
+    <value>Mass Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_MedianPrice" xml:space="preserve">
+    <value>Median Price</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_MoneyFlowIndex" xml:space="preserve">
+    <value>Money Flow Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_MovingAverageConvergenceDivergence" xml:space="preserve">
+    <value>MACD</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_NegativeVolumeIndex" xml:space="preserve">
+    <value>Negative Volume Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_OnBalanceVolume" xml:space="preserve">
+    <value>On Balance Volume</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_PercentagePriceOscillator" xml:space="preserve">
+    <value>Percentage Price Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_PercentageVolumeOscillator" xml:space="preserve">
+    <value>Percentage Volume Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_PositiveVolumeIndex" xml:space="preserve">
+    <value>Positive Volume Index</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_PriceVolumeTrend" xml:space="preserve">
+    <value>Price Volume Trend</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_RateOfChangeAndMomentum" xml:space="preserve">
+    <value>ROC</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_RelativeStrengthIndex" xml:space="preserve">
+    <value>RSI</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_SlowStochasticOscillator" xml:space="preserve">
+    <value>Slow Stochastic Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_StandardDeviation" xml:space="preserve">
+    <value>Standard Deviation</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_StochRSI" xml:space="preserve">
+    <value>Stoch RSI</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_TRIX" xml:space="preserve">
+    <value>TRIX</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_TypicalPrice" xml:space="preserve">
+    <value>Typical Price</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_UltimateOscillator" xml:space="preserve">
+    <value>Ultimate Oscillator</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_WeightedClose" xml:space="preserve">
+    <value>Weighted Close</value>
+  </data>
+  <data name="FinancialChart_IndicatorsMenu_Indicator_WilliamsPercentR" xml:space="preserve">
+    <value>Williams %R</value>
+  </data>
+  <data name="DataSource_Summary_Avg" xml:space="preserve">
+    <value>Avg</value>
+  </data>
+  <data name="DataSource_Summary_Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="DataSource_Summary_Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="DataSource_Summary_Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="DataSource_Summary_Sum" xml:space="preserve">
+    <value>Sum</value>
+  </data>
+</root>

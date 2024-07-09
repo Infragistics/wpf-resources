@@ -1,0 +1,984 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<data name="BlockingErrorLiteral">
+		<value>Error</value>
+	</data>
+	<data name="TaskColumnDisplayName_SuccessorsIdText">
+    <value>Successors</value>
+  </data>
+  <data name="TaskColumnDisplayName_PredecessorsIdText">
+    <value>Predecessors</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsActive">
+    <value>Active</value>
+  </data>
+  <data name="TaskColumnDisplayName_ConstraintDate">
+    <value>Constraint Date</value>
+  </data>
+  <data name="TaskColumnDisplayName_ConstraintType">
+    <value>Constraint Type</value>
+  </data>
+  <data name="TaskColumnDisplayName_CompleteThrough">
+    <value>Complete Through</value>
+  </data>
+  <data name="TaskColumnDisplayName_Deadline">
+    <value>Deadline</value>
+  </data>
+  <data name="TaskColumnDisplayName_ManualDuration">
+    <value>Duration</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsEstimated">
+    <value>Estimated</value>
+  </data>
+  <data name="TaskColumnDisplayName_ManualFinish">
+    <value>Finish</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsBarHidden">
+    <value>Hide Bar</value>
+  </data>
+  <data name="TaskColumnDisplayName_Id">
+    <value>Id</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsManual">
+    <value>Task Mode</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsMarked">
+    <value>Marked</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsMilestone">
+    <value>Milestone</value>
+  </data>
+  <data name="TaskColumnDisplayName_Notes">
+    <value>Notes</value>
+  </data>
+  <data name="TaskColumnDisplayName_OutlineLevel">
+    <value>Outline Level</value>
+  </data>
+  <data name="TaskColumnDisplayName_PercentComplete">
+    <value>% Complete</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsPlaceholder">
+    <value>Placeholder</value>
+  </data>
+  <data name="TaskColumnDisplayName_ResourcesText">
+    <value>Resource Names</value>
+  </data>
+
+  <data name="TaskColumnDisplayName_ManualStart">
+    <value>Start</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsSummary">
+    <value>Summary</value>
+  </data>
+  <data name="TaskColumnDisplayName_TaskName">
+    <value>Name</value>
+  </data>
+  <data name="LE_MemberNotAllowDuringEdit">
+    <value>'{0}' is not allowed while an edit is in progress.</value>
+  </data>
+  <data name="TaskConstraintType_AsSoonAsPossible">
+    <value>As Soon As Possible</value>
+  </data>
+  <data name="TaskConstraintType_AsLateAsPossible">
+    <value>As Late As Possible</value>
+  </data>
+  <data name="TaskConstraintType_MustStartOn">
+    <value>Must Start On</value>
+  </data>
+  <data name="TaskConstraintType_MustFinishOn">
+    <value>Must Finish On</value>
+  </data>
+  <data name="TaskConstraintType_StartNoEarlierThan">
+    <value>Start No Earlier Than</value>
+  </data>
+  <data name="TaskConstraintType_StartNoLaterThan">
+    <value>Start No Later Than</value>
+  </data>
+  <data name="TaskConstraintType_FinishNoEarlierThan">
+    <value>Finish No Earlier Than</value>
+  </data>
+  <data name="TaskConstraintType_FinishNoLaterThan">
+    <value>Finish No Later Than</value>
+  </data>
+  <data name="TaskConstraintViolation_MustStartOn">
+    <value>This task starts on {0} which is different than its 'Must Start On' constraint on {1}.</value>
+  </data>
+  <data name="TaskConstraintViolation_MustFinishOn">
+    <value>This task finishes on {0} which is different than its 'Must Finish On' constraint of {1}.</value>
+  </data>
+  <data name="TaskConstraintViolation_StartNoEarlierThan">
+    <value>This task starts on {0} which is before its 'Start No Earlier Than' constraint on {1}.</value>
+  </data>
+  <data name="TaskConstraintViolation_StartNoLaterThan">
+    <value>This task starts on {0} which is after its 'Start No Later Than' constraint on {1}.</value>
+  </data>
+  <data name="TaskConstraintViolation_FinishNoEarlierThan">
+    <value>This task finishes on {0} which is before its 'Finish No Earlier Than' constraint on {1}.</value>
+  </data>
+  <data name="TaskConstraintViolation_FinishNoLaterThan">
+    <value>This task finishes on {0} which is after its 'Finish No Later Than' constraint on {1}.</value>
+  </data>
+  <data name="TaskIndicatorDetails_Completed">
+    <value>This task was completed on {0}.</value>
+  </data>
+  <data name="TaskIndicatorDetails_Deadline">
+    <value>This task goes past its deadline on {0}.</value>
+  </data>
+  <data name="TaskIndicatorDetails_Notes">
+    <value>Notes: '{0}'.</value>
+  </data>
+  <data name="TaskIndicatorDetails_Constraint">
+    <value>The task has a '{0}' constraint on {1}.</value>
+  </data>
+  <data name="InvalidTextValueForAutoScheduledTask">
+    <value>The '{0}' cannot be set to a text value ('{1}') for automatically scheduled tasks.</value>
+  </data>
+  <data name="FieldIsReadOnlyForManualTask">
+    <value>The '{0}' is read-only for manually scheduled tasks.</value>
+  </data>
+  <data name="TaskColumnDisplayName_TotalSlack">
+    <value>Total Slack</value>
+  </data>
+  <data name="TaskColumnDisplayName_StartSlack">
+    <value>Start Slack</value>
+  </data>
+  <data name="TaskColumnDisplayName_ScheduledStart">
+    <value>Scheduled Start</value>
+  </data>
+  <data name="TaskColumnDisplayName_ScheduledFinish">
+    <value>Scheduled Finish</value>
+  </data>
+  <data name="TaskColumnDisplayName_ScheduledDuration">
+    <value>Scheduled Duration</value>
+  </data>
+  <data name="TaskColumnDisplayName_RemainingDuration">
+    <value>Remaining Duration</value>
+  </data>
+  <data name="TaskColumnDisplayName_LateStart">
+    <value>Late Start</value>
+  </data>
+  <data name="TaskColumnDisplayName_LateFinish">
+    <value>Late Finish</value>
+  </data>
+  <data name="TaskColumnDisplayName_FreeSlack">
+    <value>Free Slack</value>
+  </data>
+  <data name="TaskColumnDisplayName_FinishSlack">
+    <value>Finish Slack</value>
+  </data>
+  <data name="TaskColumnDisplayName_EarlyStart">
+    <value>Early Start</value>
+  </data>
+  <data name="TaskColumnDisplayName_EarlyFinish">
+    <value>Early Finish</value>
+  </data>
+  <data name="TaskColumnDisplayName_IsCritical">
+    <value>Critical</value>
+  </data>
+  <data name="TaskColumnDisplayName_ActualStart">
+    <value>Actual Start</value>
+  </data>
+  <data name="TaskColumnDisplayName_ActualFinish">
+    <value>Actual Finish</value>
+  </data>
+  <data name="TaskColumnDisplayName_ActualDuration">
+    <value>Actual Duration</value>
+  </data>
+  <data name="TaskColumnDisplayName_Indicators">
+    <value>Indicators</value>
+  </data>
+  <data name="LE_InvalidSingleDayTime">
+    <value>The TimeSpan must be between 0 (12:00 AM) and less than 1 day.</value>
+  </data>
+  <data name="DateTimeParseToken_Today">
+    <value>Today</value>
+  </data>
+  <data name="DateTimeParseToken_Tomorrow">
+    <value>Tomorrow</value>
+  </data>
+  <data name="SummaryTaskToolTip_StartEarly">
+    <value>Task will start {0} early.</value>
+  </data>
+  <data name="SummaryTaskToolTip_StartLate">
+    <value>Task will start {0} late.</value>
+  </data>
+  <data name="SummaryTaskToolTip_FinishEarly">
+    <value>Task will finish {0} early.</value>
+  </data>
+  <data name="SummaryTaskToolTip_FinishLate">
+    <value>Task will finish {0} late.</value>
+  </data>
+  <data name="TaskBarToolTip_ProgressTitle">
+    <value>Progress</value>
+  </data>
+  <data name="TaskBarToolTip_DeadlineTitle">
+    <value>Deadline</value>
+  </data>
+  <data name="TaskBarToolTip_SlackTitle">
+    <value>Slack</value>
+  </data>
+  <data name="TaskBarToolTip_MilestoneTitle">
+    <value>Milestone</value>
+  </data>
+  <data name="TaskBarToolTip_TaskTitle">
+    <value>Task</value>
+  </data>
+  <data name="TaskBarToolTip_SummaryTitle">
+    <value>Summary</value>
+  </data>
+  <data name="TaskBarToolTip_ProjectSummaryTitle">
+    <value>Project Summary</value>
+  </data>
+  <data name="TaskBarToolTip_TaskNameLabel">
+    <value>Task: </value>
+  </data>
+  <data name="TaskBarToolTip_ActualStartLabel">
+    <value>Actual Start: </value>
+  </data>
+  <data name="TaskBarToolTip_CompleteThroughLabel">
+    <value>Complete Through: </value>
+  </data>
+  <data name="TaskBarToolTip_DurationLabel">
+    <value>Duration: </value>
+  </data>
+  <data name="TaskBarToolTip_PercentCompleteLabel">
+    <value>% Complete: </value>
+  </data>
+  <data name="TaskBarToolTip_DeadlineLabel">
+    <value>Deadline: </value>
+  </data>
+  <data name="TaskBarToolTip_TaskStartLabel">
+    <value>Task Start: </value>
+  </data>
+  <data name="TaskBarToolTip_TaskFinishLabel">
+    <value>Task Finish: </value>
+  </data>
+  <data name="TaskBarToolTip_FreeSlackLabel">
+    <value>Free Slack: </value>
+  </data>
+  <data name="TaskBarToolTip_SubtasksStartLabel">
+    <value>Subtasks start: </value>
+  </data>
+  <data name="TaskBarToolTip_SubtasksFinishLabel">
+    <value>Subtasks finish: </value>
+  </data>
+  <data name="TaskBarToolTip_SubtasksDurationLabel">
+    <value>Subtasks duration: </value>
+  </data>
+  <data name="TaskDependencyToolTip_FinishToFinishLink">
+    <value>Finish-to-Finish (FF)</value>
+  </data>
+  <data name="TaskDependencyToolTip_FinishToStartLink">
+    <value>Finish-to-Start (FS)</value>
+  </data>
+  <data name="TaskDependencyToolTip_StartToFinishLink">
+    <value>Start-to-Finish (SF)</value>
+  </data>
+  <data name="TaskDependencyToolTip_StartToStartLink">
+    <value>Start-to-Start (SS)</value>
+  </data>
+  <data name="TaskDependencyToolTip_TaskLinkLabel">
+    <value>Task Link: </value>
+  </data>
+  <data name="TaskDependencyToolTip_LagLabel">
+    <value>Lag: </value>
+  </data>
+  <data name="TaskDependencyToolTip_FromLabel">
+    <value>From: </value>
+  </data>
+  <data name="TaskDependencyToolTip_ToLabel">
+    <value>To: </value>
+  </data>
+  <data name="TaskDependencyToolTip_Title">
+    <value>Task Dependency</value>
+  </data>
+  <data name="LE_InvalidProjectResourceName">
+    <value>Invalid name for a resource. Resource names cannot contain brackets ([]) or a list separator character.</value>
+  </data>
+  <data name="LE_InvalidTaskResourceUnits">
+    <value>'{0} is not a valid Units value.</value>
+  </data>
+  <data name="LE_InvalidTaskResourceUnitClosing">
+    <value>The right bracket (]) is missing. To indicate the number of resource units assigned to the task, type the number enclosed in brackets.</value>
+  </data>
+  <data name="LE_InvalidPropertySetWhileInitializing">
+    <value>Cannot set the '{0}' property if the task is not associated with a Project or when the Project's BeginLoadData has been invoked.</value>
+  </data>
+  <data name="LE_InvalidMethodCallWhileInitializing">
+    <value>Cannot invoke the '{0}' method if the task is not associated with a Project or when the Project's BeginLoadData has been invoked.</value>
+  </data>
+  <data name="LE_UnrecognizedResourceName">
+    <value>The specified resource name, '{0}', is not in the resources collection.</value>
+  </data>
+  <data name="ProjectDuration_Display_Second">
+    <value> sec</value>
+  </data>
+  <data name="ProjectDuration_Display_SecondAbbreviated">
+    <value>s</value>
+  </data>
+  <data name="ProjectDuration_Display_Seconds">
+    <value> secs</value>
+  </data>
+  <data name="ProjectDuration_Display_SecondsAbbreviated">
+    <value>s</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedSecond">
+    <value> esec</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedSecondAbbreviated">
+    <value>es</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedSeconds">
+    <value> esecs</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedSecondsAbbreviated">
+    <value>es</value>
+  </data>
+  <data name="ProjectDuration_Display_Minute">
+    <value> min</value>
+  </data>
+  <data name="ProjectDuration_Display_MinuteAbbreviated">
+    <value>m</value>
+  </data>
+  <data name="ProjectDuration_Display_Minutes">
+    <value> mins</value>
+  </data>
+  <data name="ProjectDuration_Display_MinutesAbbreviated">
+    <value>m</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMinute">
+    <value> emin</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMinuteAbbreviated">
+    <value>em</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMinutes">
+    <value> emins</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMinutesAbbreviated">
+    <value>em</value>
+  </data>
+  <data name="ProjectDuration_Display_Hour">
+    <value> hr</value>
+  </data>
+  <data name="ProjectDuration_Display_HourAbbreviated">
+    <value>h</value>
+  </data>
+  <data name="ProjectDuration_Display_Hours">
+    <value> hrs</value>
+  </data>
+  <data name="ProjectDuration_Display_HoursAbbreviated">
+    <value>h</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedHour">
+    <value> ehr</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedHourAbbreviated">
+    <value>eh</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedHours">
+    <value> ehrs</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedHoursAbbreviated">
+    <value>eh</value>
+  </data>
+  <data name="ProjectDuration_Display_Day">
+    <value> day</value>
+  </data>
+  <data name="ProjectDuration_Display_DayAbbreviated">
+    <value>d</value>
+  </data>
+  <data name="ProjectDuration_Display_Days">
+    <value> days</value>
+  </data>
+  <data name="ProjectDuration_Display_DaysAbbreviated">
+    <value>d</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedDay">
+    <value> eday</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedDayAbbreviated">
+    <value>ed</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedDays">
+    <value> edays</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedDaysAbbreviated">
+    <value>ed</value>
+  </data>
+  <data name="ProjectDuration_Display_Week">
+    <value> wk</value>
+  </data>
+  <data name="ProjectDuration_Display_WeekAbbreviated">
+    <value>w</value>
+  </data>
+  <data name="ProjectDuration_Display_Weeks">
+    <value> wks</value>
+  </data>
+  <data name="ProjectDuration_Display_WeeksAbbreviated">
+    <value>w</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedWeek">
+    <value> ewk</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedWeekAbbreviated">
+    <value>ew</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedWeeks">
+    <value> ewks</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedWeeksAbbreviated">
+    <value>ew</value>
+  </data>
+  <data name="ProjectDuration_Display_Month">
+    <value> mon</value>
+  </data>
+  <data name="ProjectDuration_Display_MonthAbbreviated">
+    <value>mo</value>
+  </data>
+  <data name="ProjectDuration_Display_Months">
+    <value> mons</value>
+  </data>
+  <data name="ProjectDuration_Display_MonthsAbbreviated">
+    <value>mo</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMonth">
+    <value> emon</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMonthAbbreviated">
+    <value>emo</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMonths">
+    <value> emons</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedMonthsAbbreviated">
+    <value>emo</value>
+  </data>
+  <data name="ProjectDuration_Display_Percent">
+    <value>%</value>
+  </data>
+  <data name="ProjectDuration_Display_PercentAbbreviated">
+    <value>%</value>
+  </data>
+  <data name="ProjectDuration_Display_Percents">
+    <value>%</value>
+  </data>
+  <data name="ProjectDuration_Display_PercentsAbbreviated">
+    <value>%</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedPercent">
+    <value>e%</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedPercentAbbreviated">
+    <value>e%</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedPercents">
+    <value>e%</value>
+  </data>
+  <data name="ProjectDuration_Display_ElapsedPercentsAbbreviated">
+    <value>e%</value>
+  </data>
+  <data name="ProjectDuration_Parse_Seconds">
+    <value>s,sec,secs,second,seconds</value>
+  </data>
+  <data name="ProjectDuration_Parse_Minutes">
+    <value>m,min,mins,minute,minutes</value>
+  </data>
+  <data name="ProjectDuration_Parse_Hours">
+    <value>h,hr,hrs,hour,hours</value>
+  </data>
+  <data name="ProjectDuration_Parse_Days">
+    <value>d,dy,dys,day,days</value>
+  </data>
+  <data name="ProjectDuration_Parse_Weeks">
+    <value>w,wk,wks,week,weeks</value>
+  </data>
+  <data name="ProjectDuration_Parse_Months">
+    <value>mo,mon,mons,month,months</value>
+  </data>
+  <data name="ProjectDuration_Parse_Percent">
+    <value>%</value>
+  </data>
+  <data name="ProjectDuration_Parse_ElapsedSeconds">
+    <value>es,esec,esecs,esecond,eseconds</value>
+  </data>
+  <data name="ProjectDuration_Parse_ElapsedMinutes">
+    <value>em,emin,emins,eminute,eminutes</value>
+  </data>
+  <data name="ProjectDuration_Parse_ElapsedHours">
+    <value>eh,ehr,ehrs,ehour,ehours</value>
+  </data>
+  <data name="ProjectDuration_Parse_ElapsedDays">
+    <value>ed,edy,edys,eday,edays</value>
+  </data>
+  <data name="ProjectDuration_Parse_ElapsedWeeks">
+    <value>ew,ewk,ewks,eweek,eweeks</value>
+  </data>
+  <data name="ProjectDuration_Parse_ElapsedMonths">
+    <value>emo,emon,emons,emonth,emonths</value>
+  </data>
+  <data name="ProjectDuration_Parse_ElapsedPercent">
+    <value>e%</value>
+  </data>
+  <data name="MenuItem_InsertColumn">
+    <value>Insert Column</value>
+  </data>
+  <data name="MenuItem_HideColumn">
+    <value>Hide Column</value>
+  </data>
+  <data name="MenuItem_CalculateProject">
+    <value>Calculate Project</value>
+  </data>
+  <data name="MenuItem_CurrentTable">
+    <value>Current Table</value>
+  </data>
+  <data name="MenuItem_DeleteLink">
+    <value>Delete Link</value>
+  </data>
+  <data name="MenuItem_ScrollToPredecessor">
+    <value>Scroll To Predecessor</value>
+  </data>
+  <data name="MenuItem_ScrollToSuccessor">
+    <value>Scroll To Successor</value>
+  </data>
+  <data name="MenuItem_ManuallyScheduled">
+    <value>Manually Schedule</value>
+  </data>
+  <data name="MenuItem_AutoSchedule">
+    <value>Auto Schedule</value>
+  </data>
+  <data name="MenuItem_InactivateTask">
+    <value>Inactivate Task</value>
+  </data>
+  <data name="MenuItem_RespectLinks">
+    <value>Respect Links</value>
+  </data>
+  <data name="MenuItem_ScrollToTask">
+    <value>Scroll To Task</value>
+  </data>
+  <data name="MenuItem_Indent">
+    <value>Indent</value>
+  </data>
+  <data name="MenuItem_Outdent">
+    <value>Outdent</value>
+  </data>
+  <data name="MenuItem_AddTask">
+    <value>Add Task</value>
+  </data>
+  <data name="MenuItem_AddSiblingTask">
+    <value>Add Sibling</value>
+  </data>
+  <data name="MenuItem_AddSubtask">
+    <value>Add Subtask</value>
+  </data>
+  <data name="MenuItem_InsertTask">
+    <value>Insert Task</value>
+  </data>
+  <data name="MenuItem_DeleteTask">
+    <value>Delete Task</value>
+  </data>
+  <data name="Timescale_HalfYear_First">
+    <value>1st</value>
+  </data>
+  <data name="Timescale_HalfYear_Second">
+    <value>2nd</value>
+  </data>
+  <data name="Timescale_Quarter_First">
+    <value>1st</value>
+  </data>
+  <data name="Timescale_Quarter_Second">
+    <value>2nd</value>
+  </data>
+  <data name="Timescale_Quarter_Third">
+    <value>3rd</value>
+  </data>
+  <data name="Timescale_Quarter_Fourth">
+    <value>4th</value>
+  </data>
+  <data name="Timescale_ThirdOfMonth_Beginning">
+    <value>Beginning</value>
+  </data>
+  <data name="Timescale_ThirdOfMonth_Middle">
+    <value>Middle</value>
+  </data>
+  <data name="Timescale_ThirdOfMonth_End">
+    <value>End</value>
+  </data>
+  <data name="Timescale_ThirdOfMonth_BeginningAbbreviated">
+    <value>B</value>
+  </data>
+  <data name="Timescale_ThirdOfMonth_MiddleAbbreviated">
+    <value>M</value>
+  </data>
+  <data name="Timescale_ThirdOfMonth_EndAbbreviated">
+    <value>E</value>
+  </data>
+  <data name="Timescale_Format_Range">
+    <value>{0} - {1}</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Years_Display">
+    <value>yyyy</value>
+  </data>
+  <data name="Timescale_DefaultFormat_HalfYears_Display">
+    <value>{HY} "Half"</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Quarters_Display">
+    <value>"Qtr" {Q}, yyyy</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Months_Display">
+    <value>Y</value>
+  </data>
+  <data name="Timescale_DefaultFormat_ThirdsOfMonths_Display">
+    <value>{tom}</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Weeks_Display">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Days_Display">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Hours_Display">
+    <value>%h</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Minutes_Display">
+    <value>%m</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Seconds_Display">
+    <value>%s</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Years_ToolTip">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_HalfYears_ToolTip">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Quarters_ToolTip">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Months_ToolTip">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_ThirdsOfMonths_ToolTip">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Weeks_ToolTip">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Days_ToolTip">
+    <value>d</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Hours_ToolTip">
+    <value>g</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Minutes_ToolTip">
+    <value>g</value>
+  </data>
+  <data name="Timescale_DefaultFormat_Seconds_ToolTip">
+    <value>G</value>
+  </data>
+  <data name="TaskBarDragToolTip_ProgressTitle">
+    <value>Progress:</value>
+  </data>
+  <data name="TaskBarDragToolTip_DeadlineTitle">
+    <value>Deadline:</value>
+  </data>
+  <data name="TaskBarDragToolTip_TaskTitle">
+    <value>Task:</value>
+  </data>
+  <data name="TaskBarDragToolTip_SummaryTitle">
+    <value>Summary:</value>
+  </data>
+  <data name="TaskBarDragToolTip_ProjectSummaryTitle">
+    <value>Project Summary:</value>
+  </data>
+  <data name="TaskBarDragToolTip_MilestoneTitle">
+    <value>Milestone:</value>
+  </data>
+  <data name="BooleanEnum_Yes">
+    <value>Yes</value>
+  </data>
+  <data name="BooleanEnum_No">
+    <value>No</value>
+  </data>
+  <data name="ProjectTaskMode_Automatic">
+    <value>Automatically Scheduled</value>
+  </data>
+  <data name="ProjectTaskMode_Manual">
+    <value>Manually Scheduled</value>
+  </data>
+  <data name="ProjectTaskModeToolTip_Manual">
+    <value>Manually scheduled task</value>
+  </data>
+  <data name="ProjectTaskModeToolTip_ManualPlaceholder">
+    <value>More information needed</value>
+  </data>
+  <data name="ProjectTaskModeToolTip_Auto">
+    <value>Automatically scheduled task</value>
+  </data>
+  <data name="LE_InvalidCircularDependencyLinkChain">
+    <value>You cannot do this because it would create a circular task relationship with other tasks.</value>
+  </data>
+  <data name="LE_InvalidLinkOwnerDoesNotMatchCollection">
+    <value>The '{0}' for the specified dependency must be the element associated with this collection.</value>
+  </data>
+  <data name="LE_InvalidLinkWithinAddedTaskToTaskOutsideProject">
+    <value>The task '{0}' linked to by a '{1}' dependency within the '{2}' of task '{3}' is not within the project. If the project is being initialized, the task should be added before the link or the initialization of the project should be done within the calls to BeginLoadData and EndLoadData on the Project.</value>
+  </data>
+  <data name="LE_InvalidNewLinkToTaskOutsideProject">
+    <value>A dependency can only be created between two tasks associated with the same project. If this is happening during initialization, you should use the BeginLoadData/EndLoadData methods of the project around the initialization of the tasks.</value>
+  </data>
+  <data name="LE_InvalidDuplicateTaskDependencyLinks">
+    <value>Cannot contain multiple links to the same task.</value>
+  </data>
+  <data name="LE_InvalidLinkToDescendantTask">
+    <value>A summary task cannot be linked to one of its subtasks.</value>
+  </data>
+  <data name="LE_InvalidDependencyLinkToSelf">
+    <value>You cannot make a task a predecessor of itself.</value>
+  </data>
+  <data name="LE_InvalidLinkToSameTaskInPredecessorsAndSuccessors">
+    <value>You cannot have the same task as a predecessor and successor.</value>
+  </data>
+  <data name="LE_InvalidSummaryPredecessorLinkType">
+    <value>The predecessors of a summary task or predecessors of an inserted project summary task must have finish-to-start or start-to-start dependency.</value>
+  </data>
+  <data name="LE_InvalidTaskAddedHasParent">
+    <value>The specified task '{0}' is already parented to another task.</value>
+  </data>
+  <data name="LE_InvalidTaskAddedIsAncestor">
+    <value>The specified task '{0}' cannot be an ancestor of this task.</value>
+  </data>
+  <data name="LE_InvalidTaskAddedIsRootTask">
+    <value>A root project task may not be added as the child of another task.</value>
+  </data>
+  <data name="LE_InvalidDuplicateTaskResource">
+    <value>You cannot have the same resource assigned twice to the same task.</value>
+  </data>
+  <data name="LE_InvalidBuiltInColumnDefinitionChange">
+    <value>Cannot change the '{0}' of the built-in objects.</value>
+  </data>
+  <data name="LE_InvalidOperationForTasksInDifferentProjects">
+    <value>The '{0}' cannot be performed on tasks from different projects.</value>
+  </data>
+  <data name="LE_InvalidDependencyLinkType">
+    <value>The specified link type '{0}' is invalid. It must be FS,SF,SS or FF.</value>
+  </data>
+  <data name="LE_InvalidDependencyLinkLag">
+    <value>The specified lead/lag information '{0}' is invalid. To enter lead or lag time, type the Id of the task to link to, the type of dependency (e.g. FS,SS,FF,SF) a plus or minus and the duration. For example: 2FS+2d</value>
+  </data>
+  <data name="LE_InvalidDependencyLinkTaskIdAsInt">
+    <value>The specified task id '{0}' is not a valid id. Please enter the integer Id of an existing task.</value>
+  </data>
+  <data name="LE_InvalidDependencyLinkTaskId">
+    <value>The specified task id '{0}' is not a valid id.</value>
+  </data>
+  <data name="LE_InvalidTaskResourceUnitValue">
+    <value>'{0}' is not a valid Units value. The value must be between {1:P} and {2:P}.</value>
+  </data>
+  <data name="LE_InvalidChangeToSealedObject">
+    <value>Cannot modify a '{0}' after it has been sealed.</value>
+  </data>
+  <data name="GanttErrorDialogTitle">
+    <value>Project Error</value>
+  </data>
+  <data name="LE_InvalidOperationBasedOnTaskAndProjectPermissions">
+    <value>'{0}' cannot be invoked on the task '{1}' due to task or project permissions.</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_StartTitle">
+    <value>Create Link</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_FinishTitle">
+    <value>Create Link</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_StartToStartTitle">
+    <value>Start-to-Start Link</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_StartToFinishTitle">
+    <value>Start-to-Finish Link</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_FinishToStartTitle">
+    <value>Finish-to-Start Link</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_FinishToFinishTitle">
+    <value>Finish-to-Finish Link</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_FromStartLabel">
+    <value>From Start Of:</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_FromFinishLabel">
+    <value>From Finish Of:</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_ToStartLabel">
+    <value>To Start Of:</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_ToFinishLabel">
+    <value>To Finish Of:</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_ToUnknownLabel">
+    <value>To:</value>
+  </data>
+  <data name="TaskBarDragDependencyToolTip_TaskId">
+    <value>Task {0}</value>
+  </data>
+  <data name="DefaultTaskBarAutomationName_Task">
+    <value>{0}</value>
+  </data>
+  <data name="DefaultTaskBarAutomationName_Deadline">
+    <value>{0} deadline</value>
+  </data>
+  <data name="DefaultTaskBarAutomationName_Slack">
+    <value>{0} slack</value>
+  </data>
+  <data name="DefaultTaskBarAutomationName_Progress">
+    <value>{0} progress</value>
+  </data>
+  <data name="LE_InvalidNegativeDuration">
+    <value>The '{0}' cannot be set to a negative duration.</value>
+  </data>
+  <data name="LE_CannotDeactivateTaskWithActualValues">
+    <value>Tasks with existing actuals cannot be inactivated.</value>
+  </data>
+  <data name="DefaultNewTaskName">
+    <value>&lt;New Task&gt;</value>
+  </data>
+  <data name="DefaultNewCalendarExceptionName">
+    <value>[Unnamed]</value>
+  </data>
+  <data name="LE_CannotLoadWithFrozenSettings">
+    <value>LoadFromProjectXml cannot be invoked when the Project's Settings has been frozen. Set the Settings to an unfrozen instance or null first.</value>
+  </data>
+  <data name="LE_Diagnostics_ManualTextWithoutMapping">
+    <value>The '{0}' property was set to a Text value of '{1}' but the '{2}' property was not mapped so the new value will be treated as null.</value>
+  </data>
+  <data name="LE_Diagnostics_InvalidKeyedColumnSettings">
+    <value>KeyedColumnSettings contains 1 or more ProjectKeyedColumnSettings instances that does not have a ColumnKey specified. These instances will be ignored. To provide default settings for all columns, use the DefaultColumnSettings.</value>
+  </data>
+  <data name="LE_Diagnostics_UnrecognizedColumnKey">
+    <value>Unrecognized column(s) '{0}' in the {1} collection of {2} '{3}'. Available columns are '{4}'.</value>
+  </data>
+  <data name="LE_CancelEditNotSupported">
+    <value>CancelEdit is not supported</value>
+  </data>
+  <data name="LE_RelativeTaskFromDifferentProject">
+    <value>The specified task is within a different project.</value>
+  </data>
+  <data name="LE_MemberAccessDuringDeferRefresh">
+    <value>Cannot access the member '{0}' while the refresh is deferred.</value>
+  </data>
+  <data name="LE_RepositionAlreadyInProgress">
+    <value>Cannot access the member '{0}' while the refresh is deferred.</value>
+  </data>
+  <data name="LE_CannotDeleteProjectSummaryTask">
+    <value>A project summary task cannot be deleted.</value>
+  </data>
+  <data name="LE_CannotModifyLockedTask">
+    <value>The task cannot be modified because it is currently locked.</value>
+  </data>
+  <data name="LE_UnrecognizedProjectResource">
+    <value>The specified resource does not exist in the ResourceItems collection of the Project.</value>
+  </data>
+  <data name="LE_InvalidProjectTaskConstraintWarningAction">
+    <value>The 'DoNotModifyConstraint' action cannot be used. The constraint must be modified.</value>
+  </data>
+  <data name="LE_InvalidTimescaleScale">
+    <value>The 'Scale' of the TimescaleBase must be between 25 and 1000 inclusive.</value>
+  </data>
+</root>

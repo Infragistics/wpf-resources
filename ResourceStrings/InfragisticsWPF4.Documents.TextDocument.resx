@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+  <data name="ClassificationType_Comment_Name" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+	<data name="ClassificationType_Comment_Description" xml:space="preserve">
+    <value>A ClassificationType for a comment</value>
+  </data>
+	<data name="ClassificationType_DateLiteral_Name" xml:space="preserve">
+    <value>DateLiteral</value>
+  </data>
+	<data name="ClassificationType_DateLiteral_Description" xml:space="preserve">
+    <value>A ClassificationType for a date literal</value>
+  </data>
+  <data name="ClassificationType_DiagnosticError_Name" xml:space="preserve">
+    <value>DiagnosticError</value>
+  </data>
+  <data name="ClassificationType_DiagnosticError_Description" xml:space="preserve">
+    <value>A ClassificationType for an error</value>
+  </data>
+  <data name="ClassificationType_DiagnosticInformation_Name" xml:space="preserve">
+    <value>DiagnosticInformation</value>
+  </data>
+  <data name="ClassificationType_DiagnosticInformation_Description" xml:space="preserve">
+    <value>A ClassificationType for a information message</value>
+  </data>
+  <data name="ClassificationType_DiagnosticWarning_Name" xml:space="preserve">
+    <value>DiagnosticInformation</value>
+  </data>
+  <data name="ClassificationType_DiagnosticWarning_Description" xml:space="preserve">
+    <value>A ClassificationType for a warning</value>
+  </data>
+	<data name="ClassificationType_DocCommentStart_Name" xml:space="preserve">
+    <value>DocCommentStart</value>
+  </data>
+	<data name="ClassificationType_DocCommentStart_Description" xml:space="preserve">
+    <value>A ClassificationType for the element that represents the start of a documentation comment</value>
+  </data>
+	<data name="ClassificationType_DocCommentTag_Name" xml:space="preserve">
+    <value>DocCommentTag</value>
+  </data>
+	<data name="ClassificationType_DocCommentTag_Description" xml:space="preserve">
+    <value>A ClassificationType for an XML tag in a documentation comment</value>
+  </data>
+	<data name="ClassificationType_DocCommentText_Name" xml:space="preserve">
+    <value>DocCommentText</value>
+  </data>
+	<data name="ClassificationType_DocCommentText_Description" xml:space="preserve">
+    <value>A ClassificationType for text inside a documentation comment</value>
+  </data>
+	<data name="ClassificationType_Identifier_Name" xml:space="preserve">
+    <value>Identifier</value>
+  </data>
+	<data name="ClassificationType_Identifier_Description" xml:space="preserve">
+    <value>A ClassificationType for an identifier</value>
+  </data>
+	<data name="ClassificationType_Keyword_Name" xml:space="preserve">
+    <value>Keyword</value>
+  </data>
+	<data name="ClassificationType_Keyword_Description" xml:space="preserve">
+    <value>A ClassificationType for a keyword</value>
+  </data>
+	<data name="ClassificationType_NumericLiteral_Name" xml:space="preserve">
+    <value>NumericLiteral</value>
+  </data>
+	<data name="ClassificationType_NumericLiteral_Description" xml:space="preserve">
+    <value>A ClassificationType for a numeric literal</value>
+  </data>
+	<data name="ClassificationType_Operator_Name" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+	<data name="ClassificationType_Operator_Description" xml:space="preserve">
+    <value>A ClassificationType for an operator</value>
+  </data>
+	<data name="ClassificationType_PreprocessorDirective_Name" xml:space="preserve">
+    <value>PreprocessorDirective</value>
+  </data>
+	<data name="ClassificationType_PreprocessorDirective_Description" xml:space="preserve">
+    <value>A ClassificationType for a preprocessor directive</value>
+  </data>
+	<data name="ClassificationType_PreprocessorDirectiveText_Name" xml:space="preserve">
+    <value>PreprocessorDirectiveText</value>
+  </data>
+	<data name="ClassificationType_PreprocessorDirectiveText_Description" xml:space="preserve">
+    <value>A ClassificationType for preprocessor directive text</value>
+  </data>
+	<data name="ClassificationType_Punctuation_Name" xml:space="preserve">
+    <value>Punctuation</value>
+  </data>
+	<data name="ClassificationType_Punctuation_Description" xml:space="preserve">
+    <value>A ClassificationType for punctuation</value>
+  </data>
+	<data name="ClassificationType_StringLiteral_Name" xml:space="preserve">
+    <value>StringLiteral</value>
+  </data>
+	<data name="ClassificationType_StringLiteral_Description" xml:space="preserve">
+    <value>A ClassificationType for a string literal</value>
+  </data>
+	<data name="ClassificationType_Undefined_Name" xml:space="preserve">
+    <value>Undefined</value>
+  </data>
+	<data name="ClassificationType_Undefined_Description" xml:space="preserve">
+    <value>A ClassificationType for an undefined language element</value>
+  </data>
+	<data name="ClassificationType_Unrecognized_Name" xml:space="preserve">
+    <value>Unrecognized</value>
+  </data>
+	<data name="ClassificationType_Unrecognized_Description" xml:space="preserve">
+    <value>A ClassificationType for an unrecognized language element</value>
+  </data>
+	<data name="ClassificationType_Whitespace_Name" xml:space="preserve">
+    <value>Whitespace</value>
+  </data>
+	<data name="ClassificationType_Whitespace_Description" xml:space="preserve">
+    <value>A ClassificationType for whitespace</value>
+  </data>
+	
+	<data name="Undo_InsertText" xml:space="preserve">
+    <value>Insert Text</value>
+  </data>
+	<data name="Undo_InsertTextDetailed" xml:space="preserve">
+    <value>Insert '{0}'</value>
+  </data>
+	<data name="Undo_NewLineLiteral" xml:space="preserve">
+    <value>New Line</value>
+  </data>
+	<data name="Undo_TabLiteral" xml:space="preserve">
+    <value>Tab</value>
+  </data>
+	<data name="Undo_InsertNewLine" xml:space="preserve">
+    <value>Insert new line</value>
+  </data>
+	<data name="Undo_RemoveLine" xml:space="preserve">
+    <value>Remove line</value>
+  </data>
+	<data name="Undo_DeleteText" xml:space="preserve">
+    <value>Delete Text</value>
+  </data>
+	<data name="Undo_DeleteTextDetailed" xml:space="preserve">
+    <value>Delete '{0}'</value>
+  </data>
+	<data name="Undo_ReplaceText" xml:space="preserve">
+    <value>Replace Text</value>
+  </data>
+	<data name="Undo_ReplaceTextDetailed" xml:space="preserve">
+    <value>Replace '{0}' with '{1}'</value>
+  </data>
+	<data name="Undo_ReplaceAll" xml:space="preserve">
+    <value>Replace all</value>
+  </data>
+	<data name="Undo_ReplaceAllDetailed" xml:space="preserve">
+    <value>Replace all '{0}' with '{1}'</value>
+  </data>
+	<data name="Undo_AutoIndent" xml:space="preserve">
+    <value>AutoIndent</value>
+  </data>
+	<data name="Undo_InsertTab" xml:space="preserve">
+    <value>Insert Tab</value>
+  </data>
+	<data name="Undo_RemoveTab" xml:space="preserve">
+    <value>Remove Previous Tab</value>
+  </data>
+  <data name="Diagnostic_Error_Expected" xml:space="preserve">
+    <value>{0} expected</value>
+  </data>
+  <data name="Diagnostic_Error_ErrorNonTerminal" xml:space="preserve">
+    <value>{0} is not correct</value>
+  </data>
+  <data name="Diagnostic_Error_UnexpectedToken" xml:space="preserve">
+    <value>Unexpected token '{0}'</value>
+  </data>
+  <data name="Diagnostic_Error_UnrecognizedContent" xml:space="preserve">
+    <value>Unrecognized content: '{0}'</value>
+  </data>
+  <data name="EndOfStreamSymbol_Error_Alias" xml:space="preserve">
+    <value>end of file</value>
+  </data>
+
+  <data name="EbnfParseResult_Success" xml:space="preserve">
+    <value>The EBNF file was parsed correctly.</value>
+  </data>
+  <data name="EbnfParseResult_Failure" xml:space="preserve">
+    <value>The EBNF file has {0} error(s).</value>
+  </data>
+  <data name="EbnfLoadError_Description_LineCol" xml:space="preserve">
+    <value>Error at line {0}, column {1}.</value>
+  </data> 
+  <!--EbnfLoadError descriptions (BEGIN)-->
+  <data name="EbnfLoadError_Description_AttributeBlockWithinRule" xml:space="preserve">
+    <value>A rule attribute block was specified within a grammar rule.</value>
+  </data>
+  <data name="EbnfLoadError_Description_ContradictorySyntacticException" xml:space="preserve">
+    <value>The syntactic exception '{0}' within the '{1}' non-terminal symbol definition appears to prevent all variations of the original content.</value>
+  </data>
+  <data name="EbnfLoadError_Description_DefaultLexerStateCannotHaveExitSymbols" xml:space="preserve">
+    <value>TerminalSymbols defined or referenced in the default lexer state cannot be exit symbols.</value>
+  </data>
+  <data name="EbnfLoadError_Description_DuplicateSymbolName" xml:space="preserve">
+    <value>The identifier '{0}' is currently in use by another statement.</value>
+  </data>
+  <data name="EbnfLoadError_Description_DuplicateLexerStateName" xml:space="preserve">
+    <value>A LexerState with the name '{0}' has already been declared.</value>
+  </data>
+  <data name="EbnfLoadError_Description_EmptyGrammarDefinition" xml:space="preserve">
+    <value>The grammar definition is empty.</value>
+  </data>
+  <data name="EbnfLoadError_Description_EndOfStreamSymbolReferenced" xml:space="preserve">
+    <value>The end of stream symbol is referenced by a symbol, '{0}', which is either not the start symbol or it is a start symbol which is not well-formed as a single non-terminal symbol followed by a the end of stream symbol.</value>
+  </data>
+  <data name="EbnfLoadError_Description_GrammarPropertiesNotAtTop" xml:space="preserve">
+    <value>The grammar properties '{0}' must be declared before the syntax rules.</value>
+  </data>
+  <data name="EbnfLoadError_Description_GroupingSymbolMismatch" xml:space="preserve">
+    <value>Missing matching grouping character: '{0}'.</value>
+  </data>
+  <data name="EbnfLoadError_Description_InsignificantSymbolReferenced" xml:space="preserve">
+    <value>An insignificant terminal symbol, '{0}', is being referenced and it can never be included in the non-terminal symbol because the syntax analyzer will ignore it.</value>
+  </data>
+  <data name="EbnfLoadError_Description_InvalidPropertyValue" xml:space="preserve">
+    <value>The value '{0}' could not be parsed into a valid value for its attribute or enclosing tag.</value>
+  </data>
+  <data name="EbnfLoadError_Description_InvalidRegularExpression" xml:space="preserve">
+    <value>The value '{0}' is not a valid regular expression pattern:
+  {1}</value>
+  </data>
+  <data name="EbnfLoadError_Description_InvalidSymbolName" xml:space="preserve">
+    <value>A symbol name '{0}' is invalid. The name must be an underscore or letter followed by zero or more letters, numbers, or underscores.</value>
+  </data>
+  <data name="EbnfLoadError_Description_InvalidSyntacticException" xml:space="preserve">
+    <value>The syntactic exception '{0}' within the '{1}' non-terminal symbol has an invalid exception portion. The exception portion of a syntactic exception rule cannot use recursively defined non-terminal symbols directly or indirectly.</value>
+  </data>
+  <data name="EbnfLoadError_Description_InvalidXml" xml:space="preserve">
+    <value>Invalid XML:
+{0}</value>
+  </data>
+  <data name="EbnfLoadError_Description_LexerStateCannotHaveSpecialSymbols" xml:space="preserve">
+    <value>The '{0}' symbol cannot be added to a lexer state. It is implicitly matched it any lexer state.</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingAssignmentSymbol" xml:space="preserve">
+    <value>Expected assignment symbol ({0}).</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingDeclaration" xml:space="preserve">
+    <value>The left-hand side of the syntax rule does not declare an identifier.</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingEndOfStatement" xml:space="preserve">
+    <value>Expected end of statement symbol ({0}).</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingNameProperty" xml:space="preserve">
+    <value>An item is defined but does not have a Name specified.</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingOperand" xml:space="preserve">
+    <value>Expected operand.</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingOperator" xml:space="preserve">
+    <value>Expected operator ({0}).</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingValue" xml:space="preserve">
+    <value>The XML tag {0} is missing a value.</value>
+  </data>
+  <data name="EbnfLoadError_Description_MissingValueProperty" xml:space="preserve">
+    <value>The TerminalSymbol {0} is missing a Value property.</value>
+  </data>
+  <data name="EbnfLoadError_Description_MultipleLexerStates" xml:space="preserve">
+    <value>The TerminalSymbol '{0}' has multiple entered LexerStates.</value>
+  </data>
+  <data name="EbnfLoadError_Description_OpenLiteralString" xml:space="preserve">
+    <value>The value '{0}' begins with a quote symbol but does not end with one.</value>
+  </data>
+  <data name="EbnfLoadError_Description_StartSymbolIsReferenced" xml:space="preserve">
+    <value>'{0}' cannot be referenced because it is defined as a well formed start symbol for the grammar. The start symbol can only be referenced if it is not defined as having a single production of a non-terminal followed by the end of stream symbol.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnbalancedXmlTag" xml:space="preserve">
+    <value>The XML tag '{0}' does not have the corresponding closing/opening tag.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UndeclaredReference" xml:space="preserve">
+    <value>The symbol '{0}' is referenced but has not been declared.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnexpectedAssignmentSymbol" xml:space="preserve">
+    <value>The assignment symbol ({0}) is unexpected in this context.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnexpectedIdentifier" xml:space="preserve">
+    <value>The identifier {0} is unexpected in this context.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnexpectedOperator" xml:space="preserve">
+    <value>The operator ({0}) is unexpected in this context.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnrecognizedContent" xml:space="preserve">
+    <value>A statement contains content which is not recognizable:
+{0}</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnrecognizedSymbolReferenced" xml:space="preserve">
+    <value>The UnrecognizedSymbol of the Grammar cannot be referenced by a non-terminal symbol.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnrecognizedXmlAttribute" xml:space="preserve">
+    <value>The name of the XML attribute '{0}' is not allowed in the current element.</value>
+  </data>
+  <data name="EbnfLoadError_Description_UnrecognizedXmlTag" xml:space="preserve">
+    <value>The name of the XML tag '{0}' is not recognized.</value>
+  </data>
+  <!--EbnfLoadError descriptions (END)-->
+
+  <data name="LanguageGenerator_ConstructorSummary" xml:space="preserve">
+    <value>Creates a new &lt;see cref="{0}"/&gt; instance.</value>
+  </data>
+  <data name="LanguageGenerator_SymbolNames_ClassSummary" xml:space="preserve">
+    <value>Symbol name constants for the &lt;see cref="{0}"/&gt;.</value>
+  </data>
+  <data name="LanguageGenerator_SymbolNames_NameConstantSummary" xml:space="preserve">
+    <value>Name for the {0} symbol.</value>
+  </data>
+  <data name="DebugMessage_GlobalAmbiguityDetected" xml:space="preserve">
+    <value>An unresolved global ambiguity has occurred. Mark one of the differing non-terminals has having priority or override OnGlobalAmbiguityDetected on the derived language to provide resolution logic.
+    Sub-tree roots for possible parses are {0} and {1}.</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_EndingEscapeCharacter" xml:space="preserve">
+    <value>Illegal escape character '\' at the end of the regular expression pattern</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_CannotBeEmptyString" xml:space="preserve">
+    <value>The terminal symbol cannot represent an empty string.</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_DefaultMessage" xml:space="preserve">
+    <value>{0} - There was an error parsing the regular expression.</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_BackreferencesNotSupported" xml:space="preserve">
+    <value>Backreferences are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_BalancingGroupNotSupported" xml:space="preserve">
+    <value>Balancing group expressions are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_LazyQuantifierNotSupported" xml:space="preserve">
+    <value>Lazy quantifiers are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_EndOfLineNotSupported" xml:space="preserve">
+    <value>End of line matching is not supported</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_StartOfLineNotSupported" xml:space="preserve">
+    <value>Start of line matching is not supported</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_StartOfStringNotSupported" xml:space="preserve">
+    <value>Start of string matching is not supported</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_BoundaryNotSupported" xml:space="preserve">
+    <value>Word boundary matching is not supported</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_NonBoundaryNotSupported" xml:space="preserve">
+    <value>Non-word boundary matching is not supported</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_EndOfPreviousMatchNotSupported" xml:space="preserve">
+    <value>End of previous matching is not supported</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_EndOfStringBeforeNewLine" xml:space="preserve">
+    <value>"End of string before new line matching is not supported</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_CharacterRangeIncorrectOrder" xml:space="preserve">
+    <value>The character range is not ordered correctly</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_ConditionalNotSupported" xml:space="preserve">
+    <value>Conditional expressions are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_ControlCharacterNotSupported" xml:space="preserve">
+    <value>Control characters are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_InvalidHexadecimalFormat" xml:space="preserve">
+    <value>Incorrect hexadecimal character format</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_InvalidOctalFormat" xml:space="preserve">
+    <value>Incorrect octal character format</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_LookaheadNotSupported" xml:space="preserve">
+    <value>Zero-width lookahead assertions are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_LookbehindNotSupported" xml:space="preserve">
+    <value>Zero-width lookbehind assertions are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_NonBacktrackingNotSupported" xml:space="preserve">
+    <value>Non-backtracking expressions are not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_OptionSpecifierNotSupported" xml:space="preserve">
+    <value>The specified option is not supported in TerminalSymbol regular expression patterns</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_InvalidQuantifierFormat" xml:space="preserve">
+    <value>Invalid quantifier format</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_QuantifierBoundsIncorrectOrder" xml:space="preserve">
+    <value>The max cannot be less than the min in the quantifier expression</value>
+  </data>
+  <data name="RegexLanguage_ErrorMessage_EmptyPatternsNotAllowed" xml:space="preserve">
+    <value>The TerminalSymbol or its lookahead pattern cannot represent an empty string</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_MessageHeader" xml:space="preserve">
+    <value>An ambiguity will occur during a specific configuration of the parser when the '{0}' symbol is detected.</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_MessageHeader_MultiSymbol" xml:space="preserve">
+    <value>An ambiguity will occur during a specific configuration of the parser when any of the following symbols are detected: {0}</value>
+  </data>
+  <data name="MultiSymbol_Combinator" xml:space="preserve">
+    <value>, </value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_StateItemHeader" xml:space="preserve">
+    <value>The parser configuration occurs when it is at the '@' character during creation of the following productions:</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_ConflictListingHeader" xml:space="preserve">
+    <value>In this configuration, when the '{0}' symbol is detected the parser must try to do all of the following:</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_ConflictListingHeader_MultiSymbol" xml:space="preserve">
+    <value>In this configuration, when one of the symbols listed above is detected the parser must try to do all of the following:</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_ShiftConflict" xml:space="preserve">
+    <value>Option {0} - (Shift) Continue or start constructing the following productions from the '@':</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_ReduceConflict" xml:space="preserve">
+    <value>Option {0} - (Reduce) Create a parent node for the '{1}' symbol because it can be followed by the '{2}' symbol.</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_ReduceConflict_MultiSymbol" xml:space="preserve">
+    <value>Option {0} - (Reduce) Create a parent node for the '{1}' symbol because it can be followed by any of the symbols listed above.</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_ReduceConflictEmptyProduction" xml:space="preserve">
+    <value>Option {0} - (Reduce) Create a parent node for the '{1}' symbol because it can contain zero symbols and be followed by the '{2}' symbol.</value>
+  </data>
+  <data name="GrammarWarning_Ambiguity_ReduceConflictEmptyProduction_MultiSymbol" xml:space="preserve">
+    <value>Option {0} - (Reduce) Create a parent node for the '{1}' symbol because it can contain zero symbols and be followed by any of the symbols listed above.</value>
+  </data>
+  <data name="GrammarWarning_ComplexNonTerminalSymbol" xml:space="preserve">
+    <value>The non-terminal symbol '{0}', which contains {1} productions, may be too complex. Consider moving the contents of alternation or optional sub-rules to their own non-terminal symbols.</value>
+  </data>
+  <data name="GrammarWarning_SymbolCannotBeParsed_TerminalSymbol" xml:space="preserve">
+    <value>The significant terminal symbol '{0}' cannot be used in the parse tree because it is not directly or indirectly referenced by the start symbol of the Grammar.</value>
+  </data>
+  <data name="GrammarWarning_SymbolCannotBeParsed_NonTerminalSymbol" xml:space="preserve">
+    <value>The non-terminal symbol '{0}' cannot be used in the parse tree because it is not directly or indirectly referenced by the start symbol of the Grammar.</value>
+  </data>
+  <data name="GrammarWarning_UnnecessarySyntaxRule_EmptyInConcatenation" xml:space="preserve">
+    <value>The non-terminal symbol '{0}' has an empty rule as part of a concatenation. The empty is unnecessary because it does not add anything to the concatenation.</value>
+  </data>
+  <data name="GrammarWarning_UnnecessarySyntaxRule_EmptyInOptionalAlternation" xml:space="preserve">
+    <value>The non-terminal symbol '{0}' has an empty rule alternative within an optional or repetition rule. The empty is unnecessary because optional (0 or 1) and repetition (0 or more) imply that empty is one alternative.</value>
+  </data>
+  <data name="GrammarWarning_UnnecessarySyntaxRule_RepetitionInFactor" xml:space="preserve">
+    <value>The non-terminal symbol '{0}' has a repetition rule within a syntactic factor. The factor is unnecessary because requiring exactly {1} instances of zero or more repetitions is the same as just requiring zero or more repetitions.</value>
+  </data>
+  
+  <data name="LE_ArgumentException_NotPredecessorOrSuccessorSnapshot" xml:space="preserve">
+    <value>Target snapshot is not a predecessor or successor of the source snapshot</value>
+  </data>
+  <data name="LE_ArgumentException_SnapshotsDontMatch" xml:space="preserve">
+    <value>The snapshots don't match</value>
+  </data>
+  <data name="LE_InvalidOperationException_EnumeratorPassedEnd" xml:space="preserve">
+    <value>Enumerator not initialized or has passed end of items.</value>
+  </data>
+  <data name="LE_InvalidOperationException_EnumeratorDisposed" xml:space="preserve">
+    <value>Enumerator is already disposed.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ThreadAccessError" xml:space="preserve">
+    <value>The properties and methods of an instance of {0} can only be accessed from the thread it was create on.</value>
+  </data>
+  <data name="LE_InvalidOperationException_DocumentIsReadOnly" xml:space="preserve">
+    <value>The document is marked read-only.</value>
+  </data>
+  <data name="LE_InvalidOperationException_DocumentIsBeingUpdated" xml:space="preserve">
+    <value>The document is in the process of being changed. It can not be modified until the change is completed.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ThreadAccessError" xml:space="preserve">
+    <value>The properties and methods of an instance of {0} can only be accessed from the thread it was create on.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ObjectAlreadyDisposed" xml:space="preserve">
+    <value>The object has already been disposed.</value>
+  </data>
+  <data name="LE_InvalidOperationException_EnumeratorNotInitialized" xml:space="preserve">
+    <value>The enumerator has not been initialized or has reached its end.</value>
+  </data>
+  <data name="LE_InvalidOperationException_CannotModifyBuiltInSymbol" xml:space="preserve">
+    <value>The values of a built-in TerminalSymbol instance cannot be modified.</value>
+  </data>
+  <data name="LE_ArgumentException_ReservedLanguageElement" xml:space="preserve">
+    <value>The LanguageElement property cannot be set to '{0}' because that value is reserved for the {1}.</value>
+  </data>
+  <data name="LE_ArgumentException_DuplicateSymbolName" xml:space="preserve">
+    <value>A symbol with the name '{0}' already exists in the grammar. All symbols in a grammar must have unique names.</value>
+  </data>
+  <data name="LE_ArgumentException_DuplicateLexerStateName" xml:space="preserve">
+    <value>A LexerState with the name '{0}' already exists in this collection. All LexerStates must have unique names.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ImmutableGrammar" xml:space="preserve">
+    <value>Changes cannot be made to the grammar because it is immutable.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidGeneratedClassName" xml:space="preserve">
+    <value>The specified name is not a valid class name.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidGeneratedNamespaceName" xml:space="preserve">
+    <value>The specified name is not a valid namespace name.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidPreferredSubTreeRoot" xml:space="preserve">
+    <value>Only null, SubTreeRoot1, or SubTreeRoot2 can be set as the preferred sub-tree root.</value>
+  </data>
+  <data name="LE_ArgumentException_GrammarInitializedFromSelf" xml:space="preserve">
+    <value>Cannot initialize a Grammar from itself.</value>
+  </data>
+  <data name="LE_InvalidOperationException_CannotSaveGrammar" xml:space="preserve">
+    <value>The Grammar cannot be saved because it is an invalid state. See inner exception for details.</value>
+  </data>
+  <data name="LE_ArgumentException_ReadonlyStream" xml:space="preserve">
+    <value>Stream is not writeable.</value>
+  </data>
+  <data name="LE_InvalidOperationException_TooManySymbols" xml:space="preserve">
+    <value>The Grammar can not have more than {0} custom symbols defined.</value>
+  </data>
+  <data name="LE_ArgumentException_DuplicateSymbolId" xml:space="preserve">
+    <value>The specified ID is already being used by other symbol.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ContradictorySyntacticException" xml:space="preserve">
+    <value>A syntactic exception within the '{0}' non-terminal symbol definition appears to prevent all variations of the original content.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidSymbolName" xml:space="preserve">
+    <value>The symbol name is incorrect. The name must be an underscore or letter followed by zero or more letters, numbers, or underscores.</value>
+  </data>
+  <data name="LE_InvalidOperationException_NoStartSymbol" xml:space="preserve">
+    <value>The StartSymbol of the Grammar which supports parsing has not been set.</value>
+  </data>
+  <data name="LE_InvalidOperationException_StartSymbolNotFromGrammar" xml:space="preserve">
+    <value>The specified StartSymbol does not belong to the grammar.</value>
+  </data>
+  <data name="LE_InvalidOperationException_StartSymbolCannotBeDerived" xml:space="preserve">
+    <value>There is a cycle of non-terminal symbols including the start symbol which can never represent a finite sequence of tokens, so documents cannot be parsed with this grammar.
+The symbols involved in the cycle(s) are: {0}</value>
+  </data>
+  <data name="LE_InvalidOperationException_TooManyLexerStateStacks" xml:space="preserve">
+    <value>There are too many lexer state stack configurations. Reduce the number or interrelationships of lexer states.</value>
+  </data>
+  <data name="LE_ArgumentException_DuplicateProductionId" xml:space="preserve">
+    <value>A production with the specified ID has already been added to the Grammar.</value>
+  </data>
+  <data name="LE_InvalidOperationException_AlternationSyntaxRule_TooFewChildren" xml:space="preserve">
+    <value>An alternation rule within the '{0}' non-terminal symbol does not have at least two alternatives.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ConcatenationSyntaxRule_TooFewChildren" xml:space="preserve">
+    <value>An concatenation rule within the '{0}' non-terminal symbol does not have at least two child rules.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ExceptionSyntaxRule_MissingRule" xml:space="preserve">
+    <value>A syntactic exception rule within the '{0}' non-terminal symbol does not have a child rule.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ExceptionSyntaxRule_MissingException" xml:space="preserve">
+    <value>A syntactic exception rule within the '{0}' non-terminal symbol does not have an exception.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ExceptionSyntaxRule_RecursiveException" xml:space="preserve">
+    <value>A syntactic exception rule within the '{0}' non-terminal symbol has a complex exception rule which is not allowed. The exception portion of a syntactic exception rule cannot use recursively defined non-terminal symbols directly or indirectly.</value>
+  </data>
+  <data name="LE_InvalidOperationException_FactorSyntaxRule_MissingRule" xml:space="preserve">
+    <value>A syntactic factor rule within the '{0}' non-terminal symbol does not have a child rule.</value>
+  </data>
+  <data name="LE_InvalidOperationException_OptionalSyntaxRule_MissingRule" xml:space="preserve">
+    <value>An optional rule within the '{0}' non-terminal symbol does not have a child rule.</value>
+  </data>
+  <data name="LE_InvalidOperationException_OptionalSyntaxRule_MissingRule" xml:space="preserve">
+    <value>A repetition rule within the '{0}' non-terminal symbol does not have a child rule.</value>
+  </data>
+  <data name="LE_InvalidOperationException_SymbolReferenceSyntaxRule_SymbolNotFromGrammar" xml:space="preserve">
+    <value>A symbol reference rule within the '{0}' non-terminal symbol refers to a symbol which is not defined in the owning grammar.</value>
+  </data>
+  <data name="LE_InvalidOperationException_SymbolReferenceSyntaxRule_StartSymbolIsReferenced" xml:space="preserve">
+    <value>'{0}' cannot be referenced by '{1}' because it is defined as a well formed start symbol for the grammar. The start symbol can only be referenced if it is not defined as having a single production with a non-terminal symbol followed by the end of stream symbol.</value>
+  </data>
+  <data name="LE_InvalidOperationException_SymbolReferenceSyntaxRule_InsignificantSymbol" xml:space="preserve">
+    <value>A symbol reference rule within the '{0}' non-terminal symbol refers to the '{1}' symbol, which is insignificant, so it will never be seen by the syntax analyzer.</value>
+  </data>
+  <data name="LE_InvalidOperationException_ReadonlyCollection" xml:space="preserve">
+    <value>The collection is read-only.</value>
+  </data>
+  <data name="LE_ArgumentException_SymbolNotFromGrammar" xml:space="preserve">
+    <value>The specified symbol is from a different Grammar.</value>
+  </data>
+  <data name="LE_InvalidOperationException_NonTerminalWithoutRule" xml:space="preserve">
+    <value>The Grammar has a non-terminal symbol named '{0}' which does not have a rule defined.</value>
+  </data>
+  <data name="LE_KeyNotFoundException_NoSymbolWithName" xml:space="preserve">
+    <value>There is no symbol with the specified name in the collection.</value>
+  </data>
+  <data name="LE_KeyNotFoundException_NoLexerStateWithName" xml:space="preserve">
+    <value>There is no lexer state with the specified name in the collection.</value>
+  </data>
+  <data name="LE_ArgumentOutOfRangeException_MultipleSymbolsIdsInvalid" xml:space="preserve">
+    <value>One of the specified symbol ids is not a valid symbol id.</value>
+  </data>
+  <data name="LE_InvalidOperationException_SyntaxRuleAlreadyOwned" xml:space="preserve">
+    <value>The specified rule is already the child of another rule or non-terminal symbol.</value>
+  </data>
+  <data name="LE_ArgumentException_UnrecognizedSymbolReferenced" xml:space="preserve">
+    <value>The UnrecognizedSymbol of the Grammar cannot be referenced by a non-terminal symbol.</value>
+  </data>
+  <data name="LE_ArgumentOutOfRangeException_InvalidSyntaxFactor" xml:space="preserve">
+    <value>The factor must not be negative.</value>
+  </data>
+  <data name="LE_ArgumentException_DuplicateRepetitionRuleID" xml:space="preserve">
+    <value>The specified ID is already being used by other symbol.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidSyntaxRuleFormat" xml:space="preserve">
+    <value>Invalid syntax rule format.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidRegularExpression" xml:space="preserve">
+    <value>The regular expression value is invalid:
+    {0}</value>
+  </data>
+  <data name="LE_InvalidOperationException_CannotEnterDefaultLexerState" xml:space="preserve">
+    <value>A symbol cannot be used to enter the default LexerState.</value>
+  </data>
+  <data name="LE_InvalidOperationException_NoSymbolsInDefaultLexerState" xml:space="preserve">
+    <value>The default lexer state of the grammar does not have any symbols.</value>
+  </data>
+  <data name="LE_InvalidOperationException_NoSymbolsInLexerState" xml:space="preserve">
+    <value>The Grammar has a lexer state named '{0}' which does not have any symbols.</value>
+  </data>
+  <data name="LE_InvalidOperationException_NoSymbolsInLexerState" xml:space="preserve">
+    <value>The Grammar has a lexer state named '{0}' which does not have any symbols.</value>
+  </data>
+  <data name="LE_InvalidOperationException_CircularLexerStateStack" xml:space="preserve">
+    <value>There is a circularity in the entered lexer state chain: {0}</value>
+  </data>
+  <data name="LE_ArgumentException_LexerStateSymbolNotFromGrammar" xml:space="preserve">
+    <value>The specified symbol does not belong to the same Grammar as the lexer state.</value>
+  </data>
+  <data name="LE_ArgumentException_EndOfStreamSymbolAddedToLexerState" xml:space="preserve">
+    <value>The end of stream symbol cannot be added to a lexer state. It is automatically matched it any lexer state.</value>
+  </data>
+  <data name="LE_ArgumentException_UnrecognizedSymbolAddedToLexerState" xml:space="preserve">
+    <value>The unrecognized symbol cannot be added to a lexer state. It is automatically matched it any lexer state.</value>
+  </data>
+  <data name="LE_ArgumentException_CannotExitDefaultToLexerState" xml:space="preserve">
+    <value>The default lexer state cannot have exit symbols.</value>
+  </data>
+  <data name="LE_ArgumentException_LexerStateRemovedFromGrammar" xml:space="preserve">
+    <value>The lexer state has been removed from the Grammar.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidParseStateFormat" xml:space="preserve">
+    <value>Invalid parse state format.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidAmbiguousParseActionFormat" xml:space="preserve">
+    <value>Invalid ambiguous parse action format.</value>
+  </data>
+  <data name="LE_ArgumentException_NodeFromOtherSnapshot" xml:space="preserve">
+    <value>The specified node does not belong to the snapshot of the document as the SyntaxTree.</value>
+  </data>
+  <data name="LE_InvalidOperationException_NodeIsNotToken" xml:space="preserve">
+    <value>The node does not represent a Token.</value>
+  </data>
+  <data name="LE_ArgumentException_InvalidLexerStateData" xml:space="preserve">
+    <value>The lexer state data is not in a valid format.</value>
+  </data>
+  <data name="LE_InvalidOperationException_CannotFilterCurrentTokenSeek" xml:space="preserve">
+    <value>Can't supply filter with SeekToToken 'CurrentTokenStart' or 'CurrentTokenEnd'.</value>
+  </data>
+</root>

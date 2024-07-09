@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllMeasuresGroupName" xml:space="preserve">
+    <value>(All)</value>
+  </data>
+  <data name="ClassRequired" xml:space="preserve">
+    <value>The type parameter could be only class</value>
+    <comment>The exception is thrown when the class that is passed is not class.</comment>
+  </data>
+  <data name="ItemAlreadyAdded" xml:space="preserve">
+    <value>Item is already added to the collection!</value>
+    <comment>This exception is thrown when item is duplicated in some of filter or measure collections.</comment>
+  </data>
+  <data name="Measures" xml:space="preserve">
+    <value>Measures</value>
+    <comment>The caption of tree item that contains measures</comment>
+  </data>
+  <data name="MissingConstructor" xml:space="preserve">
+    <value>Missing constructor</value>
+    <comment>This exception is thrown when required constructor is missing</comment>
+  </data>
+  <data name="NotSupportedObjectType" xml:space="preserve">
+    <value>Not supported object type by extensions framework.</value>
+    <comment>This exception is thrown when the object type is not registered in the Olap extension framework</comment>
+  </data>
+  <data name="WrongCube" xml:space="preserve">
+    <value>The cube is not from current schema</value>
+    <comment>This exception is thrown when the cube is not from current schema</comment>
+  </data>
+  <data name="AF_UpdateIncompleteValueVMException" xml:space="preserve">
+    <value>Trying to update an expression for an incomple ValueConditionViewModel.</value>
+  </data>
+  <data name="AF_Validation_ValueMustBeNumber" xml:space="preserve">
+    <value>The value must be a number.</value>
+  </data>
+  <data name="AF_Validation_ValueMustBeGreaterThan0" xml:space="preserve">
+    <value>The value must be a number greater than 0.</value>
+  </data>
+  <data name="AF_Validation_ValueMustBeBetween0And100" xml:space="preserve">
+    <value>The value must be a number between 0 and 100.</value>
+  </data>
+  <data name="AF_TopItems" xml:space="preserve">
+    <value>Top Items</value>
+  </data>
+  <data name="AF_TopPercent" xml:space="preserve">
+    <value>Top Percent</value>
+  </data>
+  <data name="AF_TopSum" xml:space="preserve">
+    <value>Top Sum</value>
+  </data>
+  <data name="AF_BottomItems" xml:space="preserve">
+    <value>Bottom Items</value>
+  </data>
+  <data name="AF_BottomPercent" xml:space="preserve">
+    <value>Bottom Percent</value>
+  </data>
+  <data name="AF_BottomSum" xml:space="preserve">
+    <value>Bottom Sum</value>
+  </data>
+  <data name="AF_Equals" xml:space="preserve">
+    <value>Equals</value>
+  </data>
+  <data name="AF_DoesNotEqual" xml:space="preserve">
+    <value>Does Not Equal</value>
+  </data>
+  <data name="AF_GreaterThan" xml:space="preserve">
+    <value>Greater Than</value>
+  </data>
+  <data name="AF_GreaterThanOrEqualTo" xml:space="preserve">
+    <value>Greater Than Or Equal To</value>
+  </data>
+  <data name="AF_LessThan" xml:space="preserve">
+    <value>Less Than</value>
+  </data>
+  <data name="AF_LessThanOrEqualTo" xml:space="preserve">
+    <value>Less Than Or Equal To</value>
+  </data>
+  <data name="AF_Between" xml:space="preserve">
+    <value>Between</value>
+  </data>
+  <data name="AF_NotBetween" xml:space="preserve">
+    <value>Not Between</value>
+  </data>
+  <data name="AF_UpdateIncompleteLabelVMException" xml:space="preserve">
+    <value>Trying to update an expression for an incomple LabelConditionViewModel.</value>
+  </data>
+  <data name="AF_BeginsWith" xml:space="preserve">
+    <value>Begins With</value>
+  </data>
+  <data name="AF_DoesNotBeginWith" xml:space="preserve">
+    <value>Does Not Begin With</value>
+  </data>
+  <data name="AF_EndsWith" xml:space="preserve">
+    <value>Ends With</value>
+  </data>
+  <data name="AF_DoesNotEndWith" xml:space="preserve">
+    <value>Does Not End With</value>
+  </data>
+  <data name="AF_Contains" xml:space="preserve">
+    <value>Contains</value>
+  </data>
+  <data name="AF_DoesNotContain" xml:space="preserve">
+    <value>Does Not Contain</value>
+  </data>
+  <data name="MemberExpansionError" xml:space="preserve">
+    <value>Could not expand "{0}" member in the {1}.</value>
+    <comment>This is part of the message that is supplied with the event raised when completion of loading a data source snapshot has finished.</comment>
+  </data>
+  <data name="CubeNotFound" xml:space="preserve">
+    <value>The cube "{0}" could not be loaded.</value>
+  </data>
+  <data name="DatabaseRestoreFailed" xml:space="preserve">
+    <value>Could not restore the selected database "{0}".</value>
+  </data>
+  <data name="ExcelStyleFiltersLoadingFailed" xml:space="preserve">
+    <value>Advanced Filters could not be loaded because the data source is not of type Infragistics.Olap.Data.ISupportFilters</value>
+  </data>
+  <data name="HierarchyNotFound" xml:space="preserve">
+    <value>The hierarchy "{0}" could not be found.</value>
+  </data>
+  <data name="MeasureNotFound" xml:space="preserve">
+    <value>The measure "{0}" could not be found.</value>
+  </data>
+  <data name="ServerUriNotSet" xml:space="preserve">
+    <value>The ServerUri is not set.</value>
+  </data>
+  <data name="InvalidStreamParameter" xml:space="preserve">
+    <value>The input stream was either null, has zero length or cannot be read from. Provide a valid stream.</value>
+  </data>
+  <data name="InvalidStringParameter" xml:space="preserve">
+    <value>The input string was either null, empty or whitespace. Provide a valid string.</value>
+  </data>
+  <data name="AggregationHelperAggregatorTypeNotSupported" xml:space="preserve">
+    <value>The {0} aggregator type is not supported by the AggregationHelper.</value>
+  </data>
+  <data name="Kpis" xml:space="preserve">
+    <value>KPIs</value>
+  </data>
+</root>
