@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:igThemes="http://infragistics.com/Themes"	
+	  xmlns:igRibbon="http://infragistics.com/Ribbon"
+    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="PresentationOptions"
+    >
+
+  <!--
+  Brushes in here are normally excluded from wahing because they appear in all color schemes so 
+  if that is the case then set the IsExcludedFromWash property to true as in the following example:
+  
+  <SolidColorBrush igThemes:ResourceWasher.IsExcludedFromWash="True"/>
+  -->
+    <!-- *********************************  BRUSHES  ********************************* -->
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="TransparentBrush" Color="#00ffffff"/>
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="ForegroundBrush" Color="#FF181818"/>
+    
+    <!--  ComboBoxItem Brushes -->
+    <LinearGradientBrush PresentationOptions:Freeze="true" x:Key="ComboBoxItemHoverBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="1" Color="#FFDEA414"/>
+        <GradientStop Color="#FFF2BF3A"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush PresentationOptions:Freeze="true" x:Key="ComboBoxItemHoverBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="#FFffeea8"/>
+        <GradientStop Offset="0.23" Color="#FFFBDC6E"/>
+        <GradientStop Offset="0.75" Color="#FFFBDC6E"/>
+        <GradientStop Offset="1" Color="#FFfffce0"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush PresentationOptions:Freeze="true" x:Key="ComboBoxItemSelectedBackgroundBrush" StartPoint="0,0 " EndPoint="0,1 ">
+        <GradientStop Offset="1" Color="#FFF7D14C"/>
+        <GradientStop Color="#FFF2BF3A"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush PresentationOptions:Freeze="true" x:Key="ComboBoxItemSelectedBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="#FFC26D1D"/>
+        <GradientStop Offset="1" Color="#FFDEA414"/>
+    </LinearGradientBrush>
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="ComboBoxItemHoverHighlightBorderBrush" Color="#FFfffce0"/>
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="ComboBoxItemFocusedBorderBrush" Color="#FFDEA414"/>
+    
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedHoverSeparatorLightFillKey}" igThemes:ResourceWasher.IsExcludedFromWash="True" Color="#B3FFFFFF" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedCheckedSeparatorLightFillKey}" igThemes:ResourceWasher.IsExcludedFromWash="True" Color="#B3FFFFFF" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedCheckedHottrackSeparatorLightFillKey}" igThemes:ResourceWasher.IsExcludedFromWash="True" Color="#B3FFFFFF" />
+
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonTabControlHeaderPanelGlassBackgroundKey}" igThemes:ResourceWasher.IsExcludedFromWash="True" Color="#FF000000" />
+</ResourceDictionary>

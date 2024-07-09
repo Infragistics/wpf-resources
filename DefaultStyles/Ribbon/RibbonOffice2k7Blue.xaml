@@ -1,0 +1,235 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+	mc:Ignorable="d"
+	  xmlns:igWindows="http://infragistics.com/Windows"
+	  xmlns:igEditors="http://infragistics.com/Editors"	
+	  xmlns:igThemes="http://infragistics.com/Themes"	
+	  xmlns:igRibbon="http://infragistics.com/Ribbon"
+	  xmlns:themes="http://infragistics.com/Themes"				
+  >
+    <ResourceDictionary.MergedDictionaries>
+        <!--<ResourceDictionary Source="RibbonGeneric.xaml" />-->
+        <ResourceDictionary Source="RibbonGeneric.xaml" />
+        <ResourceDictionary Source="RibbonOffice2k7Brushes_Blue.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    
+    <!-- ********************************** ComboBoxItem Style **********************************-->
+    <Style x:Key="ComboBoxItemStyle" TargetType="ComboBoxItem">
+        <Setter Property="Padding" Value="5,3,5,3"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{StaticResource TransparentBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBoxItem">
+                    <Grid Background="{TemplateBinding Background}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="hoverBorder">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.5" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="contentPresenter" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Unselected"/>
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SelectedBorder">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SelectedUnfocused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="SelectedBorder">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible
+                                                    </Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="FocusVisualElement">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="LayoutStates">
+                                <VisualState x:Name="AfterLoaded"/>
+                                <VisualState x:Name="BeforeLoaded"/>
+                                <VisualState x:Name="BeforeUnloaded"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="hoverBorder" Background="{StaticResource ComboBoxItemHoverBackgroundBrush}" BorderBrush="{StaticResource ComboBoxItemHoverBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Visibility="Collapsed" CornerRadius="2">
+                            <Rectangle Stroke="{StaticResource ComboBoxItemHoverHighlightBorderBrush}" StrokeThickness="1" RadiusX="1" RadiusY="1"/>
+                        </Border>
+                        <Border x:Name="SelectedBorder" Background="{StaticResource ComboBoxItemSelectedBackgroundBrush}" BorderBrush="{StaticResource ComboBoxItemSelectedBorderBrush}" CornerRadius="2" BorderThickness="{TemplateBinding BorderThickness}" Visibility="Collapsed" IsHitTestVisible="False"/>
+                        <Rectangle x:Name="FocusVisualElement" Stroke="{StaticResource ComboBoxItemFocusedBorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Visibility="Collapsed" RadiusX="2" RadiusY="2"/>
+                        <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- *********************************  ComboEditorTool Style  ********************************* -->
+    <Style TargetType="{x:Type igRibbon:ComboEditorTool}">
+        <Setter Property="ToolTipService.ShowDuration" Value="20000" />
+        <Setter Property="Background" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsNormalCenterFillKey}}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsNormalBorderFillKey}}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="2,2,2,2" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="DropDownButtonStyle" Value="{StaticResource ComboEditor_DropDownButtonStyle}" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.ToolEnabledForegroundTextFillKey}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type igRibbon:ComboEditorTool}">
+                    <!-- JM 09-05-18 TFS254718 - Change the StackPanel to a grid and bind the Width of the column containing the ComboBox to the EditAreaWidth property. -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="{TemplateBinding Property=EditAreaWidth}"/>
+                        </Grid.ColumnDefinitions>
+                        <igWindows:AutoDisabledImage Grid.Column="0" Width="16" Height="16" x:Name="Image" igRibbon:XamRibbon.KeyTipPlacementType="SmallImage" igWindows:Utilities.SnapElementToDevicePixels="True" Visibility="Collapsed" Source="{TemplateBinding igRibbon:TextEditorTool.ImageResolved}" />
+                        <ContentPresenter x:Name="Caption" Grid.Column="1" Margin="0,0,5,0" Visibility="{Binding Path=(igRibbon:ButtonTool.HasCaption), RelativeSource={x:Static RelativeSource.TemplatedParent}, Converter={StaticResource BoolToVisConverter}}" VerticalAlignment="{TemplateBinding VerticalAlignment}" Content="{TemplateBinding Caption, Converter={StaticResource stringWithoutMnemonicsConverter}}" />
+                        <Border x:Name="MainBorder" Grid.Column="2" SnapsToDevicePixels="True" Background="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsNormalCenterFillKey}}" BorderBrush="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsNormalBorderFillKey}}" BorderThickness="1,1,1,1" Width="{TemplateBinding EditAreaWidth}" CornerRadius="0,0,0,0">
+                            <Grid>
+                                <ComboBox Name="PART_FocusSite" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" IsReadOnly="{TemplateBinding ReadOnly}" Background="Transparent" BorderBrush="Transparent" BorderThickness="0,0,0,0" ContextMenu="{TemplateBinding ContextMenu}" IsDropDownOpen="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsDropDownOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{TemplateBinding ComboBoxStyle}" IsEditable="{TemplateBinding IsEditable}" SelectedValuePath="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemsProvider.ValuePath}" DisplayMemberPath="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemsProvider.DisplayMemberPath}" MaxDropDownHeight="{TemplateBinding MaxDropDownHeight}" igEditors:XamComboEditor.ComboEditor="{Binding RelativeSource={RelativeSource TemplatedParent}}" Visibility="Collapsed" InputMethod.PreferredImeState="{TemplateBinding InputMethod.PreferredImeState}" InputMethod.PreferredImeConversionMode="{TemplateBinding InputMethod.PreferredImeConversionMode}" InputMethod.IsInputMethodEnabled="{TemplateBinding InputMethod.IsInputMethodEnabled}" ItemContainerStyle="{StaticResource ComboBoxItemStyle}"/>
+
+                                <Grid Name="TextBlockGrid">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock x:Name="TextBlock" Grid.Column="0" Padding="{TemplateBinding Padding}" Margin="1,0,0,0" Text="{TemplateBinding DisplayText}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    <ToggleButton x:Name="DropDownButton" Grid.Column="1" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" ClickMode="Press" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsDropDownOpen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{TemplateBinding DropDownButtonStyle}" Visibility="Visible" IsEnabled="{Binding Path=IsReadOnly, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource complementConverter}}" />
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Path=Location, RelativeSource={RelativeSource Self}, Converter={x:Static igRibbon:ToolLocationToIsInMenuConverter.Instance}}" Value="True" />
+                                <Condition Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource FindAncestor, {x:Type igRibbon:ToolMenuItem}, 1}}" Value="True" />
+                                <Condition Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Self}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="Caption" Property="TextElement.Foreground" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.TextHottrackFillKey}}" />
+                        </MultiDataTrigger>
+
+                        <Trigger Property="Location" Value="QuickAccessToolbar">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.ToolInQATForegroundTextFillKey}}" />
+                            <Setter TargetName="TextBlock" Property="Foreground" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.ToolEnabledForegroundTextFillKey}}" />
+                        </Trigger>
+
+                        <Trigger Property="Location" Value="ApplicationMenuFooterToolbar">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.ToolEnabledForegroundTextFillKey}}" />
+                            <Setter Property="Margin" Value="6,0,0,0" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="MainBorder" Property="Background" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsDisabledCenterFillKey}}" />
+                            <Setter TargetName="MainBorder" Property="BorderBrush" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsDisabledBorderFillKey}}" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.ToolDisabledForegroundTextFillKey}}" />
+                        </Trigger>
+
+                        <Trigger SourceName="MainBorder" Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="MainBorder" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsHoverCenterFillKey}}" />
+                            <Setter Property="BorderBrush" TargetName="MainBorder" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsHoverBorderFillKey}}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="MainBorder">
+                            <Setter TargetName="DropDownButton" Property="Tag" Value="MouseOverControlTrue" />
+                        </Trigger>
+                        <Trigger Property="IsInEditMode" Value="True">
+                            <Setter Property="Background" TargetName="MainBorder" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsHoverCenterFillKey}}" />
+                            <Setter Property="BorderBrush" TargetName="MainBorder" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.EditorsHoverBorderFillKey}}" />
+                            <Setter TargetName="PART_FocusSite" Property="Visibility" Value="Visible" />
+                            <Setter TargetName="TextBlock" Property="Visibility" Value="Collapsed" />
+                            <Setter Property="IsTabStop" Value="False" />
+                        </Trigger>
+                        <Trigger Property="Location" Value="Ribbon">
+                            <Setter TargetName="Image" Property="Visibility" Value="{Binding Path=(igRibbon:ButtonTool.HasImage), RelativeSource={x:Static RelativeSource.TemplatedParent}, Converter={StaticResource BoolToVisConverter}}" />
+                        </Trigger>
+                        <Trigger Property="Location" Value="ApplicationMenuFooterToolbar">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static igRibbon:RibbonBrushKeys.ToolEnabledForegroundTextFillKey}}" />
+                            <Setter TargetName="Image" Property="Visibility" Value="{Binding Path=(igRibbon:ButtonTool.HasImage), RelativeSource={x:Static RelativeSource.TemplatedParent}, Converter={StaticResource BoolToVisConverter}}" />
+                        </Trigger>
+                        <Trigger Property="Location" Value="QuickAccessToolbar">
+                            <Setter TargetName="Caption" Property="Visibility" Value="Collapsed" />
+                        </Trigger>
+                        <Trigger Property="IsEmbedded" Value="False">
+                            <Setter TargetName="MainBorder" Property="CornerRadius" Value="1" />
+                        </Trigger>
+                        <Trigger Property="igRibbon:XamRibbon.HideAccessKey" Value="False">
+                            <Setter TargetName="Caption" Property="RecognizesAccessKey" Value="True" />
+                            <Setter TargetName="Caption" Property="Content" Value="{Binding Path=Caption, RelativeSource={x:Static RelativeSource.TemplatedParent}}" />
+                        </Trigger>
+                        <Trigger Property="igRibbon:RibbonToolHelper.SizingMode" Value="ImageOnly">
+                            <Setter TargetName="Caption" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsEmbedded" Value="True" />
+                    <Condition Property="IsInEditMode" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{x:Null}" />
+                <Setter Property="BorderBrush" Value="{x:Null}" />
+            </MultiTrigger>
+            <Trigger Property="IsInEditMode" Value="True">
+                <Setter Property="FocusVisualStyle">
+                    <Setter.Value>
+                        <Style />
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

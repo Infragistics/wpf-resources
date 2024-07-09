@@ -1,0 +1,238 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:igwindows="http://infragistics.com/Windows"
+	xmlns:editors="http://infragistics.com/Editors"
+    >
+
+	<!--  _________________________ MaskedEditor __________________________________________  -->
+	<Style TargetType="{x:Type editors:XamMaskedEditor}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type editors:XamMaskedEditor}">
+					<Border x:Name="MainBorder"
+					   Background="{TemplateBinding Background}"
+ 								>
+						<TextBlock x:Name="TextBlock"
+						  Margin="5,3,0,3"
+						  Text="{TemplateBinding Text}" 
+						  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+						  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+						  />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEmbedded" Value="False">
+							<Setter TargetName="MainBorder" Property="BorderThickness" Value="1" />
+							<Setter TargetName="MainBorder" Property="BorderBrush" Value="Gray" />
+							<Setter TargetName="MainBorder" Property="CornerRadius" Value="1" />
+							<Setter TargetName="TextBlock" Property="Margin" Value="4,2,4,2" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="EditTemplate">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type editors:XamMaskedEditor}">
+					<Border x:Name="MainBorder"
+					   Background="{TemplateBinding Background}"
+ 								>
+						<TextBox
+						 Name="PART_FocusSite" 
+						 Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+						 VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+					  />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!--  _________________________ DisplayCharacterPresenter __________________________________________  -->
+	<Style TargetType="{x:Type editors:DisplayCharacterPresenter}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type editors:DisplayCharacterPresenter}">
+					<TextBlock x:Name="TextBlock"
+					  Margin="0,0,0,0"
+					  Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DisplayCharacter.Char, Mode=OneWay}"
+						  />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!--  _________________________ MaskedEditor __________________________________________  -->
+	<!--
+  <Style TargetType="{x:Type editors:xamMaskedEditor}">
+    <Setter Property="TemplateRender">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type editors:xamMaskedEditor}">
+          <Grid Margin="3">
+            <Border Margin="3" BorderThickness="2" BorderBrush="DarkGray" CornerRadius="8"/>
+            <editors:MaskDisplayArea 
+               Name="PART_FocusSite" 
+              ItemsSource="{TemplateBinding Sections}"
+              editors:xamMaskedEditor.IsMaskDisplayArea="true"
+						    />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="TemplateEdit" Value="{Binding RelativeSource={RelativeSource Self}, Path=TemplateRender}"/>
+  </Style>
+
+  -->
+	<!--  _________________________ MaskDisplayArea __________________________________________  -->
+	<!--
+  <Style TargetType="{x:Type editors:MaskDisplayArea}">
+    -->
+	<!-- ItemsPanel -->
+	<!--
+    <Setter Property="ItemsPanel">
+      <Setter.Value>
+        <ItemsPanelTemplate>
+          <StackPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+      </Setter.Value>
+    </Setter>
+
+    -->
+	<!-- ItemContainerStyle -->
+	<!--
+    <Setter Property="ItemContainerStyle">
+      <Setter.Value>
+        <Style TargetType="{x:Type editors:SectionBase}">
+          <Setter Property="Padding" Value="0" />
+          <Setter Property="Margin" Value="0,4,0,4" />
+          <Setter Property="Width" Value="Auto"/>
+          <Setter Property="Height" Value="Auto"/>
+          <Setter Property="HorizontalAlignment" Value="Center"/>
+          <Setter Property="VerticalAlignment" Value="Center"/>
+          <Setter Property="Template">
+            <Setter.Value>
+              <ControlTemplate TargetType="{x:Type editors:SectionBase}">
+                <Grid>
+                  <ContentPresenter x:Name="ContentSite" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+              </ControlTemplate>
+            </Setter.Value>
+          </Setter>
+        </Style>
+      </Setter.Value>
+    </Setter>
+
+    -->
+	<!-- Template -->
+	<!--
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type editors:MaskDisplayArea}">
+          <Grid Margin="3">
+            <ScrollViewer 
+              CanContentScroll="true"
+              Focusable="false"
+              HorizontalScrollBarVisibility="Hidden"
+              VerticalScrollBarVisibility="Hidden">
+              <ItemsPresenter/>
+            </ScrollViewer>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  -->
+	<!--  _________________________ SectionBase __________________________________________  -->
+	<!--
+  <Style TargetType="{x:Type editors:SectionBase}">
+    <Setter Property="Background" Value="Red"/>
+    <Setter Property="Width" Value="200"/>
+    -->
+	<!-- ItemsPanel -->
+	<!--
+    <Setter Property="ItemsPanel">
+      <Setter.Value>
+        <ItemsPanelTemplate>
+          <StackPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+      </Setter.Value>
+    </Setter>
+
+    -->
+	<!-- ItemContainerStyle -->
+	<!--
+    <Setter Property="ItemContainerStyle">
+      <Setter.Value>
+        <Style TargetType="{x:Type editors:DisplayCharacterBase}">
+          <Setter Property="Padding" Value="0" />
+          <Setter Property="Margin" Value="0,4,0,4" />
+          <Setter Property="Width" Value="Auto"/>
+          <Setter Property="Height" Value="Auto"/>
+          <Setter Property="HorizontalAlignment" Value="Center"/>
+          <Setter Property="VerticalAlignment" Value="Center"/>
+          <Setter Property="Template">
+            <Setter.Value>
+              <ControlTemplate TargetType="{x:Type editors:DisplayCharacterBase}">
+                <Grid>
+                  <Border x:Name="itemContainerBorder" BorderThickness="1" BorderBrush="LightGray" CornerRadius="3"/>
+                  <ContentPresenter x:Name="ContentSite" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+              </ControlTemplate>
+            </Setter.Value>
+          </Setter>
+        </Style>
+      </Setter.Value>
+    </Setter>
+
+    -->
+	<!-- Template -->
+	<!--
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type editors:SectionBase}">
+          <Grid Margin="3">
+            <ScrollViewer 
+              CanContentScroll="true"
+              Focusable="false"
+              HorizontalScrollBarVisibility="Hidden"
+              VerticalScrollBarVisibility="Hidden">
+              <ItemsPresenter/>
+            </ScrollViewer>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+
+    -->
+	<!-- Template -->
+	<!--
+    <Setter Property="ItemsSource" Value="{Binding RelativeSource={RelativeSource Self}, Path=DisplayCharacters}"/>
+  </Style>
+
+  -->
+	<!--  _________________________ DisplayCharacterBase __________________________________________  -->
+	<!--
+  -->
+	<!--<Style TargetType="{x:Type editors:DisplayCharacterBase}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type editors:DisplayCharacterBase}">
+          <Grid>
+            <Border Margin="0" BorderThickness="2" BorderBrush="DarkGray" CornerRadius="8"/>
+            <TextBlock
+              Margin="0" 
+              Text="{TemplateBinding Character}"
+              TextAlignment="Center"
+              Width="Auto"
+              Height="Auto"
+						    />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource Self}, Path=TemplateRender}"/>
+  </Style>-->
+
+
+</ResourceDictionary>

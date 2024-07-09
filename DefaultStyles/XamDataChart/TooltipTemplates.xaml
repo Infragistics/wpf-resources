@@ -1,0 +1,253 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="http://schemas.infragistics.com/xaml"
+    xmlns:ig="http://schemas.infragistics.com/xaml">
+
+    <ig:SRProvider x:Key="Strings" />
+    <local:StringToVisibilityConverter x:Key="visibilityConverter"></local:StringToVisibilityConverter>
+    
+    <DataTemplate x:Key="SeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="1" Foreground="{Binding Series.SafeActualBrush}"/>
+        </Grid>
+    </DataTemplate>
+    
+    <DataTemplate x:Key="HorizontalAnchoredCategorySeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Content="{Binding XAxisLabel}" Grid.ColumnSpan="2"/>
+            <TextBlock Text="{Binding Series.Title, StringFormat='{}{0}: '}" Grid.Row="1" Foreground="{Binding Series.SafeActualBrush}"/>
+            <TextBlock Text="{Binding ItemValue, StringFormat='{}{0:0.##}'}" Grid.Row="1" Grid.Column="1" FontWeight="Bold"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="VerticalAnchoredCategorySeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Content="{Binding YAxisLabel}" Grid.ColumnSpan="2"/>
+            <TextBlock Text="{Binding Series.Title, StringFormat='{}{0}: '}" Grid.Row="1" Foreground="{Binding Series.SafeActualBrush}"/>
+            <TextBlock Text="{Binding ItemValue, StringFormat='{}{0:0.##}'}" FontWeight="Bold" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HorizontalRangeCategorySeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Content="{Binding XAxisLabel}" Grid.ColumnSpan="2"/>
+            <TextBlock Text="{Binding Series.Title, StringFormat='{}{0}: '}" Grid.Row="1" Foreground="{Binding Series.SafeActualBrush}"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="{Binding ItemLow, StringFormat='{}{0:0.##}'}"/>
+                <TextBlock FontWeight="Bold" Text="{Binding ItemHigh, StringFormat=' - {0:0.##}'}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ScatterBaseTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="0" Grid.ColumnSpan="2" Foreground="{Binding Series.SafeActualBrush}"/>
+            <TextBlock Text="x: " Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="{Binding ItemXValue, StringFormat='{}{0:0.##}'}" Grid.Row="1" Grid.Column="1" FontWeight="Bold"/>
+            <TextBlock Text="y: " Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Text="{Binding ItemYValue, StringFormat='{}{0:0.##}'}" Grid.Row="2" Grid.Column="1" FontWeight="Bold"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="BubbleSeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="0" Foreground="{Binding Series.SafeActualBrush}"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="{Binding ItemXValue, StringFormat='({0:0.##}, '}"/>
+                <TextBlock Text="{Binding ItemYValue, StringFormat='{}{0:0.##})'}"/>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding Series.RadiusMemberPath, Converter={StaticResource visibilityConverter}}">
+                    <TextBlock Text="{Binding BubbleSeries_Radius, Source={StaticResource Strings}, StringFormat=', {0}: '}"/>
+                    <TextBlock Text="{Binding ItemRadius, StringFormat='{}{0:0.##}'}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PolarBaseTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding ItemAngle, StringFormat='{}{0:0.##}'}" Grid.Row="0"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="{Binding Series.Title, StringFormat='{}{0}: '}" Foreground="{Binding Series.SafeActualBrush}"/>
+                <TextBlock Text="{Binding ItemRadius, StringFormat='{}{0:0.##}'}" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="AnchoredRadialSeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding AngleAxisLabel}" Grid.Row="0"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="{Binding Series.Title, StringFormat='{}{0}: '}" Foreground="{Binding Series.SafeActualBrush}"/>
+                <TextBlock Text="{Binding ItemValue, StringFormat='{}{0:0.##}'}" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FinancialSeriesTooltipTemplate">
+        <Grid>
+      <Grid.Resources>
+        <local:BrushOpacifyingConverter x:Key="opacifier" />
+      </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <ContentControl Content="{Binding XAxisLabel}" Grid.Row="0" Grid.ColumnSpan="2"/>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="1" Grid.ColumnSpan="2" Foreground="{Binding Series.SafeActualBrush, Converter={StaticResource opacifier}}" />
+            <TextBlock Text="{Binding FinancialSeries_Open, Source={StaticResource Strings}, StringFormat='{}{0}: '}" Grid.Row="3"/>
+            <TextBlock Text="{Binding ItemOpen, StringFormat='{}{0:0.##}'}" FontWeight="Bold" Grid.Row="3" Grid.Column="1"/>
+            <TextBlock Text="{Binding FinancialSeries_High, Source={StaticResource Strings}, StringFormat='{}{0}: '}" Grid.Row="4"/>
+            <TextBlock Text="{Binding ItemHigh, StringFormat='{}{0:0.##}'}" FontWeight="Bold" Grid.Row="4" Grid.Column="1"/>
+            <TextBlock Text="{Binding FinancialSeries_Low, Source={StaticResource Strings}, StringFormat='{}{0}: '}" Grid.Row="5"/>
+            <TextBlock Text="{Binding ItemLow, StringFormat='{}{0:0.##}'}" FontWeight="Bold" Grid.Row="5" Grid.Column="1"/>
+            <TextBlock Text="{Binding FinancialSeries_Close, Source={StaticResource Strings}, StringFormat='{}{0}: '}" Grid.Row="6"/>
+            <TextBlock Text="{Binding ItemClose, StringFormat='{}{0:0.##}'}" FontWeight="Bold" Grid.Row="6" Grid.Column="1"/>
+            <TextBlock Text="{Binding FinancialSeries_Volume, Source={StaticResource Strings}, StringFormat='{}{0}: '}" Grid.Row="7"
+                       Visibility="{Binding Series.VolumeMemberPath, Converter={StaticResource visibilityConverter}}"/>
+            <TextBlock Text="{Binding ItemVolume, StringFormat='{}{0:0.##}'}" FontWeight="Bold" Grid.Row="7" Grid.Column="1"
+                       Visibility="{Binding Series.VolumeMemberPath, Converter={StaticResource visibilityConverter}}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ValueOverlayTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="{Binding Series.Title, StringFormat='{}{0}: '}" Grid.Row="1" Foreground="{Binding Series.SafeActualBrush}"/>
+            <TextBlock Text="{Binding Series.LabelResolved}" Grid.Row="1" Grid.Column="1" FontWeight="Bold"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ScatterAreaSeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="0" Foreground="{Binding Series.SafeActualBrush}"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <TextBlock Text="{Binding ItemXValue, StringFormat='({0:0.##}, '}"/>
+                <TextBlock Text="{Binding ItemYValue, StringFormat='{}{0:0.##})'}"/>
+                <StackPanel Orientation="Horizontal" Visibility="{Binding Series.ColorMemberPath, Converter={StaticResource visibilityConverter}}">
+                    <TextBlock Text="{Binding ScatterSeries_Value, Source={StaticResource Strings}, StringFormat=', {0}: '}"/>
+                    <TextBlock Text="{Binding Value, StringFormat='{}{0:0.##}'}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ScatterContourSeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="0" Foreground="{Binding Series.SafeActualBrush}"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Visibility="{Binding Series.ValueMemberPath, Converter={StaticResource visibilityConverter}}">
+                    <TextBlock Text="{Binding ScatterSeries_Value, Source={StaticResource Strings}, StringFormat='{}{0}: '}"/>
+                    <TextBlock Text="{Binding Item, StringFormat='{}{0:0.##}'}"/>
+                </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ScatterPolygonSeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="0" Foreground="{Binding Series.SafeActualBrush}"/>
+            <!--TODO uncomment when FillScale is supported on ScatterPolygonSeries-->
+            <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Visibility="{Binding Series.FillMemberPath, Converter={StaticResource visibilityConverter}}">
+                <TextBlock Text="{Binding ScatterSeries_Value, Source={StaticResource Strings}, StringFormat='{}{0}: '}"/>
+                <TextBlock Text="{Binding Value, StringFormat='{}{0:0.##}'}"/>
+            </StackPanel>-->
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ScatterPolylineSeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Series.Title}" Grid.Row="0" Foreground="{Binding Series.SafeActualBrush}"/>
+            <!--TODO uncomment when FillScale is supported on ScatterPolylineSeries-->
+            <!--<StackPanel Grid.Row="1" Orientation="Horizontal" Visibility="{Binding Series.FillMemberPath, Converter={StaticResource visibilityConverter}}">
+                <TextBlock Text="{Binding ScatterSeries_Value, Source={StaticResource Strings}, StringFormat='{}{0}: '}"/>
+                <TextBlock Text="{Binding Value, StringFormat='{}{0:0.##}'}"/>
+            </StackPanel>-->
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>

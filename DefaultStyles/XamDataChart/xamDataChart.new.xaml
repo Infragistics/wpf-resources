@@ -1,0 +1,2061 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="http://infragistics.com/Controls"
+    xmlns:shared="http://schemas.infragistics.com/xaml"
+    xmlns:dv="http://infragistics.com/DataVisualization"
+    xmlns:local="http://schemas.infragistics.com/xaml"
+    xmlns:ig="http://schemas.infragistics.com/xaml">
+
+    <!-- ************************************************ BRUSHES ************************************************
+***********************************************************************************************************-->
+  
+  <!--Ig Theme Base colors-->
+  <Color x:Key="Color_000">#FF000000</Color>
+  <Color x:Key="Color_001">#FF333333</Color>
+  <Color x:Key="Color_002">#FF3E3E3E</Color>
+  <Color x:Key="Color_003">#FF505050</Color>
+  <Color x:Key="Color_004">#FF696969</Color>
+  <Color x:Key="Color_005">#FF818181</Color>
+  <Color x:Key="Color_006">#FF9B9B9B</Color>
+  <Color x:Key="Color_007">#FFB1B1B1</Color>
+  <Color x:Key="Color_008">#FFD0D0D0</Color>
+  <Color x:Key="Color_009">#FFE0E0E0</Color>
+  <Color x:Key="Color_010">#FFF1F1F1</Color>
+  <Color x:Key="Color_014">#FF3BB7EB</Color>
+  <Color x:Key="Color_015">#FF16A9E7</Color>
+  <Color x:Key="Color_016">#FF2788B1</Color>
+  <Color x:Key="Color_018">#FF1A5F7C</Color>
+
+  <!--Theme Error colors -->
+  <Color x:Key="Color_020">#FFc62d36</Color>
+
+  <!--Whites with transparency-->
+  <Color x:Key="Color_021">#00FFFFFF</Color>  <!--0% White-->
+
+  <Color x:Key="Color_027">#33000000</Color>  <!--20% Black-->
+
+  <!--Colors for Chart Series-->
+  <Color x:Key="Color_031">#FF6E7E16</Color>
+  <Color x:Key="Color_032">#FFa4ba29</Color>
+  <Color x:Key="Color_033">#FFfdbd48</Color>
+  <Color x:Key="Color_034">#FFF7AA1B</Color>
+  <Color x:Key="Color_035">#FFff888b</Color>
+  <Color x:Key="Color_036">#FFff6a6f</Color>
+  <Color x:Key="Color_037">#FF9e73c1</Color>
+  <Color x:Key="Color_038">#FF714199</Color>
+  <Color x:Key="Color_039">#FFf79036</Color>
+  <Color x:Key="Color_040">#FFBC5900</Color>
+  <Color x:Key="Color_041">#FF69299D</Color>
+  <Color x:Key="Color_042">#FF371356</Color>
+  <Color x:Key="Color_043">#FF48892d</Color>
+  <Color x:Key="Color_044">#FF285017</Color>
+  <Color x:Key="Color_045">#FFDC8F00</Color>
+  <Color x:Key="Color_046">#FFCA4E52</Color>
+  <Color x:Key="Color_047">#DDFFFFFF</Color>
+  
+  <!--Brushes-->
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Color_001}" />
+    <LinearGradientBrush x:Key="LegendBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="{StaticResource Color_009}" Offset="1" />
+    <GradientStop Color="{StaticResource Color_010}" />
+  </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="GenericBorder" Color="{StaticResource Color_007}" />
+
+    <LinearGradientBrush x:Key="GenericBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="{StaticResource Color_009}" Offset="1" />
+    <GradientStop Color="{StaticResource Color_010}" />
+  </LinearGradientBrush>
+
+    <!--<LinearGradientBrush x:Key="GenericOverlay" StartPoint="0.0, 0.0" EndPoint="0.0, 1.0" Opacity="0.0">
+        <GradientStop Color="#FFF2F6F9" Offset="0" />
+        <GradientStop Color="#FFCCD3D8" Offset="1" />
+    </LinearGradientBrush>-->
+
+    <!--<SolidColorBrush x:Key="SeriesBrush" Color="#FFFF9D3D"/>-->
+    <SolidColorBrush x:Key="NegativeBrush" Color="{StaticResource Color_020}" />
+
+  <RadialGradientBrush x:Key="LegendShadowRightBackgroundBrush" Center="-0.021,0.506" GradientOrigin="-0.021,0.506" RadiusX="0.5" RadiusY="0.509">
+    <GradientStop Color="{StaticResource Color_027}" />
+    <GradientStop Offset="0.996" />
+  </RadialGradientBrush>
+  
+  <RadialGradientBrush x:Key="LegendShadowLeftBackgroundBrush" Center="1.013,0.506" GradientOrigin="1.013,0.506" RadiusX="0.5" RadiusY="0.509">
+    <GradientStop Color="{StaticResource Color_027}" />
+    <GradientStop Offset="1" />
+  </RadialGradientBrush>
+  
+<!-- Tooltip Brushes -->
+  <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{StaticResource Color_047}" />
+  <SolidColorBrush x:Key="TooltipBorderBrush" Color="{StaticResource Color_007}" />
+  <SolidColorBrush x:Key="TooltipShadowBackgroundBrush" Color="{StaticResource Color_000}" />
+  <SolidColorBrush x:Key="TooltipPointerBackgroundBrush" Color="{StaticResource Color_009}" Opacity="0.8" />
+ 
+  <!-- Axis Brushes -->
+  <SolidColorBrush x:Key="AxisBorderBrush" Color="{StaticResource Color_007}" />
+  <SolidColorBrush x:Key="AxisMajorBorderBrush" Color="{StaticResource Color_008}" />
+
+    <!-- ChartBrushes -->
+
+    <!-- New Brushes -->
+    <SolidColorBrush x:Key="AxisLabelsBrush" Color="{StaticResource Color_006}"/>
+    <SolidColorBrush x:Key="AxisTitleBrush" Color="{StaticResource Color_004}"/>
+    <SolidColorBrush x:Key="ChartPlotAreaBackgroundBrush" Color="{StaticResource Color_021}" />
+    
+    <shared:BrushCollection x:Key="ChartBrushes">
+       <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_014}" />
+      <GradientStop Color="{StaticResource Color_016}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_003}" />
+      <GradientStop Color="{StaticResource Color_001}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_007}" />
+      <GradientStop Color="{StaticResource Color_005}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_015}" />
+      <GradientStop Color="{StaticResource Color_018}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_032}" />
+      <GradientStop Color="{StaticResource Color_031}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_033}" />
+      <GradientStop Color="{StaticResource Color_034}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_035}" />
+      <GradientStop Color="{StaticResource Color_036}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_037}" />
+      <GradientStop Color="{StaticResource Color_038}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_039}" />
+      <GradientStop Color="{StaticResource Color_040}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_041}" />
+      <GradientStop Color="{StaticResource Color_042}" Offset="1" />
+    </LinearGradientBrush>
+
+    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+      <GradientStop Color="{StaticResource Color_043}" />
+      <GradientStop Color="{StaticResource Color_044}" Offset="1" />
+    </LinearGradientBrush>
+    </shared:BrushCollection>
+
+    <!-- ChartOutlines -->
+
+    <shared:BrushCollection x:Key="ChartOutlines">
+    <SolidColorBrush Color="{StaticResource Color_016}" />
+    <SolidColorBrush Color="{StaticResource Color_001}" />
+    <SolidColorBrush Color="{StaticResource Color_005}" />
+    <SolidColorBrush Color="{StaticResource Color_018}" />
+    <SolidColorBrush Color="{StaticResource Color_031}" />
+    <SolidColorBrush Color="{StaticResource Color_045}" />
+    <SolidColorBrush Color="{StaticResource Color_046}" />
+    <SolidColorBrush Color="{StaticResource Color_038}" />
+    <SolidColorBrush Color="{StaticResource Color_040}" />
+    <SolidColorBrush Color="{StaticResource Color_042}" />
+    <SolidColorBrush Color="{StaticResource Color_044}" />
+    </shared:BrushCollection>
+
+    <!-- ************************************************ END BRUSHES ************************************************
+******************************************************************************************************************-->
+
+    <!-- Markers and MarkerTemplates -->
+
+    <Style TargetType="local:Marker">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Marker">
+                    <Grid>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <!-- <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Offset" Storyboard.TargetProperty="X" To="0.0" Duration="0:0:0.5"/>
+                                        <DoubleAnimation Storyboard.TargetName="Offset" Storyboard.TargetProperty="Y" To="0.0" Duration="0:0:0.5"/>
+                                    </Storyboard> -->
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <!-- <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Offset" Storyboard.TargetProperty="X" To="-4.0" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="Offset" Storyboard.TargetProperty="Y" To="-4.0" Duration="0:0:0.2"/>
+                                    </Storyboard> -->
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <ContentPresenter VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="{TemplateBinding Margin}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}">
+                            <ContentPresenter.RenderTransform>
+                                <TranslateTransform  x:Name="Offset" X="0" Y="0"/>
+                            </ContentPresenter.RenderTransform>
+                        </ContentPresenter>
+                        <!--
+                        <Ellipse x:Name="Halo" IsHitTestVisible="False" Opacity="0" Stroke="{StaticResource GenericBorder}" StrokeThickness="1">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush GradientOrigin="0.5, 0.5" Center="0.5, 0.5" RadiusX="0.5" RadiusY="0.5">
+                                    <RadialGradientBrush.GradientStops>
+                                        <GradientStop Color="#0098C1DC" Offset="0.0"/>
+                                        <GradientStop Color="#2098C1DC" Offset="0.5"/>
+                                        <GradientStop Color="#ff98C1DC" Offset="1"/>
+                                    </RadialGradientBrush.GradientStops>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+-->
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--Replace this template with one that doesn't need minwidth/minheight for scatter-base charts-->
+    <!--<DataTemplate x:Key="CircleMarkerTemplate">
+        <Ellipse Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5" MinWidth="10" MinHeight="10"/>
+    </DataTemplate>-->
+
+    <DataTemplate x:Key="CircleMarkerTemplate">
+        <Path Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigure StartPoint="0,0" >
+                            <PathFigure.Segments>
+                                <ArcSegment Size="4,4" RotationAngle="0" IsLargeArc="True" SweepDirection="Clockwise" Point="0,1"/>
+                                <ArcSegment Size="4,4" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="0,0"/>
+                            </PathFigure.Segments>
+                        </PathFigure >
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TriangleMarkerTemplate">
+        <Polygon Points="0, 0 4, 8 8, 0" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PyramidMarkerTemplate">
+        <Polygon Points="0, 8 4, 0 8, 8" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SquareMarkerTemplate">
+        <Polygon Points="0 0 0 8 8 8 8 0" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="DiamondMarkerTemplate">
+        <Polygon Points="0 4 4 8 8 4 4 0" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5" />
+    </DataTemplate>
+
+    <DataTemplate x:Key="PentagonMarkerTemplate">
+        <Polygon Points="4 0 0.1956 2.764 1.65 7.236 6.35 7.236 7.8044 2.764" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HexagonMarkerTemplate">
+        <Polygon Points="4 0 0.536 2 0.536 6 4 8 7.464 6 7.464 2" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TetragramMarkerTemplate">
+        <Polygon Points="4 0 2.5856 2.5856 0 4 2.5856 5.4144 4 8 5.4144 5.4144 8 4 5.4144 2.5856" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PentagramMarkerTemplate">
+        <Polygon Points="4 0 2.8244 2.382 0.1956 2.764 2.098 4.618 1.6488 7.236 4 6 6.3512 7.236 5.902 4.618 7.8044 2.764 5.1756 2.382" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HexagramMarkerTemplate">
+        <Polygon Points="4 0 3 2.268 0.536 2 2 4 0.536 6 3 5.732 4 8 5 5.732 7.464 6 6 4 7.464 2 5 2.268" Stretch="Fill"  Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="0.5"/>
+    </DataTemplate>
+
+    <Style x:Key="ToolTipStyle" TargetType="ContentControl">
+    <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}" />
+    <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}" />
+    <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+    <Setter Property="Padding" Value="5,5,8,5" />
+    <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Grid>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,0,1,1" CornerRadius="3">
+                          <shared:SafeSetters.Setters>
+                            <shared:SafeSetterCollection>
+                              <shared:SafeSetter PropertyName="Effect">
+                                <shared:SafeSetter.ValueAsXamlString>
+                                    &lt;DropShadowEffect xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Opacity="0.7" ShadowDepth="1"/&gt;
+                                </shared:SafeSetter.ValueAsXamlString>
+                              </shared:SafeSetter>
+                            </shared:SafeSetterCollection>
+                          </shared:SafeSetters.Setters>                          
+                        </Border>
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{Binding Series.ActualOutline}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="3">
+                            <StackPanel Orientation="Horizontal">
+                                <ContentPresenter Content="{Binding}" ContentTemplate="{Binding Series.LegendItemBadgeTemplate}" Margin="2,0,0,0"/>
+                                <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <DataTemplate x:Key="CrosshairTooltipItemTemplate">
+        <StackPanel Orientation="Horizontal">
+            <ContentPresenter Content="{Binding ItemContext}" DataContext="{Binding ItemContext}" ContentTemplate="{Binding Series.LegendItemBadgeTemplate}" />
+            <ContentPresenter Content="{Binding SubContent}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <Style x:Key="ToolTipNoBadgeStyle" TargetType="ContentControl">
+        <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}" />
+       <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}" />
+       <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+       <Setter Property="Padding" Value="8,5" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                 <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" >
+                        <shared:SafeSetters.Setters>
+                            <shared:SafeSetterCollection>
+                                <shared:SafeSetter PropertyName="Effect">
+                                    <shared:SafeSetter.ValueAsXamlString>
+                                        &lt;DropShadowEffect xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Opacity="0.4"/&gt;
+                                    </shared:SafeSetter.ValueAsXamlString>
+                                </shared:SafeSetter>
+                            </shared:SafeSetterCollection>
+                        </shared:SafeSetters.Setters>
+                        <Border>
+                            <StackPanel Orientation="Horizontal">
+                                <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}"/>
+                            </StackPanel>
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--<Style TargetType="local:XamDataChart">
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="BorderBrush" Value="{StaticResource GenericBorder}"/>
+        <Setter Property="BorderThickness" Value="1.5"/>
+        <Setter Property="Background" Value="{StaticResource GenericBackground}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamDataChart">
+                    <Grid x:Name="RootLayout" Margin="{TemplateBinding Margin}">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" Background="{TemplateBinding Background}" />
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Transparent" CornerRadius="4" Background="{StaticResource GenericOverlay}">
+                            <ContentPresenter Margin="0" x:Name="ContentPresenter">
+                            </ContentPresenter>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+    <!-- Legend -->
+
+    <Style TargetType="local:Legend">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Background" Value="{StaticResource LegendBackground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource GenericBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Orientation" Value="Vertical"/>
+        <Setter Property="Padding" Value="4"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Legend">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="15" />
+                          <ColumnDefinition Width="*" />
+                          <ColumnDefinition Width="15" />
+                        </Grid.ColumnDefinitions>
+                       <Rectangle StrokeThickness="1" Grid.Column="2" Fill="{StaticResource LegendShadowRightBackgroundBrush}" />
+                        <Rectangle StrokeThickness="1" Fill="{StaticResource LegendShadowLeftBackgroundBrush}" />
+                        <Border Grid.Column="1" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                            <Grid Margin="{TemplateBinding Padding}">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Rectangle Fill="Transparent" Grid.RowSpan="2"/>
+                                <ContentPresenter Grid.Row="0" Content="{TemplateBinding Content}" />
+                                <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent">
+                                    <ContentPresenter Grid.Row="1" x:Name="ContentPresenter"/>
+                                </ScrollViewer>
+                            </Grid>
+                        </Border>
+                    <!--<Border IsHitTestVisible="False" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Transparent" CornerRadius="4" Background="{StaticResource GenericOverlay}" />-->
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- LegendItemContent -->
+
+    <DataTemplate x:Key="LegendItemTemplate">
+        <StackPanel Orientation="Horizontal" Margin="1" Visibility="{Binding Series.Visibility}">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{Binding Series.LegendItemBadgeTemplate}" />
+            <ContentPresenter Content="{Binding Series.Title, TargetNullValue=Series Title}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <!-- OverlayLegendItemTemplate -->
+    <DataTemplate x:Key="OverlayLegendItemTemplate">
+        <StackPanel Orientation="Horizontal" Margin="1" Visibility="{Binding Series.Visibility}">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{Binding Series.LegendItemBadgeTemplate}" />
+            <ContentPresenter Content="{Binding Series.Title, TargetNullValue=Overlay Title}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <!-- DiscreteLegendItemContent - used for ItemLegend -->
+    <DataTemplate x:Key="DiscreteLegendItemTemplate">
+        <StackPanel Orientation="Horizontal" Margin="1" Visibility="{Binding Series.Visibility}">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{Binding Series.LegendItemBadgeTemplate}" />
+            <ContentPresenter Content="{Binding ItemLabel, TargetNullValue=Series Item}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <!-- PieChartLegendItem-->
+    <DataTemplate x:Key="PieLegendItemTemplate">
+        <StackPanel Orientation="Horizontal" Margin="1" Visibility="{Binding Series.Visibility}">
+            <ContentPresenter Content="{Binding}" ContentTemplate="{Binding Series.LegendItemBadgeTemplate}"/>
+            <ContentPresenter Content="{Binding ItemLabel, TargetNullValue=Pie Item}"/>
+        </StackPanel>
+    </DataTemplate>
+
+    <!-- PieChartLegendItemBadge-->
+    <DataTemplate x:Key="PieChartLegendItemBadgeTemplate">
+        <ContentPresenter Width="11" Height="11" Margin="0 0 2 0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                              Content="{Binding}">
+            <ContentPresenter.ContentTemplate>
+                <DataTemplate>
+                    <Rectangle Stroke="{Binding Slice.BorderBrush}"
+                               Fill="{Binding Slice.Background}"
+                               StrokeThickness="{Binding Slice.StrokeThickness}"
+                               Effect="{Binding Slice.Effect}"
+                               />
+                </DataTemplate>
+            </ContentPresenter.ContentTemplate>
+        </ContentPresenter>
+    </DataTemplate>
+
+    <!-- FunnelChartLegendItemBadge-->
+    <DataTemplate x:Key="FunnelChartLegendItemBadgeTemplate">
+        <ContentPresenter Width="11" Height="11" Margin="0 0 2 0" VerticalAlignment="Center" HorizontalAlignment="Center"
+                              Content="{Binding}">
+            <ContentPresenter.ContentTemplate>
+                <DataTemplate>
+                    <Rectangle Stroke="{Binding ItemOutline}"
+                               Fill="{Binding ItemBrush}"
+                               />
+                </DataTemplate>
+            </ContentPresenter.ContentTemplate>
+        </ContentPresenter>
+    </DataTemplate>
+
+    <!-- LegendItem -->
+
+    <DataTemplate x:Key="LegendItemRectBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.ActualBrush}" Stroke="{Binding Series.ActualOutline}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 5" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="0, 14"/>
+                                <LineSegment Point="11, 14"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="16, 9"/>
+                                <LineSegment Point="16, 0"/>
+                                <LineSegment Point="5, 0"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="0, 5"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <ContentPresenter Width="11" Height="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 2 0"
+                    ContentTemplate="{Binding Series.ActualMarkerTemplate}" Content="{Binding}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemMarkerlessRectBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.ActualBrush}" Stroke="{Binding Series.ActualOutline}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 5" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="0, 14"/>
+                                <LineSegment Point="11, 14"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="16, 9"/>
+                                <LineSegment Point="16, 0"/>
+                                <LineSegment Point="5, 0"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="0, 5"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemLineBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <Line VerticalAlignment="Center" HorizontalAlignment="Center"
+                    X1="0" Y1="0" X2="16" Y2="0"
+                    Stroke="{Binding Series.ActualBrush}" StrokeThickness="{Binding Series.Thickness}"
+                    StrokeEndLineCap="{Binding Series.EndCap}" StrokeStartLineCap="{Binding Series.StartCap}"
+                    Effect="{Binding Series.Effect}" />
+            <ContentPresenter Width="11" Height="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 2 0"
+                    ContentTemplate="{Binding Series.ActualMarkerTemplate}" Content="{Binding}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemMarkerlessLineBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <Line VerticalAlignment="Center" HorizontalAlignment="Center"
+                    X1="0" Y1="0" X2="16" Y2="0"
+                    Stroke="{Binding Series.ActualBrush}" StrokeThickness="{Binding Series.Thickness}"
+                    StrokeEndLineCap="{Binding Series.EndCap}" StrokeStartLineCap="{Binding Series.StartCap}"
+                    Effect="{Binding Series.Effect}" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemPointBadgeTemplate">
+        <ContentPresenter Width="11" Height="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 2 0"
+                ContentTemplate="{Binding Series.ActualMarkerTemplate}" Content="{Binding}"/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemFinancialBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <!-- rising path -->
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.ActualBrush}" Stroke="{Binding Series.ActualOutline}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 5" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="0, 14"/>
+                                <LineSegment Point="16, 0"/>
+                                <LineSegment Point="5, 0"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="0, 5"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.NegativeBrush}" Stroke="{Binding Series.ActualOutline}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 14" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="11, 14"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="16, 9"/>
+                                <LineSegment Point="16, 0"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemFinancialIndicatorBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <!-- rising path -->
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.ActualBrush}" Stroke="Black" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 5" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="0, 14"/>
+                                <LineSegment Point="16, 0"/>
+                                <LineSegment Point="5, 0"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="0, 5"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.NegativeBrush}" Stroke="Black" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 14" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="11, 14"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="16, 9"/>
+                                <LineSegment Point="16, 0"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemPositiveNegativeBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <!-- rising path -->
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.ActualBrush}" Stroke="{Binding Series.ActualOutline}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 5" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="0, 14"/>
+                                <LineSegment Point="16, 0"/>
+                                <LineSegment Point="5, 0"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="0, 5"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" Fill="{Binding Series.NegativeBrush}" Stroke="{Binding Series.ActualOutline}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 14" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="11, 14"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="16, 9"/>
+                                <LineSegment Point="16, 0"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+		<!-- check waterfall series if there is anything wrong with its legend item badge template-->
+            <ContentPresenter Width="11" Height="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 0 2 0"
+                    ContentTemplate="{Binding Series.ActualMarkerTemplate}" Content="{Binding}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="LegendItemHighDensityBadgeTemplate">
+        <Grid Width="18" Height="16" Margin="0 0 2 0" >
+            <!-- rising path -->
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Fill>
+                    <SolidColorBrush Color="{Binding Series.HeatMaximumColor}" />
+                </Path.Fill>
+                <Path.Stroke>
+                    <SolidColorBrush Color="{Binding Series.HeatMaximumColor}" />
+                </Path.Stroke>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 5" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="0, 14"/>
+                                <LineSegment Point="16, 0"/>
+                                <LineSegment Point="5, 0"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="0, 5"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+
+            <Path Width="16" Height="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Effect="{Binding Series.Effect}" StrokeThickness="{Binding Series.Thickness}">
+                <Path.Fill>
+                    <SolidColorBrush Color="{Binding Series.HeatMinimumColor}" />
+                </Path.Fill>
+                <Path.Stroke>
+                    <SolidColorBrush Color="{Binding Series.HeatMinimumColor}" />
+                </Path.Stroke>
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0, 14" IsFilled="True">
+                            <PathFigure.Segments>
+                                <LineSegment Point="11, 14"/>
+                                <ArcSegment Size="5, 5" IsLargeArc="False" Point="16, 9"/>
+                                <LineSegment Point="16, 0"/>
+                            </PathFigure.Segments>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Grid>
+    </DataTemplate>
+
+    <Style TargetType="local:ItemLegend">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+            <Setter Property="Background" Value="{StaticResource LegendBackground}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource GenericBorder}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="local:ItemLegend">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="15" />
+                              <ColumnDefinition Width="*" />
+                              <ColumnDefinition Width="15" />
+                            </Grid.ColumnDefinitions>
+                             <Rectangle StrokeThickness="1" Grid.Column="2" Fill="{StaticResource LegendShadowRightBackgroundBrush}" />
+                              <Rectangle StrokeThickness="1" Fill="{StaticResource LegendShadowLeftBackgroundBrush}" />
+                            
+                              <Border Grid.Column="1" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" Background="{TemplateBinding Background}">
+
+                                    <Grid Margin="{TemplateBinding Padding}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Rectangle Fill="Transparent" Grid.RowSpan="2"/>
+                                    <ContentPresenter Grid.Row="0" Content="{TemplateBinding Content}"/>
+                                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderThickness="0" Background="Transparent">
+                                        <ContentPresenter Grid.Row="1" x:Name="ContentPresenter"/>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Border>
+                            <!--<Border IsHitTestVisible="False" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Transparent" CornerRadius="4" Background="{StaticResource GenericOverlay}" />-->
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <DataTemplate x:Key="ScaleLegendTemplate">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Polygon x:Name="LegendScale"
+                     Points="3 0, 5 0, 5 1, 0 1, 3 0"
+                     Stretch="Fill"
+                     Grid.Column="0"
+                     Margin="2,2,5,2"
+                     >
+                <Polygon.Fill>
+                    <LinearGradientBrush>
+                        <GradientStop Color="White" Offset="0"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Polygon.Fill>
+            </Polygon>
+            <TextBlock Text="Min" Grid.Column="1" VerticalAlignment="Top"/>
+            <TextBlock Text="Max" Grid.Column="1" VerticalAlignment="Bottom"/>
+        </Grid>
+    </DataTemplate>
+
+    <Style TargetType="local:ScaleLegend">
+        <Style.Setters>
+            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+            <Setter Property="Background" Value="{StaticResource LegendBackground}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource GenericBorder}"/>
+            <Setter Property="BorderThickness" Value="0.75"/>
+            <Setter Property="Padding" Value="4"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MinHeight" Value="50"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="local:ScaleLegend">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                              <ColumnDefinition Width="15" />
+                              <ColumnDefinition Width="*" />
+                              <ColumnDefinition Width="15" />
+                            </Grid.ColumnDefinitions>
+                            <Rectangle StrokeThickness="1" Grid.Column="2" Fill="{StaticResource LegendShadowRightBackgroundBrush}" />
+                            <Rectangle StrokeThickness="1" Fill="{StaticResource LegendShadowLeftBackgroundBrush}" />
+                            <Border Grid.Column="1" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" Background="{TemplateBinding Background}">
+
+                                <Grid Margin="{TemplateBinding Padding}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Rectangle Fill="Transparent" Grid.RowSpan="2"/>
+                                    <ContentPresenter Grid.Row="0" Content="{TemplateBinding Content}"/>
+                                    <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" BorderThickness="0">
+                                        <ContentPresenter Grid.Row="1" x:Name="ContentPresenter">
+                                            <ContentPresenter.Content>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition/>
+                                                        <ColumnDefinition/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Polygon x:Name="LegendScale"
+                                                         Points="3 0, 5 0, 5 1, 0 1, 3 0"
+                                                         Stretch="Fill"
+                                                         Grid.Column="0"
+                                                         Margin="2,2,5,2"
+                                                         >
+                                                        <Polygon.Fill>
+                                                            <LinearGradientBrush>
+                                                                <GradientStop Color="White" Offset="0"/>
+                                                                <GradientStop Color="Black" Offset="1"/>
+                                                            </LinearGradientBrush>
+                                                        </Polygon.Fill>
+                                                    </Polygon>
+                                                    <TextBlock x:Name="MinText" Text="Min" Grid.Column="1" VerticalAlignment="Top"/>
+                                                    <TextBlock x:Name="MaxText" Text="Max" Grid.Column="1" VerticalAlignment="Bottom"/>
+                                                </Grid>
+                                            </ContentPresenter.Content>
+                                        </ContentPresenter>
+                                    </ScrollViewer>
+                                </Grid>
+                            </Border>
+                            <!--<Border IsHitTestVisible="False" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="Transparent" CornerRadius="4" Background="{StaticResource GenericOverlay}" />-->
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+    </Style>
+
+    <!--
+    <DataTemplate x:Key="LegendItemColorTemplate">
+        <local:ColorScaleLegendItem Width="100"
+                                    Height="50"
+                                    Scale="{Binding Series.Scale}" />
+    </DataTemplate>
+
+    <Style TargetType="local:ColorScaleLegendItem" >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ColorScaleLegendItem">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter x:Name="ContentPresenter" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    -->
+    <!-- Chart preview path style -->
+
+    <Style x:Key="PreviewPathStyle" TargetType="Path">
+        <Setter Property="Fill" Value="{StaticResource GenericBackground}"/>
+        <Setter Property="Opacity" Value="0.4"/>
+    </Style>
+
+    <!-- Chart crosshair line style -->
+
+    <Style x:Key="CrosshairLineStyle" TargetType="Line">
+        <Setter Property="Stroke" Value="{StaticResource GenericBorder}"/>
+        <Setter Property="StrokeThickness" Value="1.4"/>
+        <Setter Property="shared:SafeSetters.Setters">
+            <Setter.Value>
+                <shared:SafeSetterCollection>
+                    <shared:SafeSetter PropertyName="Effect">
+                        <shared:SafeSetter.ValueAsXamlString>
+                            &lt;DropShadowEffect xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Opacity="0.3"/&gt;
+                        </shared:SafeSetter.ValueAsXamlString>
+                    </shared:SafeSetter>
+                </shared:SafeSetterCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Chart -->
+    <ig:SRProvider x:Key="Strings" />
+    <Style TargetType="local:XamDataChart" >
+        <Setter Property="TitleForeground" Value="{StaticResource AxisTitleBrush}" />
+        <Setter Property="TitleFontSize" Value="16" />
+        <Setter Property="TitleFontStyle" Value="Normal" />
+        <Setter Property="TitleFontFamily" Value="Verdana" />
+        <Setter Property="TitleHorizontalAlignment" Value="Center" />
+        <Setter Property="TitleMargin" Value="0 0 0 5" />
+        <Setter Property="SubtitleForeground" Value="{StaticResource AxisTitleBrush}" />
+        <Setter Property="SubtitleFontSize" Value="12" />
+        <Setter Property="SubtitleFontStyle" Value="Normal" />
+        <Setter Property="SubtitleFontFamily" Value="Verdana"/>
+        <Setter Property="SubtitleHorizontalAlignment" Value="Center" />
+        <Setter Property="SubtitleMargin" Value="0 0 0 5" />
+        <Setter Property="Brushes" Value="{StaticResource ChartBrushes}"/>
+        <Setter Property="MarkerBrushes" Value="{StaticResource ChartBrushes}"/>
+        <Setter Property="Outlines" Value="{StaticResource ChartOutlines}"/>
+        <Setter Property="MarkerOutlines" Value="{StaticResource ChartOutlines}" />
+        <Setter Property="CircleMarkerTemplate" Value="{StaticResource CircleMarkerTemplate}"/>
+        <Setter Property="TriangleMarkerTemplate" Value="{StaticResource TriangleMarkerTemplate}"/>
+        <Setter Property="PyramidMarkerTemplate" Value="{StaticResource PyramidMarkerTemplate}"/>
+        <Setter Property="SquareMarkerTemplate" Value="{StaticResource SquareMarkerTemplate}"/>
+        <Setter Property="DiamondMarkerTemplate" Value="{StaticResource DiamondMarkerTemplate}"/>
+        <Setter Property="PentagonMarkerTemplate" Value="{StaticResource PentagonMarkerTemplate}"/>
+        <Setter Property="HexagonMarkerTemplate" Value="{StaticResource HexagonMarkerTemplate}"/>
+        <Setter Property="TetragramMarkerTemplate" Value="{StaticResource TetragramMarkerTemplate}"/>
+        <Setter Property="PentagramMarkerTemplate" Value="{StaticResource PentagramMarkerTemplate}"/>
+        <Setter Property="HexagramMarkerTemplate" Value="{StaticResource HexagramMarkerTemplate}"/>
+
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="PlotAreaMinWidth" Value="50"/>
+        <Setter Property="PlotAreaMinHeight" Value="50"/>
+        <Setter Property="Padding" Value="2"/>
+
+        <Setter Property="PlotAreaBackground" Value="{StaticResource ChartPlotAreaBackgroundBrush}" />
+        <Setter Property="DefaultPlotAreaBorderBrush" Value="{StaticResource GenericBorder}"/>
+        <Setter Property="PlotAreaBorderBrush" Value="{x:Null}"/>
+        <Setter Property="PlotAreaBorderThickness" Value="0.5"/>
+        <Setter Property="PreviewPathStyle" Value="{StaticResource PreviewPathStyle}"/>
+        <Setter Property="CrosshairLineStyle" Value="{StaticResource CrosshairLineStyle}"/>
+        <Setter Property="CrosshairVisibility" Value="Collapsed" />
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}"/>
+        <Setter Property="CrosshairTooltipStyle" Value="{StaticResource ToolTipNoBadgeStyle}" />
+        <Setter Property="CrosshairTooltipItemTemplate" Value="{StaticResource CrosshairTooltipItemTemplate}" />
+
+        <Setter Property="DefaultAxisStroke" Value="{StaticResource AxisBorderBrush}"/>
+        <Setter Property="DefaultAxisMajorStroke" Value="{StaticResource AxisMajorBorderBrush}"/>
+        <!--<Setter Property="DefaultAxisMinorStroke" Value="{StaticResource AxisMajorBorderBrush}"/>-->
+        <Setter Property="OverviewPlusDetailPaneStyle">
+            <Setter.Value>
+                <Style TargetType="ig:XamOverviewPlusDetailPane">
+                    <Setter Property="ZoomTo100ButtonVisibility" Value="Collapsed" />
+                    <Setter Property="InteractionStatesToolVisibility" Value="Visible" />
+                    <Setter Property="ScaleToFitButtonToolTip" Value="{Binding OPD_ScaleToFit_SeriesViewer, Source={StaticResource Strings}}" />
+                    <Setter Property="ZoomLevelLargeChange" Value="0.2" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamDataChart">
+                    <Grid x:Name="RootLayout" UseLayoutRounding="False">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="MouseStates">
+                                <VisualState x:Name="Idle">
+                                </VisualState>
+                                <VisualState x:Name="Dragging">
+                                </VisualState>
+                                <VisualState x:Name="Panning">
+                                </VisualState>
+                                <VisualState x:Name="Inking">
+                                </VisualState>
+                                <VisualState x:Name="Erasing">
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid Margin="2" >
+                                <ContentPresenter x:Name="ContentPresenter" Margin="{TemplateBinding Padding}" />
+                                <Rectangle x:Name="Overlay" IsHitTestVisible="False">
+                                    <Rectangle.Fill>
+                                        <ImageBrush/>
+                                    </Rectangle.Fill>
+                                </Rectangle>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Axis -->
+
+    <Style TargetType="local:Axis" x:Key="Axis">
+ 	<!--- check why we dont have 	-->
+	<Setter Property="TickStrokeThickness" Value="1" />
+	<Setter Property="TickStroke" Value="#FF989EA3"/>
+	<Setter Property="Stroke" Value="{x:Null}" />
+        <Setter Property="StrokeThickness" Value="1"/>
+        <!-- <Setter Property="StrokeDashArray" Value="1 2 3 4"/> -->
+        <!-- <Setter Property="Strip" Value="#2080ff80"/> -->
+         <Setter Property="MajorStroke" Value="{x:Null}" />
+        <Setter Property="MajorStrokeThickness" Value="1.00" />
+        <!-- <Setter Property="MajorStrokeDashArray" Value="1 2 3 4"/> -->
+        <!-- <Setter Property="MinorStroke" Value="#80604000" /> -->
+        <Setter Property="MinorStrokeThickness" Value="0.70" />
+        <!-- <Setter Property="MinorStrokeDashArray" Value="1 2 3 4"/> -->
+        <Setter Property="IsInverted" Value="false" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Axis">
+                    <Canvas x:Name="RootCanvas"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:CategoryXAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="TickLength" Value="5"/>
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Margin="0 5 0 5" Foreground="{StaticResource AxisLabelsBrush}" Location="OutsideBottom" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TitleSettings">
+            <Setter.Value>
+                <local:TitleSettings FontSize="12" FontFamily="Verdana" Angle="0" Foreground="{StaticResource AxisTitleBrush}" Position="Auto"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:CategoryYAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="TickLength" Value="5"/>
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Margin="5 0 5 0" Foreground="{StaticResource AxisLabelsBrush}" Location="OutsideLeft" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TitleSettings">
+            <Setter.Value>
+                <local:TitleSettings FontSize="12" FontFamily="Verdana" Angle="-90" Foreground="{StaticResource AxisTitleBrush}" Position="Auto"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:NumericXAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Margin="0 5 0 5" Foreground="{StaticResource AxisLabelsBrush}" Location="OutsideBottom" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TitleSettings">
+            <Setter.Value>
+                <local:TitleSettings FontSize="12" FontFamily="Verdana" Angle="0" Foreground="{StaticResource AxisTitleBrush}" Position="Auto"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:NumericYAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Margin="5 0 5 0" Foreground="{StaticResource AxisLabelsBrush}" Location="OutsideLeft" />
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TitleSettings">
+            <Setter.Value>
+                <local:TitleSettings FontSize="12" FontFamily="Verdana" Angle="-90" Foreground="{StaticResource AxisTitleBrush}" Position="Auto"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:CategoryAngleAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Foreground="{StaticResource AxisLabelsBrush}" Location="InsideTop" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:NumericAngleAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Foreground="{StaticResource AxisLabelsBrush}" Location="InsideTop" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:NumericRadiusAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Foreground="{StaticResource AxisLabelsBrush}" Location="InsideBottom" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:CategoryDateTimeXAxis" BasedOn="{StaticResource Axis}">
+        <Setter Property="TickLength" Value="5"/>
+        <Setter Property="LabelSettings">
+            <Setter.Value>
+                <local:AxisLabelSettings FontSize="12" FontFamily="Verdana" Margin="0 5 0 5" Foreground="{StaticResource AxisLabelsBrush}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TitleSettings">
+            <Setter.Value>
+                <local:TitleSettings FontSize="12" FontFamily="Verdana" Angle="0" Foreground="{StaticResource AxisTitleBrush}" Position="Auto"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="Series" TargetType="local:Series">
+        <Setter Property="AreaFillOpacity" Value="0.7"/>
+        <Setter Property="MinWidth" Value="8"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="MinHeight" Value="8"/>
+        <Setter Property="ShadowOpacity" Value="0.4"/>
+        <Setter Property="ShadowColor" Value="Black"/>
+        <Setter Property="ShadowBlur" Value="5"/>
+        <Setter Property="ShadowDepth" Value="5"/>
+        <Setter Property="ShadowDirection" Value="315"/>
+        <!-- do not set a default value for Outline, or else the XamDataChart.Outlines property will be ineffective. -->
+        <Setter Property="LegendItemTemplate" Value="{StaticResource LegendItemTemplate}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Series">
+                    <Canvas x:Name="RootCanvas">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <!-- <Storyboard>
+                                        <DoubleAnimation
+											Storyboard.TargetName="RootCanvas"
+											Storyboard.TargetProperty="Opacity"
+											To="0.75"
+											Duration="0:0:0.4"/>
+                                    </Storyboard> -->
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <!-- <Storyboard>
+                                        <DoubleAnimation
+											Storyboard.TargetName="RootCanvas"
+											Storyboard.TargetProperty="Opacity"
+											To="1.0"
+											Duration="0:0:0.2"/>
+                                    </Storyboard> -->
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- <Style TargetType="local:PieSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPointBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+    </Style>
+
+    <Style TargetType="local:DoughnutSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPointBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+    </Style>
+
+    <Style TargetType="local:PointSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPointBadgeTemplate}"/>
+
+        <Setter Property="LegendItemColorTemplate" Value="{StaticResource LegendItemColorTemplate}" />
+
+        <Setter Property="MarkerType" Value="Automatic"/>
+        <Setter Property="Resolution" Value="4"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Series">
+                    <Canvas x:Name="RootCanvas">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+-->
+    <Style TargetType="local:ColumnSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:BarSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="45"/>
+    </Style>
+
+    <Style TargetType="local:WaterfallSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPositiveNegativeBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:RangeColumnSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+    </Style>
+
+    <Style TargetType="local:StepLineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:LineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:SplineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:StepAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="0"/>
+    </Style>
+
+    <Style TargetType="local:AreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="0"/>
+        <Setter Property="ShadowDirection" Value="90"/>
+    </Style>
+
+    <Style TargetType="local:SplineAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="0"/>
+        <Setter Property="ShadowDirection" Value="90"/>
+    </Style>
+
+    <Style TargetType="local:RangeAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+    </Style>
+
+    <Style TargetType="local:PointSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPointBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <!-- *********************************  STACKED SERIES  ********************************* -->
+
+    <Style TargetType="local:StackedColumnSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:StackedBarSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="135"/>
+    </Style>
+
+    <Style TargetType="local:Stacked100ColumnSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:Stacked100BarSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="135"/>
+    </Style>
+
+    <Style TargetType="local:StackedLineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="Automatic"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:Stacked100LineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="Automatic"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:StackedSplineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="Automatic"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:Stacked100SplineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="Automatic"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:StackedAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="90"/>
+    </Style>
+
+    <Style TargetType="local:StackedSplineAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="90"/>
+    </Style>
+
+    <Style TargetType="local:Stacked100AreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="90"/>
+    </Style>
+
+    <Style TargetType="local:Stacked100SplineAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="90"/>
+    </Style>
+
+    <Style TargetType="local:ColumnFragment" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:BarFragment" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:LineFragment" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:SplineFragment" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:AreaFragment" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+    </Style>
+
+    <Style TargetType="local:SplineAreaFragment" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+    </Style>
+
+    <!-- *********************************  SCATTERLINE  ********************************* -->
+
+    <Style TargetType="local:ScatterSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPointBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Series">
+                    <Canvas x:Name="RootCanvas">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:HighDensityScatterSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemHighDensityBadgeTemplate}"/>
+        <Setter Property="Resolution" Value="4" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Series">
+                    <Canvas x:Name="RootCanvas">
+                        
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:ScatterLineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="Resolution" Value="5"/>
+        <Setter Property="MarkerType" Value="Automatic" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Series">
+                    <Canvas x:Name="RootCanvas">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:ScatterSplineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="Resolution" Value="5"/>
+        <Setter Property="MarkerType" Value="Automatic" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Series">
+                    <Canvas x:Name="RootCanvas">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Bubble Series -->
+    <Style TargetType="local:BubbleSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPointBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic" />
+        <Setter Property="LegendItemTemplate" Value="{StaticResource LegendItemTemplate}"/>
+        <Setter Property="DiscreteLegendItemTemplate" Value="{StaticResource DiscreteLegendItemTemplate}"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Series">
+                    <Canvas x:Name="RootCanvas">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ********************************************************************************************************************** -->
+    <Style TargetType="local:FinancialPriceSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialBadgeTemplate}"/>
+        <Setter Property="Resolution" Value="2"/>
+        <Setter Property="DisplayType" Value="OHLC" />
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+        <Setter Property="Opacity" Value="1"/>
+        <Setter Property="Outline" Value="#FF222222"/>
+        <Setter Property="Thickness" Value="1"/>
+    </Style>
+
+    <Style TargetType="local:BollingerBandsOverlay" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessRectBadgeTemplate}"/>
+        <Setter Property="DashArray" Value="2 4 8 4" />
+        <Setter Property="Thickness" Value="1" />
+    </Style>
+
+    <Style TargetType="local:PriceChannelOverlay" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessRectBadgeTemplate}"/>
+        <Setter Property="Thickness" Value="1" />
+    </Style>
+
+    <Style TargetType="local:AbsoluteVolumeOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:AccumulationDistributionIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:AverageTrueRangeIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:CommodityChannelIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:ForceIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Area"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:MoneyFlowIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Area"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:MovingAverageConvergenceDivergenceIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Area"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+
+        <Setter Property="TrendLineBrush" Value="Blue" />
+        <Setter Property="TrendLineType" Value="ExponentialAverage" />
+        <Setter Property="TrendLinePeriod" Value="9" />
+    </Style>
+
+    <Style TargetType="local:OnBalanceVolumeIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:PercentagePriceOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:PercentageVolumeOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:PriceVolumeTrendIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:RateOfChangeAndMomentumIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:TypicalPriceIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:MarketFacilitationIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Area"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:RelativeStrengthIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Area"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:WeightedCloseIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:MedianPriceIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:DetrendedPriceOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:EaseOfMovementIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:MassIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:NegativeVolumeIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:PositiveVolumeIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:AverageDirectionalIndexIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:BollingerBandWidthIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:ChaikinVolatilityIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:ChaikinOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:StandardDeviationIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:TRIXIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+
+        <Setter Property="TrendLineBrush" Value="Blue" />
+        <Setter Property="TrendLineType" Value="SimpleAverage" />
+        <Setter Property="TrendLinePeriod" Value="9" />
+    </Style>
+
+    <Style TargetType="local:UltimateOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:WilliamsPercentRIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:FastStochasticOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+
+        <Setter Property="TrendLineBrush" Value="Blue" />
+        <Setter Property="TrendLineType" Value="ExponentialAverage" />
+        <Setter Property="TrendLinePeriod" Value="3" />
+    </Style>
+
+    <Style TargetType="local:SlowStochasticOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+
+        <Setter Property="TrendLineBrush" Value="Blue" />
+        <Setter Property="TrendLineType" Value="ExponentialAverage" />
+        <Setter Property="TrendLinePeriod" Value="3" />
+    </Style>
+
+    <Style TargetType="local:FullStochasticOscillatorIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+
+        <Setter Property="TrendLineBrush" Value="Blue" />
+        <Setter Property="TrendLineType" Value="ExponentialAverage" />
+        <Setter Property="TrendLinePeriod" Value="3" />
+    </Style>
+
+    <Style TargetType="local:CustomIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:StochRSIIndicator" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemFinancialIndicatorBadgeTemplate}"/>
+        <Setter Property="DisplayType" Value="Line"/>
+        <Setter Property="NegativeBrush" Value="{StaticResource NegativeBrush}"/>
+    </Style>
+
+    <Style TargetType="local:PolarLineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:PolarSplineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:PolarScatterSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemPointBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:PolarAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:RadialLineSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:PolarSplineAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="Automatic"/>
+    </Style>
+
+    <Style TargetType="local:RadialAreaSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="0"/>
+    </Style>
+
+    <Style TargetType="local:RadialColumnSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+    </Style>
+
+    <Style TargetType="local:RadialPieSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Resolution" Value="4"/>
+    </Style>
+
+    <Style TargetType="local:ValueOverlay" BasedOn="{StaticResource Series}" >
+        <Setter Property="LegendItemTemplate" Value="{StaticResource OverlayLegendItemTemplate}"/>
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessLineBadgeTemplate}"/>
+    </Style>
+
+    <Style TargetType="local:CrosshairLayer" BasedOn="{StaticResource Series}" >
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessLineBadgeTemplate}"/>
+    </Style>
+
+    <Style TargetType="local:CategoryHighlightLayer" BasedOn="{StaticResource Series}" >
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessRectBadgeTemplate}"/>
+    </Style>
+
+    <Style TargetType="local:CategoryItemHighlightLayer" BasedOn="{StaticResource Series}" >
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessRectBadgeTemplate}"/>
+    </Style>
+
+    <Style x:Key="PointerToolTipStyle" TargetType="local:PointerTooltip">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:PointerTooltip">
+                    <Canvas x:Name="PART_RootCanvas">
+                        <ContentControl 
+                            Canvas.Left="{Binding Path=ActualBoxTopLeftPosition.X, RelativeSource={RelativeSource TemplatedParent}}"
+                            Canvas.Top="{Binding Path=ActualBoxTopLeftPosition.Y, RelativeSource={RelativeSource TemplatedParent}}"
+                            x:Name="PART_CONTENT" Style="{TemplateBinding ToolTipStyle}">
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </ContentControl>
+
+                        <Polygon
+                            x:Name="PART_POINTER"
+                            Fill="{StaticResource TooltipPointerBackgroundBrush}"
+                            StrokeLineJoin="Bevel"
+                            Visibility="{TemplateBinding PointerVisibility}">
+                        </Polygon>
+
+                        <Polyline
+                            x:Name="PART_POINTEROUTLINE"
+                            StrokeLineJoin="Bevel"
+                            Stroke="{StaticResource GenericBorder}"
+                            StrokeThickness="1"
+                            Visibility="{TemplateBinding PointerVisibility}">
+                        </Polyline>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:ItemToolTipLayer" BasedOn="{StaticResource Series}" >
+        <Setter Property="Brush" Value="Gray" />
+        <Setter Property="Outline" Value="LightGray" />
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessRectBadgeTemplate}"/>
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipNoBadgeStyle}" />
+        <Setter Property="PointerToolTipStyle" Value="{StaticResource PointerToolTipStyle}" />
+    </Style>
+
+    <Style TargetType="local:CategoryToolTipLayer" BasedOn="{StaticResource Series}" >
+        <Setter Property="Brush" Value="Gray" />
+        <Setter Property="Outline" Value="LightGray" />
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemMarkerlessRectBadgeTemplate}"/>
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipNoBadgeStyle}" />
+        <Setter Property="PointerToolTipStyle" Value="{StaticResource PointerToolTipStyle}" />
+    </Style>
+
+    
+    <Style TargetType="local:PieChartBase" x:Key="PieChartBase">
+        <Setter Property="Brushes" Value="{StaticResource ChartBrushes}"/>
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}"/>
+        <Setter Property="LegendItemTemplate" Value="{StaticResource PieLegendItemTemplate}"/>
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource PieChartLegendItemBadgeTemplate}"/>
+        <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="MinHeight" Value="50"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:PieChartBase">
+                    <Grid Name="RootLayout" UseLayoutRounding="False">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid Margin="2" >
+                                <ContentPresenter x:Name="ContentPresenter" Margin="{TemplateBinding Padding}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:XamPieChart" BasedOn="{StaticResource PieChartBase}">
+
+    </Style>
+
+    <Style TargetType="local:Arc" BasedOn="{StaticResource PieChartBase}">
+      <Setter Property="MinWidth" Value="10"/>
+      <Setter Property="MinHeight" Value="10"/>
+    </Style>
+ 
+    <Style TargetType="local:XamDoughnutChart">
+        <!--<Setter Property="Brushes" Value="{StaticResource ChartBrushes}"/>
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}"/>
+        <Setter Property="LegendItemTemplate" Value="{StaticResource PieLegendItemTemplate}"/>
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource PieChartLegendItemBadgeTemplate}"/>-->
+        <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="MinHeight" Value="50"/>
+        <Setter Property="CenterDataTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <ContentControl Content="{Binding}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamDoughnutChart">
+                    <Grid Name="RootLayout" UseLayoutRounding="False">
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="4" Background="{TemplateBinding Background}">
+                            <Grid Margin="2" >
+                                <ContentPresenter x:Name="ContentPresenter" Margin="{TemplateBinding Padding}" />
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:XamFunnelChart">
+        <Setter Property="Brushes" Value="{StaticResource ChartBrushes}"/>
+        <Setter Property="Outlines" Value="{StaticResource ChartOutlines}"/>
+        <Setter Property="MinWidth" Value="200" />
+        <Setter Property="MinHeight" Value="200" />
+        <Setter Property="LegendItemTemplate" Value="{StaticResource DiscreteLegendItemTemplate}"/>
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource FunnelChartLegendItemBadgeTemplate}"/>
+
+        <Setter Property="SelectedSliceStyle">
+            <Setter.Value>
+                <Style TargetType="local:XamFunnelSlice">
+                    <Setter Property="StrokeThickness" Value="3" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="UnselectedSliceStyle">
+            <Setter.Value>
+                <Style TargetType="local:XamFunnelSlice">
+                    <Setter Property="Opacity" Value=".4" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamFunnelChart">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <local:XamFunnelView x:Name="PART_VIEW" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:XamFunnelView">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamFunnelView">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid x:Name="PART_ROOT">
+                            <Grid x:Name="PART_PLOTAREA"
+                              Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid x:Name="PART_LEFTPANEL" Grid.Column="0">
+                                    <Canvas x:Name="PART_LEFTOUTERLABELS" />
+                                </Grid>
+                                <Canvas x:Name="PART_SLICEAREA" Grid.Column="1" />
+                                <Grid x:Name="PART_RIGHTPANEL" Grid.Column="2">
+                                    <Canvas x:Name="PART_RIGHTOUTERLABELS" />
+                                </Grid>
+                                <Popup x:Name="PART_TOOLTIP" IsOpen="False">
+                                    <Border
+                                         Background="{StaticResource TooltipBackgroundBrush}" 
+                                         BorderBrush="{StaticResource TooltipBorderBrush}" 
+                                         BorderThickness="1"
+                                         CornerRadius="4"
+                                         IsHitTestVisible="False" Padding="3">
+                                        <ContentControl
+                                        x:Name="PART_TOOLTIPCONTENT" />
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:XamFunnelSlice">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamFunnelSlice">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid >
+                            <Polygon Points="{Binding Points}"
+                                 Fill="{TemplateBinding ActualFill}"
+                                 Stroke="{TemplateBinding ActualOutline}"
+                                 StrokeThickness="{TemplateBinding StrokeThickness}"
+                                 />
+                            <Canvas>
+                                <ContentPresenter
+                                    x:Name="PART_LABEL"
+                                    Visibility="{TemplateBinding LabelVisibility}">
+                                </ContentPresenter>
+                            </Canvas>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="local:RingSeries">
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}"/>
+        <Setter Property="Brushes" Value="{StaticResource ChartBrushes}"/>
+        <Setter Property="LegendItemTemplate" Value="{StaticResource PieLegendItemTemplate}"/>
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource PieChartLegendItemBadgeTemplate}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:RingSeries">
+                    <Canvas x:Name="RootCanvas">
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:HierarchicalRingSeries">
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}"/>
+        <Setter Property="Brushes" Value="{StaticResource ChartBrushes}"/>
+        <Setter Property="LegendItemTemplate" Value="{StaticResource PieLegendItemTemplate}"/>
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource PieChartLegendItemBadgeTemplate}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:HierarchicalRingSeries">
+                    <Canvas x:Name="RootCanvas">
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="local:RingControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:RingControl">
+                    <Canvas x:Name="RootCanvas">
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

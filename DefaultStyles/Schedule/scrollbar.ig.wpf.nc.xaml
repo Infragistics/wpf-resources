@@ -1,0 +1,12 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ======================== -->
+    <!-- Shared Resources         -->
+    <!-- ======================== -->
+    <ResourceDictionary.MergedDictionaries>
+        <!-- Need absolute reference as mentioned here: https://connect.microsoft.com/VisualStudio/feedback/details/487563/generic-xaml-relative-source-path-doesnt-work?wa=wsignin1.0 -->
+        <ResourceDictionary Source="/Infragistics.WPF.Controls.Schedules;component/Themes/scrollbar.ig.wpf.shared.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

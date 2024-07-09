@@ -1,0 +1,1889 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+	mc:Ignorable="d"
+	xmlns:igWindows="http://infragistics.com/Windows"
+	xmlns:editors="http://infragistics.com/Editors"	
+	xmlns:igDP="http://infragistics.com/DataPresenter"
+    >
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="DataPresenterLite_Brushes.xaml"/>
+		<!--<ResourceDictionary Source="../Editors/EditorsLite.xaml"/>
+		<ResourceDictionary Source="../Primitives/PrimitivesLite.xaml"/>-->
+	</ResourceDictionary.MergedDictionaries>
+
+
+	<!-- ____________________________________________________________________________ -->
+	<!--                                                                              -->
+	<!--                             Storyboards                                      -->
+	<!-- ____________________________________________________________________________ -->
+
+	<Storyboard x:Key="ExpandGroupByArea" Duration="0:0:1">
+		<DoubleAnimation Storyboard.TargetProperty="(igDP:GroupByAreaFieldLabel.LayoutTransform).(ScaleTransform.ScaleX)" 
+		  From="0.000001" To="1" BeginTime="0:0:0" Duration="0:0:00.5"
+		  FillBehavior="HoldEnd" />
+		<DoubleAnimation Storyboard.TargetProperty="(igDP:GroupByAreaFieldLabel.Opacity)"  
+		  From="0" To="1" BeginTime="0:0:0.5" Duration="0:0:00.5"
+		  FillBehavior="HoldEnd" />
+	</Storyboard>
+
+	<Storyboard x:Key="ExpandLabel">
+		<DoubleAnimationUsingKeyFrames 
+			Storyboard.TargetProperty="(igDP:GroupByAreaFieldLabel.LayoutTransform).(ScaleTransform.ScaleX)"
+			BeginTime="0:0:0">
+			<DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="1" />
+		</DoubleAnimationUsingKeyFrames>
+	</Storyboard>
+
+	<Storyboard x:Key="CollapseLabel">
+		<DoubleAnimationUsingKeyFrames 
+			Storyboard.TargetProperty="(igDP:GroupByAreaFieldLabel.LayoutTransform).(ScaleTransform.ScaleX)"
+			BeginTime="0:0:00">
+			<DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+		</DoubleAnimationUsingKeyFrames>
+	</Storyboard>
+
+	<!-- ____________________________________________________________________________ -->
+	<!--                                                                              -->
+	<!--                             End of Storyboards                               -->
+	<!-- ____________________________________________________________________________ -->
+
+
+	<!-- _________________________ LabelContent Style______________________________________ -->
+	<Style x:Key="LabelContentStyle" TargetType="{x:Type ContentControl}">
+		<Setter Property="Padding" Value="10,3,10,3" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ContentControl}">
+					<ContentPresenter  Margin="{TemplateBinding Padding}"
+									Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" 
+									ContentTemplate="{TemplateBinding ContentTemplate}" 
+									ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ CellPresenter __________________________________________ -->
+	<Style TargetType="{x:Type igDP:CellPresenter}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type igDP:CellPresenter}">
+          <igDP:CellPresenterLayoutElement/>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+	<!-- _________________________ CellValuePresenter __________________________________________ -->
+	<Style TargetType="{x:Type igDP:CellValuePresenter}">
+		<Setter Property="Background" Value="{StaticResource CellValueBackground}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource CellValueBorderBrush}" />
+		<Setter Property="BackgroundHover" Value="{StaticResource CellValueBackgroundHover}" />
+		<Setter Property="BorderHoverBrush" Value="{StaticResource CellValueBorderHoverBrush}" />
+		<Setter Property="BackgroundActive" Value="{StaticResource CellValueBackgroundActive}" />
+		<Setter Property="BorderActiveBrush" Value="{StaticResource CellValueBorderActiveBrush}" />
+		<Setter Property="BackgroundSelected" Value="{StaticResource CellValueBackgroundSelected}" />
+		<Setter Property="BorderSelectedBrush" Value="{StaticResource CellValueBorderSelectedBrush}" />
+		<Setter Property="BackgroundFieldSelected" Value="{StaticResource CellValueBackgroundFieldSelected}" />
+		<Setter Property="BorderFieldSelectedBrush" Value="{StaticResource CellValueBorderFieldSelectedBrush}" />
+		<Setter Property="BackgroundPrimary" Value="{StaticResource CellValueBackgroundPrimary}" />
+		<Setter Property="BorderPrimaryBrush" Value="{StaticResource CellValueBorderPrimaryBrush}" />
+		<Setter Property="Foreground" Value="{StaticResource CellValueForeground}" />
+		<Setter Property="ForegroundStyle" Value="{StaticResource CellValueForegroundStyle}" />
+		<Setter Property="ForegroundActiveStyle" Value="{StaticResource CellValueForegroundActiveStyle}" />
+		<Setter Property="ForegroundAlternateStyle" Value="{StaticResource CellValueForegroundAlternateStyle}" />
+		<Setter Property="ForegroundPrimaryStyle" Value="{StaticResource CellValueForegroundPrimaryStyle}" />
+		<Setter Property="ForegroundSelectedStyle" Value="{StaticResource CellValueForegroundSelectedStyle}" />
+		<Setter Property="ForegroundFieldSelectedStyle" Value="{StaticResource CellValueForegroundFieldSelectedStyle}" />
+		<Setter Property="ForegroundHoverStyle" Value="{StaticResource CellValueForegroundHoverStyle}" />
+		<Setter Property="CornerRadius" Value="{StaticResource CellValueCornerRadius}" />
+		<Setter Property="BorderThickness" Value="{StaticResource CellValueBorderThickness}" />
+		<Setter Property="Padding" Value="5,0,0,0" />
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:CellValuePresenter}">
+					<Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+						<Rectangle x:Name="LeftBorder" 
+							Fill="#FFBBBBBB"
+							Width="1" 
+							Margin="0,1,0,0" 
+							HorizontalAlignment="Left" 
+							VerticalAlignment="Stretch"
+							Visibility="Collapsed" />
+						<Border x:Name="MainBorder"
+							Margin="0,1,0,0"
+							CornerRadius="{TemplateBinding CornerRadius}"
+							BorderThickness="{TemplateBinding BorderThickness}" 
+							BorderBrush="{TemplateBinding BorderBrush}" 
+							Background="{TemplateBinding Background}" 
+							Grid.Row="0" />
+						<Rectangle 
+							x:Name="Active" 
+							Fill="{TemplateBinding BackgroundActive}" 
+							HorizontalAlignment="Stretch" 
+							VerticalAlignment="Stretch" 
+							Width="Auto" Height="Auto"
+							SnapsToDevicePixels="True"
+							Opacity="1" Visibility="Collapsed" StrokeThickness="1" Stroke="{TemplateBinding BorderActiveBrush}"/>
+						<ContentPresenter 
+							Name="PART_EditorSite" 
+							Content="{TemplateBinding Content}" 
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+							VerticalAlignment="Center" 
+							Margin="{TemplateBinding Padding}" 
+							Style="{TemplateBinding ForegroundStyle}"
+							/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<!-- HighlightAsPrimary -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="HighlightAsPrimary" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="MainBorder" Property="Background" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundPrimary}" />
+							<Setter TargetName="MainBorder" Property="BorderBrush" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderPrimaryBrush}" />
+							<Setter TargetName="PART_EditorSite" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundPrimaryStyle}" />
+						</MultiTrigger>
+
+						<!-- IsFieldSelected -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsFieldSelected" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="MainBorder" Property="Background" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundFieldSelected}" />
+							<Setter TargetName="MainBorder" Property="BorderBrush" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderFieldSelectedBrush}" />
+							<Setter TargetName="PART_EditorSite" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundFieldSelectedStyle}" />
+						</MultiTrigger>
+
+						<!-- IsSelected -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsSelected" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="MainBorder" Property="Background" 								
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundSelected}" />
+							<Setter TargetName="MainBorder" Property="BorderBrush" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderSelectedBrush}" />
+							<Setter TargetName="PART_EditorSite" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundSelectedStyle}" />
+							<!--<Setter Property="Visibility" Value="Visible" TargetName="LeftBorder" />-->
+						</MultiTrigger>
+
+						<!-- IsActive -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsActive" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="PART_EditorSite" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundActiveStyle}" />
+							<Setter Property="Visibility" TargetName="Active" Value="Visible"/>
+						</MultiTrigger>
+
+
+
+						<!-- IsMouseOver -->
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="MainBorder" Property="Background" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundHover}" />
+							<Setter TargetName="MainBorder" Property="BorderBrush" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderHoverBrush}" />
+							<Setter TargetName="PART_EditorSite" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundHoverStyle}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	
+	<!-- _________________________ DataRecordPresenter __________________________________________ -->
+	<Style TargetType="{x:Type igDP:DataRecordPresenter}">
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="HeaderAreaBackground" Value="{StaticResource HeaderAreaBackground}" />
+		<Setter Property="NestedContentBackground" Value="{StaticResource DRP_NestedContentBackground}" />
+		<Setter Property="Background" Value="#00FFFFFF" />
+		<Setter Property="Margin" Value="0,0,0,2" />
+		<Setter Property="TemplateGridView">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:DataRecordPresenter}">
+					<Grid x:Name="baseGrid" Background="{TemplateBinding Background}">
+						<Border
+							Visibility="Collapsed" 
+							Background="{StaticResource AddRowBackground}" 
+							BorderBrush="#FFA9A9A9" 
+							HorizontalAlignment="Stretch" 
+							x:Name="addRowFooter" 
+							VerticalAlignment="Stretch"							
+							Width="Auto" Height="Auto" 
+							Grid.Row="0" 
+							Grid.RowSpan="3"
+							BorderThickness="0,0,0,1"
+							/>
+						<Grid Margin="0">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+
+							<!-- Expansion Checkbox -->
+							<igWindows:ExpansionIndicator 
+											   x:Name="ExpansionIndicator" 
+											   Grid.Row="1" 
+											   Grid.Column="0" 
+											   Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ExpansionIndicatorVisibility}" 
+											   IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"
+									/>
+							<!--
+							<Path
+								Margin="0,0,0,0"
+								HorizontalAlignment="Center"
+								VerticalAlignment="Center"
+								Grid.Row="1"
+								Grid.Column="0"
+								Height="15"
+								Width="16"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 8,0 C8,0 9.84945297241211,5.78253173828125 9.84945297241211,5.78253173828125 9.84945297241211,5.78253173828125 16,5.729490280151367 16,5.729490280151367 16,5.729490280151367 10.992469787597656,9.250247955322266 10.992469787597656,9.250247955322266 10.992469787597656,9.250247955322266 12.944271087646484,15 12.944271087646484,15 12.944271087646484,15 8,11.393415451049805 8,11.393415451049805 8,11.393415451049805 3.0557289123535156,15 3.0557289123535156,15 3.0557289123535156,15 5.007530212402344,9.250247955322266 5.007530212402344,9.250247955322266 5.007530212402344,9.250247955322266 0,5.729490280151367 0,5.729490280151367 0,5.729490280151367 6.150547027587891,5.78253173828125 6.150547027587891,5.78253173828125 6.150547027587891,5.78253173828125 8,0 8,0 z"
+								Fill="#ffffff" Visibility="Visible" x:Name="addNewIcon" />
+							-->
+
+							<!--Margin="5,0,0,0"-->
+
+							<!-- Header Background -->
+							<!-- Added 8/2/2006 GH -->
+							<Grid x:Name="SpacerFill" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Visibility="Visible">
+								<Rectangle x:Name="fill" Margin="0,0,0,0" Fill="{TemplateBinding HeaderAreaBackground}" />
+								<Rectangle x:Name="lightLine" Opacity="0.25" Fill="#FFFFFF" VerticalAlignment="Top" Margin="0,1,0,0" Width="Auto" Height="1"/>
+								<Rectangle x:Name="darkLine" Opacity="0.4" Fill="#000000" VerticalAlignment="Top" Margin="0,0,0,0" Width="Auto" Height="1"/>
+							</Grid>
+							<!-- End Added 8/2/2006 GH -->
+							<!-- Header Content -->
+							<ContentPresenter
+											   x:Name="HeaderContentSite"
+											   Grid.Row="0" 
+											   Grid.Column="1" 
+											   Content="{TemplateBinding HeaderContent}"
+											   Visibility="Visible"
+											   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+											   VerticalAlignment="{TemplateBinding VerticalContentAlignment}" d:IsHidden="True" />
+
+							<!-- Record Content -->
+							<ContentPresenter
+											x:Name="RecordContentSite"
+											Grid.Row="1" 
+											Grid.Column="1" 
+											Content="{TemplateBinding DataContext}"
+											ContentTemplate="{TemplateBinding RecordContentAreaTemplate}"									
+											HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+											VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+							<!-- Nested Content -->
+							<Border x:Name="NestedContentSite" 
+											   Grid.Row="2" 
+											   Grid.Column="1" 
+											   Visibility="Visible"
+											   HorizontalAlignment="Left" 
+											   VerticalAlignment="Top"
+											   Background="{TemplateBinding NestedContentBackground}"
+							  >
+								<ContentPresenter 
+													 Content="{TemplateBinding NestedContent}" 
+													 Margin="10,10,0,0" />
+
+							</Border>
+						</Grid>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsAddRecord" Value="False">
+							<!-- <Setter TargetName="addNewIcon" Property="Visibility" Value="Collapsed"/> -->
+							<!--<Setter TargetName="addRecordSelectedInner" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="addRecordSelectedOuter" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="addRecordInner" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="addRecordOuter" Property="Visibility" Value="Collapsed" />-->
+							<!--
+							addRecordSelectedInner
+									addRecordSelectedeOuter
+									selectorAddRecord
+									dataChanged
+									dataChangedSelected
+									selectorDataChanged
+									addRecordInner
+									addRecordOuter-->
+						</Trigger>
+						<!--<Trigger Property="IsDataChanged" Value="False">
+							<Setter TargetName="dataChanged" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="dataChangedSelected" Property="Visibility" Value="Collapsed" />
+						</Trigger>-->
+
+						<Trigger Property="Orientation" Value="Horizontal">
+							<Setter TargetName="HeaderContentSite" Property="Grid.Row" Value="1" />
+							<Setter TargetName="HeaderContentSite" Property="Grid.Column" Value="0" />
+							<Setter TargetName="NestedContentSite" Property="Grid.Row" Value="1" />
+							<Setter TargetName="NestedContentSite" Property="Grid.Column" Value="2" />
+							<Setter TargetName="ExpansionIndicator" Property="Grid.Row" Value="0" />
+							<Setter TargetName="ExpansionIndicator" Property="Grid.Column" Value="1" />
+							<Setter TargetName="SpacerFill" Property="Grid.ColumnSpan" Value="1" />
+							<Setter TargetName="SpacerFill" Property="Grid.RowSpan" Value="3" />
+						</Trigger>
+
+						<Trigger Property="ShouldDisplayRecordContent" Value="False">
+							<Setter TargetName="RecordContentSite" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="ExpansionIndicator" Property="Grid.Row" Value="0" />
+							<Setter TargetName="ExpansionIndicator" Property="Grid.Column" Value="0" />
+						</Trigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="ShouldDisplayRecordContent" Value="False"/>
+								<Condition Property="ExpansionIndicatorVisibility" Value="Collapsed"/>
+							</MultiTrigger.Conditions>
+
+							<Setter TargetName="RecordContentSite" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="ExpansionIndicator" Property="Visibility" Value="Collapsed" />
+						</MultiTrigger>
+
+						<Trigger Property="HasHeaderContent" Value="False">
+							<Setter Property="Visibility" TargetName="SpacerFill" Value="Collapsed"/>
+							<Setter Property="Visibility" TargetName="HeaderContentSite" Value="Collapsed"/>
+						</Trigger>
+
+						<Trigger Property="HasNestedContent" Value="true">
+							<Setter TargetName="NestedContentSite" Property="Visibility" Value="Visible" />
+							<Setter TargetName="baseGrid" Property="Background" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+						</Trigger>
+
+						<Trigger Property="HasNestedContent" Value="False">
+							<Setter Property="Visibility" TargetName="NestedContentSite" Value="Collapsed"/>
+						</Trigger>
+
+						<Trigger Property="IsFixedOnTop" Value="true">
+							<Setter Property="Visibility" TargetName="addRowFooter" Value="Visible"/>
+							<Setter Property="Margin" TargetName="RecordContentSite" Value="0,2,0,2"/>
+						</Trigger>
+
+						<Trigger Property="IsFixedOnBottom" Value="true">
+							<Setter Property="Margin" Value="0,2,0,0" />
+							<Setter Property="Margin" TargetName="RecordContentSite" Value="0,2,0,2"/>
+							<Setter Property="Visibility" TargetName="addRowFooter" Value="Visible"/>
+							<Setter Property="BorderThickness" TargetName="addRowFooter" Value="0,1,0,0"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="TemplateCardView">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:DataRecordPresenter}">
+					<Grid x:Name="baseGrid" Background="{TemplateBinding Background}">
+						<!-- Record Content -->
+						<Rectangle Fill="{StaticResource CardBackground}" />
+						<ContentPresenter
+										x:Name="RecordContentSite"
+										Content="{TemplateBinding DataContext}"
+										ContentTemplate="{TemplateBinding RecordContentAreaTemplate}"									
+										HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+										VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+
+					</Grid>
+
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ DataRecordCellArea __________________________________________ -->
+	<Style TargetType="{x:Type igDP:DataRecordCellArea}">
+		<Setter Property="Background" Value="{StaticResource CellAreaBackground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource CellAreaBackgroundBorder}" />
+		<Setter Property="BackgroundHover" Value="{StaticResource CellAreaBackgroundHover}" />
+		<Setter Property="BorderHoverBrush" Value="{StaticResource CellAreaBackgroundHoverBorder}" />
+		<Setter Property="BackgroundActive" Value="{StaticResource CellAreaBackgroundActive}" />
+		<Setter Property="BorderActiveBrush" Value="{StaticResource CellAreaBackgroundActiveBorder}" />
+		<Setter Property="BackgroundAlternate" Value="{StaticResource CellAreaBackgroundAlternate}" />
+		<Setter Property="BorderAlternateBrush" Value="{StaticResource CellAreaBackgroundAlternateBorder}" />
+		<Setter Property="BackgroundSelected" Value="{StaticResource CellAreaBackgroundSelected}" />
+		<Setter Property="BorderSelectedBrush" Value="{StaticResource CellAreaBackgroundSelectedBorder}" />
+		<Setter Property="CornerRadius" Value="{StaticResource CellAreaBackgroundCornerRadius}" />
+		<Setter Property="BorderThickness" Value="{StaticResource CellAreaBackgroundBorderThickness}" />
+		<Setter Property="ForegroundStyle" Value="{StaticResource CellAreaForegroundStyle}" />
+		<Setter Property="ForegroundActiveStyle" Value="{StaticResource CellAreaForegroundActiveStyle}" />
+		<Setter Property="ForegroundAlternateStyle" Value="{StaticResource CellAreaForegroundAlternateStyle}" />
+		<Setter Property="ForegroundSelectedStyle" Value="{StaticResource CellAreaForegroundSelectedStyle}" />
+		<Setter Property="ForegroundHoverStyle" Value="{StaticResource CellAreaForegroundHoverStyle}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:DataRecordCellArea}">
+					<Border x:Name="MainBorder" 
+						Background="{TemplateBinding Background}" 
+						BorderBrush="{TemplateBinding BorderBrush}" 
+						BorderThickness="{TemplateBinding BorderThickness}"
+						CornerRadius="{TemplateBinding CornerRadius}">
+						<ContentPresenter 
+							x:Name="CellContent"
+							Style="{TemplateBinding ForegroundStyle}" 
+							Content="{TemplateBinding Content}" />
+					</Border>
+
+					<ControlTemplate.Triggers>
+
+						<Trigger Property="IsAddRecord" Value="True">
+							<Setter Property="Background" Value="Transparent" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="False">
+							<Setter Property="Background" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+							<Setter Property="BorderBrush" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderBrush}" />
+							<Setter TargetName="CellContent" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundStyle}" />
+						</Trigger>
+
+						<Trigger Property="IsActive" Value="True">
+							<Setter Property="Background" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundActive}" />
+							<Setter Property="BorderBrush" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderActiveBrush}" />
+							<Setter TargetName="CellContent" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundActiveStyle}" />
+						</Trigger>
+
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Background" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundSelected}" />
+							<Setter Property="BorderBrush" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderSelectedBrush}" />
+							<Setter TargetName="CellContent" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundSelectedStyle}" />
+						</Trigger>
+
+						<Trigger Property="IsAlternate" Value="True">
+							<Setter Property="Background" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundAlternate}" />
+							<Setter Property="BorderBrush" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderAlternateBrush}" />
+							<Setter TargetName="CellContent" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundAlternateStyle}" />
+						</Trigger>
+
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Background" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundHover}" />
+							<Setter Property="BorderBrush" TargetName="MainBorder" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderHoverBrush}" />
+							<Setter TargetName="CellContent" Property="Style" 
+								Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ForegroundHoverStyle}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ ExpandableFieldRecordPresenter ______________________________________ -->
+	<Style x:Key="latestEFRP" TargetType="{x:Type igDP:ExpandableFieldRecordPresenter}">
+		<Setter Property="FontFamily" Value="Segoe UI" />
+		<Setter Property="Foreground" Value="{StaticResource LabelContent}" />
+		<Setter Property="Margin" Value="0,0,0,5" />
+		<Setter Property="Padding" Value="0,0,0,5" />
+		<Setter Property="Background" Value="#00FFFFFF" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:ExpandableFieldRecordPresenter}">
+					<Grid Name="outerGrid" Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<!-- Row for nested content -->
+
+						<!-- Expansion Checkbox -->
+						<igWindows:ExpansionIndicator 
+						  x:Name="ExpansionIndicator"
+						  Visibility="{TemplateBinding ExpansionIndicatorVisibility}"	
+						  Grid.Column="0" Grid.Row="0" 
+						  VerticalAlignment="Center"
+						  HorizontalAlignment="Center" 
+						  IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"/>
+
+
+						<!-- Expandable Field Title -->
+						<Grid x:Name="TitleArea" Margin="0" Grid.Row="0" Grid.Column="1" 
+							Visibility="{TemplateBinding HeaderVisibility}">
+							<!-- Background Bar -->
+							<!--<Border 
+								HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+								RenderTransformOrigin="0.5,0.5" CornerRadius="2,2,2,2"
+								SnapsToDevicePixels="True"
+								Name="borderBackground"
+								Background="{StaticResource LabelHighlight}"
+								>
+							</Border>-->
+
+							<Border 
+								HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+								RenderTransformOrigin="0.5,0.5" CornerRadius="2,2,2,2"
+								Background="{StaticResource LabelBackground}"
+								Name="borderBackground"
+								>
+								<Grid Margin="0,0,0,0" Width="Auto" Height="Auto">
+									<Rectangle Stroke="{StaticResource LabelOuterBorder}" StrokeThickness="1" RadiusX="1.55015910897703" RadiusY="1.55015910897703" Fill="Transparent" />
+									<Rectangle Margin="1" Stroke="{StaticResource LabelInnerBorder}" StrokeThickness="1" RadiusX="0.550159108977027" RadiusY="0.550159108977027" Fill="Transparent" />
+								</Grid>
+							</Border>
+
+							<Border 
+								HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+								Width="Auto" 
+								Height="Auto"
+								CornerRadius="2,2,2,2"
+								Background="{StaticResource LabelHighlight}"
+								Name="borderBackgroundHighlight"
+								>
+								<Grid Margin="0,0,0,0" Width="Auto" Height="Auto">
+									<Rectangle Stroke="{StaticResource LabelOuterBorder}" StrokeThickness="1" RadiusX="1.55015910897703" RadiusY="1.55015910897703" Fill="Transparent" />
+									<Rectangle Margin="1" Stroke="{StaticResource LabelInnerBorder}" StrokeThickness="1" RadiusX="0.550159108977027" RadiusY="0.550159108977027" Fill="Transparent" />
+								</Grid>
+							</Border>
+
+							<ContentPresenter 
+								Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(igDP:RecordPresenter.Record).Description}"
+								TextBlock.TextAlignment="Right" 
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top" 
+								RenderTransformOrigin="0,0"
+								Name="cpDescription"
+								Margin="3,3,3,3"
+								>
+								<ContentPresenter.LayoutTransform>
+									<TransformGroup>
+										<RotateTransform CenterX="0" CenterY="0" Angle="0"/>
+									</TransformGroup>
+								</ContentPresenter.LayoutTransform>
+							</ContentPresenter>
+						</Grid>
+
+						<!-- Nested Content -->
+						<Grid Name="NestedContentSite" Grid.Row="0" Grid.Column="2" Visibility="Collapsed">
+							<Border
+								CornerRadius="0,0,3,3"
+								BorderBrush="{StaticResource NestedContentBackgroundBorder}"
+								BorderThickness="1"
+								Background="{StaticResource NestedContentBackground}" />
+							<Grid Margin="{TemplateBinding Padding}">
+								<ContentPresenter 
+								  Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=NestedContent}" 								  
+								  TextBlock.TextAlignment="Right"								  
+								  Margin="2,3,3,3"
+								  Name="ncpVisual"
+								  Opacity="0"
+								  />
+							</Grid>
+						</Grid>
+					</Grid>
+
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="sbDisplayNested">
+							<DoubleAnimationUsingKeyFrames
+							  BeginTime="00:00:00"
+							  Storyboard.TargetName="ncpVisual"
+							  Storyboard.TargetProperty="Opacity"
+							  FillBehavior="HoldEnd">
+								<DiscreteDoubleKeyFrame Value="0" KeyTime="00:00:00" />
+								<DiscreteDoubleKeyFrame Value="0" KeyTime="00:00:00.25" />
+								<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:0.75" />
+							</DoubleAnimationUsingKeyFrames>
+							<!--<ObjectAnimationUsingKeyFrames 
+							  BeginTime="00:00:00" 
+							  Storyboard.TargetName="ncpVisual"
+							  Storyboard.TargetProperty="(UIElement.Visibility)" >
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="00:00:00"/>
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" KeyTime="00:00:0.75"/>
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames 
+							  BeginTime="00:00:00" 
+							  Storyboard.TargetName="ncpMask"
+							  Storyboard.TargetProperty="(UIElement.Visibility)" >
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="00:00:00"/>
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" KeyTime="00:00:0.75"/>
+							</ObjectAnimationUsingKeyFrames>-->
+						</Storyboard>
+
+						<Storyboard x:Key="sbHideNested">
+							<DoubleAnimationUsingKeyFrames
+							  BeginTime="00:00:00"
+							  Storyboard.TargetName="ncpVisual"
+							  Storyboard.TargetProperty="Opacity"
+							  FillBehavior="HoldEnd">
+								<!--<DiscreteDoubleKeyFrame Value="0" KeyTime="00:00:00" />-->
+								<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00.15" />
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
+					<ControlTemplate.Triggers>
+						<Trigger Property="ShouldDisplayExpandableRecordContent" Value="false">
+							<Setter TargetName="ExpansionIndicator" Property="Visibility" Value="Hidden" />
+						</Trigger>
+
+						<Trigger Property="HasNestedContent" Value="True">
+							<Setter TargetName="NestedContentSite" Property="Visibility" Value="Visible" />
+							<Setter TargetName="borderBackground" Property="Background" Value="{StaticResource ExpandableFieldLabelBackgroundVertical}" />
+							<Setter TargetName="borderBackgroundHighlight" Property="Background" Value="{StaticResource ExpandableFieldLabelBackgroundHighlightVertical}" />
+							<Setter TargetName="ExpansionIndicator" Property="VerticalAlignment" Value="Top" />
+							<Setter TargetName="cpDescription" Property="Margin" Value="6,6,6,6" />
+							<Setter TargetName="cpDescription" Property="LayoutTransform">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform Angle="-90"/>
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource sbDisplayNested}" x:Name="NestedOn"/>
+								<StopStoryboard BeginStoryboardName="NestedOff" />
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard Storyboard="{StaticResource sbHideNested}" x:Name="NestedOff" />
+								<StopStoryboard BeginStoryboardName="NestedOn" />
+							</Trigger.ExitActions>
+						</Trigger>
+
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+	<Style TargetType="{x:Type igDP:ExpandableFieldRecordPresenter}">
+		<Setter Property="FontFamily" Value="Segoe UI" />
+		<Setter Property="Foreground" Value="#FFFFFFFF" />
+		<Setter Property="Margin" Value="0,0,0,2" />
+		<Setter Property="Padding" Value="0,0,0,5" />
+		<!--<Setter Property="Background" Value="#00FFFFFF" />-->
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:ExpandableFieldRecordPresenter}">
+					<Grid Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<!-- Row for nested content -->
+
+						<!-- Expansion Checkbox -->
+						<igWindows:ExpansionIndicator 
+						  x:Name="ExpansionIndicator"
+						  Visibility="Collapsed"		
+						  IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"/>
+
+
+						<!-- Expandable Field Title -->
+						<Border Background="#FF424242" x:Name="TitleArea" Margin="0" Grid.Row="0" Grid.Column="1" Visibility="Collapsed">
+							<ContentPresenter 
+								Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(igDP:RecordPresenter.Record).Description}" 
+								TextBlock.Foreground="{StaticResource LabelContent}"
+								Margin="10,3,10,3"
+							/>
+						</Border>
+
+						<!-- Nested Content -->
+						<ContentPresenter 
+							  Name="NestedContentSite"
+							  Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=NestedContent}" 								  
+							  TextBlock.Foreground="{StaticResource LabelContent}"							  
+							  Grid.Row="1" Grid.Column="1"
+							  />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="ShouldDisplayExpandableRecordContent" Value="true">
+							<Setter TargetName="TitleArea" Property="Visibility" Value="Visible" />
+						</Trigger>
+
+						<Trigger Property="HasNestedContent" Value="True">
+							<Setter TargetName="NestedContentSite" Property="Visibility" Value="Visible" />
+						</Trigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="HasChildData" Value="true" />
+								<Condition Property="ShouldDisplayExpandableRecordContent" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="ExpansionIndicator" Property="Visibility" Value="Visible" />
+						</MultiTrigger>
+
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ ExpandedCellPresenter __________________________________________ -->
+	<Style TargetType="{x:Type igDP:ExpandedCellPresenter}">
+		<Setter Property="Background" Value="Transparent"/>
+		<Setter Property="HorizontalContentAlignment" Value="Left"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:ExpandedCellPresenter}">
+					<Border x:Name="MainBorder"
+					  Margin="2,2,2,2"
+					  Background="{TemplateBinding Background}"
+					  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+					  VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+
+						<!-- Content -->
+						<ContentPresenter 
+						  x:Name="ContentSite"
+						  Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" 
+						  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+						  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ GroupByArea __________________________________________ -->
+	<Style TargetType="{x:Type igDP:GroupByArea}">
+		<Setter Property="FontSize" Value="12"/>
+		<Setter Property="Foreground" Value="{StaticResource GroupByAreaForeground}"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:GroupByArea}">
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="OpenGroupBy">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="GroupByCanvas" Storyboard.TargetProperty="(FrameworkElement.Height)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="80"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="CloseGroupBy">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="GroupByCanvas" Storyboard.TargetProperty="(FrameworkElement.Height)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="TurnOnInsertionPoint">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_InsertionPoint" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2500000" Value="1"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="TurnOffInsertionPoint">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" 
+								Storyboard.TargetName="PART_InsertionPoint" 
+								Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2500000" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="ShowPrompts">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="prompt1" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.5"/>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="prompt2" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2500000" Value="0.8"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="HidePrompts">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="prompt1" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.2"/>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="prompt2" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2500000" Value="0.1"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+
+						<!-- ExpanderBarArea -->
+						<igWindows:ExpanderBar 
+						  x:Name="ExpanderBarButton" 
+						  Grid.Row="0" 
+						  Height="10" 
+						  Command="{x:Static igDP:GroupByArea.ToggleExpandedState}"
+						 />
+						<!-- End ExpanderBarArea-->
+
+						<!-- Collapsible Area -->
+						<Canvas Grid.Row="1" 
+						  x:Name="GroupByCanvas" 
+						  MinHeight="0" 
+						  Height="0" 
+						  ClipToBounds="true"
+								>
+
+							<Grid x:Name="outerGrid" Width="{Binding ElementName=GroupByCanvas,Path=ActualWidth}">
+								<!-- Background Area -->
+								<Grid>
+									<Rectangle Stroke="#00000000" HorizontalAlignment="Stretch" 
+									  VerticalAlignment="Stretch" Margin="0,0,0,0" Width="Auto" Height="Auto" x:Name="Rectangle" RenderTransformOrigin="0.5,0.5"
+									  Fill="{StaticResource GroupByAreaBackground}" />
+
+									<Border HorizontalAlignment="Stretch" Margin="3,3,3,0" Width="Auto" x:Name="Border" RenderTransformOrigin="0.5,0.5" CornerRadius="4,4,0,0"
+										Background="{StaticResource GroupByAreaBackgroundHighlight}" />
+								</Grid>
+								<!-- End Background Area -->
+								<!-- Grouping Prompts -->
+								<StackPanel Orientation="Horizontal" Margin="6,12,0,0">
+									<TextBlock 
+									  x:Name="prompt1" 
+									  FontSize="24" 
+									  Text="{TemplateBinding Prompt1}" 
+									  Opacity=".5" />
+									<TextBlock 
+									  x:Name="prompt2" 
+									  Opacity=".8" 
+									  Margin="5,11.2,0,0" 
+									  Text="{TemplateBinding Prompt2}" />
+								</StackPanel>
+
+								<!-- GroupedFieldLabelsArea-->
+								<Grid 
+													    Name="PART_GroupedFieldLabelsArea"
+													    Margin="0,12,0,0"
+													    VerticalAlignment="Top">
+									<!-- GroupedFields List -->
+									<igDP:GroupByAreaFieldListBox 
+									  x:Name="GroupedFieldList" 
+									  ItemsSource="{TemplateBinding GroupedFieldLabels}" 
+												   />
+
+								</Grid>
+								<!-- End GroupedFieldLabels Area -->
+
+								<!-- AvailableFieldLabels Area -->
+								<Grid 
+								  Name="PART_AvailableFieldLabelsArea"
+								  Margin="0,49,0,15"
+								  Visibility="Visible">
+
+									<!-- AvailableField List -->
+									<igDP:GroupByAreaFieldListBox 
+									  ItemsSource="{TemplateBinding AvailableFieldLabels}" />
+								</Grid>
+								<!-- End AvailableFieldLabels Area -->
+
+								<!-- Bottom Divider Bar -->
+								<igWindows:ExpanderBar 
+								  x:Name="ExpanderBarButtonBottom" 
+								  Margin="0,73,0,0" 
+								  Height="5" 
+								  Command="{x:Static igDP:GroupByArea.ToggleExpandedState}" />
+								<!-- End Bottom Divider Bar-->
+
+								<!-- Insertion Point -->
+								<Polygon 
+									x:Name="PART_InsertionPoint"									
+									Opacity="0" 
+									Fill="#FF151C55"
+									Points="0,0 10,0 5,5"
+									StrokeEndLineCap="Round" 
+									StrokeStartLineCap="Round" 
+									StrokeLineJoin="Round" 
+									HorizontalAlignment="Left" 
+									Margin="0,12,0,0" 
+									VerticalAlignment="Top" />
+							</Grid>
+						</Canvas>
+						<!-- End Collapsible Area -->
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsExpanded" Value="true" >
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource OpenGroupBy}"/>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard x:Name="CloseGroupBy_BeginStoryboard" Storyboard="{StaticResource CloseGroupBy}"/>
+							</Trigger.ExitActions>
+						</Trigger>
+						<EventTrigger RoutedEvent="igDP:GroupByArea.ShowInsertionPoint">
+							<EventTrigger.Actions>
+								<BeginStoryboard x:Name="TurnOnInsertionPoint_BeginStoryboard" Storyboard="{StaticResource TurnOnInsertionPoint}"/>
+							</EventTrigger.Actions>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="igDP:GroupByArea.HideInsertionPoint">
+							<EventTrigger.Actions>
+								<BeginStoryboard x:Name="TurnOffInsertionPoint_BeginStoryboard" Storyboard="{StaticResource TurnOffInsertionPoint}"/>
+							</EventTrigger.Actions>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="igDP:GroupByArea.ShowPrompts">
+							<BeginStoryboard x:Name="ShowPrompts_BeginStoryboard" Storyboard="{StaticResource ShowPrompts}"/>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="igDP:GroupByArea.HidePrompts">
+							<BeginStoryboard x:Name="HidePrompts_BeginStoryboard" Storyboard="{StaticResource HidePrompts}"/>
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="btnGroupByNavRight" TargetType="{x:Type RepeatButton}">
+		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type RepeatButton}">
+					<Grid Width="25" Height="16" x:Name="grid">
+
+						<Path
+		Margin="8,1.75,8,1.75"
+		HorizontalAlignment="Stretch"
+		VerticalAlignment="Stretch"
+		Height="Auto"
+		Width="Auto"
+		Stretch="Fill"
+		Opacity="1"
+		Data="M277.50946,64.418884 C277.50946,65.154053 278.08981,65.75 278.80579,65.75 279.07928,65.75 279.3334,65.663391 279.54254,65.514893 279.54254,65.514893 285.72241,60.621033 285.72241,60.621033 285.92444,60.530396 286.0993,60.388519 286.23199,60.211304 286.23199,60.211304 286.4325,59.825409 286.4325,59.825409 286.4762,59.692078 286.5,59.549255 286.5,59.400787 286.5,58.885895 286.21527,58.439667 285.79868,58.218262 285.79868,58.218262 279.85849,53.689484&#xd;&#xa;279.85849,53.689484 279.73444,53.548218 279.58109,53.434479 279.40857,53.358124 279.40857,53.358124 279.18066,53.282745 279.18066,53.282745 279.08871,53.261566 278.99353,53.25 278.89532,53.25 278.45334,53.25 278.06287,53.477631 277.82886,53.824402 277.82886,53.824402 277.68216,54.111115 277.68216,54.111115 277.64917,54.200836 277.62518,54.294922 277.61172,54.392853 277.61172,54.392853 277.50119,54.837311 277.50119,54.837311 277.50119,54.837311&#xd;&#xa;277.5,63.858368 277.5,63.858368 277.5,63.858368 277.50946,64.248932 277.50946,64.418884 z"
+		Stroke="{TemplateBinding BorderBrush}"
+		StrokeThickness="1" Fill="{TemplateBinding Background}" x:Name="path"/>
+
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" TargetName="path" Value="{StaticResource GroupByNavBackgroundHover}"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True"/>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="MaxWidth" Value="25"/>
+		<Setter Property="MaxHeight" Value="16"/>
+		<Setter Property="MinHeight" Value="16"/>
+		<Setter Property="MinWidth" Value="25"/>
+		<Setter Property="Background" Value="{StaticResource GroupByNavBackground}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource GroupByNavBorderBrush}"/>
+	</Style>
+
+	<Style x:Key="btnGroupByNavLeft" TargetType="{x:Type RepeatButton}">
+		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type RepeatButton}">
+					<Grid Width="25" Height="16" x:Name="grid">
+						<Path
+							Width="9"
+							Stretch="Fill"
+							Opacity="1"
+							Data="M16.49054,64.418884 C16.49054,65.154053 15.910187,65.75 15.194214,65.75 14.920715,65.75 14.666595,65.663391 14.457458,65.514893 14.457458,65.514893 8.2734375,60.722826 8.2734375,60.722826 8.0714111,60.632189 7.9006958,60.388519 7.7680049,60.211304 7.7680049,60.211304 7.5675049,59.825409 7.5675049,59.825409 7.5238042,59.692078 7.5,59.549255 7.5,59.400787 7.5,58.885895 7.784729,58.439667 8.2013245,58.218262 8.2013245,58.218262 14.14151,53.689484&#xa;14.14151,53.689484 14.265564,53.548218 14.418915,53.434479 14.591431,53.358124 14.591431,53.358124 14.819336,53.282745 14.819336,53.282745 14.911285,53.261566 15.00647,53.25 15.104675,53.25 15.546661,53.25 15.937134,53.477631 16.171143,53.824402 16.171143,53.824402 16.317841,54.111115 16.317841,54.111115 16.35083,54.200836 16.374817,54.294922 16.388275,54.392853 16.388275,54.392853 16.49881,54.837311 16.49881,54.837311 16.49881,54.837311&#xa;16.5,63.858368 16.5,63.858368 16.5,63.858368 16.49054,64.248932 16.49054,64.418884 z"
+							Stroke="{TemplateBinding BorderBrush}"
+							StrokeThickness="1" Height="12.5" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Fill="{TemplateBinding Background}" x:Name="path"/>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" TargetName="path" Value="{StaticResource GroupByNavBackgroundHover}"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True"/>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="MinHeight" Value="16"/>
+		<Setter Property="MinWidth" Value="25"/>
+		<Setter Property="MaxHeight" Value="16"/>
+		<Setter Property="MaxWidth" Value="25"/>
+		<Setter Property="Background" Value="{StaticResource GroupByNavBackground}"/>
+		<Setter Property="BorderBrush" Value="{StaticResource GroupByNavBorderBrush}"/>
+	</Style>
+
+	<!-- _________________________ Custom ScrollViewer __________________________________________ -->
+	<Style x:Key="customScrollViewer"  TargetType="{x:Type ScrollViewer}">
+		<Setter Property="OverridesDefaultStyle" Value="True" />
+		<Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+		<Setter Property="VerticalScrollBarVisibility" Value="Disabled"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ScrollViewer}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="34"/>
+							<ColumnDefinition Width="0.841*"/>
+							<ColumnDefinition MinWidth="36" Width="30"/>
+						</Grid.ColumnDefinitions>
+
+						<ScrollContentPresenter Grid.Column="1" CanContentScroll="True" Content="{TemplateBinding ScrollViewer.Content}" Grid.ColumnSpan="1" />
+						<RepeatButton Content="L" Command="ScrollBar.LineLeftCommand" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource btnGroupByNavLeft}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Height="Auto" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" x:Name="repeatButton"/>
+						<RepeatButton Content="R" Command="ScrollBar.LineRightCommand" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource btnGroupByNavRight}" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="Auto" Height="Auto" Grid.Column="2" Grid.Row="0" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" x:Name="repeatButton1"/>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ GroupByAreaFieldListBox __________________________________________ -->
+	<Style TargetType="{x:Type igDP:GroupByAreaFieldListBox}">
+		<Setter Property="MinWidth" Value="0"/>
+		<Setter Property="Margin" Value="0,0,0,3" />
+		<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:GroupByAreaFieldListBox}">
+					<ScrollViewer Style="{StaticResource customScrollViewer}" CanContentScroll="true">
+						<StackPanel IsItemsHost="True" Orientation="Horizontal" Margin="{TemplateBinding Margin}"/>
+					</ScrollViewer>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="HasItems" Value="False">
+				<Setter Property="Height" Value="20" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+
+	<!-- _________________________ GroupByAreaFieldLabel __________________________________________ -->
+	<Style TargetType="{x:Type igDP:GroupByAreaFieldLabel}">
+		<Setter Property="MinHeight" Value="10" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Foreground" Value="{StaticResource GroupByLabelForeground}" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Padding" Value="6,3,6,3.5" />
+		<Setter Property="Margin" Value="0,0,1,0" />
+		<Setter Property="LayoutTransform">
+			<Setter.Value>
+				<ScaleTransform ScaleX="1" ScaleY="1"/>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:GroupByAreaFieldLabel}">
+					<Grid Margin="{TemplateBinding Margin}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+
+						<Rectangle Stroke="{StaticResource GroupByLabelBackgroundBorder}" StrokeThickness="1" RadiusX="3" RadiusY="3" Fill="{StaticResource GroupByLabelBackground}" />
+						<Rectangle x:Name="labelHighlight" StrokeThickness="1" RadiusX="3" RadiusY="3" 
+							Stroke="{StaticResource GroupByLabelHighlightBorder}" 	
+							Fill="{StaticResource GroupByLabelHighlight}" 
+							Opacity="0" />
+
+						<ContentPresenter  Margin="{TemplateBinding Padding}"
+						  Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(igDP:GroupByAreaFieldLabel.Field).Name}" />
+					</Grid>
+
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="sbHighlightOn">
+							<DoubleAnimation
+							  Storyboard.TargetName="labelHighlight"
+							  Storyboard.TargetProperty="Opacity"
+							  BeginTime="00:00:00"
+							  Duration="00:00:00.15"
+							  To="1"
+							  FillBehavior="HoldEnd"
+									/>
+						</Storyboard>
+
+						<Storyboard x:Key="sbHighlightOff">
+							<DoubleAnimation
+							  Storyboard.TargetName="labelHighlight"
+							  Storyboard.TargetProperty="Opacity"
+							  BeginTime="00:00:00"
+							  Duration="00:00:01.25"
+							  To="0"
+							  FillBehavior="HoldEnd"
+									/>
+						</Storyboard>
+					</ControlTemplate.Resources>
+
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsMouseOver" Value="true" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource sbHighlightOn}" x:Name="HighlightOn"/>
+								<StopStoryboard BeginStoryboardName="HighlightOff" />
+							</MultiTrigger.EnterActions>
+							<MultiTrigger.ExitActions>
+								<BeginStoryboard Storyboard="{StaticResource sbHighlightOff}" x:Name="HighlightOff" />
+								<StopStoryboard BeginStoryboardName="HighlightOn" />
+							</MultiTrigger.ExitActions>
+						</MultiTrigger>
+
+						<EventTrigger RoutedEvent="igDP:GroupByAreaFieldLabel.RemovedFromAvailableList">
+							<EventTrigger.Actions>
+								<BeginStoryboard Name="Shrink">
+									<Storyboard Duration="0:0:1.5">
+										<DoubleAnimation 
+										  Storyboard.TargetProperty="(igDP:GroupByAreaFieldLabel.Opacity)" 
+										  From="1" To="0" 
+										  BeginTime="0:0:0" Duration="0:0:1"
+										  FillBehavior="HoldEnd" />
+										<DoubleAnimation 
+										  Storyboard.TargetProperty="(igDP:GroupByAreaFieldLabel.LayoutTransform).(ScaleTransform.ScaleX)"
+										  From="1" To="0" 
+										  BeginTime="0:0:1" Duration="0:0:0.5"
+										  FillBehavior="HoldEnd" />
+
+									</Storyboard>
+								</BeginStoryboard>
+							</EventTrigger.Actions>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="igDP:GroupByAreaFieldLabel.AddedToAvailableList">
+							<EventTrigger.Actions>
+								<BeginStoryboard Name="Expand1" Storyboard="{StaticResource ExpandGroupByArea}"/>
+							</EventTrigger.Actions>
+						</EventTrigger>
+
+						<EventTrigger RoutedEvent="igDP:GroupByAreaFieldLabel.AddedToGroupedList">
+							<EventTrigger.Actions>
+								<BeginStoryboard Name="Expand2" Storyboard="{StaticResource ExpandGroupByArea}"/>
+							</EventTrigger.Actions>
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ GroupByRecordPresenter ______________________________________ -->
+	<Style TargetType="{x:Type igDP:GroupByRecordPresenter}">
+		<Setter Property="FontFamily" Value="Segoe UI" />
+		<Setter Property="Foreground" Value="#FFFFFFFF" />
+		<Setter Property="Background" Value="#00FFFFFF" />
+		<Setter Property="Margin" Value="0,0,0,2" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:GroupByRecordPresenter}">
+					<Grid Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<!-- Row for nested content -->
+
+						<!-- Expansion Checkbox -->
+						<igWindows:ExpansionIndicator 
+						  x:Name="ExpansionIndicator"
+						  Visibility="{TemplateBinding ExpansionIndicatorVisibility}"		
+						  IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded, Mode=TwoWay}"/>
+
+
+						<!-- Expandable Field Title -->
+						<Grid x:Name="TitleArea" Margin="0" Grid.Row="0" Grid.Column="1" Visibility="Collapsed">
+							<!-- Background Bar -->
+							<!--<igWindows:LabelBackground />-->
+							<!-- Added 8/1/2006 GH -->
+							<Border 
+								HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+								Width="Auto" 
+								Height="Auto"
+								RenderTransformOrigin="0.5,0.5" CornerRadius="2,2,2,2"
+								Background="{StaticResource LabelBackground}"
+								>
+								<!--<Border.Background>
+									<DynamicResource ResourceKey="LabelBackground"/>
+								</Border.Background>-->
+								<Grid Margin="0,0,0,0" Width="Auto" Height="Auto">
+									<Rectangle Stroke="#44000000" StrokeThickness="1" RadiusX="1.55015910897703" RadiusY="1.55015910897703" Fill="Transparent" />
+									<Rectangle Margin="1" Stroke="#44FFFFFF" StrokeThickness="1" RadiusX="0.550159108977027" RadiusY="0.550159108977027" Fill="Transparent" />
+								</Grid>
+							</Border>
+							<!-- End Added 8/1/2006 GH -->
+							<!-- End Background Bar -->
+
+							<!--<igWindows:LabelHighlight x:Name="highlight" />-->
+							<!--<igWindows:LabelHighlight x:Name="highlight" />-->
+							<Border 
+								x:Name="highlight" 
+								HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+								Width="Auto" 
+								Height="Auto"
+								CornerRadius="2,2,2,2"
+								Background="{StaticResource LabelHighlight}"
+								>
+								<Grid Margin="0,0,0,0" Width="Auto" Height="Auto">
+									<Rectangle Stroke="#44000000" StrokeThickness="1" RadiusX="1.55015910897703" RadiusY="1.55015910897703" Fill="Transparent" />
+									<Rectangle Margin="1" Stroke="#44FFFFFF" StrokeThickness="1" RadiusX="0.550159108977027" RadiusY="0.550159108977027" Fill="Transparent" />
+								</Grid>
+							</Border>
+							<!-- End Add 8/1/2006 GH-->
+
+							<!-- Label Text -->
+							<ContentControl 
+								Style="{StaticResource LabelContentStyle}"
+								Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(igDP:RecordPresenter.Record).Description}" 
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+						</Grid>
+
+						<!-- Nested Content -->
+						<Grid x:Name="NestedContentSite" Grid.Row="1" Grid.Column="1" Visibility="Collapsed">
+							<!--<igWindows:NestedContentBackground/>-->
+							<Border
+							  CornerRadius="0,0,3,3"
+							  BorderBrush="#44102975"
+							  BorderThickness="1">
+								<Border.Background>
+									<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+
+										<GradientStop Color="#FFFFFFFF" Offset="0.25" />
+										<GradientStop Color="#FFEEEEEE" Offset="1.2" />
+
+									</LinearGradientBrush>
+								</Border.Background>
+							</Border>
+
+							<ContentPresenter
+											   x:Name="NestedContentPresenter" 
+											   Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=NestedContent}"
+											   Margin="0,0,0,5"
+									/>
+
+							<!-- Duplicate of previous to enable fade in -->
+							<!--<igWindows:NestedContentBackground
+									x:Name="ncpMask"
+									/>
+
+								<Rectangle Opacity="0" x:Name="ncpVisual" Margin="0,0,0,5">
+									<Rectangle.Fill>
+										<VisualBrush Stretch="None" AlignmentX="Left" AlignmentY="Top"
+											Visual="{Binding ElementName=NestedContentPresenter}" />
+									</Rectangle.Fill>
+								</Rectangle>-->
+						</Grid>
+					</Grid>
+					<!--Original-->
+					<!--<Grid Margin="{TemplateBinding Margin}" Background="{TemplateBinding Background}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="*" />
+							</Grid.RowDefinitions>
+							-->
+					<!-- Row for nested content -->
+					<!--
+
+							-->
+					<!-- Expansion Checkbox -->
+					<!--
+							<igWindows:ExpansionIndicator 
+								x:Name="ExpansionIndicator" 
+								Visibility="Collapsed"
+								IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded, Mode=TwoWay}" 								
+								/>
+
+							-->
+					<!-- Group By Title Area -->
+					<!--
+							<Grid x:Name="TitleArea" Grid.Column="1" Grid.Row="0" Visibility="Collapsed">
+								-->
+					<!-- Background Bar -->
+					<!--
+								<Rectangle Fill="#FF50566A" RadiusX="2" RadiusY="2" />
+								<Rectangle Margin="0,1,0,0" Fill="#FF9FABC4" RadiusX="3" RadiusY="3" />
+								<Rectangle Margin="0,2,0,0" Fill="#FF010102" RadiusX="3" RadiusY="3" />
+								<Rectangle Margin="0,2,0,1" Fill="#FF151F3E" RadiusX="3" RadiusY="3" />
+								<Rectangle x:Name="fillTest" Margin="0,2,0,2" RadiusX="3" RadiusY="3" >
+									<Rectangle.Fill>
+										<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+											
+												<GradientStop Offset="0.000000" Color="#FF828796"/>
+												<GradientStop Offset="0.5" Color="#FF424759"/>
+												<GradientStop Offset="0.5" Color="#FF303342"/>
+												<GradientStop Offset="1.000000" Color="#FF191925"/>
+											
+										</LinearGradientBrush>
+									</Rectangle.Fill>
+								</Rectangle>
+								-->
+					<!-- End Background Bar -->
+					<!--
+
+								-->
+					<!-- Label -->
+					<!--
+								<Grid Margin="2,4,2,4" >
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<Grid Grid.Column="0">
+										<Rectangle Stroke="#44000000" StrokeThickness="1" RadiusX="2" RadiusY="2" Fill="Transparent" />
+										<Rectangle Margin="1" Stroke="#44FFFFFF" StrokeThickness="1" RadiusX="2" RadiusY="2" Fill="Transparent" />
+										<Rectangle x:Name="buttonHighlight1" Visibility="Visible" Margin="1,0,1,13" Fill="#FFC5E7F6" Opacity=".12" RadiusX="2" RadiusY="2"  />
+										<Rectangle x:Name="buttonHighlight2" Visibility="Visible" Margin="1" RadiusX="2" RadiusY="2">
+											<Rectangle.Fill>
+												<LinearGradientBrush StartPoint="0,1" EndPoint="0,.5">
+													
+														<GradientStop Offset="0" Color="#FF102975"/>
+														<GradientStop Offset="0.25" Color="#FF102975"/>
+														<GradientStop Offset="1" Color="#00102975"/>
+													
+												</LinearGradientBrush>
+											</Rectangle.Fill>
+										</Rectangle>
+
+										-->
+					<!-- Text  -->
+					<!--
+										<ContentPresenter 
+											Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Record).Description}" 
+											Margin="3" 
+											VerticalAlignment="Center" 
+											HorizontalAlignment="Stretch" />
+									</Grid>
+								</Grid>
+							</Grid>
+							-->
+					<!-- End Group By Background -->
+					<!--
+
+							-->
+					<!-- Nested Content -->
+					<!--
+							<ContentPresenter 
+								x:Name="NestedContentSite" 
+								Grid.Row="1" Grid.Column="1" 
+								Margin="10,10,0,0"
+								Visibility="Collapsed"
+								Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=NestedContent}"/>
+						</Grid>-->
+
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="sbDisplayNested">
+							<DoubleAnimationUsingKeyFrames
+							  BeginTime="00:00:00"
+							  Storyboard.TargetName="ncpVisual"
+							  Storyboard.TargetProperty="Opacity"
+							  FillBehavior="HoldEnd">
+								<DiscreteDoubleKeyFrame Value="0" KeyTime="00:00:00" />
+								<DiscreteDoubleKeyFrame Value="0" KeyTime="00:00:00.25" />
+								<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:0.75" />
+							</DoubleAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames 
+							  BeginTime="00:00:00" 
+							  Storyboard.TargetName="ncpVisual"
+							  Storyboard.TargetProperty="(UIElement.Visibility)" >
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="00:00:00"/>
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" KeyTime="00:00:0.75"/>
+							</ObjectAnimationUsingKeyFrames>
+							<ObjectAnimationUsingKeyFrames 
+							  BeginTime="00:00:00" 
+							  Storyboard.TargetName="ncpMask"
+							  Storyboard.TargetProperty="(UIElement.Visibility)" >
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Visible}" KeyTime="00:00:00"/>
+								<DiscreteObjectKeyFrame Value="{x:Static Visibility.Collapsed}" KeyTime="00:00:0.75"/>
+							</ObjectAnimationUsingKeyFrames>
+						</Storyboard>
+
+						<Storyboard x:Key="sbHideNested">
+							<DoubleAnimationUsingKeyFrames
+							  BeginTime="00:00:00"
+							  Storyboard.TargetName="NestedContentPresenter"
+							  Storyboard.TargetProperty="Opacity"
+							  FillBehavior="HoldEnd">
+								<!--<DiscreteDoubleKeyFrame Value="0" KeyTime="00:00:00" />-->
+								<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:00.15" />
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
+					<ControlTemplate.Triggers>
+						<Trigger Property="ShouldDisplayGroupByRecordContent" Value="true">
+							<Setter TargetName="TitleArea" Property="Visibility" Value="Visible" />
+						</Trigger>
+
+						<Trigger Property="ShouldDisplayGroupByRecordContent" Value="false">
+							<Setter TargetName="ExpansionIndicator" Property="Visibility" Value="Hidden" />
+						</Trigger>
+
+						<Trigger Property="HasNestedContent" Value="true">
+							<Setter TargetName="NestedContentSite" Property="Visibility" Value="Visible" />
+							<Trigger.EnterActions>
+								<!-- use <BeginStoryboard Storyboard="{StaticResource sbDisplayNested}" x:Name="NestedOn"/>-->
+								<!--<StopStoryboard BeginStoryboardName="NestedOff" />-->
+							</Trigger.EnterActions>
+						</Trigger>
+
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ HeaderPresenter__________________________________________ -->
+	<Style TargetType="{x:Type igDP:HeaderPresenter}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:HeaderPresenter}">
+					<ContentPresenter 								
+					  Content="{TemplateBinding Content}" 
+					  ContentTemplate="{TemplateBinding ContentTemplate}" 
+					  VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" 
+					  HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" />
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ HeaderLabelArea__________________________________________ -->
+	<Style TargetType="{x:Type igDP:HeaderLabelArea}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:HeaderLabelArea}">
+					<Grid>
+						<ContentPresenter Content="{TemplateBinding Content}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ HeaderPrefixArea__________________________________________ -->
+	<Style TargetType="{x:Type igDP:HeaderPrefixArea}">
+		<Setter Property="Visibility" Value="Hidden"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:HeaderPrefixArea}">
+					<Grid>
+						<ContentPresenter 								
+						  Content="{TemplateBinding Content}" 
+						  ContentTemplate="{TemplateBinding ContentTemplate}" 
+						  VerticalAlignment="{TemplateBinding Control.VerticalContentAlignment}" 
+						  HorizontalAlignment="{TemplateBinding Control.HorizontalContentAlignment}" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ LabelPresenter __________________________________________ -->
+	<Style TargetType="{x:Type igDP:LabelPresenter}">
+		<Setter Property="Padding" Value="2,4,2,4" />
+		<Setter Property="Background" Value="{StaticResource LabelBackground}"/>
+		<Setter Property="LabelHighlight" Value="{StaticResource LabelHighlight}" />
+		<Setter Property="InnerBorderBrush" Value="{StaticResource LabelInnerBorder}" />
+		<Setter Property="OuterBorderBrush" Value="{StaticResource LabelOuterBorder}" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="Foreground" Value="#FFFFFF"/>
+		<Setter Property="FontFamily" Value="Segoe UI"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:LabelPresenter}">
+					<Grid VerticalAlignment="Stretch"
+						 HorizontalAlignment="Stretch" x:Name="sortIndicatorAndLabel"
+						 Margin="2,3,2,3"
+						 >
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+
+
+						<Rectangle Fill="{TemplateBinding Background}" Stroke="{x:Null}" StrokeThickness="1" RadiusX="3.671" RadiusY="3.671" TextElement.Foreground="{x:Null}"
+							Grid.ColumnSpan="2" />
+
+
+						<!-- Label Text -->
+						<ContentControl 
+							x:Name="LabelContent"
+              Focusable="False" 
+							Style="{StaticResource LabelContentStyle}"
+							Content="{Binding Path=Content, RelativeSource={RelativeSource TemplatedParent}}"
+							ContentTemplate="{TemplateBinding ContentTemplate}" 
+							ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" 
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+							HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+						<!-- End Label Text -->
+
+						<igWindows:SortIndicator 
+							x:Name="SortIndicator" 
+							SortStatus="{TemplateBinding SortStatus}" 
+							Visibility="Collapsed" 
+							VerticalAlignment="Center" 
+							Margin="2,0,5,0"
+							Grid.Column="1" />
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<!-- HighlightPrimary -->
+						<Trigger Property="HighlightAsPrimary" Value="true">
+							<!--<Setter TargetName="highlight" Property="Opacity" Value="1" />-->
+						</Trigger>
+
+						<Trigger Property="HorizontalAlignment" Value="Center">
+							<Setter TargetName="LabelContent" Property="Grid.ColumnSpan" Value="2" />
+						</Trigger>
+
+						<!-- Only animate highlight -->
+						<Trigger Property="SortStatus" Value="Ascending">
+							<Setter TargetName="SortIndicator" Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="SortStatus" Value="Descending">
+							<Setter TargetName="SortIndicator" Property="Visibility" Value="Visible" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+	<!-- _________________________ RecordListControl __________________________________________ -->
+	<Style TargetType="{x:Type igDP:RecordListControl}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:RecordListControl}">
+					<Border Background="{TemplateBinding Background}">
+						<Grid>
+							<ScrollViewer 
+							  CanContentScroll="true"
+							  Focusable="false"
+							  HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"
+							  VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}">
+								<ItemsPresenter/>
+							</ScrollViewer>
+						</Grid>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style TargetType="{x:Type igDP:RecordSelector}">
+		<Setter Property="Background" Value="#FF000000"/>
+		<Setter Property="BorderBrush" Value="#FFCCCCCC"/>
+		<Setter Property="VerticalContentAlignment" Value="Center"/>
+		<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		<Setter Property="Padding" Value="3,3,3,3"/>
+		<Setter Property="Cursor" Value="Hand"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:RecordSelector}">
+					<ControlTemplate.Resources>
+						<Storyboard x:Key="MouseEnter">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="selectors" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0.5"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="MouseLeave">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="selectors" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2480000" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="rectangle" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00.2480000" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="RecordActiveTrue">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="selectors" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="RecordActiveFalse">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="selectors">
+								<SplineDoubleKeyFrame Value="1" KeyTime="00:00:00"/>
+								<SplineDoubleKeyFrame Value="0" KeyTime="00:00:00.2500000"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+						<Storyboard x:Key="HideSelector">
+							<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="selectors" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+							</DoubleAnimationUsingKeyFrames>
+						</Storyboard>
+					</ControlTemplate.Resources>
+					<Grid x:Name="MainBorder" Background="#00FFFFFF" Cursor="{TemplateBinding Cursor}">
+						<Rectangle Opacity="0" Fill="#FFFF3838" Stroke="#FF000000" x:Name="rectangle"/>
+						<!-- Selector Arrows -->
+						<Grid x:Name="selectors" Height="16" Width="16" Opacity="0">
+							<Path 
+								x:Name="selectorArrow" 
+								RenderTransformOrigin="0.5,0.5" 
+								Fill="{TemplateBinding Background}" 
+								Stretch="Fill" 
+								Stroke="#00CCCCCC" 
+								StrokeThickness="1" 
+								HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+								VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 							
+								Margin="{TemplateBinding Padding}" 
+								Width="7" Height="10" 
+								Cursor="{TemplateBinding Cursor}" 
+								Data="M60,40L60,20 70,30z" Visibility="Visible">
+								<!--<Path.RenderTransform>
+									<TransformGroup>
+										<RotateTransform Angle="0"/>
+									</TransformGroup>
+								</Path.RenderTransform>-->
+							</Path>
+							<Path
+								x:Name="selectorDataChanged"
+								Margin="0,0,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="5.409"
+								Width="3.444"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 1,8.6568603515625 C1,8.6568603515625 1,1.3431400060653687 1,1.3431400060653687 1,1.3431400060653687 5.656859874725342,5 5.656859874725342,5 5.656859874725342,5 1,8.6568603515625 1,8.6568603515625 z"
+								Fill="{TemplateBinding Background}" 
+								Visibility="Collapsed"
+								/>
+							<Path
+								x:Name="selectorAddRecord"
+								Margin="0,0,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="7.497498035430908"
+								Width="4.656859874725342"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 0,7.497498035430908 C0,7.497498035430908 0,0 0,0 0,0 4.656859874725342,3.748749017715454 4.656859874725342,3.748749017715454 4.656859874725342,3.748749017715454 0,7.497498035430908 0,7.497498035430908 z"
+								Fill="{TemplateBinding Background}" 
+								Visibility="Collapsed"
+								/>
+
+						</Grid>
+
+						<!-- IsAddRecord and IsDataChanged Icons (with mini-selectors) -->
+						<Grid
+							x:Name="icons" 
+							Height="16"
+							Width="16" d:LayoutOverrides="Width, Height" 
+							HorizontalAlignment="Center" 
+							Margin="0,0,0,0" 
+							VerticalAlignment="Center">
+							<Path
+								x:Name="addRecordOuter"
+								Margin="3,3,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10"
+								Width="10"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 10,3 C10,3 6,3 6,3 6,3 6,6 6,6 6,6 3,6 3,6 3,6 3,10 3,10 3,10 6,10 6,10 6,10 6,13 6,13 6,13 10,13 10,13 10,13 10,10 10,10 10,10 13,10 13,10 13,10 13,6 13,6 13,6 10,6 10,6 10,6 10,3 10,3 z"
+								Fill="#898989"
+								Visibility="Collapsed"
+								SnapsToDevicePixels="True"
+								/>
+							<Path
+								x:Name="addRecordInner"
+								Margin="4,4,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="8"
+								Width="8"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 9,4 C9,4 7,4 7,4 7,4 7,7 7,7 7,7 4,7 4,7 4,7 4,9 4,9 4,9 7,9 7,9 7,9 7,12 7,12 7,12 9,12 9,12 9,12 9,9 9,9 9,9 12,9 12,9 12,9 12,7 12,7 12,7 9,7 9,7 9,7 9,4 9,4 z"
+								Fill="#cccccc" 
+								Visibility="Collapsed"
+								SnapsToDevicePixels="True"
+								/>
+
+							<Path
+								x:Name="dataChangedActive"
+								Margin="4.510000228881836,4.190000057220459,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10.559999942779541"
+								Width="10.710000991821289"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 11.762499809265137,4.190000057220459 C11.762499809265137,4.190000057220459 13.622968673706055,5.4495320320129395 13.622968673706055,5.4495320320129395 13.622968673706055,5.4495320320129395 10.8100004196167,8.90609359741211 10.8100004196167,8.90609359741211 10.8100004196167,8.90609359741211 15.220001220703125,8.364218711853027 15.220001220703125,8.364218711853027 15.220001220703125,8.364218711853027 15.220001220703125,10.575780868530273 15.220001220703125,10.575780868530273 15.220001220703125,10.575780868530273 10.8100004196167,10.07796859741211 10.8100004196167,10.07796859741211 10.8100004196167,10.07796859741211 13.622968673706055,13.51953125 13.622968673706055,13.51953125 13.622968673706055,13.51953125 11.762499809265137,14.75 11.762499809265137,14.75 11.762499809265137,14.75 9.842968940734863,10.575780868530273 9.842968940734863,10.575780868530273 9.842968940734863,10.575780868530273 7.952969074249268,14.75 7.952969074249268,14.75 7.952969074249268,14.75 6.09250020980835,13.51953125 6.09250020980835,13.51953125 6.09250020980835,13.51953125 8.920000076293945,10.07796859741211 8.920000076293945,10.07796859741211 8.920000076293945,10.07796859741211 4.510000228881836,10.575780868530273 4.510000228881836,10.575780868530273 4.510000228881836,10.575780868530273 4.510000228881836,8.364218711853027 4.510000228881836,8.364218711853027 4.510000228881836,8.364218711853027 8.920000076293945,8.90609359741211 8.920000076293945,8.90609359741211 8.920000076293945,8.90609359741211 6.09250020980835,5.4495320320129395 6.09250020980835,5.4495320320129395 6.09250020980835,5.4495320320129395 7.952969074249268,4.190000057220459 7.952969074249268,4.190000057220459 7.952969074249268,4.190000057220459 9.842968940734863,8.247031211853027 9.842968940734863,8.247031211853027 9.842968940734863,8.247031211853027 11.762499809265137,4.190000057220459 11.762499809265137,4.190000057220459 z" 
+								Visibility="Collapsed"
+								>
+								<Path.Fill>
+									<RadialGradientBrush>
+										<GradientStop Color="#00FFFFFF" Offset="0"/>
+										<GradientStop Color="#FFB1B1B1" Offset="1"/>
+									</RadialGradientBrush>
+								</Path.Fill>
+							</Path>
+							<Path
+								x:Name="dataChanged"
+								Margin="2.509999990463257,2.690000057220459,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10.559999942779541"
+								Width="10.710001230239868"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 9.762499809265137,2.690000057220459 C9.762499809265137,2.690000057220459 11.622968673706055,3.9495320320129395 11.622968673706055,3.9495320320129395 11.622968673706055,3.9495320320129395 8.8100004196167,7.406094074249268 8.8100004196167,7.406094074249268 8.8100004196167,7.406094074249268 13.220001220703125,6.8642191886901855 13.220001220703125,6.8642191886901855 13.220001220703125,6.8642191886901855 13.220001220703125,9.075780868530273 13.220001220703125,9.075780868530273 13.220001220703125,9.075780868530273 8.8100004196167,8.57796859741211 8.8100004196167,8.57796859741211 8.8100004196167,8.57796859741211 11.622968673706055,12.01953125 11.622968673706055,12.01953125 11.622968673706055,12.01953125 9.762499809265137,13.25 9.762499809265137,13.25 9.762499809265137,13.25 7.842968940734863,9.075780868530273 7.842968940734863,9.075780868530273 7.842968940734863,9.075780868530273 5.952969074249268,13.25 5.952969074249268,13.25 5.952969074249268,13.25 4.09250020980835,12.01953125 4.09250020980835,12.01953125 4.09250020980835,12.01953125 6.920000076293945,8.57796859741211 6.920000076293945,8.57796859741211 6.920000076293945,8.57796859741211 2.509999990463257,9.075780868530273 2.509999990463257,9.075780868530273 2.509999990463257,9.075780868530273 2.509999990463257,6.8642191886901855 2.509999990463257,6.8642191886901855 2.509999990463257,6.8642191886901855 6.920000076293945,7.406094074249268 6.920000076293945,7.406094074249268 6.920000076293945,7.406094074249268 4.09250020980835,3.9495320320129395 4.09250020980835,3.9495320320129395 4.09250020980835,3.9495320320129395 5.952969074249268,2.690000057220459 5.952969074249268,2.690000057220459 5.952969074249268,2.690000057220459 7.842968940734863,6.747031211853027 7.842968940734863,6.747031211853027 7.842968940734863,6.747031211853027 9.762499809265137,2.690000057220459 9.762499809265137,2.690000057220459 z" 
+								Visibility="Collapsed"
+								>
+								<Path.Fill>
+									<RadialGradientBrush>
+										<GradientStop Color="#00FFFFFF" Offset="0"/>
+										<GradientStop Color="#FFB1B1B1" Offset="1"/>
+									</RadialGradientBrush>
+								</Path.Fill>
+							</Path>
+							<Path
+								x:Name="addRecordActiveOuter"
+								Margin="4,3.923218011856079,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="10.076781988143921"
+								Width="10"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 10.990951538085938,3.923218011856079 C10.990951538085938,3.923218011856079 7,3.923218011856079 7,3.923218011856079 7,3.923218011856079 7,7 7,7 7,7 4,7 4,7 4,7 4,11 4,11 4,11 7,11 7,11 7,11 7,14 7,14 7,14 10.990951538085938,14 10.990951538085938,14 10.990951538085938,14 10.989999771118164,11 10.989999771118164,11 10.989999771118164,11 14,11 14,11 14,11 14,7 14,7 14,7 10.989999771118164,7 10.989999771118164,7 10.989999771118164,7 10.990951538085938,3.923218011856079 10.990951538085938,3.923218011856079 z"
+								Fill="#898989" 
+								Visibility="Collapsed"
+								SnapsToDevicePixels="False"
+								/>
+							<Path
+								x:Name="addRecordActiveInner"
+								Margin="5,5,0,0"
+								HorizontalAlignment="Left"
+								VerticalAlignment="Top"
+								Height="8"
+								Width="8"
+								Stretch="Fill"
+								Opacity="1"
+								Data="M 10,5 C10,5 8,5 8,5 8,5 8,8 8,8 8,8 5,8 5,8 5,8 5,10 5,10 5,10 8,10 8,10 8,10 8,13 8,13 8,13 10,13 10,13 10,13 10,10 10,10 10,10 13,10 13,10 13,10 13,8 13,8 13,8 10,8 10,8 10,8 10,5 10,5 z"
+								Fill="#cccccc" 
+								Visibility="Collapsed"
+								SnapsToDevicePixels="False"
+								/>
+						</Grid>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Trigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource MouseEnter}" x:Name="MouseEnter_BeginStoryboard" />
+								<StopStoryboard BeginStoryboardName="RecordActiveFalse_BeginStoryboard"/>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard x:Name="MouseLeave_BeginStoryboard" Storyboard="{StaticResource MouseLeave}"/>
+							</Trigger.ExitActions>
+						</Trigger>
+
+						<!-- DataRecordPresenter .IsAddRecord == true -->
+						<Trigger Property="IsAddRecord" Value="True">
+							<Setter TargetName="addRecordOuter" Property="Visibility" Value="Visible" />
+							<Setter TargetName="addRecordInner" Property="Visibility" Value="Visible" />
+							<Setter Property="Visibility" TargetName="selectorAddRecord" Value="Visible"/>
+							<Setter Property="Visibility" TargetName="selectorArrow" Value="Collapsed"/>
+						</Trigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsDataChanged" Value="True"/>
+							</MultiTrigger.Conditions>
+							<Setter TargetName="dataChanged" Property="Visibility" Value="Visible" />
+							<Setter Property="Visibility" TargetName="selectorDataChanged" Value="Visible"/>
+							<Setter Property="Visibility" TargetName="selectorArrow" Value="Collapsed"/>
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsAddRecord" Value="True"/>
+								<Condition Property="IsDataChanged" Value="True"/>
+							</MultiTrigger.Conditions>
+							<Setter Property="Visibility" TargetName="dataChanged" Value="Collapsed"/>
+							<Setter Property="Visibility" TargetName="dataChangedActive" Value="Collapsed"/>
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsActive" Value="True" />
+							</MultiTrigger.Conditions>
+							<MultiTrigger.EnterActions>
+								<BeginStoryboard Storyboard="{StaticResource RecordActiveTrue}" x:Name="RecordActiveTrue_BeginStoryboard"/>
+								<StopStoryboard BeginStoryboardName="MouseEnter_BeginStoryboard"/>
+								<StopStoryboard BeginStoryboardName="MouseLeave_BeginStoryboard"/>
+							</MultiTrigger.EnterActions>
+							<MultiTrigger.ExitActions>
+								<BeginStoryboard Storyboard="{StaticResource RecordActiveFalse}" x:Name="RecordActiveFalse_BeginStoryboard"/>
+							</MultiTrigger.ExitActions>
+						</MultiTrigger>
+
+						<!-- Location Triggers -->
+						<Trigger Property="Location" Value="AboveCellArea">
+							<Setter Property="RenderTransform" TargetName="selectorArrow">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform Angle="90"/>
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="Location" Value="BelowCellArea">
+							<Setter Property="RenderTransform" TargetName="selectorArrow">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform Angle="-90"/>
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="Location" Value="RightOfCellArea">
+							<Setter Property="RenderTransform" TargetName="selectorArrow">
+								<Setter.Value>
+									<TransformGroup>
+										<RotateTransform Angle="180"/>
+									</TransformGroup>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	<!-- _________________________ XamDataGrid __________________________________________ -->
+	<Style TargetType="{x:Type igDP:XamDataGrid}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type igDP:XamDataGrid}">
+					<Border
+								  Background="{TemplateBinding Background}"
+								  BorderBrush="{TemplateBinding BorderBrush}"
+								  BorderThickness="{TemplateBinding BorderThickness}"
+					  >
+						<Grid Name ="PART_ContentSiteGrid"/>
+					</Border>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

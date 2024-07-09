@@ -1,0 +1,386 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:ig="http://schemas.infragistics.com/xaml" 
+  xmlns:local="http://schemas.infragistics.com/xaml"
+  xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+  <!-- ========= Standard Legend variables ========= --> 
+  <Thickness     x:Key="LegendItemBadgeMargin">0</Thickness>
+  <Thickness     x:Key="LegendItemBadgeRightMargin">0 0 6 0</Thickness>
+  <Thickness     x:Key="LegendItemMargin">4</Thickness>
+  <Thickness     x:Key="LegendBorderThickness">0 0 0 0</Thickness>
+  <Thickness     x:Key="LegendPadding">4</Thickness>
+  <Thickness     x:Key="LegendMargin">10</Thickness>
+  
+   <!-- ========= PieChart's Legend Badges ========= -->
+  <DataTemplate x:Key="PieChartLegendItemBadgeTemplate">
+    <ContentPresenter Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+                      Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}" 
+                      Margin="{StaticResource LegendItemBadgeRightMargin}"
+                      VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Content="{Binding}">
+      <ContentPresenter.ContentTemplate>
+        <DataTemplate>
+          <Ellipse Stroke="{Binding Slice.BorderBrush}"
+                   Fill="{Binding Slice.Background}"
+                   StrokeThickness="{Binding Slice.StrokeThickness}"/>
+        </DataTemplate>
+      </ContentPresenter.ContentTemplate>
+    </ContentPresenter>
+  </DataTemplate>
+  
+  <!-- ========= FunnelChart's Legend Badges ========= -->
+  <DataTemplate x:Key="FunnelChartLegendItemBadgeTemplate">
+    <ContentPresenter Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+                      Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}" 
+                      Margin="{StaticResource LegendItemBadgeRightMargin}"
+                      VerticalAlignment="Center" HorizontalAlignment="Center"
+                      Content="{Binding}">
+      <ContentPresenter.ContentTemplate>
+        <DataTemplate>
+          <Ellipse Stroke="{Binding ItemOutline}" Fill="{Binding ItemBrush}"/>
+        </DataTemplate>
+      </ContentPresenter.ContentTemplate>
+    </ContentPresenter>
+  </DataTemplate>
+  
+  <!-- ========= DataChart's shared resources for Legend Badges ========= -->
+    
+  <!-- container style used by all LegendBadges in DataChart's Series -->
+  <Style x:Key="LegendItemBadgeContainerStyle" TargetType="Grid" >
+      <Setter Property="VerticalAlignment" Value="Stretch" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="Margin" Value="{StaticResource LegendItemBadgeRightMargin}" />
+        <!--<Setter Property="Width" Value="{x:Static local:Defaults.LegendBadge_ShapeWidth}" />
+      <Setter Property="Height" Value="{x:Static local:Defaults.LegendBadge_ShapeHeight}" />-->
+      <!--<Setter Property="Width"  Value="{x:Static local:Defaults.LegendBadge_ContainerWidth}" />-->
+      <!--<Setter Property="Height" Value="{x:Static local:Defaults.LegendBadge_ContainerHeight}" />-->
+  </Style>
+  <Style x:Key="LegendItemBadgeCenterStyle" TargetType="FrameworkElement" >
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" /> 
+  </Style>
+
+  <Style x:Key="LegendItemBadgeStretchStyle" TargetType="FrameworkElement" >
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+      <Setter Property="VerticalAlignment"   Value="Stretch" /> 
+  </Style>
+
+  <!-- NOTE the following LegendItemBadge templates must have 'Simplified' and 'MatchSeries' versions -->
+  <!-- e.g. templates for a circle legend badge: --> 
+  <!-- LegendBadgeTemplate_CircleShape_MatchSeries - closely matches series visuals, e.g. Series.ActualThickness  -->
+  <!-- LegendBadgeTemplate_CircleShape_Simplified  - simplified version of series visual, e.g. fixed stroke thickness -->
+    
+  
+  <!-- ========= DataChart's Circle Legend Badges ========= -->
+    
+  <!-- LegendItemBadge for mark-less series/layers, e.g. CalloutLayer, CategoryToolTipLayer, CategoryHighlightLayer, ItemToolTipLayer, -->
+  <DataTemplate x:Key="LegendBadgeTemplate_CircleShape_MatchSeries"> 
+    <!--<Grid Style="{StaticResource LegendItemBadgeContainerStyle}">-->
+      <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+            Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+           Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}" >
+        <Ellipse Style="{StaticResource LegendItemBadgeStretchStyle}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"
+                 Opacity="{Binding Series.ActualAreaFillOpacity}"
+                 Stroke="Transparent"
+                 StrokeThickness="{Binding Series.ActualThickness}"/>
+        <Ellipse Style="{StaticResource LegendItemBadgeStretchStyle}"
+                 Fill="Transparent"
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 StrokeThickness="{Binding Series.ActualThickness}"  />
+          <!-- MT: not using StrokeDashArray="{Binding Series.DashArray}" StrokeDashCap="{Binding Series.DashCap}"
+          because they dash array make legend badge shape look like they are incomplete -->
+      </Grid>
+    <!--</Grid>-->
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_CircleShape_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.ActualAreaFillOpacity-->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+         Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}" >
+      <Ellipse Style="{StaticResource LegendItemBadgeStretchStyle}"
+               Fill="{Binding Series.ActualLegendItemBadgeBrush}"
+               Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+               StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}" />
+    </Grid>
+  </DataTemplate>
+
+  <!-- ========= DataChart's Marker Legend Badges ========= -->
+    
+  <!-- LegendItemBadge for series with marker visuals, e.g. (Category)PointSeries, BubbleSeries, Scatter(Point)Series, PolarScatterSeries -->
+  <DataTemplate x:Key="LegendBadgeTemplate_MarkerShape_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}">
+      <ContentPresenter Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+                        Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
+                        Style="{StaticResource LegendItemBadgeCenterStyle}"
+                        ContentTemplate="{Binding Series.ActualMarkerTemplate}"
+                        Content="{Binding}"/>
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_MarkerShape_Simplified">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}">
+      <ContentPresenter Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+                        Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
+                        Style="{StaticResource LegendItemBadgeCenterStyle}"
+                        ContentTemplate="{Binding Series.ActualMarkerTemplate}"
+                        Content="{Binding}"/>
+    </Grid>
+  </DataTemplate>
+
+  
+  <!-- ========= DataChart's Line Legend Badges ========= -->
+    
+  <!-- LegendItemBadge for all Series with line visuals that can have markers, e.g. LineSeries, SplineSeries -->
+  <DataTemplate x:Key="LegendBadgeTemplate_LineWithMarker_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}" 
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+            StrokeThickness="{Binding Series.ActualThickness}"
+            Stroke="{Binding Series.ActualLegendItemBadgeBrush}"
+            StrokeEndLineCap="{Binding Series.EndCap}"
+            StrokeStartLineCap="{Binding Series.StartCap}"
+            StrokeDashArray="{Binding Series.DashArray}"
+            StrokeDashCap="{Binding Series.DashCap}"
+            VerticalAlignment="Center"/>
+      <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> 
+        <Border.Padding> <!-- applying padding to ensure above line is visible when the marker is overlaid in front of it --> 
+          <Thickness Top="{x:Static local:Defaults.LegendBadge_OverlaidMarkerPadding}"
+                    Left="{x:Static local:Defaults.LegendBadge_OverlaidMarkerPadding}"
+                   Right="{x:Static local:Defaults.LegendBadge_OverlaidMarkerPadding}"
+                  Bottom="{x:Static local:Defaults.LegendBadge_OverlaidMarkerPadding}"/>
+        </Border.Padding>
+        <ContentPresenter VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch"
+                          ContentTemplate="{Binding Series.ActualMarkerTemplate}"
+                          Content="{Binding}"   />
+      </Border>
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_LineWithMarker_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.ActualMarkerTemplate -->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+            Stroke="{Binding Series.ActualLegendItemBadgeBrush}" 
+            StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
+            VerticalAlignment="Center"/>   
+    </Grid>
+  </DataTemplate>
+
+  <!-- LegendItemBadge for series with line visuals that do not have markers, e.g. CrosshairLayer, ValueOverlay -->
+  <DataTemplate x:Key="LegendBadgeTemplate_LineMarkerless_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+            Stroke="{Binding Series.ActualLegendItemBadgeBrush}"
+            StrokeThickness="{Binding Series.ActualThickness}"
+            StrokeEndLineCap="{Binding Series.EndCap}"
+            StrokeStartLineCap="{Binding Series.StartCap}"
+            StrokeDashArray="{Binding Series.DashArray}"
+            StrokeDashCap="{Binding Series.DashCap}"
+            VerticalAlignment="Center"/>
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_LineMarkerless_Simplified"> <!-- no Series.DashArray, Series.ActualThickness -->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
+          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+            Stroke="{Binding Series.ActualLegendItemBadgeBrush}"
+            StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
+            VerticalAlignment="Center"/>
+    </Grid>
+  </DataTemplate>
+  
+  <!-- ========= DataChart's Square Legend Badges ========= -->
+    
+  <!-- LegendItemBadge for series with area/bar/column/fill visuals (except of Financial and Indicators) -->
+  <DataTemplate x:Key="LegendBadgeTemplate_SquareShape_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+         Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}" >
+      <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}"
+                 StrokeThickness="{Binding Series.ActualThickness}"
+                 Stroke="Transparent"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"
+                 Opacity="{Binding Series.ActualAreaFillOpacity}"/> 
+      <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}"
+                 StrokeThickness="{Binding Series.ActualThickness}"
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="Transparent" />
+          <!-- MT: not using StrokeDashArray="{Binding Series.DashArray}" StrokeDashCap="{Binding Series.DashCap}"
+          because they dash array make legend badge shape look like they are incomplete -->
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_SquareShape_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.ActualAreaFillOpacity-->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}" 
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+         Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}"
+                 StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/>
+    </Grid>
+  </DataTemplate>
+
+  <!-- LegendBadgeTemplate for Financial Price Series and Waterfall Series -->
+  <DataTemplate x:Key="LegendBadgeTemplate_SquareFinancial_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}">
+      <Grid  Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+            Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
+            Style="{StaticResource LegendItemBadgeCenterStyle}">
+        <Grid Opacity="{Binding Series.ActualAreaFillOpacity}">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+          </Grid.ColumnDefinitions>
+          <Rectangle Grid.Column="0" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.ActualLegendItemBadgeBrush}"    />
+          <Rectangle Grid.Column="1" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.NegativeBrush}"  />
+        </Grid>
+        <!--MT: ignoring positive/negative outlines because this shape is too small to render them-->
+        <!--<Grid Opacity="1">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+          </Grid.ColumnDefinitions>
+          <Rectangle Grid.Column="0" Stroke="{Binding Series.ActualLegendItemBadgeOutline}"   StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
+          <Rectangle Grid.Column="1" Stroke="{Binding Series.NegativeOutline}" StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
+        </Grid>--> 
+      </Grid>
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_SquareFinancial_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.NegativeBrush less shapes -->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}" >
+      <Rectangle Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+                 Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}" 
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"/>
+    </Grid>
+  </DataTemplate>
+  
+  <!-- LegendBadgeTemplate for Financial Indicators - MT: not the same as SquareFinancial template because indicators do not have NegativeOutline -->
+  <DataTemplate x:Key="LegendBadgeTemplate_SquareIndicator_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}">
+      <Grid  Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+            Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
+            Style="{StaticResource LegendItemBadgeCenterStyle}">
+        <Grid Opacity="{Binding Series.ActualAreaFillOpacity}">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+          </Grid.ColumnDefinitions>
+          <Rectangle Grid.Column="0" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.ActualLegendItemBadgeBrush}"    />
+          <Rectangle Grid.Column="1" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.NegativeBrush}"  />
+        </Grid>
+        <!--MT: ignoring positive/negative outlines because this shape is too small to render them-->
+        <!--<Grid Opacity="1">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+          </Grid.ColumnDefinitions>
+          <Rectangle Grid.Column="0" Stroke="{Binding Series.ActualLegendItemBadgeOutline}" StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
+          <Rectangle Grid.Column="1" Stroke="{Binding Series.NegativeBrush}" StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
+        </Grid>--> 
+      </Grid>
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_SquareIndicator_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.NegativeBrush less shapes -->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}" >
+      <Rectangle Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+                 Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}" 
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"/>
+    </Grid>
+  </DataTemplate>
+   
+  <!-- LegendItemBadge with horizontal bar shape-->
+  <DataTemplate x:Key="LegendBadgeTemplate_BarShape_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+         Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Grid.RowDefinitions>
+          <RowDefinition Height="0.25*"/>
+          <RowDefinition Height="0.50*"/>
+          <RowDefinition Height="0.25*"/>
+        </Grid.RowDefinitions>
+      <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Row="1"
+                 StrokeThickness="{Binding Series.ActualThickness}"
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/> 
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_BarShape_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.ActualAreaFillOpacity-->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+         Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Grid.RowDefinitions>
+          <RowDefinition Height="0.25*"/>
+          <RowDefinition Height="0.50*"/>
+          <RowDefinition Height="0.25*"/>
+        </Grid.RowDefinitions>
+      <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Row="1"
+                 StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/>
+    </Grid>
+  </DataTemplate>
+  
+  <!-- LegendItemBadge with vertical column shape-->
+  <DataTemplate x:Key="LegendBadgeTemplate_ColumnShape_MatchSeries">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+         Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.25*"/>
+          <ColumnDefinition Width="0.50*"/>
+          <ColumnDefinition Width="0.25*"/>
+      </Grid.ColumnDefinitions>
+      <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Column="1"
+                 StrokeThickness="{Binding Series.ActualThickness}"
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/> 
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_ColumnShape_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.ActualAreaFillOpacity-->
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+         Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+      <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.25*"/>
+          <ColumnDefinition Width="0.50*"/>
+          <ColumnDefinition Width="0.25*"/>
+      </Grid.ColumnDefinitions>
+      <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Column="1"
+                 StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
+                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/>
+    </Grid>
+  </DataTemplate>
+  
+  <!-- ========= hidden badges without any adjustment to the series title -->
+  <DataTemplate x:Key="LegendBadgeTemplate_HiddenShape_MatchSeries"> 
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+    </Grid>
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_HiddenShape_Simplified">
+    <Grid Style="{StaticResource LegendItemBadgeContainerStyle}"
+          Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
+          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
+    </Grid>
+  </DataTemplate>
+  
+  <!-- ========= collapsed badges that adjust the series title to left side of the legend --> 
+  <DataTemplate x:Key="LegendBadgeTemplate_CollapsedShape_MatchSeries"> 
+  </DataTemplate>
+  <DataTemplate x:Key="LegendBadgeTemplate_CollapsedShape_Simplified">
+  </DataTemplate>
+  
+  
+</ResourceDictionary>

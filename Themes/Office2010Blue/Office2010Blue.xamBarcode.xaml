@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:local="http://schemas.infragistics.com/xaml">
+
+    <!-- *********************************  RESOURCES  ********************************* -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Office2010Blue.Theme.Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+      
+   <!-- *********************************   BRUSHES START  ********************************* -->
+   <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Color_001}"/>
+   <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource Color_005}"/>
+  
+    <!-- *********************************  XamGrid Barcode  ********************************* -->
+    <Style x:Key="XamGridBarcodeBase" TargetType="local:XamGridBarcode">
+        <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamGridBarcode">
+                    <Grid x:Name="RootGrid">
+                        <local:BarcodeGrid x:Name="BarcodeGrid">
+                        </local:BarcodeGrid>
+                        <TextBlock x:Name="ErrorTextBlock" TextWrapping="Wrap" Visibility="Collapsed"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:XamGridBarcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+
+    <Style TargetType="local:XamCode39Barcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamCode128Barcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamEanUpcBarcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamGs1DataBarBarcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamIntelligentMailBarcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamInterleaved2Of5Barcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamPdf417Barcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamQRCodeBarcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+    <Style TargetType="local:XamRoyalMailBarcode" BasedOn="{StaticResource XamGridBarcodeBase}" />
+
+    <!-- *********************************  MaxiCode Barcode  ********************************* -->
+    <Style x:Key="XamMaxiCodeBarcode" TargetType="local:XamMaxiCodeBarcode">
+        <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamMaxiCodeBarcode">
+                    <Grid x:Name="RootGrid">
+                        <local:MaxiCodeModulesPanel x:Name="ModulesPanel">
+                        </local:MaxiCodeModulesPanel>
+                        <TextBlock x:Name="ErrorTextBlock" TextWrapping="Wrap" Visibility="Collapsed"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:XamMaxiCodeBarcode" BasedOn="{StaticResource XamMaxiCodeBarcode}" />
+
+</ResourceDictionary>

@@ -1,0 +1,480 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:Grids="http://schemas.infragistics.com/xaml" 
+                    xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives"  
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d">
+
+  <!-- *********************************  RESOURCES  ********************************* -->
+  <ResourceDictionary.MergedDictionaries> 
+    <ResourceDictionary Source="Office2010Blue.Styles.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <!-- *********************************  String Resources  ********************************* -->
+  <Grids:StringSettings x:Key="stringResources" />
+
+  <!-- ********************************** BRUSHES **********************************-->
+  <LinearGradientBrush x:Key="ItemColorScheme" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Offset="0" Color="{StaticResource Color_018}" />
+    <GradientStop Offset="0.23" Color="{StaticResource Color_017}" />
+    <GradientStop Offset="0.75" Color="{StaticResource Color_017}" />
+    <GradientStop Offset="1" Color="{StaticResource Color_019}" />
+  </LinearGradientBrush>
+
+  <LinearGradientBrush x:Key="XamPivotDataSlicerBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="{StaticResource Color_027}" Offset="1" />
+    <GradientStop Color="{StaticResource Color_029}" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="XamPivotDataSlicerBorderBrush" Color="{StaticResource Color_0261}" />
+
+  <SolidColorBrush x:Key="XamPivotDataSlicerItemBackgroundBrush" Color="{StaticResource Color_033}" />
+  <LinearGradientBrush x:Key="XamPivotDataSlicerItemSelectedBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+    <GradientStop Offset="0" Color="{StaticResource Color_012}" />
+    <GradientStop Offset="1" Color="{StaticResource Color_013}" />
+  </LinearGradientBrush>
+
+  <LinearGradientBrush x:Key="ExpansionAreaContainerBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="{StaticResource Color_030}" Offset="1" />
+    <GradientStop Color="{StaticResource Color_032}" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="ExpansionAreaContainerBorderBrush" Color="{StaticResource Color_027}" />
+
+  <LinearGradientBrush x:Key="ExpansionAreaBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="{StaticResource Color_029}" Offset="1" />
+    <GradientStop Color="{StaticResource Color_032}" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="ExpansionAreaBorderBrush" Color="{StaticResource Color_027}" />
+  <LinearGradientBrush x:Key="ListBoxContainerBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="{StaticResource Color_032}" />
+    <GradientStop Color="{StaticResource Color_030}" Offset="1" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="ListBoxContainerBorderBrush" Color="{StaticResource Color_027}" />
+
+  <LinearGradientBrush x:Key="FilterIconBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Offset="1" Color="{StaticResource Color_0261}" />
+    <GradientStop Color="{StaticResource Color_028}" />
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="FilterIconBorderBrush" Color="{StaticResource Color_026}" />
+
+  <SolidColorBrush x:Key="GlyphDisabledBackgroundBrush" Color="{StaticResource Color_031}" />
+
+  <!-- *********************************  XamPivotDataSlicerItem Style  ********************************* -->
+  <Style x:Key="XamPivotDataSlicerItemStyle" TargetType="Grids:XamPivotDataSlicerItem">
+    <Setter Property="ItemColorScheme" Value="{StaticResource ItemColorScheme}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Grids:XamPivotDataSlicerItem">
+          <Grid>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="SelectionStates">
+                <VisualState x:Name="Selected" />
+                <VisualState x:Name="PartialSelected" />
+                <VisualState x:Name="Unselected">
+                  <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="selected" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0" Value="0" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="ReferenceExcluded">
+                  <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="selected" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0" Value=".50" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="selected" Background="{TemplateBinding ItemColorScheme}" BorderBrush="{StaticResource XamPivotDataSlicerItemSelectedBorderBrush}" BorderThickness="1" CornerRadius="2" />
+            <Border Background="{StaticResource XamPivotDataSlicerItemBackgroundBrush}" BorderBrush="{StaticResource XamPivotDataSlicerItemSelectedBorderBrush}" BorderThickness="1" CornerRadius="2">
+              <Grid Margin="3 1">
+                <StackPanel Orientation="Horizontal">
+                  <TextBlock x:Name="textBlock" Text="{TemplateBinding DisplayName}" Foreground="{StaticResource ForegroundBrush}" />
+                </StackPanel>
+              </Grid>
+            </Border>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style TargetType="Grids:XamPivotDataSlicerItem" BasedOn="{StaticResource XamPivotDataSlicerItemStyle}" />
+
+  <!-- *********************************  RemoveSelectionToggleButton Style  ********************************* -->
+  <Style x:Key="RemoveSelectionToggleButtonStyle" TargetType="ToggleButton">
+    <Setter Property="Background" Value="{StaticResource ToggleButtonBackgroundBrush}" />
+    <Setter Property="BorderBrush" Value="{StaticResource ToggleButtonBorderBrush}" />
+    <Setter Property="IsTabStop" Value="False" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ToggleButton">
+          <Grid>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="MouseOver">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonHoverBackgroundBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonHoverBorderBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ButtonHighlight" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonPressedBackgroundBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonPressedBorderBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0" Value=".55" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="CheckStates">
+                <VisualState x:Name="Checked" />
+                <VisualState x:Name="Unchecked" />
+                <VisualState x:Name="Indeterminate" />
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="FocusStates">
+                <VisualState x:Name="Focused">
+                  <Storyboard>
+                    <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FocusedVisualElement" d:IsOptimized="True" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Unfocused" />
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="BaseShape" CornerRadius="3" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+            <Rectangle x:Name="ButtonHighlight" Margin="1" RadiusX="2" RadiusY="2" Stroke="{StaticResource ToggleButtonHoverHighlightBorderBrush}" StrokeThickness="1" Grid.ColumnSpan="2" Opacity="0" />
+            <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+            <Grid Margin="6,5,0,0">
+              <Canvas Margin="0,1">
+                <Path x:Name="DeleteFilterVisualElement" Data="M13.800595,17.322081 C13.800595,17.322081 10.935143,14.454872 9.5024157,13.021268 C8.0565929,14.474494 5.1649489,17.380945 5.1649489,17.380945 C5.1649489,17.380945 2.520519,14.599937 2.520519,14.599937 C2.520519,14.599937 5.3659625,11.750213 6.7886844,10.32535 C5.3310571,8.8606634 2.415803,5.9312906 2.415803,5.9312906 C2.415803,5.9312906 5.2536883,3.1776271 5.2536883,3.1776271 C5.2536883,3.1776271 8.1537933,6.0791535 9.6038465,7.5299168 C11.032637,6.0940351 13.890217,3.2222712 13.890217,3.2222712 C13.890217,3.2222712 16.703461,5.8410459 16.703461,5.8410459 C16.703461,5.8410459 13.792245,8.7909431 12.336637,10.265891 C13.773281,11.69728 15.901935,13.815734 16.646568,14.560057 C16.646568,14.560057 13.800595,17.322081 13.800595,17.322081 z" Fill="{StaticResource GlyphBorderBrush}" Stretch="Fill" UseLayoutRounding="False" Width="8" Height="8" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <Path x:Name="DeleteDisabledFilterVisualElement" Data="M13.800595,17.322081 C13.800595,17.322081 10.935143,14.454872 9.5024157,13.021268 C8.0565929,14.474494 5.1649489,17.380945 5.1649489,17.380945 C5.1649489,17.380945 2.520519,14.599937 2.520519,14.599937 C2.520519,14.599937 5.3659625,11.750213 6.7886844,10.32535 C5.3310571,8.8606634 2.415803,5.9312906 2.415803,5.9312906 C2.415803,5.9312906 5.2536883,3.1776271 5.2536883,3.1776271 C5.2536883,3.1776271 8.1537933,6.0791535 9.6038465,7.5299168 C11.032637,6.0940351 13.890217,3.2222712 13.890217,3.2222712 C13.890217,3.2222712 16.703461,5.8410459 16.703461,5.8410459 C16.703461,5.8410459 13.792245,8.7909431 12.336637,10.265891 C13.773281,11.69728 15.901935,13.815734 16.646568,14.560057 C16.646568,14.560057 13.800595,17.322081 13.800595,17.322081 z" Stretch="Fill" UseLayoutRounding="False" Width="8" Height="8" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0" Fill="{StaticResource GlyphDisabledBackgroundBrush}" />
+              </Canvas>
+            </Grid>
+            <Canvas Margin="2,2,4,4">
+              <Path Fill="{StaticResource FilterIconBackgroundBrush}" Stroke="{StaticResource FilterIconBorderBrush}" Height="8" Width="10" Data="M0,0 L10,0 L10,0.99999994 L6.2500019,4.75 L6.2500019,8 L3.7500017,8 L3.7500017,4.75 L0,0.99999994 z" Stretch="Fill" UseLayoutRounding="False" d:LayoutOverrides="HorizontalAlignment" />
+            </Canvas>
+            <Rectangle x:Name="FocusedVisualElement" Stroke="{StaticResource ToggleButtonFocusedBorderBrush}" StrokeThickness="1" RadiusX="3" RadiusY="3" Opacity="0" />
+            <Rectangle x:Name="DisabledVisualElement" Fill="{StaticResource DisabledBackgroundBrush}" IsHitTestVisible="false" RadiusX="3" RadiusY="3" Opacity="0" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- *********************************  ExpandCollapseToggleButton Style  ********************************* -->
+  <Style x:Key="ExpandCollapseToggleButtonStyle" TargetType="ToggleButton">
+    <Setter Property="Background" Value="{StaticResource ToggleButtonBackgroundBrush}" />
+    <Setter Property="BorderBrush" Value="{StaticResource ToggleButtonBorderBrush}" />
+    <Setter Property="IsTabStop" Value="False" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ToggleButton">
+          <Grid>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="MouseOver">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonHoverBackgroundBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonHoverBorderBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ButtonHighlight" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0" Value="1" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonPressedBackgroundBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ToggleButtonPressedBorderBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0" Value=".55" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="CheckStates">
+                <VisualState x:Name="Checked">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="CollapseGlyph">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ExpandGlyph">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Collapsed</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Unchecked" />
+                <VisualState x:Name="Indeterminate" />
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="FocusStates">
+                <VisualState x:Name="Focused">
+                  <Storyboard>
+                    <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FocusedVisualElement" d:IsOptimized="True" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Unfocused" />
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="BaseShape" CornerRadius="3" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+            <Rectangle x:Name="ButtonHighlight" Margin="1" RadiusX="2" RadiusY="2" Stroke="{StaticResource ToggleButtonHoverHighlightBorderBrush}" StrokeThickness="1" Grid.ColumnSpan="2" Opacity="0" />
+            <Grid x:Name="ExpandGlyph">
+              <Path Stretch="Fill" Opacity="1" Fill="{StaticResource GlyphBorderBrush}" UseLayoutRounding="False" Data="M3.0000007,0 L5.000001,0 L5.000001,3.0000019 L8,3.0000019 L8,5.0000019 L5.000001,5.0000019 L5.000001,8 L3.0000007,8 L3.0000007,5.0000019 L0,5.0000019 L0,3.0000019 L3.0000007,3.0000019 z" Width="8" Height="8" d:LayoutOverrides="Width, Height, Margin" />
+            </Grid>
+            <Grid x:Name="CollapseGlyph" Visibility="Collapsed">
+              <Path Stretch="Fill" Opacity="1" Data="M0,0 L8,0 L8,2 L0,2 z" Fill="{StaticResource GlyphBorderBrush}" UseLayoutRounding="False" Margin="4,7" Width="8" Height="2" />
+            </Grid>
+            <Rectangle x:Name="FocusedVisualElement" Stroke="{StaticResource ToggleButtonFocusedBorderBrush}" StrokeThickness="1" RadiusX="3" RadiusY="3" Opacity="0" />
+            <Rectangle x:Name="DisabledVisualElement" Fill="{StaticResource DisabledBackgroundBrush}" IsHitTestVisible="false" RadiusX="3" RadiusY="3" Opacity="0" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- *********************************  DataSlicerListBoxItem Style  ********************************* -->
+  <Style x:Key="DataSlicerListBoxItemStyle" TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemStyle}">
+    <Setter Property="Background" Value="{StaticResource ListBoxItemBackgroundBrush}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource ListBoxItemBorderBrush}"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+    <Setter Property="Padding" Value="3"/>
+    <Setter Property="Margin" Value="0"/>
+    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ListBoxItem">
+          <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+            <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ListBoxItemHoverBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ListBoxItemHoverBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Highlight">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.5" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="contentPresenter" d:IsOptimized="True"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectionStates">
+                                <VisualState x:Name="Unselected"/>
+                                <VisualState x:Name="Selected"/>
+                                <VisualState x:Name="SelectedUnfocused" />
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                              <VisualState x:Name="Focused" />
+                                <VisualState x:Name="Unfocused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+            <Border x:Name="BaseShape" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <Rectangle x:Name="Highlight" Stroke="{StaticResource ListBoxItemHoverHighlightBorderBrush}" StrokeThickness="1" Visibility="Collapsed"/>
+                        </Border>
+            <Rectangle x:Name="SelectedBorder" Fill="{StaticResource ListBoxItemSelectedBackgroundBrush}" Stroke="{StaticResource ListBoxItemSelectedBorderBrush}" Visibility="Collapsed"/>
+            <ContentPresenter x:Name="contentPresenter" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+            <Rectangle x:Name="FocusedVisualElement" IsHitTestVisible="False" Visibility="Collapsed" Stroke="{StaticResource ListBoxItemFocusedBorderBrush}" StrokeThickness="1"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- *********************************  XamPivotDataSlicer Style  ********************************* -->
+  <Style x:Key="XamPivotDataSlicerStyle" TargetType="Grids:XamPivotDataSlicer">
+    <Setter Property="Background" Value="{StaticResource XamPivotDataSlicerBackgroundBrush}" />
+    <Setter Property="IsHeaderAreaExpanded" Value="False" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Grids:XamPivotDataSlicer">
+          <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="ExpanderAreaStates">
+                <VisualStateGroup.Transitions>
+                  <VisualTransition To="Visible" GeneratedDuration="00:00:00.2">
+                    <Storyboard>
+                      <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ExpansionArea" Storyboard.TargetProperty="Height">
+                        <LinearDoubleKeyFrame KeyTime="00:00:00.2" Value="55" />
+                      </DoubleAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ToggleButton" Storyboard.TargetProperty="Content">
+                        <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                          <DiscreteObjectKeyFrame.Value>
+                            <System:String>-</System:String>
+                          </DiscreteObjectKeyFrame.Value>
+                        </DiscreteObjectKeyFrame>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ToggleButton" Storyboard.TargetProperty="Margin">
+                        <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                          <DiscreteObjectKeyFrame.Value>
+                            <Thickness>0 2 0 0</Thickness>
+                          </DiscreteObjectKeyFrame.Value>
+                        </DiscreteObjectKeyFrame>
+                      </ObjectAnimationUsingKeyFrames>
+                      <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CollapsedInfoPanel" Storyboard.TargetProperty="Opacity">
+                        <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                      </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualTransition>
+                  <VisualTransition To="Collapsed" GeneratedDuration="00:00:00.2">
+                    <Storyboard>
+                      <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ExpansionArea" Storyboard.TargetProperty="Height">
+                        <LinearDoubleKeyFrame KeyTime="00:00:00.2" Value="0" />
+                      </DoubleAnimationUsingKeyFrames>
+                      <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CollapsedInfoPanel" BeginTime="00:00:00.2" Storyboard.TargetProperty="Opacity">
+                        <LinearDoubleKeyFrame KeyTime="00:00:01" Value="1" />
+                      </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Visible">
+                  <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ExpansionArea" Storyboard.TargetProperty="Height">
+                      <LinearDoubleKeyFrame KeyTime="00:00:00" Value="55" />
+                    </DoubleAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ToggleButton" Storyboard.TargetProperty="Content">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <System:String>-</System:String>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ToggleButton" Storyboard.TargetProperty="Margin">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Thickness>0 2 0 0</Thickness>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CollapsedInfoPanel" Storyboard.TargetProperty="Opacity">
+                      <LinearDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Collapsed">
+                  <Storyboard>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ExpansionArea" Storyboard.TargetProperty="Height">
+                      <LinearDoubleKeyFrame KeyTime="00:00:00.00" Value="0" />
+                    </DoubleAnimationUsingKeyFrames>
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="CollapsedInfoPanel" BeginTime="00:00:00.00" Storyboard.TargetProperty="Opacity">
+                      <LinearDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border x:Name="OuterShdw" Background="{TemplateBinding Background}" BorderBrush="{StaticResource XamPivotDataSlicerBorderBrush}" BorderThickness="1">
+              <Grid Margin="5">
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource ExpansionAreaContainerBackgroundBrush}" BorderBrush="{StaticResource ExpansionAreaContainerBorderBrush}" BorderThickness="1" CornerRadius="4">
+                  <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                      <RowDefinition />
+                      <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="ExpansionArea" Height="0" Grid.Row="0">
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                      </Grid.ColumnDefinitions>
+                      <Border Background="{StaticResource ExpansionAreaBackgroundBrush}" BorderBrush="{StaticResource ExpansionAreaBorderBrush}" BorderThickness="1" Margin="0,0,5,5" Padding="1">
+                        <StackPanel Margin="3,0,3,3">
+                          <TextBlock Text="{Binding Source={StaticResource stringResources}, Path=HierarchyLabel}" Foreground="{StaticResource ForegroundBrush}" Margin="0,0,0,2" />
+                          <ComboBox ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TargetHierarchies}" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TargetHierarchy, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}">
+                            <ComboBox.ItemTemplate>
+                              <DataTemplate>
+                                <TextBlock Text="{Binding Caption}" />
+                              </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                          </ComboBox>
+                        </StackPanel>
+                      </Border>
+                      <Border Background="{StaticResource ExpansionAreaBackgroundBrush}" BorderBrush="{StaticResource ExpansionAreaBorderBrush}" BorderThickness="1" CornerRadius="1" Padding="1" Grid.Column="1" Margin="0,0,0,5">
+                        <StackPanel Margin="3,0,3,3">
+                          <TextBlock Text="{Binding Source={StaticResource stringResources}, Path=LevelLabel}" Foreground="{StaticResource ForegroundBrush}" Margin="0,0,0,2" />
+                          <ComboBox ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TargetLevels}" SelectedItem="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TargetLevel, Mode=TwoWay}" Style="{StaticResource ComboBoxStyle}">
+                            <ComboBox.ItemTemplate>
+                              <DataTemplate>
+                                <TextBlock Text="{Binding Caption}" />
+                              </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                          </ComboBox>
+                        </StackPanel>
+                      </Border>
+                    </Grid>
+                    <StackPanel x:Name="CollapsedInfoPanel" Opacity="1" Orientation="Horizontal" Grid.Row="1">
+                      <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TargetHierarchy.Caption}" Foreground="{StaticResource ForegroundBrush}" />
+                      <Canvas Width="13">
+                        <TextBlock Text=" : " Foreground="{StaticResource ForegroundBrush}" Height="16" />
+                      </Canvas>
+                      <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TargetLevel.Caption}" Foreground="{StaticResource ForegroundBrush}" />
+                    </StackPanel>
+                    <ToggleButton IsThreeState="False" x:Name="ToggleButton" Grid.Row="1" Width="16" Height="16" Padding="-5" HorizontalAlignment="Right" IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsHeaderAreaExpanded, Mode=TwoWay}" Style="{StaticResource ExpandCollapseToggleButtonStyle}" />
+                  </Grid>
+                </Border>
+                <ToggleButton x:Name="RemoveSelectionToggleButton" Grid.Row="1" Width="16" Height="16" HorizontalAlignment="Right" IsThreeState="False" Margin="0,3,4,5" Style="{StaticResource RemoveSelectionToggleButtonStyle}" IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=HasAppliedFilter}" />
+                <Border Grid.Row="2" Margin="0,0,0,5" Background="{StaticResource ListBoxContainerBackgroundBrush}" BorderBrush="{StaticResource ListBoxContainerBorderBrush}" CornerRadius="4" BorderThickness="1">
+                  <ListBox ItemsSource="{TemplateBinding Items}" Style="{StaticResource ListBoxStyle}" ItemContainerStyle="{StaticResource DataSlicerListBoxItemStyle}" Background="{x:Null}" BorderBrush="{x:Null}" />
+                </Border>
+              </Grid>
+            </Border>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style TargetType="Grids:XamPivotDataSlicer" BasedOn="{StaticResource XamPivotDataSlicerStyle}" />
+</ResourceDictionary>

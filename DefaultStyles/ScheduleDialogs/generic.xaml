@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--                             IMPORTANT NOTE:                                -->
+    <!--                                                                            -->
+    <!-- Do not place any resources in this file as it gets overwritten in the      -->
+    <!-- pre-build step with the appropriate platform-specific ResourceDictionary   -->
+    <!-- (i.e., generic.sl.xaml or generic.wpf.xaml).  Shared resources should      -->
+    <!-- be placed in generic.shared.xaml which is merged into each platform        -->
+    <!-- specific ResourceDictionary                                                -->
+    <!--                                                                            -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+</ResourceDictionary>

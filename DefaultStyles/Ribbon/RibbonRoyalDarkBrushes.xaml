@@ -1,0 +1,631 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:PresentationOptions="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:igRibbon="http://infragistics.com/Ribbon"
+                    xmlns:igThemes="http://infragistics.com/Themes"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    mc:Ignorable="PresentationOptions">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="RibbonOffice2k7Brushes__Shared.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <BitmapImage x:Key="{ComponentResourceKey ResourceId=ImageBackgroundNormal,
+                                              TypeInTargetAssembly=igRibbon:ApplicationMenuPresenter}"
+                 PresentationOptions:Freeze="true"
+                 UriSource="Images/ApplicationMenuNormalBlack.png" />
+
+    <!--  ********************************** THEME COLORS **********************************  -->
+
+    <!--  Theme Accent colors  -->
+    <Color x:Key="Color_011">#FF58358B</Color> <!--  BG SELECTED/PRESSED/CHECKED  -->
+    <Color x:Key="Color_013">#FF7446B9</Color> <!--  BrD FOCUS  -->
+    <Color x:Key="Color_0013">#FF926EC7</Color><!--  Hyperlinks Normal  -->
+
+    <!--  Theme Error colors  -->
+    <Color x:Key="Color_019">#FFE63935</Color>
+
+    <!--  Base Colors  -->
+    <Color x:Key="Color_001">#FFFFFFFF</Color>  <!--  Foreground / Icons hover  -->
+    <Color x:Key="Color_002">#FF1E1E1E</Color>  <!--  Editors Controls Background  -->
+    <Color x:Key="Color_003">#FF333333</Color>  <!--  Button Background /Controls BrD Normal  -->
+    <Color x:Key="Color_004">#FFAAAAAA</Color>  <!--  Icons Normal  -->
+    <Color x:Key="Color_005">#FF444444</Color>  <!--  Slider Background  -->
+    <Color x:Key="Color_006">#FF888888</Color>   <!--  Scrollbar Background / RadioButton & Checkbox Hover  -->
+    <Color x:Key="Color_007">#FF212121</Color>  <!--  ColorPicker/Menu Background /  -->
+    <Color x:Key="Color_008">#FF272727</Color> <!--  Grid Lines  -->
+    <Color x:Key="Color_009">#FF1B1B1B</Color> <!--  Calendar Background  -->
+    <Color x:Key="Color_010">#FF4F4F4F</Color> <!--  BG HOVER  -->
+    <Color x:Key="Color_012">#FF777777</Color>  <!--  BrD HOVER  -->
+    <Color x:Key="Color_014">#FF2D2D2D</Color> <!--  ReadOnly BG/ Menu Item/grid Hover  -->
+    <Color x:Key="Color_015">#FF3C3C3E</Color> <!--  ReadOnly BrD  -->
+    <Color x:Key="Color_016">#FFDDDDDD</Color> <!--    -->
+    <Color x:Key="Color_017">#FF666666</Color>  <!--    -->
+    <Color x:Key="Color_018">#FF191919</Color>  <!--    -->
+
+
+    <!--  Transparent and Whites with transparency  -->
+    <Color x:Key="Color_040">#E5FFFFFF</Color> <!--  90% White  -->
+    <Color x:Key="Color_041">#BFFFFFFF</Color> <!--  75% White  -->
+    <Color x:Key="Color_042">#99FFFFFF</Color>
+    <Color x:Key="Color_043">#72FFFFFF</Color> <!--  45% White  -->
+    <Color x:Key="Color_044">#4CFFFFFF</Color> <!--  30% White  -->
+    <Color x:Key="Color_045">#26FFFFFF</Color> <!--  15% White  -->
+    <Color x:Key="Color_046">#00FFFFFF</Color>  <!--  0% White  --><!--  TransparentBrush  -->
+
+    <!--  Blacks and grays with transparency  -->
+    <Color x:Key="Color_050">#E5000000</Color><!--  90% Black  -->
+    <Color x:Key="Color_051">#BF000000</Color> <!--  75% Black  -->
+    <Color x:Key="Color_052">#99000000</Color> <!--  60% Black  -->
+    <Color x:Key="Color_053">#72000000</Color> <!--  45% Black  -->
+    <Color x:Key="Color_054">#4C000000</Color> <!--  30% Black  -->
+    <Color x:Key="Color_055">#26000000</Color> <!--  15% Black  -->
+    <Color x:Key="Color_056">#19000000</Color>  <!--  10% Black  --> <!--  ShadowBrush  -->
+
+
+
+    <!--  *********************************  BRUSHES  *********************************  -->
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="ForegroundBrush" Color="{StaticResource Color_001}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="TransparentBrush" Color="{StaticResource Color_046}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="DisabledBorderBrush" Color="{StaticResource Color_045}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="DisabledBackgroundBrush" Color="{StaticResource Color_045}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="DisabledForegroundBrush"  Color="{StaticResource Color_045}" />
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="CaretForegroundBrush" Color="{StaticResource Color_001}" />
+
+    <!--  Scrollbar Brushes  -->
+    <!--<SolidColorBrush PresentationOptions:Freeze="true" x:Key="HScrollbarThumbBackgroundBrush" Color="{StaticResource Color_009}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="HScrollbarThumbBorderBrush" Color="{StaticResource Color_005}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="VScrollbarThumbBackgroundBrush" Color="{StaticResource Color_009}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="VScrollbarThumbBorderBrush" Color="{StaticResource Color_005}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="VScrollbarThumbHoverBackgroundBrush" Color="{StaticResource Color_007}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="HScrollbarThumbHoverBackgroundBrush" Color="{StaticResource Color_007}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="VScrollbarThumbHoverBorderBrush" Color="{StaticResource Color_005}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="HScrollbarThumbHoverBorderBrush" Color="{StaticResource Color_005}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="VScrollbarThumbPressedBackgroundBrush" Color="{StaticResource Color_007}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="HScrollbarThumbPressedBackgroundBrush" Color="{StaticResource Color_007}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="VScrollbarThumbPressedBorderBrush" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="HScrollbarThumbPressedBorderBrush" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonArrowBackgroundBrush" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonArrowPressedBackgroundBrush" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonArrowHoverBackgroundBrush" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonBackgroundBrush" Color="{StaticResource Color_009}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonPressedBackgroundBrush" Color="{StaticResource Color_007}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonHoverBackgroundBrush" Color="{StaticResource Color_009}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonBorderBrush" Color="{StaticResource Color_005}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonPressedBorderBrush" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarPageButtonHoverBorderBrush" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="ScrollbarBackgroundBrush" Color="{StaticResource Color_008}" />-->
+
+    <!--  TextBox Brushes  -->
+    <SolidColorBrush x:Key="TextBoxBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="TextBoxBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_003}" />
+
+    <!--  ComboBox Brushes  -->
+    <SolidColorBrush x:Key="ComboBoxBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="ComboBoxBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="ComboBoxReadOnlyBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_015}" />
+    <SolidColorBrush x:Key="ComboBoxReadOnlyBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="ComboBoxHoverBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="ComboBoxHoverBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="ComboBoxFocusedBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="PopupBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="PopupBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_014}" />
+
+    <!--  ComboBoxToggleButton Brushes  -->
+    <SolidColorBrush x:Key="ComboBoxToggleButtonHoverBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="ComboBoxToggleButtonHoverBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="ComboBoxToggleButtonPressedBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="ComboBoxToggleButtonDisabledBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="ComboBoxToggleButtonDisabledBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_045}" />
+
+    <!--  ComboBoxItem Brushes  -->
+    <SolidColorBrush x:Key="ComboBoxItemHoverBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="ComboBoxItemPressedBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="ComboBoxItemFocusedBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_013}" />
+
+    <!--  Visual Glyphs brushes  -->
+    <SolidColorBrush x:Key="GlyphBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="GlyphHoverBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="GlyphPressedBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="GlyphDisabledBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_045}" />
+
+    <!--  ActiveWindow Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ActiveWindowBorderInner2BrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ActiveWindowBorderOuterBrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ActiveWindowBorderInner1BrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ActiveWindowBorderInner3BrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+
+    <!--  Container Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ContainerFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ContainerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ContainerInContextualBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ContainerInContextualBaseFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_002}" />
+
+    <!--  Tab Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabActiveNormalBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabActiveNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabActiveNormalTopHighlightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabActiveNormalMainCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabInactiveHoverBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabInactiveHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabInactiveHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonTabControlHeaderPanelBackgroundKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="HeaderPanel" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabIsSelectedTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabNotSelectedTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TabActiveHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ContextualTabSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <!--  Button Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonPressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedHottrackBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedHottrackCenterOverlayFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedHottrackCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedHottrackInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonCheckedCenterOverlayFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonDisabledBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonDisabledBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonDisabledCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_045}" />
+
+    <!--  ButtonGroup Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupNormalBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupNormalDividerFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupNormalInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+ <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupHoverOuterBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+ <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupPressedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupCheckedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupCheckedHottrackCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupCheckedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupCheckedHottrackBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupDisabledBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupDisabledInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupDisabledCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupDisabledDarkSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupSegmentedHoverDarkSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonGroupSegmentedHoverLightSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <!--  ButtonTool Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolPressedInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolCheckedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolCheckedInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolCheckedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolCheckedHottrackInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolCheckedHottrackCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolCheckedHottrackBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolDisabledBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolDisabledBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ButtonToolDisabledCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+
+    <!--  Menu / Menu Tool Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuHottrackBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuHottrackCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuHottrackCenterSecondaryFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuHottrackBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuDisabledHottrackBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuDisabledHottrackBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuDisabledHottrackCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_045}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuItemDropDownArrowFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuItemDropDownArrowHottrackFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.SubMenuHeaderPopUpBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.SubMenuHeaderPopUpCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.SubMenuHeaderPopUpBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerNormalBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerNormalGlyphFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerHoverGlyphFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerPressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuScrollViewerPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+
+ <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuToolOverlayFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+ <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.MenuToolPresenterLeftColumnFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+
+    <!--  Gallery Tool Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterFooterBarGradientKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterFooterBarStrokeKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterFooterBarGlyphFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_006}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_006}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_006}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarArrowFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_006}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarDisabledArrowFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarThumbGripperForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarThumbGripperBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarPressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarTrackBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarTrackBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarTrackCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_018}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonNormalBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonPressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonNormalBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolDropDownPresenterScrollBarRepeatButtonPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterDropDownButtonIconBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterDropDownButtonIconForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollButtonNormalInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollButtonNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollButtonHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollButtonHoverInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollUpButtonDisabledBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollUpButtonDisabledCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollUpButtonPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollUpButtonPressedInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollDownButtonPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollDownButtonPressedInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollButtonNormalBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollButtonHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollButtonDisabledBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollDownButtonDisabledBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollDownButtonDisabledCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterScrollUpButtonPressedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterDisabledArrowBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterDisabledArrowForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterEnabledArrowBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryToolPreviewPresenterEnabledArrowForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+
+    <!--  Gallery Item Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterHoverBottomOverlayGradientKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterSelectedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterSelectedBorderLightFillInnerKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterSelectedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterSelectedBottomOverlayGradientKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterSelectedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemPresenterHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemGroupCaptionStrokeFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GalleryItemGroupCaptionFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+
+    <!--  RibbonGroup Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupNormalBottomGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupNormalBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="TabArea" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupHoverBottomGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupHoverCenterFillKey}" PresentationOptions:Freeze="true" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCaptionTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupIsInContextualHoverCenterFillKey}" PresentationOptions:Freeze="true" Color="{StaticResource Color_046}" />
+
+    <!--  RibbonGroup Collapsed Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaNormalBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaNormalBottomGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaHoverBottomGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaPressedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaPressedBottomGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaIsActiveBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaIsActiveCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedInnerAreaIsActiveBottomGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedNormalBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedNormalBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedPressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedPressedHighlightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsActiveBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsActiveBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsActiveCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsActiveHighlightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsInContextualPressedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsInContextualPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsInContextualHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsInContextualNormalBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupCollapsedIsInContextualNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+
+    <!--  RibbonGroup QAT Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATHover1InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATVistaHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATVistaHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATVistaHover1InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATVistaHover2InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATVistaHover3InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATHover2InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATHover3InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATPressed1InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonGroupQATPressed2InnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+
+    <!--  CaptionButton Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonPressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+
+    <!--  StatusBar Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.StatusBarFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.StatusBarSeparatorGradientLeftKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.StatusBarTextForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.StatusBarBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.StatusBarSeparatorGradientRightKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <!--  Scenic Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ScenicStatusBarTextForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ScenicStatusBarBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ScenicStatusBarSeparatorGradientLeftKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ScenicStatusBarSeparatorGradientRightKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ScenicStatusBarFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+
+    <!--  Scren Tip /KeyTip/ ToolTip Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamScreenTipFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamScreenTipBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamScreenTipSeparatorDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.KeyTipCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.KeyTipBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ToolTipNonScreenTipCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ToolTipNonScreenTipBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+
+    <!--  Editors Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.EditorsNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.EditorsNormalBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.EditorsHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.EditorsHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.EditorsDisabledBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Editors" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.EditorsDisabledCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Editors" Color="{StaticResource Color_046}" />
+
+    <!--  Separator Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.HorizontalSeparatorNormalDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.HorizontalSeparatorNormalLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.VerticalSeparatorNormalLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.VerticalSeparatorNormalDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.VerticalSeparatorHoverLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.VerticalSeparatorHoverDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ScenicRibbonGroupSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <!--  XamPager Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonBlueGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonLeftOuterBorderGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonLeftInnerBorderGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonCenterGrayGradientFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonHoverFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonPressedBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamPagerButtonGlyphFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <!--  Window Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.WindowBackgroundBrushKey}" PresentationOptions:Freeze="true" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.WindowBorderOuterBrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.WindowBorderInner1BrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.WindowBorderInner2BrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.WindowBorderInner3BrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+
+    <!--  CaptionPanel Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CaptionPanelFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Caption" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CaptionPanelInactiveFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Caption" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CaptionPanelBottomSeparatorStrokeKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <!--  ApplicationMenu Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuChromeFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuOuterBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuInnerBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuLeftAreaBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuRecentItemsBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuRecentItemsSeparatorDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuRecentItemsSeparatorLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuSideSelectBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuSideSelectCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuSideSelectBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuSideSelectCenterSecondaryFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuDisabledSideSelectBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuDisabledSideSelectBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuDisabledSideSelectCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuLeftAreaCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuRecentItemsCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuFooterToolbarButtonNormalBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuFooterToolbarButtonHoverBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuFooterToolbarButtonTextForegroundKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuFooterToolbarButtonNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuFooterToolbarButtonHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuFooterToolbarOuterBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_014}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuFooterToolbarFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonNormalInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonHoverInnerBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonNormalOuterBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonNormalCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonHoverOuterBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover"  Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover"  Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenuButtonPressedOuterBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+
+    <!--  CheckBox Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxNormalOuterBoxCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_002}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxNormalOuterBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxNormalInnerBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxNormalInnerBoxCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxHoverInnerBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxHoverInnerBoxCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxHoverOuterBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_006}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxPressedOuterBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxPressedInnerBoxCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxPressedInnerBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxDisabledOuterBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="CheckBox" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxDisabledInnerBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="CheckBox" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxDisabledInnerBoxCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="CheckBox" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxDisabledOuterBoxCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="CheckBox" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckBoxIndeterminateCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.IsCheckedBoxBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.IsCheckedBoxCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckmarkBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckmarkForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CheckMarkStrokeFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+
+    <!--  DialogBox Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplatePressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplatePressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplatePressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateGlyphNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateGlyphNormalBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateGlyphHoverForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateGlyphHoverBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateGlyphPressedForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DialogBoxLauncherToolTemplateGlyphPressedBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+
+    <!--  CaptionButton Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonHoverOverlayFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonPressedBottomOverlayFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonPressedTopOverlayFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_013}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMinimizeNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMinimizeNormalBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMaxCloseNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMaxCloseNormalBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMaxCloseNormalDisabledForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMaxCloseInactiveDisabledForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMinimizeHoverForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMinimizeHoverBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMaxCloseHoverForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMaxCloseHoverBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_012}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMinimizeInactiveForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_042}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.XamRibbonCaptionButtonIconMaxCloseInactiveForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_042}" />
+
+    <!--  Dropdown Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownGlyphNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownGlyphNormalBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownGlyphHoverForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownGlyphHoverBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownEnabledCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownEnabledBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownHoverBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownHoverBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownHoverCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_010}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownPressedBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownPressedBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.DropdownPressedCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Pressed" Color="{StaticResource Color_011}" />
+    <!--  Glyph Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GenericGlyphNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GenericGlyphNormalBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GenericGlyphHoverForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GenericGlyphHoverBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GenericGlyphDisabledForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GenericGlyphDisabledBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_045}" />
+
+    <!--  RFesizeGrip Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ResizeGrippersForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ResizeGrippersBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+
+    <!--  QAT Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATCustomizeDropdownNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_004}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATCustomizeDropdownNormalBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATBelowRibbonBorderDarkFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATBelowRibbonBorderLightFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATBelowRibbonShadowFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_046}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATBelowRibbonCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATOverflowPanelCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATOverflowPanelBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATOverflowGlyphNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATOverflowGlyphNormalBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATOverflowGlyphHoverForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.QATOverflowGlyphHoverBackgroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_046}" />
+
+    <!--  Tool Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ToolEnabledForegroundTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ToolDisabledForegroundTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ToolInQATForegroundTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.VistaWindowMaximizedTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.VistaQATTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+
+    <!--  Text Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TextNormalForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TextHottrackFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.TextDisabledForegroundFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_045}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.GrayTextBrushKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_045}" />
+
+    <!--  Caption Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CaptionActiveTextForegroundKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.CaptionInactiveTextForegroundKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_015}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ContextualCaptionTextFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+
+    <!--  Segmented Brushes  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.IsSegmentedNonHottrackDividerFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedHoverSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="Hover" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedTopHoverBottomNormalFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedCheckedSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedCheckedHottrackSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="IsChecked" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedDisabledDarkSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedDisabledLightSeparatorFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedHoverSeparatorLightFillKey}" igThemes:ResourceWasher.IsExcludedFromWash="True" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedCheckedSeparatorLightFillKey}" igThemes:ResourceWasher.IsExcludedFromWash="True" Color="{StaticResource Color_003}" />
+	<SolidColorBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.LargeSegmentedCheckedHottrackSeparatorLightFillKey}" igThemes:ResourceWasher.IsExcludedFromWash="True" Color="{StaticResource Color_003}" />
+
+    <!--  NA 2013.1 - Backstage  -->
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenu2010ItemAreaCenterFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_007}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.ApplicationMenu2010ItemAreaBorderFillKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="BaseColor" Color="{StaticResource Color_005}" />
+
+    <SolidColorBrush PresentationOptions:Freeze="true" x:Key="TabitemAreaToolbarForeground" igThemes:ResourceWasher.WashGroup="Text" Color="{StaticResource Color_001}" />
+    <!--  Tooltip Brushes  -->
+    <SolidColorBrush x:Key="TooltipBackgroundBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_009}" />
+    <SolidColorBrush x:Key="TooltipBorderBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_005}" />
+    <SolidColorBrush x:Key="TooltipShadowBrush" PresentationOptions:Freeze="true" Color="{StaticResource Color_056}" />
+    <SolidColorBrush x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonTabControlHeaderPanelGlassBackgroundKey}" PresentationOptions:Freeze="true" igThemes:ResourceWasher.WashGroup="HeaderPanel" Color="{StaticResource Color_009}" />
+
+    <!--<LinearGradientBrush PresentationOptions:Freeze="true" x:Key="{x:Static igRibbon:RibbonBrushKeys.RibbonTabControlHeaderPanelGlassBackgroundKey}" igThemes:ResourceWasher.WashGroup="HeaderPanel" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0.06" Color="#00ffffff"/>
+        <GradientStop Color="#7F525565" Offset="0.5"/>
+        <GradientStop Offset="1" Color="#FFeff6fd"/>
+    </LinearGradientBrush>-->
+
+</ResourceDictionary>

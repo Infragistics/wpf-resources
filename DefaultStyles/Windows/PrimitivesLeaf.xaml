@@ -1,0 +1,929 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:ig="http://infragistics.com/Windows"
+	xmlns:controls="http://infragistics.com/Windows"
+	xmlns:looks="http://infragistics.com/Windows.Looks"
+	xmlns:themes="http://infragistics.com/Themes"
+	xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	>
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="PrimitivesLeaf_Brushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Storyboard x:Key="fadeOut">
+		<DoubleAnimation
+				 Storyboard.TargetProperty="Opacity"
+				 To=".5"
+				 FillBehavior="HoldEnd"
+				 BeginTime="00:00:00"
+				 Duration="00:00:00.5" />
+	</Storyboard>
+	<Storyboard x:Key="fadeIn">
+		<DoubleAnimation
+				 Storyboard.TargetProperty="Opacity"
+				 To="1"
+				 FillBehavior="HoldEnd"
+				 BeginTime="00:00:00"
+				 Duration="00:00:00.5" />
+	</Storyboard>
+	
+
+	<!-- _________________________ SortIndicator __________________________________________ -->
+	<Style TargetType="{x:Type controls:SortIndicator}">
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="MinHeight" Value="3.5" />
+		<Setter Property="MinWidth" Value="7" />
+		<Setter Property="Visibility" Value="Hidden"/>
+		<Setter Property="Background" Value="{StaticResource SortIndicatorBackground}" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:SortIndicator}">
+					<Polygon Name="Arrow" 
+								  Fill="{TemplateBinding Background}" 
+								  Points="0,0 7,0 3.5,3.5" 	
+								  StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeLineJoin="Round" />
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="SortStatus" Value="Descending">
+							<Setter Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="SortStatus" Value="Ascending">
+							<Setter TargetName="Arrow" Property="Points" 
+											   Value="0,3.5 7,3.5 3.5,0" />
+							<Setter Property="Visibility" Value="Visible" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Arrow" Property="Polygon.Fill" 
+											   Value="{StaticResource SortIndicatorBackgroundHover}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ ExpanderBar __________________________________________ -->
+	<Style TargetType="{x:Type controls:ExpanderBar}">
+		<Setter Property="Background" Value="{StaticResource ExpanderBarBackground}" />
+		<Setter Property="BackgroundHover" Value="{StaticResource ExpanderBarBackgroundHover}" />
+		<Setter Property="BorderHoverBrush" Value="{StaticResource ExpanderBarBorderHoverBrush}" />
+		<Setter Property="MinHeight" Value="10" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="Focusable" Value="False" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:ExpanderBar}">
+					<!--<Grid Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Height}">-->
+					<Grid>
+						<Rectangle x:Name="bgRect" 
+							Stroke="{StaticResource ExpanderBarBorderBrush}" StrokeThickness="1"
+							Fill="{StaticResource ExpanderBarBackground}" />
+					</Grid>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsMouseOver" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="bgRect" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BackgroundHover}" />
+							<Setter TargetName="bgRect" Property="Stroke" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderHoverBrush}" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ ExpansionIndicator __________________________________________ -->
+	<Style TargetType="{x:Type controls:ExpansionIndicator}">
+		<Setter Property="Background" Value="{StaticResource ExpansionIndicatorBackground}" />
+		<Setter Property="BorderBrush" Value="{StaticResource ExpansionIndicatorBorderBrush}" />
+		<Setter Property="Foreground" Value="{StaticResource ExpansionIndicatorForeground}" />
+		<Setter Property="Cursor" Value="Hand" />
+		<Setter Property="ClipToBounds" Value="False" />
+		<Setter Property="Margin" Value="5,0,3,0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:ExpansionIndicator}">
+					<Grid Background="#00FFFFFF">
+						<Grid Width="9" Height="9" x:Name="grdExpansionIndicatorClosed" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+							<Border Background="{TemplateBinding BorderBrush}" x:Name="outerBorder" RenderTransformOrigin="0.5,0.5" CornerRadius="2,2,2,2"/>
+							<Border 
+							  x:Name="innerFill" 
+							  Margin="1,1,1,1" Width="Auto" Height="Auto" 									
+							  RenderTransformOrigin="0.5,0.5" 
+							  CornerRadius="1.5,1.5,1.5,1.5"
+							  Background="{TemplateBinding Background}"
+									/>
+							<Rectangle Fill="{TemplateBinding Foreground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,4,2,4" Width="Auto" Height="1" x:Name="plusHorizontal" RenderTransformOrigin="0.5,0.5"/>
+							<Rectangle Fill="{TemplateBinding Foreground}" Margin="4,2,4,2" Width="1" Height="Auto" x:Name="plusVert" RenderTransformOrigin="0.5,0.5"/>
+						</Grid>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<!-- Checked -->
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsChecked" Value="true" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="plusVert" Property="Visibility" Value="Collapsed" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!-- _________________________ CarouselListBox ______________________________________ -->
+	<Style TargetType="{x:Type controls:XamCarouselListBox}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:XamCarouselListBox}">
+					<Grid>
+						<Border Name="Border" 
+							   BorderBrush="{TemplateBinding BorderBrush}"
+							   BorderThickness="{TemplateBinding BorderThickness}"
+							   Margin="{TemplateBinding Margin}" 
+							   Background="{TemplateBinding Background}">
+							<!--<controls:XamCarouselPanel Margin="3" IsItemsHost="True" Background="{TemplateBinding Background}"/>-->
+							<ItemsPresenter 
+								Margin="{TemplateBinding Padding}" 
+								x:Name="ItemsPresenter" 
+								SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+  
+  <!-- _________________________ CarouselPanelItem ______________________________________ -->
+	<Style TargetType="{x:Type controls:CarouselPanelItem}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:CarouselPanelItem}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<ScrollViewer Name="ScrollViewer" 
+								    HorizontalScrollBarVisibility="{TemplateBinding ItemHorizontalScrollBarVisibility}" 
+								    VerticalScrollBarVisibility="{TemplateBinding ItemVerticalScrollBarVisibility}"
+								    Height="{Binding Path=(controls:XamCarouselPanel.ViewSettings).(controls:CarouselViewSettings.ItemSize).Height,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type controls:XamCarouselPanel}}}">
+							<Viewbox Name="ViewBox" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+								<Grid Name="itemContentHolder">
+									<Border CornerRadius="4" Background="#00000000" Name="itemContentHolderBackground"/>
+									<ContentControl Name="itemContent" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"  Margin="0"/>
+								</Grid>
+							</Viewbox>
+						</ScrollViewer>
+
+						<Canvas Grid.Row="1" 
+							 Visibility="{Binding Path=ReflectionVisibility,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type controls:XamCarouselPanel}}}"
+							 Height="{Binding ActualHeight, ElementName=ScrollViewer}"
+							 Width="{Binding ActualWidth, ElementName=ScrollViewer}"
+							 Margin="0,2,0,0" IsHitTestVisible="False"
+                                                      >
+							<Canvas.Background>
+								<VisualBrush  Visual="{Binding ElementName=ScrollViewer}" 
+										    Stretch="None" 
+										    Opacity=".3" 
+										    AlignmentX="Center" 
+										    AlignmentY="Bottom"
+										    ViewboxUnits="Absolute">
+									<VisualBrush.RelativeTransform>
+										<TransformGroup>
+											<MatrixTransform Matrix="1,0,0,-1,0,0" />
+											<TranslateTransform Y="1" />
+										</TransformGroup>
+									</VisualBrush.RelativeTransform>
+								</VisualBrush>
+							</Canvas.Background>
+							<Canvas.OpacityMask>
+								<LinearGradientBrush StartPoint=".5,0" EndPoint=".5,1">
+									<LinearGradientBrush.GradientStops>
+										<GradientStop Offset="0" Color="#FF000000" />
+										<GradientStop Offset=".8" Color="#00000000" />
+									</LinearGradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Canvas.OpacityMask>
+						</Canvas>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsFirstItem" Value="True"/>
+								<Condition Property="IsListContinuous" Value="True"/>
+							</MultiTrigger.Conditions>
+
+							<Setter TargetName="itemContentHolderBackground" Property="BorderThickness" Value="4"/>
+							<Setter TargetName="itemContentHolderBackground" Property="BorderBrush" Value="Yellow"/>
+							<Setter TargetName="itemContent" Property="Margin" Value="4"/>
+						</MultiTrigger>
+
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="IsLastItem" Value="True"/>
+								<Condition Property="IsListContinuous" Value="True"/>
+							</MultiTrigger.Conditions>
+
+							<Setter TargetName="itemContentHolderBackground" Property="BorderThickness" Value="4"/>
+							<Setter TargetName="itemContentHolderBackground" Property="BorderBrush" Value="Cyan"/>
+							<Setter TargetName="itemContent" Property="Margin" Value="4"/>
+						</MultiTrigger>
+
+						<Trigger Property="IsSelected" Value="true">
+							<Setter TargetName="itemContentHolderBackground" Property="Background">
+								<Setter.Value>
+									<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+										<LinearGradientBrush.GradientStops>
+											<GradientStop Color="sc#1, 0.303573549, 0.303573549, 0.303573549" Offset="1"/>
+											<GradientStop Color="sc#1, 0.9095203, 0.9095203, 0.9095203" Offset="0"/>
+										</LinearGradientBrush.GradientStops>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+							<Setter TargetName="itemContent" Property="Margin" Value="4" />
+						</Trigger>
+
+						<Trigger Property="AutoScaleItemContentsToFit" Value="true">
+							<Setter TargetName="ScrollViewer" Property="HorizontalScrollBarVisibility" Value="Hidden"/>
+							<Setter TargetName="ScrollViewer" Property="VerticalScrollBarVisibility" Value="Hidden"/>
+							<Setter TargetName="ViewBox" Property="Stretch" Value="Uniform"/>
+							<Setter TargetName="ViewBox" Property="StretchDirection" Value="Both"/>
+							<Setter TargetName="ViewBox" Property="Width" Value="{Binding Path=ActualWidth,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type ScrollContentPresenter}}}"/>
+							<Setter TargetName="ViewBox" Property="Height" Value="{Binding Path=ActualHeight,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type ScrollContentPresenter}}}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<Style x:Key="origPLBI" TargetType="{x:Type controls:CarouselListBoxItem}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:CarouselListBoxItem}">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<Grid Name="itemContentHolder"
+							 Height="{Binding Path=(ItemSize).(Height),RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type controls:XamCarouselPanel}}}">
+							<Border Name="itemContentHolderBackground"
+								   CornerRadius="5">
+								<ContentControl Name="itemContent" 
+											 Margin="5" 
+											 Grid.Row="0" 
+											 Content="{TemplateBinding Content}"/>
+							</Border>
+						</Grid>
+						<Canvas Grid.Row="1" Visibility="{Binding Path=ReflectionVisibility,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type controls:XamCarouselPanel}}}">
+							<Canvas.Background>
+								<VisualBrush Visual="{Binding ElementName=itemContentHolder}" Opacity=".5">
+									<VisualBrush.RelativeTransform>
+										<TransformGroup>
+											<MatrixTransform Matrix="1,0,0,-1,0,0" />
+											<TranslateTransform Y="1" />
+										</TransformGroup>
+									</VisualBrush.RelativeTransform>
+								</VisualBrush>
+							</Canvas.Background>
+							<Canvas.OpacityMask>
+								<LinearGradientBrush StartPoint=".5,0" EndPoint=".5,1">
+									<LinearGradientBrush.GradientStops>
+										<GradientStop Offset="0" Color="#FF000000" />
+										<GradientStop Offset=".8" Color="#00000000" />
+									</LinearGradientBrush.GradientStops>
+								</LinearGradientBrush>
+							</Canvas.OpacityMask>
+						</Canvas>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsSelected" Value="true">
+							<Setter TargetName="itemContentHolderBackground" Property="Background" Value="AliceBlue"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+  <!-- _________________________ CarouselListBoxItem ______________________________________ -->
+  <Style TargetType="{x:Type controls:CarouselListBoxItem}" BasedOn="{x:Static themes:PrimitivesGeneric.CarouselPanelItem}">
+  </Style>
+
+  <!-- _________________________ CarouselPanelNavigator ______________________________________ -->
+	<!-- ************************************************** -->
+	<!-- CarouselPanelNavigator Resources -->
+	<!-- ************************************************** -->
+	<Style x:Key="btnArrowRight" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Canvas d:LayoutOverrides="Width, Height" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" x:Name="arrowButton">
+						<Path Opacity="1" Fill="sc#1, 0.13831535, 0.13831535, 0.13831535" Width="26.538508892059326" Height="26.87999725341797" Canvas.Left="3.934021472930908" Canvas.Top="3.5599842071533203" Stretch="Fill" Data="M 4.260498046875,13.852081298828125 C5.87066650390625,6.6312255859375 12.97955322265625,2.189300537109375 20.136474609375,3.94232177734375 27.2935791015625,5.69525146484375 31.76953125,12.9747314453125 30.13641357421875,20.190185546875 28.50628662109375,27.39276123046875 21.4036865234375,31.8055419921875 14.26959228515625,30.05792236328125 7.13555908203125,28.3104248046875 2.6534423828125,21.060028076171875 4.260498046875,13.852081298828125 z" x:Name="Path">
+							<Path.BitmapEffect>
+								<BitmapEffectGroup>
+									<DropShadowBitmapEffect Direction="314" Softness="3" Color="#000000" ShadowDepth="0"/>
+								</BitmapEffectGroup>
+							</Path.BitmapEffect>
+						</Path>
+						<Path Opacity="0.6117647058823529" Width="25.334744453430176" Height="24.591683864593506" Canvas.Left="4.615653038024902" Canvas.Top="5.23879861831665" Stretch="Fill" Data="M 5.1971435546875,12.100372314453125 C2.78692626953125,21.748779296875 8.26190185546875,27.98516845703125 14.3975830078125,29.48809814453125 20.53326416015625,30.991180419921875 28.99749755859375,27.63360595703125 29.88873291015625,17.663482666015625 31.31402587890625,1.718536376953125 7.58233642578125,2.5518798828125 5.1971435546875,12.100372314453125 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.3820454835904064,0.9977895195654568" EndPoint="0.5811230432963472,0.08484155479842076">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Width="24.118662357330322" Height="16.906932830810547" Canvas.Left="5.5799479484558105" Canvas.Top="4.055765151977539" Stretch="Fill" Data="M 5.63800048828125,12.484771728515625 C7.0235595703125,6.27349853515625 13.85638427734375,2.90582275390625 20.010986328125,4.413238525390625 26.16558837890625,5.92071533203125 30.85211181640625,12.1099853515625 29.4483642578125,18.316986083984375 28.046630859375,24.51470947265625 4.25445556640625,18.68682861328125 5.63800048828125,12.484771728515625 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.5971683238171168,0.018452292178045785" EndPoint="0.3879392376916156,1.3473106469217073">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#005C8DC3" Offset="0.949999988079071"/>
+									<GradientStop Color="#005588c1" Offset="0.9944440126419067"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Width="16.575005531311035" Height="14.999998092651367" Canvas.Left="9.424983024597168" Canvas.Top="9.999992370605469" Stretch="Fill" Data="M 17.391357421875,24.249237060546875 C18.13848876953125,25.17987060546875 19.4166259765625,25.255950927734375 20.223876953125,24.4178466796875 20.223876953125,24.4178466796875 25.51727294921875,18.86846923828125 25.51727294921875,18.86846923828125 26.20782470703125,18.1514892578125 26.1473388671875,16.94146728515625 25.40081787109375,16.16644287109375 25.40081787109375,16.16644287109375 25.34283447265625,16.1090087890625 25.34283447265625,16.1090087890625 25.34283447265625,16.1090087890625 25.28924560546875,16.050628662109375 25.28924560546875,16.050628662109375 25.28924560546875,16.050628662109375 19.995849609375,10.501190185546875 19.995849609375,10.501190185546875 19.30523681640625,9.784210205078125 18.1396484375,9.847015380859375 17.3931884765625,10.62200927734375 16.6571044921875,11.38616943359375 16.59112548828125,12.572845458984375 17.24468994140625,13.291290283203125 17.24468994140625,13.291290283203125 19.0980224609375,15.481903076171875 19.0980224609375,15.481903076171875 19.0980224609375,15.481903076171875 11.58636474609375,15.4017333984375 11.58636474609375,15.4017333984375 10.5029296875,15.3839111328125 9.53753662109375,16.282623291015625 9.43402099609375,17.42413330078125 9.3291015625,18.5823974609375 10.14984130859375,19.53936767578125 11.26312255859375,19.5460205078125 11.26312255859375,19.5460205078125 19.1920166015625,19.579071044921875 19.1920166015625,19.579071044921875 19.1920166015625,19.579071044921875 17.53582763671875,21.1612548828125 17.53582763671875,21.1612548828125 16.73016357421875,21.951171875 16.6558837890625,23.332916259765625 17.391357421875,24.249237060546875 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="-1.5499975748199686,0.5000005722046627" EndPoint="0.19934859031448113,0.5000005722046627">
+									<GradientStop Color="#FF666666" Offset="0"/>
+									<GradientStop Color="#FFffffff" Offset="1"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+					</Canvas>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavHoverBrush}" TargetName="Path"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavPressedBrush}" TargetName="Path"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnArrowLeft" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Canvas d:LayoutOverrides="Width, Height" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" x:Name="arrowButton">
+						<Path Opacity="1" Fill="{StaticResource pathNavUpBrush}" Width="26.538508892059326" Height="26.87999725341797" Canvas.Left="3.934021472930908" Canvas.Top="3.5599842071533203" Stretch="Fill" Data="M 4.260498046875,13.852081298828125 C5.87066650390625,6.6312255859375 12.97955322265625,2.189300537109375 20.136474609375,3.94232177734375 27.2935791015625,5.69525146484375 31.76953125,12.9747314453125 30.13641357421875,20.190185546875 28.50628662109375,27.39276123046875 21.4036865234375,31.8055419921875 14.26959228515625,30.05792236328125 7.13555908203125,28.3104248046875 2.6534423828125,21.060028076171875 4.260498046875,13.852081298828125 z" x:Name="Path">
+							<Path.BitmapEffect>
+								<BitmapEffectGroup>
+									<DropShadowBitmapEffect Direction="314" Softness="3" Color="#000000" ShadowDepth="0"/>
+								</BitmapEffectGroup>
+							</Path.BitmapEffect>
+						</Path>
+						<Path Opacity="0.6117647058823529" Width="25.334744453430176" Height="24.591683864593506" Canvas.Left="4.615653038024902" Canvas.Top="5.23879861831665" Stretch="Fill" Data="M 5.1971435546875,12.100372314453125 C2.78692626953125,21.748779296875 8.26190185546875,27.98516845703125 14.3975830078125,29.48809814453125 20.53326416015625,30.991180419921875 28.99749755859375,27.63360595703125 29.88873291015625,17.663482666015625 31.31402587890625,1.718536376953125 7.58233642578125,2.5518798828125 5.1971435546875,12.100372314453125 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.3820454835904064,0.9977895195654568" EndPoint="0.5811230432963472,0.08484155479842076">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Width="24.118662357330322" Height="16.906932830810547" Canvas.Left="5.5799479484558105" Canvas.Top="4.055765151977539" Stretch="Fill" Data="M 5.63800048828125,12.484771728515625 C7.0235595703125,6.27349853515625 13.85638427734375,2.90582275390625 20.010986328125,4.413238525390625 26.16558837890625,5.92071533203125 30.85211181640625,12.1099853515625 29.4483642578125,18.316986083984375 28.046630859375,24.51470947265625 4.25445556640625,18.68682861328125 5.63800048828125,12.484771728515625 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.5971683238171168,0.018452292178045785" EndPoint="0.3879392376916156,1.3473106469217073">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#005C8DC3" Offset="0.949999988079071"/>
+									<GradientStop Color="#005588c1" Offset="0.9944440126419067"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Width="16.575005531311035" Height="14.999998092651367" Canvas.Left="9.424983024597168" Canvas.Top="9.999992370605469" Stretch="Fill" Data="M 17.391357421875,24.249237060546875 C18.13848876953125,25.17987060546875 19.4166259765625,25.255950927734375 20.223876953125,24.4178466796875 20.223876953125,24.4178466796875 25.51727294921875,18.86846923828125 25.51727294921875,18.86846923828125 26.20782470703125,18.1514892578125 26.1473388671875,16.94146728515625 25.40081787109375,16.16644287109375 25.40081787109375,16.16644287109375 25.34283447265625,16.1090087890625 25.34283447265625,16.1090087890625 25.34283447265625,16.1090087890625 25.28924560546875,16.050628662109375 25.28924560546875,16.050628662109375 25.28924560546875,16.050628662109375 19.995849609375,10.501190185546875 19.995849609375,10.501190185546875 19.30523681640625,9.784210205078125 18.1396484375,9.847015380859375 17.3931884765625,10.62200927734375 16.6571044921875,11.38616943359375 16.59112548828125,12.572845458984375 17.24468994140625,13.291290283203125 17.24468994140625,13.291290283203125 19.0980224609375,15.481903076171875 19.0980224609375,15.481903076171875 19.0980224609375,15.481903076171875 11.58636474609375,15.4017333984375 11.58636474609375,15.4017333984375 10.5029296875,15.3839111328125 9.53753662109375,16.282623291015625 9.43402099609375,17.42413330078125 9.3291015625,18.5823974609375 10.14984130859375,19.53936767578125 11.26312255859375,19.5460205078125 11.26312255859375,19.5460205078125 19.1920166015625,19.579071044921875 19.1920166015625,19.579071044921875 19.1920166015625,19.579071044921875 17.53582763671875,21.1612548828125 17.53582763671875,21.1612548828125 16.73016357421875,21.951171875 16.6558837890625,23.332916259765625 17.391357421875,24.249237060546875 z" RenderTransformOrigin="0.5,0.5">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="-1.5499975748199686,0.5000005722046627" EndPoint="0.19934859031448113,0.5000005722046627">
+									<GradientStop Color="#FF666666" Offset="0"/>
+									<GradientStop Color="#FFffffff" Offset="1"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+							<Path.RenderTransform>
+								<TransformGroup>
+									<TranslateTransform X="0" Y="0"/>
+									<ScaleTransform ScaleX="1" ScaleY="1"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="180"/>
+									<TranslateTransform X="0" Y="0"/>
+									<TranslateTransform X="0" Y="0"/>
+								</TransformGroup>
+							</Path.RenderTransform>
+						</Path>
+					</Canvas>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavHoverBrush}" TargetName="Path"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavPressedBrush}" TargetName="Path"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnDoubleArrowRight" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Canvas x:Name="arrowEnd">
+						<Path Opacity="1" Fill="{StaticResource pathNavUpBrush}" Width="26.538509130477905" Height="26.87999701499939" Canvas.Left="3.934021234512329" Canvas.Top="3.5599844455718994" Stretch="Fill" Data="M 4.260498046875,13.852081298828125 C5.870666980743408,6.631226062774658 12.97955322265625,2.189301013946533 20.136474609375,3.942322015762329 27.2935791015625,5.695250988006592 31.76953125,12.9747314453125 30.13641357421875,20.190185546875 28.50628662109375,27.39276123046875 21.4036865234375,31.8055419921875 14.26959228515625,30.05792236328125 7.13555908203125,28.3104248046875 2.653441905975342,21.060028076171875 4.260498046875,13.852081298828125 z" x:Name="Path">
+							<Path.BitmapEffect>
+								<BitmapEffectGroup>
+									<DropShadowBitmapEffect Direction="314" Softness="3" Color="#000000" ShadowDepth="0"/>
+								</BitmapEffectGroup>
+							</Path.BitmapEffect>
+						</Path>
+						<Path Opacity="0.6117647058823529" Width="25.334743976593018" Height="24.591683864593506" Canvas.Left="4.6156535148620605" Canvas.Top="5.23879861831665" Stretch="Fill" Data="M 5.197144031524658,12.100372314453125 C2.786926031112671,21.748779296875 8.26190185546875,27.98516845703125 14.3975830078125,29.48809814453125 20.53326416015625,30.991180419921875 28.99749755859375,27.63360595703125 29.88873291015625,17.663482666015625 31.31402587890625,1.7185360193252563 7.582335948944092,2.5518798828125 5.197144031524658,12.100372314453125 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.38204547195959315,0.9977895195654568" EndPoint="0.5811230354124666,0.0848415354082415">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Width="24.11866283416748" Height="16.906932830810547" Canvas.Left="5.579947471618652" Canvas.Top="4.055765151977539" Stretch="Fill" Data="M 5.638000011444092,12.484771728515625 C7.023560047149658,6.273499011993408 13.85638427734375,2.905822992324829 20.010986328125,4.413239002227783 26.16558837890625,5.920714855194092 30.85211181640625,12.1099853515625 29.4483642578125,18.316986083984375 28.046630859375,24.51470947265625 4.254456043243408,18.68682861328125 5.638000011444092,12.484771728515625 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.597168331781286,0.018452292178045785" EndPoint="0.38793924979234096,1.3473106469217073">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#005C8DC3" Offset="0.949999988079071"/>
+									<GradientStop Color="#005588c1" Offset="0.9944440126419067"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Fill="#ffffff" Width="9.205267906188965" Height="14.999998092651367" Canvas.Left="15.794720649719238" Canvas.Top="9.999992370605469" Stretch="Fill" Data="M 16.391357421875,24.249237060546875 C17.13848876953125,25.17987060546875 18.4166259765625,25.255950927734375 19.223876953125,24.4178466796875 19.223876953125,24.4178466796875 24.51727294921875,18.86846923828125 24.51727294921875,18.86846923828125 25.20782470703125,18.1514892578125 25.1473388671875,16.94146728515625 24.40081787109375,16.16644287109375 24.40081787109375,16.16644287109375 24.34283447265625,16.1090087890625 24.34283447265625,16.1090087890625 24.34283447265625,16.1090087890625 24.28924560546875,16.050628662109375 24.28924560546875,16.050628662109375 24.28924560546875,16.050628662109375 18.995849609375,10.501190185546875 18.995849609375,10.501190185546875 18.30523681640625,9.784210205078125 17.1396484375,9.847015380859375 16.3931884765625,10.62200927734375 15.6571044921875,11.38616943359375 15.59112548828125,12.572845458984375 16.24468994140625,13.291290283203125 16.24468994140625,13.291290283203125 20.184280395507812,17.568161010742188 20.184280395507812,17.568161010742188 20.184280395507812,17.568161010742188 18.1920166015625,19.579071044921875 18.1920166015625,19.579071044921875 18.1920166015625,19.579071044921875 16.53582763671875,21.1612548828125 16.53582763671875,21.1612548828125 15.73016357421875,21.951171875 15.6558837890625,23.332916259765625 16.391357421875,24.249237060546875 z"/>
+						<Path Opacity="1" Fill="#ffffff" Width="6.650805473327637" Height="10.837495803833008" Canvas.Left="10.071951866149902" Canvas.Top="12.081243515014648" Stretch="Fill" Data="M 10.503021240234375,22.37632179260254 C11.042823791503906,23.048704147338867 11.966278076171875,23.10367202758789 12.549516677856445,22.49814224243164 12.549516677856445,22.49814224243164 16.37399673461914,18.488718032836914 16.37399673461914,18.488718032836914 16.8729190826416,17.970699310302734 16.8292179107666,17.096458435058594 16.28985595703125,16.536502838134766 16.28985595703125,16.536502838134766 16.247962951660156,16.495006561279297 16.247962951660156,16.495006561279297 16.247962951660156,16.495006561279297 16.209245681762695,16.45282745361328 16.209245681762695,16.45282745361328 16.209245681762695,16.45282745361328 12.384767532348633,12.443358421325684 12.384767532348633,12.443358421325684 11.885799407958984,11.92534065246582 11.043662071228027,11.97071647644043 10.504344940185547,12.530649185180664 9.972524642944336,13.082755088806152 9.924854278564453,13.940128326416016 10.397054672241211,14.459205627441406 10.397054672241211,14.459205627441406 13.243409156799316,17.549243927001953 13.243409156799316,17.549243927001953 13.243409156799316,17.549243927001953 11.803997993469238,19.002126693725586 11.803997993469238,19.002126693725586 11.803997993469238,19.002126693725586 10.607400894165039,20.14525604248047 10.607400894165039,20.14525604248047 10.025309562683105,20.71596908569336 9.971641540527344,21.714279174804688 10.503021240234375,22.37632179260254 z"/>
+					</Canvas>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavHoverBrush}" TargetName="Path"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavPressedBrush}" TargetName="Path"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnDoubleArrowLeft" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Canvas x:Name="arrowEnd">
+						<Path Opacity="1" Fill="{StaticResource pathNavUpBrush}" Width="26.538509130477905" Height="26.87999701499939" Canvas.Left="3.934021234512329" Canvas.Top="3.5599844455718994" Stretch="Fill" Data="M 4.260498046875,13.852081298828125 C5.870666980743408,6.631226062774658 12.97955322265625,2.189301013946533 20.136474609375,3.942322015762329 27.2935791015625,5.695250988006592 31.76953125,12.9747314453125 30.13641357421875,20.190185546875 28.50628662109375,27.39276123046875 21.4036865234375,31.8055419921875 14.26959228515625,30.05792236328125 7.13555908203125,28.3104248046875 2.653441905975342,21.060028076171875 4.260498046875,13.852081298828125 z" x:Name="Path2">
+							<Path.BitmapEffect>
+								<BitmapEffectGroup>
+									<DropShadowBitmapEffect Direction="314" Softness="3" Color="#000000" ShadowDepth="0"/>
+								</BitmapEffectGroup>
+							</Path.BitmapEffect>
+						</Path>
+						<Path Opacity="0.6117647058823529" Width="25.334743976593018" Height="24.591683864593506" Canvas.Left="4.6156535148620605" Canvas.Top="5.23879861831665" Stretch="Fill" Data="M 5.197144031524658,12.100372314453125 C2.786926031112671,21.748779296875 8.26190185546875,27.98516845703125 14.3975830078125,29.48809814453125 20.53326416015625,30.991180419921875 28.99749755859375,27.63360595703125 29.88873291015625,17.663482666015625 31.31402587890625,1.7185360193252563 7.582335948944092,2.5518798828125 5.197144031524658,12.100372314453125 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.38204547195959315,0.9977895195654568" EndPoint="0.5811230354124666,0.0848415354082415">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Width="24.11866283416748" Height="16.906932830810547" Canvas.Left="5.579947471618652" Canvas.Top="4.055765151977539" Stretch="Fill" Data="M 5.638000011444092,12.484771728515625 C7.023560047149658,6.273499011993408 13.85638427734375,2.905822992324829 20.010986328125,4.413239002227783 26.16558837890625,5.920714855194092 30.85211181640625,12.1099853515625 29.4483642578125,18.316986083984375 28.046630859375,24.51470947265625 4.254456043243408,18.68682861328125 5.638000011444092,12.484771728515625 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.597168331781286,0.018452292178045785" EndPoint="0.38793924979234096,1.3473106469217073">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#005C8DC3" Offset="0.949999988079071"/>
+									<GradientStop Color="#005588c1" Offset="0.9944440126419067"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<ItemsControl d:IsGroup="True" Width="14.9280366897583" Height="14.9999980926514" Canvas.Left="10" Canvas.Top="9.99999237060547" x:Name="Group" RenderTransformOrigin="0.5,0.5">
+							<ItemsControl.RenderTransform>
+								<TransformGroup>
+									<TranslateTransform X="0" Y="0"/>
+									<ScaleTransform ScaleX="-1" ScaleY="1"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="0"/>
+									<TranslateTransform X="0" Y="0"/>
+									<TranslateTransform X="-0.5" Y="0"/>
+								</TransformGroup>
+							</ItemsControl.RenderTransform>
+							<ItemsControl.Template>
+								<ControlTemplate TargetType="{x:Type ItemsControl}">
+									<Viewbox>
+										<Viewbox.Child>
+											<Canvas Width="14.9280366897583" Height="14.9999980926514" IsItemsHost="True"/>
+										</Viewbox.Child>
+									</Viewbox>
+								</ControlTemplate>
+							</ItemsControl.Template>
+							<Path Opacity="1" Fill="#ffffff" Width="9.20526790618896" Height="14.9999980926514" Canvas.Left="5.72276878356934" Canvas.Top="0" Stretch="Fill" Data="M 16.391357421875,24.249237060546875 C17.13848876953125,25.17987060546875 18.4166259765625,25.255950927734375 19.223876953125,24.4178466796875 19.223876953125,24.4178466796875 24.51727294921875,18.86846923828125 24.51727294921875,18.86846923828125 25.20782470703125,18.1514892578125 25.1473388671875,16.94146728515625 24.40081787109375,16.16644287109375 24.40081787109375,16.16644287109375 24.34283447265625,16.1090087890625 24.34283447265625,16.1090087890625 24.34283447265625,16.1090087890625 24.28924560546875,16.050628662109375 24.28924560546875,16.050628662109375 24.28924560546875,16.050628662109375 18.995849609375,10.501190185546875 18.995849609375,10.501190185546875 18.30523681640625,9.784210205078125 17.1396484375,9.847015380859375 16.3931884765625,10.62200927734375 15.6571044921875,11.38616943359375 15.59112548828125,12.572845458984375 16.24468994140625,13.291290283203125 16.24468994140625,13.291290283203125 20.184280395507812,17.568161010742188 20.184280395507812,17.568161010742188 20.184280395507812,17.568161010742188 18.1920166015625,19.579071044921875 18.1920166015625,19.579071044921875 18.1920166015625,19.579071044921875 16.53582763671875,21.1612548828125 16.53582763671875,21.1612548828125 15.73016357421875,21.951171875 15.6558837890625,23.332916259765625 16.391357421875,24.249237060546875 z" x:Name="Path"/>
+							<Path Opacity="1" Fill="#ffffff" Width="6.65080547332764" Height="10.837495803833" Canvas.Left="0" Canvas.Top="2.08125114440918" Stretch="Fill" Data="M 10.503021240234375,22.37632179260254 C11.042823791503906,23.048704147338867 11.966278076171875,23.10367202758789 12.549516677856445,22.49814224243164 12.549516677856445,22.49814224243164 16.37399673461914,18.488718032836914 16.37399673461914,18.488718032836914 16.8729190826416,17.970699310302734 16.8292179107666,17.096458435058594 16.28985595703125,16.536502838134766 16.28985595703125,16.536502838134766 16.247962951660156,16.495006561279297 16.247962951660156,16.495006561279297 16.247962951660156,16.495006561279297 16.209245681762695,16.45282745361328 16.209245681762695,16.45282745361328 16.209245681762695,16.45282745361328 12.384767532348633,12.443358421325684 12.384767532348633,12.443358421325684 11.885799407958984,11.92534065246582 11.043662071228027,11.97071647644043 10.504344940185547,12.530649185180664 9.972524642944336,13.082755088806152 9.924854278564453,13.940128326416016 10.397054672241211,14.459205627441406 10.397054672241211,14.459205627441406 13.243409156799316,17.549243927001953 13.243409156799316,17.549243927001953 13.243409156799316,17.549243927001953 11.803997993469238,19.002126693725586 11.803997993469238,19.002126693725586 11.803997993469238,19.002126693725586 10.607400894165039,20.14525604248047 10.607400894165039,20.14525604248047 10.025309562683105,20.71596908569336 9.971641540527344,21.714279174804688 10.503021240234375,22.37632179260254 z" x:Name="Path1"/>
+						</ItemsControl>
+					</Canvas>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavHoverBrush}" TargetName="Path2"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavPressedBrush}" TargetName="Path2"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnNavParent" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Canvas x:Name="buttonParent">
+						<Rectangle Opacity="1" Fill="{StaticResource pathNavUpBrush}" RadiusX="4" RadiusY="4" Width="16" Height="16" Canvas.Left="0" Canvas.Top="0" x:Name="Rectangle">
+							<Rectangle.BitmapEffect>
+								<BitmapEffectGroup>
+									<DropShadowBitmapEffect Direction="314" Softness="2" Color="#000000" ShadowDepth="0"/>
+								</BitmapEffectGroup>
+							</Rectangle.BitmapEffect>
+						</Rectangle>
+						<Rectangle Opacity="1" RadiusX="4" RadiusY="4" Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+							<Rectangle.Fill>
+								<LinearGradientBrush StartPoint="0.3820454776287079,0.9977895021438599" EndPoint="0.5811230540275574,0.08484155684709549">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Rectangle Opacity="1" RadiusX="4" RadiusY="4" Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+							<Rectangle.Fill>
+								<LinearGradientBrush StartPoint="0.3820454776287079,0.9977895021438599" EndPoint="0.5811230540275574,0.08484155684709549">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Path Opacity="1" Width="14" Height="9" Canvas.Left="1" Canvas.Top="1" Stretch="Fill" Data="M 5,1 C1.963667869567871,1 1,2.067018985748291 1,5 1,5 1,6 1,6 1,8.20916748046875 2.79083251953125,10 5,10 5,10 11,10 11,10 13.20916748046875,10 15,8.20916748046875 15,6 15,6 15,5 15,5 15,2.067018985748291 14.0557279586792,1 11,1 11,1 5,1 5,1 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.8571428571428571,-0.3333333333333333" EndPoint="0.351503780909947,1.4239766862657335">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#005C8DC3" Offset="0.949999988079071"/>
+									<GradientStop Color="#005588c1" Offset="0.9944440126419067"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Fill="#ffffff" Width="7.837529182434082" Height="8.153290510177612" Canvas.Left="3.535848617553711" Canvas.Top="3.447798013687134" Stretch="Fill" Data="M 11.340340614318848,5.076328277587891 C11.51202392578125,4.174172878265381 10.99720573425293,3.439354419708252 10.199440002441406,3.447871208190918 10.199440002441406,3.447871208190918 4.939611434936523,3.5323386192321777 4.939611434936523,3.5323386192321777 4.2571539878845215,3.539644241333008 3.638092041015625,4.217843532562256 3.5491342544555664,5.036676406860352 3.5491342544555664,5.036676406860352 3.543698310852051,5.09880256652832 3.543698310852051,5.09880256652832 3.543698310852051,5.09880256652832 3.535848617553711,5.159045696258545 3.535848617553711,5.159045696258545 3.535848617553711,5.159045696258545 3.5664145946502686,10.251768112182617 3.5664145946502686,10.251768112182617 3.4841201305389404,11.009275436401367 4.024103164672852,11.60888957977295 4.7617950439453125,11.601012229919434 5.489200592041016,11.593276023864746 6.014896392822266,10.996220588684082 6.114071846008301,10.25805377960205 6.114071846008301,10.25805377960205 6.128944396972656,6.579377174377441 6.128944396972656,6.579377174377441 6.128944396972656,6.579377174377441 8.067136764526367,6.589024543762207 8.067136764526367,6.589024543762207 8.067136764526367,6.589024543762207 9.646647453308105,6.521677017211914 9.646647453308105,6.521677017211914 10.418023109436035,6.537999153137207 11.171223640441895,5.9645185470581055 11.340340614318848,5.076328277587891 z"/>
+						<Path Opacity="1" Fill="#ffffff" Width="5.07063102722168" Height="5.0706305503845215" Canvas.Left="7.46468448638916" Canvas.Top="7.464684963226318" Stretch="Fill" Data="M 8,8 C8,8 8,8 8,8 8.552291870117188,7.4477081298828125 9.29847240447998,7.2984724044799805 9.666666984558105,7.6666669845581055 9.666666984558105,7.6666669845581055 12.333333015441895,10.333333015441895 12.333333015441895,10.333333015441895 12.70152759552002,10.70152759552002 12.552291870117188,11.447708129882812 12,12 12,12 12,12 12,12 11.447708129882812,12.552291870117188 10.70152759552002,12.70152759552002 10.333333015441895,12.333333015441895 10.333333015441895,12.333333015441895 7.666666507720947,9.666666984558105 7.666666507720947,9.666666984558105 7.298471927642822,9.29847240447998 7.4477081298828125,8.552291870117188 8,8 z"/>
+					</Canvas>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavHoverBrush}" TargetName="Rectangle"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavPressedBrush}" TargetName="Rectangle"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnNavChild" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Canvas x:Name="Layer_1">
+						<Rectangle Opacity="1" Fill="{StaticResource pathNavUpBrush}" RadiusX="4" RadiusY="4" Width="16" Height="16" Canvas.Left="0" Canvas.Top="0" x:Name="Rectangle">
+							<Rectangle.BitmapEffect>
+								<BitmapEffectGroup>
+									<DropShadowBitmapEffect Direction="314" Softness="2" Color="#000000" ShadowDepth="0"/>
+								</BitmapEffectGroup>
+							</Rectangle.BitmapEffect>
+						</Rectangle>
+						<Rectangle Opacity="1" RadiusX="4" RadiusY="4" Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+							<Rectangle.Fill>
+								<LinearGradientBrush StartPoint="0.3820455074310303,0.9977895021438599" EndPoint="0.5811230540275574,0.08484156429767609">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Rectangle Opacity="1" RadiusX="4" RadiusY="4" Width="16" Height="16" Canvas.Left="0" Canvas.Top="0">
+							<Rectangle.Fill>
+								<LinearGradientBrush StartPoint="0.3820455074310303,0.9977895021438599" EndPoint="0.5811230540275574,0.08484156429767609">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#000574B7" Offset="0.9611110091209412"/>
+									<GradientStop Color="#000172b6" Offset="0.9777780175209045"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Path Opacity="1" Width="14" Height="9" Canvas.Left="1" Canvas.Top="1" Stretch="Fill" Data="M 5,1 C1.9636679887771606,1 1,2.067018985748291 1,5 1,5 1,6 1,6 1,8.209166526794434 2.790832996368408,10 5,10 5,10 11,10 11,10 13.209166526794434,10 15,8.209166526794434 15,6 15,6 15,5 15,5 15,2.067018985748291 14.0557279586792,1 11,1 11,1 5,1 5,1 z">
+							<Path.Fill>
+								<LinearGradientBrush StartPoint="0.8571428571428571,-0.3333333333333333" EndPoint="0.351503780909947,1.4239766862657335">
+									<GradientStop Color="#FFffffff" Offset="0"/>
+									<GradientStop Color="#005C8DC3" Offset="0.949999988079071"/>
+									<GradientStop Color="#005588c1" Offset="0.9944440126419067"/>
+								</LinearGradientBrush>
+							</Path.Fill>
+						</Path>
+						<Path Opacity="1" Fill="#ffffff" Width="7.837993621826172" Height="8.971968173980713" Canvas.Left="4.162006378173828" Canvas.Top="4.0280327796936035" Stretch="Fill" Data="M 4.1950459480285645,11.207948684692383 C4.023352146148682,12.200689315795898 4.538200855255127,13.009291648864746 5.3360137939453125,12.999919891357422 5.3360137939453125,12.999919891357422 10.596155166625977,12.906970024108887 10.596155166625977,12.906970024108887 11.27865219116211,12.898931503295898 11.897750854492188,12.152632713317871 11.986714363098145,11.251582145690918 11.986714363098145,11.251582145690918 11.99215030670166,11.183216094970703 11.99215030670166,11.183216094970703 11.99215030670166,11.183216094970703 12,11.116924285888672 12,11.116924285888672 12,11.116924285888672 11.96943187713623,5.512839317321777 11.96943187713623,5.512839317321777 12.051732063293457,4.6792707443237305 11.511716842651367,4.019448757171631 10.773981094360352,4.0281171798706055 10.04653263092041,4.036630153656006 9.520806312561035,4.693636417388916 9.421624183654785,5.505922794342041 9.421624183654785,5.505922794342041 9.40675163269043,9.553977012634277 9.40675163269043,9.553977012634277 9.40675163269043,9.553977012634277 7.468443870544434,9.543360710144043 7.468443870544434,9.543360710144043 7.468443870544434,9.543360710144043 5.888839244842529,9.617470741271973 5.888839244842529,9.617470741271973 5.117417812347412,9.599510192871094 4.36417293548584,10.230573654174805 4.1950459480285645,11.207948684692383 z"/>
+						<Path Opacity="1" Fill="#ffffff" Width="5.0709311962127686" Height="5.57977557182312" Canvas.Left="3.000000238418579" Canvas.Top="3.000000238418579" Stretch="Fill" Data="M 7.535584449768066,7.990708827972412 C7.535584449768066,7.990708827972412 7.535584449768066,7.990708827972412 7.535584449768066,7.990708827972412 6.983259677886963,8.598456382751465 6.237034797668457,8.762678146362305 5.868818759918213,8.357511520385742 5.868818759918213,8.357511520385742 3.2019944190979004,5.423084735870361 3.2019944190979004,5.423084735870361 2.833778142929077,5.017919540405273 2.983022689819336,4.19681453704834 3.5353472232818604,3.589066743850708 3.5353472232818604,3.589066743850708 3.5353472232818604,3.589066743850708 3.5353472232818604,3.589066743850708 4.087671756744385,2.981318950653076 4.833896636962891,2.817098379135132 5.202113151550293,3.2222635746002197 5.202113151550293,3.2222635746002197 7.868937015533447,6.156691074371338 7.868937015533447,6.156691074371338 8.237154006958008,6.561856269836426 8.087908744812012,7.382961273193359 7.535584449768066,7.990708827972412 z"/>
+					</Canvas>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavHoverBrush}" TargetName="Rectangle"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" Value="{StaticResource pathNavPressedBrush}" TargetName="Rectangle"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- ************************************************** -->
+	<!-- End CarouselPanelNavigator Resources -->
+	<!-- ************************************************** -->
+	<Style TargetType="{x:Type controls:CarouselPanelNavigator}">
+		<Setter Property="HorizontalAlignment" Value="Right"/>
+		<Setter Property="VerticalAlignment" Value="Bottom"/>
+		<Setter Property="BitmapEffect">
+			<Setter.Value>
+				<DropShadowBitmapEffect Opacity="0" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:CarouselPanelNavigator}">
+          <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,4,4" x:Name="navGrid" RenderTransformOrigin="0.5,0.5">
+            <Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="Auto"/>
+						</Grid.RowDefinitions>
+						<Grid.RenderTransform>
+							<TransformGroup>
+								<TranslateTransform X="0" Y="0"/>
+                <ScaleTransform ScaleX="1" ScaleY="1"/>
+                <SkewTransform AngleX="0" AngleY="0"/>
+								<RotateTransform Angle="0"/>
+								<TranslateTransform X="0" Y="0"/>
+								<TranslateTransform X="0" Y="0"/>
+							</TransformGroup>
+						</Grid.RenderTransform>
+						<Rectangle Opacity="0.3" Fill="sc#1, 1, 1, 1" RadiusX="10" RadiusY="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0" Width="Auto" Height="Auto" x:Name="Rectangle1"/>
+						<Rectangle Opacity="0.3" Fill="sc#1, 1, 1, 1" RadiusX="8.56683218782632" RadiusY="8.56683218782632" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,2,2,2" Width="Auto" Height="Auto" x:Name="Rectangle2"/>
+						<Grid HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0" Width="109.417478206505" Height="Auto" x:Name="gridButtons">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition/>
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition/>
+							</Grid.RowDefinitions>
+							<Button 
+								x:Name="navigateLineRight"
+								Style="{StaticResource btnArrowRight}" 
+								IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToNextItem}"
+								HorizontalAlignment="Right" 
+								Margin="0,4.75708557998065,24,0" 
+								Width="33" 										 
+								d:LayoutOverrides="Height" 
+								VerticalAlignment="Top" Height="33" 
+								Canvas.Left="51.5027555076267" Canvas.Top="0">
+								<Button.RenderTransform>
+									<TransformGroup>
+										<TranslateTransform X="0" Y="0"/>
+										<ScaleTransform ScaleX="1" ScaleY="1"/>
+										<SkewTransform AngleX="0" AngleY="0"/>
+										<RotateTransform Angle="0"/>
+										<TranslateTransform X="0" Y="0"/>
+										<TranslateTransform X="0" Y="0"/>
+									</TransformGroup>
+								</Button.RenderTransform>
+							</Button>
+							<Button 
+								x:Name="navigatePageRight" 
+								d:LayoutOverrides="Width" 
+								Style="{StaticResource btnDoubleArrowRight}" 
+								IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToNextPage}"
+								HorizontalAlignment="Right" VerticalAlignment="Top" 
+								Margin="0,4.75708557998065,0,0" 
+								Width="33" Height="33" 
+								Canvas.Left="76.0445939324419" Canvas.Top="0" 										
+								RenderTransformOrigin="0.5,0.5">
+								<Button.RenderTransform>
+									<TransformGroup>
+										<TranslateTransform X="0" Y="0"/>
+										<ScaleTransform ScaleX="0.70000000000000007" ScaleY="0.70000000000000007"/>
+										<SkewTransform AngleX="0" AngleY="0"/>
+										<RotateTransform Angle="0"/>
+										<TranslateTransform X="0" Y="0"/>
+										<TranslateTransform X="0" Y="0"/>
+									</TransformGroup>
+								</Button.RenderTransform>
+							</Button>
+							<Button 
+								x:Name="navigateLineLeft" 
+								d:LayoutOverrides="HorizontalAlignment" 
+								Style="{StaticResource btnArrowLeft}" 
+								IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToPreviousItem}"
+								HorizontalAlignment="Left" 
+								VerticalAlignment="Top" 										
+								Margin="24,4.75708557998065,0,0" 
+								Width="32.9999999999999" Height="33"										
+								Canvas.Left="18.7709176140105" Canvas.Top="0">
+								<Button.RenderTransform>
+									<TransformGroup>
+										<TranslateTransform X="0" Y="0"/>
+										<ScaleTransform ScaleX="1" ScaleY="1"/>
+										<SkewTransform AngleX="0" AngleY="0"/>
+										<RotateTransform Angle="0"/>
+										<TranslateTransform X="0" Y="0"/>
+										<TranslateTransform X="0" Y="0"/>
+									</TransformGroup>
+								</Button.RenderTransform>
+							</Button>
+							<Button 
+								x:Name="navigatePageLeft" 
+								d:LayoutOverrides="Width" 
+								Style="{StaticResource btnDoubleArrowLeft}" 
+								IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToPreviousPage}"
+								HorizontalAlignment="Left" 
+								Margin="0,4.75708557998065,0,0" 
+								Width="33" Height="33" 										
+								VerticalAlignment="Top" 
+								Canvas.Left="-4.95" Canvas.Top="0" 
+								RenderTransformOrigin="0.5,0.5">
+								<Button.RenderTransform>
+									<TransformGroup>
+										<TranslateTransform X="0" Y="0"/>
+										<ScaleTransform ScaleX="0.70000000000000007" ScaleY="0.70000000000000007"/>
+										<SkewTransform AngleX="0" AngleY="0"/>
+										<RotateTransform Angle="0"/>
+										<TranslateTransform X="0" Y="0"/>
+										<TranslateTransform X="0" Y="0"/>
+									</TransformGroup>
+								</Button.RenderTransform>
+							</Button>
+						</Grid>
+						<Button 									
+							x:Name="navigateUpToParent"
+							Opacity="1" 
+							d:LayoutOverrides="Width, Height" 
+							Style="{StaticResource btnNavParent}" 
+							IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateUpToParent}"
+							HorizontalAlignment="Left" VerticalAlignment="Top" 
+							Margin="5,5,0,0" 
+							Width="16" Height="16" 
+							Canvas.Left="0" Canvas.Top="0" />
+						<Button 
+							x:Name="navigateDownToChild"
+							d:LayoutOverrides="Width, Height" 
+							Style="{StaticResource btnNavChild}" 
+							IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateDownToChild}"
+							HorizontalAlignment="Left" VerticalAlignment="Top" 
+							Margin="23,5,0,0" 
+							Width="16" Height="16" 
+							Canvas.Left="0" Canvas.Top="0" />
+					</Grid>
+
+
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled" Value="False" SourceName="navigateUpToParent">
+							<Setter Property="Opacity" Value="0.5" TargetName="navigateUpToParent" />
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False" SourceName="navigateDownToChild">
+							<Setter Property="Opacity" Value="0.5" TargetName="navigateDownToChild" />
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateUpToParent">
+							<Setter Property="NavigateUpToParent" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateDownToChild">
+							<Setter Property="NavigateDownToChild" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateLineLeft">
+							<Setter Property="LineLeft" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateLineRight">
+							<Setter Property="LineRight" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigatePageLeft">
+							<Setter Property="PageLeft" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigatePageRight">
+							<Setter Property="PageRight" Value="True"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="origPPN" TargetType="{x:Type controls:CarouselPanelNavigator}">
+		<Setter Property="HorizontalAlignment" Value="Right"/>
+		<Setter Property="VerticalAlignment" Value="Bottom"/>
+		<Setter Property="BitmapEffect">
+			<Setter.Value>
+				<DropShadowBitmapEffect/>
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type controls:CarouselPanelNavigator}">
+					<Border Name="Border" 
+						   BorderBrush="Blue"
+						   BorderThickness="1"
+						   CornerRadius="8"
+						   Margin="8"
+						   Padding="4">
+						<Border.Background>
+							<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+								<LinearGradientBrush.GradientStops>
+									<GradientStop Offset="0" Color="Black" />
+									<GradientStop Offset=".49" Color="DarkGray" />
+									<GradientStop Offset="1" Color="Black" />
+								</LinearGradientBrush.GradientStops>
+							</LinearGradientBrush>
+						</Border.Background>
+
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="*"/>
+								<RowDefinition Height="*"/>
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="*"/>
+							</Grid.ColumnDefinitions>
+
+							<Button x:Name="navigateUpToParent" Grid.Row="0" Grid.Column="2" IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateUpToParent}">Up</Button>
+							<Button x:Name="navigateDownToChild" Grid.Row="2" Grid.Column="2" IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateDownToChild}">Dn</Button>
+							<Button x:Name="navigateLineLeft" Grid.Row="1" Grid.Column="1" IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToPreviousItem}">&lt;</Button>
+							<Button x:Name="navigateLineRight" Grid.Row="1" Grid.Column="3" IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToNextItem}">&gt;</Button>
+							<Button x:Name="navigatePageLeft" Grid.Row="1" Grid.Column="0" IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToPreviousPage}">&lt;&lt;</Button>
+							<Button x:Name="navigatePageRight" Grid.Row="1" Grid.Column="4" IsEnabled="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=CanNavigateToNextPage}">&gt;&gt;</Button>
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateUpToParent">
+							<Setter Property="NavigateUpToParent" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateDownToChild">
+							<Setter Property="NavigateDownToChild" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateLineLeft">
+							<Setter Property="LineLeft" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigateLineRight">
+							<Setter Property="LineRight" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigatePageLeft">
+							<Setter Property="PageLeft" Value="True"/>
+						</Trigger>
+						<Trigger Property="Button.IsPressed" Value="True" SourceName="navigatePageRight">
+							<Setter Property="PageRight" Value="True"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

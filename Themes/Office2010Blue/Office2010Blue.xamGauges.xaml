@@ -1,0 +1,231 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:shared="http://schemas.infragistics.com/xaml"
+                    xmlns:local="http://schemas.infragistics.com/xaml">
+
+  <!-- *********************************  RESOURCES  ********************************* -->
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="Office2010Blue.Theme.Colors.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <!-- ********************************** BRUSHES **********************************-->
+
+  <!-- RadialGauge Brushes -->
+  <RadialGradientBrush x:Key="BackingBackgroundBrush" RadiusY="2.584" RadiusX="1" Center="0.559,1.898" GradientOrigin="0.559,1.898">
+    <GradientStop Color="{StaticResource Color_005}" Offset="0.204"/>
+    <GradientStop Color="{StaticResource Color_029}" Offset="0.636"/>
+    <GradientStop Color="{StaticResource Color_026}" Offset="1"/>
+  </RadialGradientBrush>
+
+  <LinearGradientBrush x:Key="BackingBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="{StaticResource Color_029}" Offset="1"/>
+    <GradientStop Color="{StaticResource Color_030}" Offset="0.5"/>
+    <GradientStop Color="{StaticResource Color_027}" Offset="0.501"/>
+  </LinearGradientBrush>
+
+  <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Color_001}"/>
+    <SolidColorBrush x:Key="TransparentBrush" Color="{StaticResource Color_033}"/>
+  <SolidColorBrush x:Key="MinorTickBrush" Color="{StaticResource Color_001}" Opacity="0.4"/>
+
+  <RadialGradientBrush x:Key="NeedleBackgroundBrush" RadiusX="0.986" Center="0.32,0.454" GradientOrigin="0.32,0.454" RadiusY="0.625">
+    <GradientStop Color="{StaticResource Color_028}" Offset="0.344"/>
+    <GradientStop Color="{StaticResource Color_026}" Offset="1"/>
+  </RadialGradientBrush>
+    <LinearGradientBrush x:Key="LinearGaugeNeedleBackgroundBrush" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="{StaticResource Color_026}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_028}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource Color_026}" Offset="1"/>
+    </LinearGradientBrush>
+  <SolidColorBrush x:Key="NeedleBorderBrush"  Color="{StaticResource Color_026}"/>
+
+  <LinearGradientBrush x:Key="NeedlePivotBackgroundBrush"  EndPoint="0.5,1" StartPoint="0.5,0">
+    <GradientStop Color="{StaticResource Color_026}" Offset="1"/>
+    <GradientStop Color="{StaticResource Color_028}"/>
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="NeedlePivotBorderBrush" Color="{StaticResource Color_026}"/>
+
+  <LinearGradientBrush x:Key="ScaleBrush"  EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+    <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+    <GradientStop Color="{StaticResource Color_015}"/>
+  </LinearGradientBrush>
+  <SolidColorBrush x:Key="TickBrush" Color="{StaticResource Color_001}" Opacity="0.5"/>
+
+  <!-- BulletGraph Brushes -->
+    <SolidColorBrush x:Key="TargetValueBackgroundBrush" Color="{StaticResource Color_005}"/>
+    <SolidColorBrush x:Key="TargetValueBorderBrush" Color="{StaticResource Color_005}"/>
+    <SolidColorBrush x:Key="ValueBrush" Color="{StaticResource Color_005}"/>
+    <SolidColorBrush x:Key="ScaleBackgroundBrush" Color="{StaticResource Color_004}" />
+    <!-- Tooltip Brushes -->
+    <LinearGradientBrush x:Key="TooltipBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.9">
+        <GradientStop Color="{StaticResource Color_030}" Offset="1" />
+        <GradientStop Color="{StaticResource Color_005}" />
+  </LinearGradientBrush>
+    <SolidColorBrush x:Key="TooltipBorderBrush" Color="{StaticResource Color_027}" Opacity="0.9" />
+
+  <!-- ********************************** RANGE BRUSHES **********************************-->
+  
+  <!--  LINEARGAUGE RANGE BRUSHES -->
+  <shared:BrushCollection x:Key="LinearRangeBrushes"> 
+
+    <SolidColorBrush Color="{StaticResource Color_1022}"/>
+    <SolidColorBrush Color="{StaticResource Color_1023}"/>
+    <SolidColorBrush Color="{StaticResource Color_1024}"/>
+    <SolidColorBrush Color="{StaticResource Color_1025}"/>
+    <SolidColorBrush Color="{StaticResource Color_1026}"/>
+
+  </shared:BrushCollection>
+
+  <!--  BASE RANGE BRUSHES -->
+    <shared:BrushCollection x:Key="RangeBrushes">
+
+      <SolidColorBrush Color="{StaticResource Color_1001}"/>
+      <SolidColorBrush Color="{StaticResource Color_1003}"/>
+      <SolidColorBrush Color="{StaticResource Color_1007}"/>
+      <SolidColorBrush Color="{StaticResource Color_1013}"/>
+      <SolidColorBrush Color="{StaticResource Color_1010}"/> 
+
+  </shared:BrushCollection>
+
+  <!-- **********************************  RANGE OUTLINES **********************************-->
+    <shared:BrushCollection x:Key="RangeOutlines">
+
+    <SolidColorBrush Color="{StaticResource Color_033}"/>
+
+  </shared:BrushCollection>
+    <!-- *********************************  ToolTip Style  ********************************* -->
+    <Style x:Key="ToolTipStyle" TargetType="ContentControl">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}"/>
+        <Setter Property="Padding" Value="6 2"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Grid>
+                        <Grid>
+                            <Rectangle Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="ToolTip" BasedOn="{StaticResource ToolTipStyle}"/>
+    <!-- ********************************** Title Style **********************************-->
+    <Style x:Key="LinearGraphTitleStyle" TargetType="TextBlock">
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="FontSize" Value="13"/>
+    </Style>
+    <!-- ********************************** SubTitle Style **********************************-->
+    <Style x:Key="LinearGraphSubtitleStyle" TargetType="TextBlock">
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="FontSize" Value="11"/>
+    </Style>
+    <!-- ********************************** Tooltip Template **********************************-->
+    <DataTemplate x:Key="TooltipTemplate">
+        <Border BorderThickness="2" BorderBrush="{Binding Brush}" Padding="6 2" CornerRadius="2" Background="{StaticResource TooltipBackgroundBrush}" Opacity="0.74">
+            <TextBlock FontSize="12" Foreground="{StaticResource ForegroundBrush}" Text="{Binding Label}" />
+        </Border>
+    </DataTemplate>
+
+  <!-- ********************************** XamRadialGauge Style **********************************-->
+  <Style x:Key="XamRadialGaugeStyle" TargetType="local:XamRadialGauge">
+    <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+    <Setter Property="NeedleBrush" Value="{StaticResource NeedleBackgroundBrush}" />
+    <Setter Property="NeedleOutline" Value="{StaticResource NeedleBorderBrush}" />
+    <Setter Property="TickBrush" Value="{StaticResource TickBrush}" />
+    <Setter Property="ScaleBrush" Value="{StaticResource ScaleBrush}" />
+    <Setter Property="BackingBrush" Value="{StaticResource BackingBackgroundBrush}" />
+    <Setter Property="BackingOutline" Value="{StaticResource BackingBorderBrush}" />
+    <Setter Property="NeedlePivotBrush" Value="{StaticResource NeedlePivotBackgroundBrush}" />
+    <Setter Property="NeedlePivotOutline" Value="{StaticResource NeedlePivotBorderBrush}" />
+    <Setter Property="MinorTickBrush" Value="{StaticResource MinorTickBrush}" />
+    <Setter Property="RangeBrushes" Value="{StaticResource RangeBrushes}" />
+    <Setter Property="RangeOutlines" Value="{StaticResource RangeOutlines}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:XamRadialGauge">
+          <Border Background="{TemplateBinding Background}"
+        BorderBrush="{TemplateBinding BorderBrush}"
+        BorderThickness="{TemplateBinding BorderThickness}">
+            <Canvas x:Name="RootCanvas" />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style BasedOn="{StaticResource XamRadialGaugeStyle}" TargetType="local:XamRadialGauge"/>
+
+  <!-- ********************************** XamBulletGraph Style **********************************-->
+  <Style x:Key="XamBulletGraphStyle" TargetType="local:XamBulletGraph">
+    <Setter Property="TargetValueBrush" Value="{StaticResource TargetValueBackgroundBrush}" />
+    <Setter Property="TargetValueOutline" Value="{StaticResource TargetValueBorderBrush}" />
+    <Setter Property="TickBrush" Value="{StaticResource TickBrush}" />
+    <Setter Property="BackingBrush" Value="{StaticResource TransparentBrush}" />
+    <Setter Property="BackingOutline" Value="{StaticResource BackingBorderBrush}" />
+    <Setter Property="BackingStrokeThickness" Value="0"/>
+    <Setter Property="MinorTickBrush" Value="{StaticResource MinorTickBrush}" />
+    <Setter Property="ValueBrush" Value="{StaticResource ValueBrush}" />
+    <Setter Property="SubtitleStyle" Value="{StaticResource LinearGraphSubtitleStyle}"/>
+    <Setter Property="TitleStyle" Value="{StaticResource LinearGraphTitleStyle}"/>
+    <Setter Property="RangeBrushes" Value="{StaticResource LinearRangeBrushes}"/>
+    <Setter Property="RangeOutlines" Value="{StaticResource RangeOutlines}" />
+    <Setter Property="RangeToolTip" Value="{StaticResource TooltipTemplate}"/>
+    <Setter Property="ValueToolTip" Value="{StaticResource TooltipTemplate}"/>
+    <Setter Property="TargetValueToolTip" Value="{StaticResource TooltipTemplate}"/>
+    <Setter Property="ScaleBackgroundBrush" Value="{StaticResource ScaleBackgroundBrush}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:XamBulletGraph">
+          <Border x:Name="Root" Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}" Padding="6 4">
+            <Canvas x:Name="RootCanvas" />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style BasedOn="{StaticResource XamBulletGraphStyle}" TargetType="local:XamBulletGraph"/>
+
+  <!-- ********************************** XamLinearGauge Style **********************************-->
+  <Style x:Key="XamLinearGaugeStyle" TargetType="local:XamLinearGauge">
+    <Setter Property="TickBrush" Value="{StaticResource TickBrush}" />
+    <Setter Property="ScaleBrush" Value="{StaticResource ScaleBrush}" />
+    <Setter Property="BorderBrush" Value="{StaticResource BackingBorderBrush}" />
+    <Setter Property="BorderThickness" Value="10"/>
+    <Setter Property="Background" Value="{StaticResource BackingBackgroundBrush}" />
+    <Setter Property="BackingBrush" Value="{StaticResource TransparentBrush}" />
+    <Setter Property="BackingStrokeThickness" Value="0"/>
+    <Setter Property="MinorTickBrush" Value="{StaticResource MinorTickBrush}" />
+    <Setter Property="SubtitleStyle" Value="{StaticResource LinearGraphSubtitleStyle}"/>
+    <Setter Property="TitleStyle" Value="{StaticResource LinearGraphTitleStyle}"/>
+    <Setter Property="RangeBrushes" Value="{StaticResource LinearRangeBrushes}"/>
+    <Setter Property="RangeOutlines" Value="{StaticResource RangeOutlines}" />
+    <Setter Property="NeedleBrush" Value="{StaticResource LinearGaugeNeedleBackgroundBrush}"/>
+    <Setter Property="NeedleOutline" Value="{StaticResource NeedleBorderBrush}"/>
+    <Setter Property="RangeToolTip" Value="{StaticResource TooltipTemplate}"/>
+    <Setter Property="NeedleToolTip" Value="{StaticResource TooltipTemplate}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:XamLinearGauge">
+          <Border x:Name="Root" Background="{TemplateBinding Background}"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}" Padding="6 4">
+            <Canvas x:Name="RootCanvas" />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style BasedOn="{StaticResource XamLinearGaugeStyle}" TargetType="local:XamLinearGauge"/>
+  
+</ResourceDictionary>
