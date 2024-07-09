@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ig="http://schemas.infragistics.com/xaml">
+    
+    <Style TargetType="ig:XamScheduleDataManager">
+        <Setter Property="ColorScheme">
+            <Setter.Value>
+                <ig:IGColorScheme/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

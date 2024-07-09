@@ -1,0 +1,127 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:igWindows="http://infragistics.com/Windows"
+	xmlns:igEditors="http://infragistics.com/Editors"	
+	xmlns:luna="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Luna"
+	xmlns:igThemes="http://infragistics.com/Themes"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    >
+    <ResourceDictionary.MergedDictionaries>
+        <!--<igThemes:EditorsGenericBrushes />-->
+        <ResourceDictionary Source="EditorsLunaNormal.xaml" />
+        <ResourceDictionary Source="EditorsPrintBasic_Brushes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <!-- _________________________ CalendarItem ______________________________________ -->
+    <ControlTemplate x:Key="CalendarItemInner" TargetType="{x:Type igEditors:CalendarItem}">
+        <Border x:Name="OuterBorder" SnapsToDevicePixels="True" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{DynamicResource {x:Static igEditors:CalendarItem.CornerRadiusKey}}" Background="{TemplateBinding Background}">
+            <Border x:Name="InnerBorder" CornerRadius="{Binding Path=CornerRadius, ElementName=OuterBorder}" BorderThickness="1">
+                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" TextBlock.Foreground="{TemplateBinding Foreground}" Margin="{TemplateBinding Padding}" />
+            </Border>
+        </Border>
+        <ControlTemplate.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="False" />
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsToday" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverFillKey} }" />
+                <!--<Setter Property="BorderBrush" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverOuterBorderFillKey} }" />-->
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverForegroundKey} }" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="True" />
+                    <Condition Property="IsToday" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverFillKey}}" />
+                <!--<Setter Property="BorderBrush" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverOuterBorderFillKey} }" />-->
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverForegroundKey}}" />
+            </MultiTrigger>
+            <Trigger Property="IsSelected" Value="True">
+                <!--<Setter Property="BorderBrush" TargetName="InnerBorder" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemInnerBorderFillKey} }" />-->
+                <Setter Property="Background" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemSelectedFillKey} }" />
+                <Setter Property="BorderBrush" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemSelectedOuterBorderFillKey} }" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemSelectedForegroundKey} }" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="True" />
+                    <Condition Property="IsSelectionActive" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+            </MultiTrigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+            </Trigger>
+            <Trigger Property="IsToday" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarDayTodayForegroundKey}}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style x:Key="CalendarItemBase" TargetType="{x:Type igEditors:CalendarItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Content" Value="{Binding Path=Title, RelativeSource={x:Static RelativeSource.Self}}"/>
+        <Setter Property="Padding" Value="4,1,4,1" />
+        <Setter Property="Template" Value="{StaticResource CalendarItemInner}" />
+        <Style.Triggers>
+            <Trigger Property="IsToday" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarDayTodayForegroundKey}}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsToday" Value="True" />
+                    <Condition Property="IsSelected" Value="True" />
+                    <Condition Property="IsEnabled" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarDayTodayFillKey}}" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarDayTodayForegroundKey}}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsToday" Value="True" />
+                    <Condition Property="IsSelected" Value="False" />
+                    <Condition Property="IsEnabled" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarDayTodayFillKey}}" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsToday" Value="True" />
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsSelected" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverFillKey}}" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarItemHoverForegroundKey}}" />
+            </MultiTrigger>
+            <Trigger Property="IsLeadingOrTrailingItem" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarOtherDayForegroundKey}}" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsToday" Value="True" />
+                    <Condition Property="IsSelected" Value="True" />
+                    <Condition Property="IsLeadingOrTrailingItem" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarDayTodayFillKey}}" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static igEditors:EditorsBrushKeys.CalendarDayTodayForegroundKey}}" />
+            </MultiTrigger>
+            <Trigger Property="IsActive" Value="True">
+                <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="{x:Type igEditors:CalendarItem}" BasedOn="{StaticResource CalendarItemBase}" />
+    <!-- _________________________ CalendarDay ______________________________________ -->
+    <Style x:Key="CalendarDayBase" TargetType="{x:Type igEditors:CalendarDay}" BasedOn="{StaticResource CalendarItemBase}">
+        <Style.Triggers>
+            <Trigger Property="IsWorkday" Value="True">
+                <Setter Property="FontWeight" Value="Bold" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="{x:Type igEditors:CalendarDay}" BasedOn="{StaticResource CalendarDayBase}" />
+</ResourceDictionary>

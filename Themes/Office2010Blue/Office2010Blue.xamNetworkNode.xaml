@@ -1,0 +1,350 @@
+﻿<ResourceDictionary   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:ig="http://schemas.infragistics.com/xaml"
+                      xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives"
+                      xmlns:NetworkNode="http://schemas.infragistics.com/xaml" mc:Ignorable="d">
+
+    <!-- *********************************  RESOURCES  ********************************* -->
+    <ResourceDictionary.MergedDictionaries>     
+        <ResourceDictionary Source="Office2010Blue.Styles.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- ************************************************ BRUSHES ******************************-->
+    <!-- NetworkNode Brushes -->
+    <SolidColorBrush x:Key="NetworkNodeBackgroundBrush"  Color="{StaticResource Color_033}"/>
+    <SolidColorBrush x:Key="NetworkNodeBorderBrush"  Color="{StaticResource Color_033}"/>
+    <SolidColorBrush x:Key="NetworkNodeChartPreviewBrush" Color="{StaticResource Color_030}" Opacity="0.85"/>
+    <SolidColorBrush x:Key="NetworkNodeConnectorLineBrush" Color="{StaticResource Color_026}"/>
+    <SolidColorBrush x:Key="NetworkNodeDragStrokeBorderBrush" Color="{StaticResource Color_025}"/>   
+
+    <!-- NetworkNode NodeControl Brushes -->
+    <LinearGradientBrush x:Key="NetworkNodeNodeControlBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource Color_032}" Offset="1"/>
+        <GradientStop Color="{StaticResource Color_030}" Offset="0.784"/>
+        <GradientStop Color="{StaticResource Color_032}"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="NetworkNodeNodeControlBorderBrush" Color="{StaticResource Color_027}"/>
+	    <LinearGradientBrush x:Key="NetworkNodeNodeControlHoverBackgroundBrush" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        <GradientStop Offset="0" Color="{StaticResource Color_018}"/>
+        <GradientStop Offset="0.23" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="0.75" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_019}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeNodeControlHoverBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+        <GradientStop Color="{StaticResource Color_014}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeNodeControlSelectedBackgroundBrush" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+        <GradientStop Offset="1" Color="{StaticResource Color_015}"/>
+        <GradientStop Color="{StaticResource Color_013}"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="NetworkNodeNodeControlSelectedBorderBrush" Color="{StaticResource Color_013}"/>
+    <LinearGradientBrush x:Key="NetworkNodeNodeControlFocusedBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+        <GradientStop Color="{StaticResource Color_015}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeNodeControlFocusedBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Offset="0" Color="{StaticResource Color_012}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeNodeControlReadOnlyBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource Color_005}" Offset="1"/>
+        <GradientStop Color="{StaticResource Color_003}" Offset="0.784"/>
+        <GradientStop Color="{StaticResource Color_005}"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="NetworkNodeNodeControlReadOnlyFocusedBorderBrush" Color="{StaticResource Color_002}"/>
+    <LinearGradientBrush x:Key="NetworkNodeNodeControlEditingBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource Color_026}"/>
+        <GradientStop Color="{StaticResource Color_025}" Offset="1"/>
+    </LinearGradientBrush>
+	
+    <!--  NetworkNode ToggleButton Brushes -->
+    <RadialGradientBrush x:Key="NetworkNodeToggleButtonBackgroundBrush" RadiusY="2.584" RadiusX="1" Center="0.559,1.898" GradientOrigin="0.559,1.898">
+    	<GradientStop Color="{StaticResource Color_005}" Offset="0.287"/>
+    	<GradientStop Color="{StaticResource Color_029}" Offset="0.779"/>
+    	<GradientStop Color="{StaticResource Color_028}" Offset="1"/>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeToggleButtonBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="{StaticResource Color_028}"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeToggleButtonHoverBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="{StaticResource Color_018}"/>
+        <GradientStop Offset="0.23" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="0.75" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_019}"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="NetworkNodeToggleButtonHoverHighlightBorderBrush" Color="{StaticResource Color_019}"/>
+    <LinearGradientBrush x:Key="NetworkNodeToggleButtonHoverBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+        <GradientStop Color="{StaticResource Color_014}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeToggleButtonPressedBackgroundBrush" StartPoint="0,0 " EndPoint="0,1 ">
+        <GradientStop Offset="1" Color="{StaticResource Color_017}"/>
+        <GradientStop Color="{StaticResource Color_016}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeToggleButtonPressedBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="{StaticResource Color_012}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeToggleButtonFocusedBackgroundBrush" StartPoint="0,0 " EndPoint="0,1 ">
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+        <GradientStop Color="{StaticResource Color_014}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="NetworkNodeToggleButtonFocusedBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="{StaticResource Color_012}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+    </LinearGradientBrush>
+
+    <!-- *********************************  ToolTipStyle  ********************************* -->
+    <Style x:Key="ToolTipStyle" TargetType="ContentControl">
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}"/>
+        <Setter Property="Padding" Value="6,2,6,2"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Border>
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="270" ShadowDepth="1" Opacity="0.26" Color="{StaticResource Color_001}"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Rectangle Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" StrokeThickness="{TemplateBinding BorderThickness}"/>
+                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- *********************************  XamNetworkNode Style  ********************************* -->
+    <Style x:Key="XamNetworkNodeStyle" TargetType="NetworkNode:XamNetworkNode">
+        <Setter Property="Background" Value="{StaticResource NetworkNodeBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource NetworkNodeBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="2"/>
+        <Setter Property="DragStroke" Value="{StaticResource NetworkNodeDragStrokeBorderBrush}"/>
+        <Setter Property="DragStrokeThickness" Value="1" />
+        <Setter Property="PreviewBrush" Value="{StaticResource NetworkNodeChartPreviewBrush}"/>
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}" />
+        <!-- Connector properties -->
+        <Setter Property="Line" Value="{StaticResource NetworkNodeConnectorLineBrush}"/>
+        <Setter Property="LineThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="NetworkNode:XamNetworkNode">
+                    <Border Margin="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <ContentPresenter x:Name="ContentPresenter" />
+                            <NetworkNode:NetworkNodeNodesPanel x:Name="NodesPanel" Background="{StaticResource NetworkNodeBackgroundBrush}">
+                            </NetworkNode:NetworkNodeNodesPanel>
+                            <Canvas x:Name="Overlay"  />
+                            <ig:XamOverviewPlusDetailPane x:Name="Thumbnail"
+                                                          IsZoomable="True"
+                                                          Visibility="{TemplateBinding OverviewPlusDetailPaneVisibility}"
+                                                          HorizontalAlignment="{TemplateBinding HorizontalOverviewPlusDetailPaneAlignment}"
+                                                          VerticalAlignment="{TemplateBinding VerticalOverviewPlusDetailPaneAlignment}" />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+	<Style TargetType="NetworkNode:XamNetworkNode" BasedOn="{StaticResource XamNetworkNodeStyle}"/>
+	
+    <!-- *********************************  NodeToggleButton Style  ********************************* -->
+    <Style x:Key="NodeToggleButtonStyle" TargetType="ToggleButton">
+        <Setter Property="Background" Value="{StaticResource NetworkNodeToggleButtonBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource NetworkNodeToggleButtonBorderBrush}" />
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NetworkNodeToggleButtonHoverBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NetworkNodeToggleButtonHoverBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ButtonHighlight" Storyboard.TargetProperty="Opacity">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NetworkNodeToggleButtonPressedBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NetworkNodeToggleButtonPressedBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="Opacity">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value=".55"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="expand">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked"/>
+                                <VisualState x:Name="Indeterminate"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                		<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FocusedVisualElement" d:IsOptimized="True"/>
+                                	</Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="BaseShape" CornerRadius="3" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                        <Rectangle x:Name="ButtonHighlight" Margin="1" RadiusX="2" RadiusY="2" Stroke="{StaticResource NetworkNodeToggleButtonHoverHighlightBorderBrush}" StrokeThickness="1" Grid.ColumnSpan="2" Opacity="0"/>
+                        <Rectangle x:Name="FocusedVisualElement" Stroke="{StaticResource NetworkNodeToggleButtonFocusedBorderBrush}" StrokeThickness="1"  RadiusX="3" RadiusY="3" Opacity="0"/>
+                        <Grid x:Name="grid" HorizontalAlignment="Center" VerticalAlignment="Center" Width="8" Height="8">
+                            <Path x:Name="expand" Data="M3,0 L5,0 L5,3 L8,3 L8,5 L5,5 L5,8 L3,8 L3,5 L0,5 L0,3 L3,3 z" Fill="{StaticResource GlyphBorderBrush}" Stretch="Fill" UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed"/>
+                            <Path x:Name="collapse" Data="M0,0 L8,0 L8,2 L0,2 z" Fill="{StaticResource GlyphBorderBrush}" Height="2" Stretch="Fill" UseLayoutRounding="False" />
+                        </Grid>
+                        <Rectangle x:Name="DisabledVisualElement" Fill="{StaticResource DisabledBackgroundBrush}" IsHitTestVisible="false" RadiusX="3" RadiusY="3" Opacity="0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+	
+    <!-- *********************************  NetworkNode NodeControl Style  ********************************* -->
+    <Style x:Key="NetworkNodeNodeControlStyle" TargetType="NetworkNode:NetworkNodeNodeControl">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="MinWidth" Value="24" />
+        <Setter Property="MinHeight" Value="24" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="6,0,6,0" />
+        <Setter Property="BorderBrush" Value="{StaticResource NetworkNodeNodeControlBorderBrush}" />
+        <Setter Property="Background" Value="{StaticResource NetworkNodeNodeControlBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="NetworkNode:NetworkNodeNodeControl">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                		<ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                                			<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NetworkNodeNodeControlHoverBackgroundBrush}"/>
+                                		</ObjectAnimationUsingKeyFrames>
+                                		<ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                                			<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NetworkNodeNodeControlHoverBorderBrush}"/>
+                                		</ObjectAnimationUsingKeyFrames>
+                                		<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ExpanderButton" d:IsOptimized="True"/>
+                                	</Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                		<DoubleAnimation Duration="0" To="0.6" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="DisabledVisualElement" d:IsOptimized="True"/>
+                                	</Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                		<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ExpanderButton" d:IsOptimized="True"/>
+                                	</Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="ReadOnly">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame Value="{StaticResource NetworkNodeNodeControlReadOnlyBackgroundBrush}" KeyTime="0"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="BorderBrush">
+                                            <DiscreteObjectKeyFrame Value="{StaticResource NetworkNodeNodeControlReadOnlyFocusedBorderBrush}" KeyTime="0"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                    	<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="focused">
+                                    		<DiscreteObjectKeyFrame KeyTime="0">
+                                    			<DiscreteObjectKeyFrame.Value>
+                                    				<Visibility>Visible</Visibility>
+                                    			</DiscreteObjectKeyFrame.Value>
+                                    		</DiscreteObjectKeyFrame>
+                                    	</ObjectAnimationUsingKeyFrames>
+                                	</Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="SelectedStates">
+                                <VisualState x:Name="Unselected"></VisualState>
+                                <VisualState x:Name="Selected">
+                                    <Storyboard>
+                                		<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="selected" d:IsOptimized="True"/>
+                                	</Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="EditStates">
+                                <VisualState x:Name="NotEditing" />
+                                <VisualState x:Name="Editing">
+                                    <Storyboard>
+                                		<DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="editing" d:IsOptimized="True"/>
+                                	</Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="BaseShape" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}"/>
+                        <Border x:Name="focused" BorderBrush="{StaticResource NetworkNodeNodeControlFocusedBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                        	CornerRadius="{TemplateBinding CornerRadius}" Visibility="Collapsed" />
+                        <Border x:Name="selected" Background="{StaticResource NetworkNodeNodeControlSelectedBackgroundBrush}" CornerRadius="{TemplateBinding CornerRadius}" BorderBrush="{StaticResource NetworkNodeNodeControlSelectedBorderBrush}"
+												BorderThickness="{TemplateBinding BorderThickness}" Opacity="0"/>
+                        <Border x:Name="editing" BorderBrush="{StaticResource NetworkNodeNodeControlEditingBorderBrush}"
+                                CornerRadius="{TemplateBinding CornerRadius}" Opacity="0" BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <ContentControl x:Name="NodeContainer" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        		VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Foreground="{TemplateBinding Foreground}">
+                            <ContentPresenter x:Name="NodePresenter" />
+                        </ContentControl>
+                        <ToggleButton x:Name="ExpanderButton" Margin="-7,-7,0,0" Width="14" Height="14" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource NodeToggleButtonStyle}" Opacity="0.5"/>
+                        <Rectangle x:Name="DisabledVisualElement" Fill="{StaticResource DisabledBackgroundBrush}" RadiusX="4" RadiusY="4" Opacity="0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+	<Style TargetType="NetworkNode:NetworkNodeNodeControl" BasedOn="{StaticResource NetworkNodeNodeControlStyle}"/>	
+</ResourceDictionary>

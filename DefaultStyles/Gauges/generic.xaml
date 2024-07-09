@@ -1,0 +1,228 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ig="http://schemas.infragistics.com/xaml"
+    xmlns:shared="http://schemas.infragistics.com/xaml"
+    xmlns:local="http://schemas.infragistics.com/xaml.Gauges">
+
+    <!-- ********************************** BRUSHES **********************************-->
+    <LinearGradientBrush x:Key="LinearBackingBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="White" Offset="1"/>
+        <GradientStop Color="#FFEBEDEF" Offset="0"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="BackingBackgroundBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="BackingBorderBrush" Color="#CCCCCC"/>
+    <SolidColorBrush x:Key="ForegroundBrush" Color="#666666"/>
+    <SolidColorBrush x:Key="TransparentBrush" Color="#00000000"/>
+    <SolidColorBrush x:Key="TickBrush" Color="#59000000" />
+    <SolidColorBrush x:Key="MinorTickBrush" Color="#33000000" />
+    <SolidColorBrush x:Key="NeedleBackgroundBrush" Color="#999999"/>
+    <SolidColorBrush x:Key="NeedleBorderBrush" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="ScaleBrush" Color="#00000000"/>
+    <SolidColorBrush x:Key="NeedlePivotBackgroundBrush" Color="#999999"/>
+    <SolidColorBrush x:Key="NeedlePivotBorderBrush" Color="#FFFFFF"/>
+
+    <LinearGradientBrush x:Key="LinearGaugeNeedleBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFEBECEF" />
+        <GradientStop Color="#FFCED3D8" Offset="0.5"/>
+        <GradientStop Color="#FFEBECEF" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="TargetValueBackgroundBrush" Color="#333333"/>
+    <SolidColorBrush x:Key="TargetValueBorderBrush" Color="Transparent"/>
+    <SolidColorBrush x:Key="ValueBrush" Color="#333333"/>
+
+    <Style x:Key="LinearGraphTitleStyle" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="LinearGraphSubtitleStyle" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="TextTrimming" Value="WordEllipsis"/>
+        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="FontSize" Value="11"/>
+    </Style>
+
+    <!-- ********************************** BulletGraph/LinearGauge Brushes **********************************-->
+    <ig:BrushCollection x:Key="LinearRangeBrushes">
+
+        <SolidColorBrush Color="#0078C8"/>
+        <SolidColorBrush Color="#0099FF"/>
+        <SolidColorBrush Color="#21A7FF"/>
+        <SolidColorBrush Color="#4FB9FF"/>
+        <SolidColorBrush Color="#79C9FF"/>
+
+    </ig:BrushCollection>
+
+    <!-- ********************************** Gauge Brushes **********************************-->
+    <ig:BrushCollection x:Key="RangeBrushes">
+
+        <SolidColorBrush Color="#005E9C"/>
+        <SolidColorBrush Color="#0078C8"/>
+        <SolidColorBrush Color="#0092F4"/>
+        <SolidColorBrush Color="#21A7FF"/>
+        <SolidColorBrush Color="#4FB9FF"/>
+
+    </ig:BrushCollection>
+
+    <!-- **********************************  Gauge Outlines **********************************-->
+    <ig:BrushCollection x:Key="RangeOutlines">
+
+        <SolidColorBrush Color="#00000000"/>
+
+    </ig:BrushCollection>
+
+    <!-- ********************************** XamRadialGauge Style **********************************-->
+    <Style x:Key="XamRadialGaugeStyle" TargetType="local:XamRadialGauge">
+        <Setter Property="Foreground" Value="{x:Static shared:FontDefaults.GaugesFontBrush}"/>
+        <Setter Property="NeedleBrush" Value="{StaticResource NeedleBackgroundBrush}" />
+        <Setter Property="NeedleOutline" Value="{StaticResource NeedleBorderBrush}" />
+        <Setter Property="TickBrush" Value="{StaticResource TickBrush}" />
+        <Setter Property="ScaleBrush" Value="{StaticResource ScaleBrush}" />
+        <Setter Property="BackingBrush" Value="{StaticResource BackingBackgroundBrush}" />
+        <Setter Property="BackingOutline" Value="{StaticResource BackingBorderBrush}" />
+        <Setter Property="NeedlePivotBrush" Value="{StaticResource NeedlePivotBackgroundBrush}" />
+        <Setter Property="NeedlePivotOutline" Value="{StaticResource NeedlePivotBorderBrush}" />
+        <Setter Property="MinorTickBrush" Value="{StaticResource MinorTickBrush}" />
+        <Setter Property="MinWidth" Value="50"/>
+        <Setter Property="MinHeight" Value="50"/>
+        <Setter Property="RangeBrushes" Value="{StaticResource RangeBrushes}"/>
+        <Setter Property="RangeOutlines" Value="{StaticResource RangeOutlines}" />
+        <Setter Property="FontFamily" Value="{x:Static shared:FontDefaults.GaugesFontFamily}"/>
+        <Setter Property="FontSize" Value="{x:Static shared:FontDefaults.GaugesFontSize}"/>
+        <Setter Property="FontWeight" Value="{x:Static shared:FontDefaults.GaugesFontWeight}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamRadialGauge">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Canvas x:Name="RootCanvas" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource XamRadialGaugeStyle}" TargetType="local:XamRadialGauge"/>
+
+    <!-- ********************************** XamBulletGraph Style **********************************-->
+    <Style x:Key="XamBulletGraphStyle" TargetType="local:XamBulletGraph">
+        <Setter Property="Foreground" Value="{x:Static shared:FontDefaults.GaugesFontBrush}"/>
+        <Setter Property="TargetValueBrush" Value="{StaticResource TargetValueBackgroundBrush}" />
+        <Setter Property="TargetValueOutline" Value="{StaticResource TargetValueBorderBrush}" />
+        <Setter Property="TickBrush" Value="{StaticResource TickBrush}" />
+        <!--<Setter Property="ScaleBrush" Value="{StaticResource ScaleBrush}" />-->
+        <Setter Property="BackingBrush" Value="{StaticResource BackingBackgroundBrush}" />
+        <Setter Property="BackingOutline" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="BackingStrokeThickness" Value="0"/>
+        <Setter Property="MinorTickBrush" Value="{StaticResource MinorTickBrush}" />
+        <Setter Property="ValueBrush" Value="{StaticResource ValueBrush}" />
+        <Setter Property="SubtitleStyle" Value="{StaticResource LinearGraphSubtitleStyle}"/>
+        <Setter Property="TitleStyle" Value="{StaticResource LinearGraphTitleStyle}"/>
+        <Setter Property="RangeBrushes" Value="{StaticResource LinearRangeBrushes}"/>
+        <Setter Property="RangeOutlines" Value="{StaticResource RangeOutlines}" />
+        <Setter Property="FontFamily" Value="{x:Static shared:FontDefaults.GaugesFontFamily}"/>
+        <Setter Property="FontSize" Value="{x:Static shared:FontDefaults.GaugesFontSize}"/>
+        <Setter Property="FontWeight" Value="{x:Static shared:FontDefaults.GaugesFontWeight}"/>
+        <Setter Property="Padding" Value="5 3"/>
+        <Setter Property="RangeToolTip">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="{Binding Brush}" Padding="4" CornerRadius="4" Background="#EBEBEB" Opacity="0.74">
+                        <TextBlock FontFamily="{x:Static shared:FontDefaults.GaugesFontFamily}" FontSize="{x:Static shared:FontDefaults.GaugesFontSize}" FontWeight="Bold" Text="{Binding Label}" />
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ValueToolTip">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="{Binding Brush}" Padding="4" CornerRadius="4" Background="#EBEBEB" Opacity="0.74">
+                        <TextBlock FontFamily="{x:Static shared:FontDefaults.GaugesFontFamily}" FontSize="{x:Static shared:FontDefaults.GaugesFontSize}" FontWeight="Bold" Text="{Binding Label}" />
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="TargetValueToolTip">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="{Binding Brush}" Padding="4" CornerRadius="4" Background="#EBEBEB" Opacity="0.74">
+                        <TextBlock FontFamily="{x:Static shared:FontDefaults.GaugesFontFamily}" FontSize="{x:Static shared:FontDefaults.GaugesFontSize}" FontWeight="Bold"  Text="{Binding Label}" />
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamBulletGraph">
+                    <Border x:Name="Root" Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            Padding="{TemplateBinding Padding}">
+                        <Canvas x:Name="RootCanvas" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource XamBulletGraphStyle}" TargetType="local:XamBulletGraph"/>
+
+    <!-- ********************************** XamLinearGauge Style **********************************-->
+    <Style x:Key="XamLinearGaugeStyle" TargetType="local:XamLinearGauge">
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderBrush" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="Foreground" Value="{x:Static shared:FontDefaults.GaugesFontBrush}"/>
+        <Setter Property="TickBrush" Value="{StaticResource TickBrush}" />
+        <Setter Property="ScaleBrush" Value="{StaticResource ScaleBrush}" />
+        <Setter Property="BackingBrush" Value="{StaticResource BackingBackgroundBrush}" />
+        <Setter Property="Background" Value="{StaticResource TransparentBrush}" />
+        <Setter Property="BackingOutline" Value="{StaticResource BackingBorderBrush}" />
+        <Setter Property="MinorTickBrush" Value="{StaticResource MinorTickBrush}" />
+        <Setter Property="SubtitleStyle" Value="{StaticResource LinearGraphSubtitleStyle}"/>
+        <Setter Property="TitleStyle" Value="{StaticResource LinearGraphTitleStyle}"/>
+        <Setter Property="RangeBrushes" Value="{StaticResource LinearRangeBrushes}"/>
+        <Setter Property="RangeOutlines" Value="{StaticResource RangeOutlines}" />
+        <Setter Property="NeedleBrush" Value="{StaticResource NeedleBackgroundBrush}"/>
+        <Setter Property="NeedleOutline" Value="{StaticResource NeedleBorderBrush}"/>
+        <Setter Property="FontFamily" Value="{x:Static shared:FontDefaults.GaugesFontFamily}"/>
+        <Setter Property="FontSize" Value="{x:Static shared:FontDefaults.GaugesFontSize}"/>
+        <Setter Property="FontWeight" Value="{x:Static shared:FontDefaults.GaugesFontWeight}"/>
+        <Setter Property="Padding" Value="5 3"/>
+        <Setter Property="RangeToolTip">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="{Binding Brush}" Padding="4" CornerRadius="4" Background="#EBEBEB" Opacity="0.74">
+                        <TextBlock FontFamily="{x:Static shared:FontDefaults.GaugesFontFamily}" FontSize="{x:Static shared:FontDefaults.GaugesFontSize}" FontWeight="Bold" Text="{Binding Label}" />
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="NeedleToolTip">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border BorderThickness="2" BorderBrush="{Binding Brush}" Padding="4" CornerRadius="4" Background="#EBEBEB" Opacity="0.74">
+                        <TextBlock FontFamily="{x:Static shared:FontDefaults.GaugesFontFamily}" FontSize="{x:Static shared:FontDefaults.GaugesFontSize}" FontWeight="Bold" Text="{Binding Label}" />
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamLinearGauge">
+                    <Border x:Name="Root" Background="{TemplateBinding Background}" 
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <Canvas x:Name="RootCanvas" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style BasedOn="{StaticResource XamLinearGaugeStyle}" TargetType="local:XamLinearGauge"/>
+</ResourceDictionary>

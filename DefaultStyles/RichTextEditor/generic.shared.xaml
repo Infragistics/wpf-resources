@@ -1,0 +1,539 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:local="http://schemas.infragistics.com/xaml"
+    xmlns:localPrim="http://schemas.infragistics.com/xaml/primitives"
+	xmlns:ig="http://schemas.infragistics.com/xaml"
+	xmlns:igBase="http://schemas.infragistics.com/xaml"
+	xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives"
+	xmlns:igPrimLocal="http://schemas.infragistics.com/xaml/primitives"
+	xmlns:sys="clr-namespace:System;assembly=mscorlib"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!--                             IMPORTANT NOTE:                                -->
+	<!--                                                                            -->
+	<!-- Only place resources in this ResourceDictionary that can be shared between -->
+	<!-- Silverlight and WPF.  This file is merged into the platform-specific       -->
+	<!-- specific ResourceDictionaries (i.e., generic.sl.xaml and generic.wpf.xaml) -->
+	<!-- and the appropriate platform-specific ResourceDictionary is copied in the  -->
+	<!-- pre-build steps so that it overwrites generic.xaml (which  by default has  -->
+	<!-- no content)                                                                -->
+	<!--                                                                            -->
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- ======================== -->
+	<!-- ValueConverters          -->
+	<!-- ======================== -->
+  <igPrim:ValueConverterGroup x:Key="boolToVisibilityConverter">
+    <!-- if true sets visibility to Visible -->
+    <igPrim:FixedValueConverter>
+      <igPrim:FixedValueConverter.SourceValue>
+        <sys:Boolean>True</sys:Boolean>
+      </igPrim:FixedValueConverter.SourceValue>
+      <igPrim:FixedValueConverter.DestinationValue>
+        <Visibility>Visible</Visibility>
+      </igPrim:FixedValueConverter.DestinationValue>
+    </igPrim:FixedValueConverter>
+
+    <!-- if false sets visibility to Collapsed -->
+    <igPrim:FixedValueConverter>
+      <igPrim:FixedValueConverter.DestinationValue>
+        <Visibility>Collapsed</Visibility>
+      </igPrim:FixedValueConverter.DestinationValue>
+    </igPrim:FixedValueConverter>
+  </igPrim:ValueConverterGroup>
+
+  <!-- ======================== -->
+	<!-- Control Styles           -->
+	<!-- ======================== -->
+
+  <!-- ======================== -->
+  <!-- Brushes                  -->
+  <!-- ======================== -->
+  <SolidColorBrush x:Key="richDocumentViewEmptyBackground" Color="White"/>
+  <SolidColorBrush x:Key="richDocumentViewNormalBackground" Color="White"/>
+  <SolidColorBrush x:Key="richDocumentViewMarginBackground" Color="White"/>
+  <SolidColorBrush x:Key="richDocumentViewTextBackground" Color="White"/>
+  <SolidColorBrush x:Key="splitterBackground" Color="Gray"/>
+  <SolidColorBrush x:Key="miniSplitterBackground" Color="Gray"/>
+    
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- XamRichTextEditor -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <Style TargetType="local:XamRichTextEditor">
+    <Setter Property="Background" Value="{StaticResource richDocumentViewEmptyBackground}"/>
+    <Setter Property="AllowDrop" Value="True"/>
+    <Setter Property="BorderThickness" Value="1"/>
+    <Setter Property="BorderBrush" Value="Black"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:XamRichTextEditor">
+          <Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						Padding="{TemplateBinding Padding}"
+						igPrim:XamlHelper.SnapsToDevicePixels="True">
+            <localPrim:RichDocumentViewLayoutPanel x:Name="RichDocumentViewLayoutPanel"/>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- RichDocumentViewSplitter -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <Style TargetType="localPrim:RichDocumentViewSplitter">
+    <!-- JM TFS165490 02-26-14 -->
+    <!--<Setter Property="MinWidth" Value="7"/>-->
+    <Setter Property="MinHeight" Value="7"/>
+    <Setter Property="Background" Value="{StaticResource splitterBackground}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="localPrim:RichDocumentViewSplitter">
+          <Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						Padding="{TemplateBinding Padding}"
+						igPrim:XamlHelper.SnapsToDevicePixels="True">
+
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="OrientationStates">
+                <VisualState x:Name="Vertical">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Cursor">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Cursor>SizeWE</Cursor>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Horizontal">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Cursor">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Cursor>SizeNS</Cursor>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <Thumb x:Name="Thumb"
+							   Background="{TemplateBinding Background}"
+							   MinWidth="{TemplateBinding MinWidth}"
+							   MinHeight="{TemplateBinding MinHeight}"/>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- RichDocumentViewMiniSplitter -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <Style TargetType="localPrim:RichDocumentViewMiniSplitter">
+    <!-- JM TFS165490 02-26-14 -->
+    <Setter Property="MinWidth" Value="17"/>
+    <!--<Setter Property="MinWidth" Value="7"/>-->
+    <Setter Property="MinHeight" Value="7"/>
+    <Setter Property="Background" Value="{StaticResource miniSplitterBackground}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="localPrim:RichDocumentViewMiniSplitter">
+          <Border
+						BorderBrush="{TemplateBinding BorderBrush}"
+						BorderThickness="{TemplateBinding BorderThickness}"
+						Background="{TemplateBinding Background}"
+						Padding="{TemplateBinding Padding}"
+						igPrim:XamlHelper.SnapsToDevicePixels="True">
+
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="OrientationStates">
+                <VisualState x:Name="Vertical">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Cursor">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Cursor>SizeWE</Cursor>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Horizontal">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Thumb" Storyboard.TargetProperty="Cursor">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Cursor>SizeNS</Cursor>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <Thumb x:Name="Thumb"
+							   Background="{TemplateBinding Background}"
+							   MinWidth="{TemplateBinding MinWidth}"
+							   MinHeight="{TemplateBinding MinHeight}"/>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- RichDocumentViewScrollBarArea -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <Style TargetType="localPrim:RichDocumentViewScrollBarArea">
+    <!-- JM TFS165490 02-26-14 -->
+    <!--<Setter Property="MinWidth" Value="7"/>-->
+    <!--<Setter Property="MinHeight" Value="7"/>-->
+    <Setter Property="Cursor" Value="Arrow"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="localPrim:RichDocumentViewScrollBarArea">
+          <Grid>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="OrientationStates">
+                <VisualState x:Name="Vertical">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MiniSplitter" Storyboard.TargetProperty="(Grid.Row)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>0</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MiniSplitter" Storyboard.TargetProperty="(Grid.Column)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>1</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollBar" Storyboard.TargetProperty="(Grid.Row)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>1</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollBar" Storyboard.TargetProperty="(Grid.Column)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>1</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="Horizontal">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MiniSplitter" Storyboard.TargetProperty="(Grid.Row)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>1</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="MiniSplitter" Storyboard.TargetProperty="(Grid.Column)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>0</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollBar" Storyboard.TargetProperty="(Grid.Row)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>1</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ScrollBar" Storyboard.TargetProperty="(Grid.Column)">
+                      <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                        <DiscreteObjectKeyFrame.Value>
+                          <sys:Int32>1</sys:Int32>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- JM TFS165490 02-26-14 Remove the setters for the MinWidth and MinHeight properties -->
+            <!--<localPrim:RichDocumentViewMiniSplitter
+							x:Name="MiniSplitter"
+							MinWidth="{TemplateBinding MinWidth}"
+							MinHeight="{TemplateBinding MinHeight}"/>-->
+            <localPrim:RichDocumentViewMiniSplitter
+							x:Name="MiniSplitter"/>
+            <!-- JM TFS165490 02-26-14 Add a binding to the new ScrollBarVisibility property-->
+            <ScrollBar x:Name="ScrollBar"
+					   Orientation="{TemplateBinding Orientation}"
+                       Visibility="{TemplateBinding ScrollBarVisibility}"
+                       Cursor="Arrow"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- RichDocumentViewPresenter -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <Style TargetType="localPrim:RichDocumentViewPresenter">
+    <Setter Property="Background" Value="{StaticResource richDocumentViewNormalBackground}"/>
+    <Setter Property="ScrollbarIntersectionBrush" Value="{StaticResource richDocumentViewNormalBackground}"/>
+    <Setter Property="FontSize" Value="12"/>
+    <Setter Property="FontFamily" Value="Consolas"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="localPrim:RichDocumentViewPresenter">
+          <Border BorderBrush="{TemplateBinding BorderBrush}"
+				  BorderThickness="{TemplateBinding BorderThickness}"
+				  Background="{TemplateBinding Background}"
+				  Padding="{TemplateBinding Padding}"
+				  igPrim:XamlHelper.SnapsToDevicePixels="True">
+              
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+
+              <!-- LayoutTransformer control to support layout transforms in Silverlight-->
+              <igPrimLocal:LayoutTransformer x:Name="TextAreaLayoutTransformer" Margin="0,0,0,0">
+                <igPrimLocal:LayoutTransformer.LayoutTransform>
+                  <TransformGroup>
+                    <ScaleTransform x:Name="TextAreaScaleTransform"/>
+                  </TransformGroup>
+                </igPrimLocal:LayoutTransformer.LayoutTransform>
+
+                <Grid x:Name="TextAreaHostGrid">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                  </Grid.ColumnDefinitions>
+
+                  <!-- Border to supply the IBeam cursor when the RichDocumentViewTextArea is moved to the left
+										 (as the result of a horizontal scroll) via a RenderTransform. -->
+                  <Border x:Name="TextAreaBorder"
+                                            Cursor="IBeam"
+											Grid.Row="1"
+											Grid.Column="1"
+											Background="Transparent"/>
+
+                  <!-- AdornmentLayers are automatically added to the RichDocumentViewTextArea by the control as needed. -->
+                  <localPrim:RichDocumentViewTextArea x:Name="TextArea"
+																		  Grid.Row="1"
+																		  Grid.Column="1"
+																		  Cursor="IBeam"
+																		  HorizontalAlignment="Stretch"
+																		  VerticalAlignment="Stretch"
+																		  Background="{StaticResource richDocumentViewTextBackground}"
+                                                                          FlowDirection="LeftToRight"/>
+
+                  <!-- Left Margin Area -->
+                  <localPrim:RichDocumentViewMarginPanel x:Name="LeftMarginArea"
+																			 Location="Left"
+																			 VerticalAlignment="Stretch"
+																			 Grid.Row="1"
+																			 Grid.Column="0"
+																			 Background="{StaticResource richDocumentViewMarginBackground}"/>
+
+                  <!-- Top Margin Area -->
+                  <localPrim:RichDocumentViewMarginPanel x:Name="TopMarginArea"
+																			 Location="Top"
+																			 HorizontalAlignment="Stretch"
+																			 Grid.Row="0"
+																			 Grid.Column="0"
+																			 Grid.ColumnSpan="3"
+																			 Background="{StaticResource richDocumentViewMarginBackground}"/>
+
+                  <!-- Right Margin Area -->
+                  <localPrim:RichDocumentViewMarginPanel x:Name="RightMarginArea"
+																			 Location="Right"
+																			 VerticalAlignment="Stretch"
+																			 Grid.Row="1"
+																			 Grid.Column="2"
+																			 Background="{StaticResource richDocumentViewMarginBackground}"/>
+
+                  <!-- Bottom Margin Area -->
+                  <localPrim:RichDocumentViewMarginPanel x:Name="BottomMarginArea"
+																			 Location="Bottom"
+																			 HorizontalAlignment="Stretch"
+																			 Grid.Row="2"
+																			 Grid.Column="0"
+																			 Grid.ColumnSpan="3"
+																			 Background="{StaticResource richDocumentViewMarginBackground}"/>
+                </Grid>
+              </igPrimLocal:LayoutTransformer>
+
+              <!-- Place non-transparent elements behind the vertical and horizontal scrollbars because the
+								 scrollbars in SL actually have some small transparent areas that allow content to bleed through. -->
+              <Rectangle Grid.Row="0" Grid.Column="1" Margin="0, 0, 0, 0" Fill="{StaticResource richDocumentViewNormalBackground}"/>
+              <Rectangle Grid.Row="1" Grid.Column="0" Margin="0, 0, 0, 0" Fill="{StaticResource richDocumentViewNormalBackground}"/>
+
+              <!-- Place a non-transparent element behind the square where the vertical and horizontal scrollbars meet
+								 to prevent any content from bleeding through. -->
+              <!-- JM 02-13-15 TFS186113 - Remove the negative top and left margins.  I am not sure why we had these here - it's 
+                  possible I've overlooked the reason why, but removing them does not seem to cause problems and it solves the issue
+                  reported in the bug.  -->
+              <!--<Rectangle Grid.Row="1" Grid.Column="1" Margin="-1, -1, 0, 0" Fill="{TemplateBinding ScrollbarIntersectionBrush}"/>-->
+              <Rectangle Grid.Row="1" Grid.Column="1" Margin="0, 0, 0, 0" Fill="{TemplateBinding ScrollbarIntersectionBrush}"/>
+
+              <!-- JM 02-13-15 TFS186113 - Remove the negative left margin.  I am not sure why we had this here - it's 
+                  possible I've overlooked the reason why, but removing it does not seem to cause problems and it solves the issue
+                  reported in the bug.  -->
+              <localPrim:RichDocumentViewScrollBarArea x:Name="VerticalScrollBarArea"
+																		Grid.Row="0"
+																		Grid.Column="1"
+                                    Margin="0,0,0,0"
+																		Orientation="Vertical"/>
+
+              <!-- JM 02-13-15 TFS186113 - Remove the negative top margin.  I am not sure why we had this here - it's 
+                  possible I've overlooked the reason why, but removing it does not seem to cause problems and it solves the issue
+                  reported in the bug.  -->
+              <localPrim:RichDocumentViewScrollBarArea x:Name="HorizontalScrollBarArea"
+																		Grid.Row="1"
+																		Grid.Column="0"
+                                    Margin="0,0,0,0"
+																		Orientation="Horizontal"/>
+            </Grid>
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- LayoutTransformer -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <Style TargetType="igPrimLocal:LayoutTransformer">
+    <Setter Property="Foreground" Value="#FF000000"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="igPrimLocal:LayoutTransformer">
+          <Grid x:Name="TransformRoot" Background="{TemplateBinding Background}">
+            <ContentPresenter
+                            x:Name="Presenter"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"/>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <!-- RichTextCaretPresenter -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <Style TargetType="localPrim:RichTextCaretPresenter">
+    <Setter Property="MinWidth" Value="1"/>
+    <Setter Property="MinHeight" Value="13"/>
+    <Setter Property="Foreground" Value="{Binding Path=Caret.Brush, Mode=OneWay, RelativeSource={RelativeSource Self}}"/>
+    <Setter Property="UseLayoutRounding" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="localPrim:RichTextCaretPresenter">
+          <Rectangle x:Name="BackgroundRect"
+							   Fill="{TemplateBinding Foreground}"
+                 VerticalAlignment="Top"
+							   Visibility="{Binding Path=Caret.IsVisible, Mode=OneWay, Converter={StaticResource boolToVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}"
+							   Width="{Binding Path=Caret.Width, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+							   Height="{Binding Path=Caret.Height, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="InsertMode">
+                  <Storyboard x:Name="InsertAnimation" RepeatBehavior="Forever">
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundRect" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:0.75" Value="1"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+
+                <VisualState x:Name="OverwriteMode">
+                  <Storyboard x:Name="OverwriteAnimation" RepeatBehavior="Forever">
+                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundRect" Storyboard.TargetProperty="Opacity">
+                      <SplineDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:0.25" Value="0"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="0.5"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:0.75" Value="0.5"/>
+                      <SplineDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+                    </DoubleAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+          </Rectangle>
+
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!-- HyperlinkToolTipPresenter -->
+    <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <Style TargetType="localPrim:HyperlinkToolTipPresenter">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="localPrim:HyperlinkToolTipPresenter">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                            
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="{Binding ToolTipText}" TextWrapping="Wrap" MaxWidth="230"/>
+                        <TextBlock Text="{Binding ToolTipPrompt}" TextWrapping="Wrap" MaxWidth="230" FontWeight="Bold" Grid.Row="1"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>

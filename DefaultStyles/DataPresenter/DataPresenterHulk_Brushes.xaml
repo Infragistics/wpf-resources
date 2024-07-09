@@ -1,0 +1,251 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<!-- ____________________________________________________________________________ -->
+	<!--                                                                              -->
+	<!--                             Brushes                                          -->
+	<!-- ____________________________________________________________________________ -->
+
+	<SolidColorBrush x:Key="AddRowBackground" Color="#FFEAEAEA"/>
+	
+	<!-- DataRecordPresenter -->
+	<LinearGradientBrush x:Key="HeaderAreaBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0.000000" Color="#FF99CA4D"/>
+		<GradientStop Offset="0.5" Color="#FF668928"/>
+		<GradientStop Offset="0.5" Color="#FF3C5817"/>
+		<GradientStop Offset="1.000000" Color="#FF182F0C"/>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="DRP_NestedContentBackground" Color="Transparent" />
+
+	<!-- Labels -->
+	<LinearGradientBrush x:Key="LabelBackground" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#FF99CA4D"/>
+		<GradientStop Offset="0.5" Color="#FF668928"/>
+		<GradientStop Offset="0.5" Color="#FF3C5817"/>
+		<GradientStop Offset="1" Color="#FF182F0C"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="LabelHighlight" StartPoint="0,1" EndPoint="0,.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Offset="0" Color="#FF7BC10C"/>
+			<GradientStop Offset="0.25" Color="#FF7BC10C"/>
+			<GradientStop Offset="1" Color="#007BC10C"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<SolidColorBrush x:Key="LabelForeground" Color="#FFFFFFFF" />
+	<SolidColorBrush x:Key="LabelForegroundGlow" Color="#FFFFFFFF" />
+
+	<SolidColorBrush x:Key="LabelInnerBorder" Color="#44FFFFFF" />
+	<SolidColorBrush x:Key="LabelOuterBorder" Color="#44000000" />
+	<CornerRadius x:Key="LabelCornerRadius" TopLeft="2" TopRight="2" BottomRight="2" BottomLeft="2" />
+
+	<SolidColorBrush x:Key="CardBackground" Color="#FFC0C0C0" />
+
+	<!-- CellArea (Row) -->
+	<LinearGradientBrush x:Key="CellAreaBackground" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#00FFFFFF" Offset="0" />
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="CellAreaBackgroundBorder" Color="#00000000" />
+
+	<LinearGradientBrush x:Key="CellAreaBackgroundHover" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Offset="0" Color="#FFE7F3C3"/>
+			<GradientStop Offset="1" Color="#FFB2D940"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="CellAreaBackgroundHoverBorder" Color="#FF6F952F" />
+
+	<LinearGradientBrush x:Key="CellAreaBackgroundActive" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Offset="0" Color="#FFE7F3C3"/>
+			<GradientStop Offset="1" Color="#FFB2D940"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="CellAreaBackgroundActiveBorder" Color="#FF6F952F" />
+
+	<LinearGradientBrush x:Key="CellAreaBackgroundAlternate" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#FFF7F7F7"/>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="CellAreaBackgroundAlternateBorder" Color="#00000000" />
+
+	<LinearGradientBrush x:Key="CellAreaBackgroundSelected" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Offset="0" Color="#FFFBFDF2"/>
+			<GradientStop Offset="1" Color="#FFE4F2BC"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="CellAreaBackgroundSelectedBorder" Color="#00000000" />
+	<SolidColorBrush x:Key="CellForeground" Color="#FF666666" />
+	<SolidColorBrush x:Key="CellForegroundHover" Color="#FF333333" />
+	<SolidColorBrush x:Key="CellForegroundActive" Color="#FF333333" />
+	<SolidColorBrush x:Key="CellForegroundSelected" Color="#FF333333" />
+	<SolidColorBrush x:Key="CellForegroundAlternate" Color="#FF333333" />
+
+	<Style x:Key="CellAreaForegroundStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellForeground}" />
+	</Style>
+
+	<Style x:Key="CellAreaForegroundActiveStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellForegroundActive}" />
+	</Style>
+
+	<Style x:Key="CellAreaForegroundAlternateStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellForegroundAlternate}" />
+	</Style>
+
+	<Style x:Key="CellAreaForegroundSelectedStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellForegroundSelected}" />
+	</Style>
+
+	<Style x:Key="CellAreaForegroundHoverStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellForegroundHover}" />
+	</Style>
+
+	<CornerRadius x:Key="CellAreaBackgroundCornerRadius" BottomLeft="4" BottomRight="4" TopLeft="4" TopRight="4" />
+	<Thickness x:Key="CellAreaBackgroundBorderThickness" Left="1" Top="1" Right="1" Bottom="1" />
+
+	<!-- ******************************* -->
+	<!-- CellValuePresenter (Field/Cell) -->
+
+	<!-- Background -->
+	<SolidColorBrush x:Key="CellValueBackground" Color="Transparent" />
+	<SolidColorBrush x:Key="CellValueBorderBrush" Color="Transparent" />
+	<SolidColorBrush x:Key="CellValueBackgroundHover" Color="Transparent" />
+	<SolidColorBrush x:Key="CellValueBorderHoverBrush" Color="Transparent" />
+
+	<LinearGradientBrush x:Key="CellValueBackgroundActive" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Offset="0" Color="#FFB5DA47"/>
+		<GradientStop Offset="1.1" Color="#00FFFFFF"/>
+	</LinearGradientBrush>
+
+	<SolidColorBrush x:Key="CellValueBorderActiveBrush" Color="#00666666" />
+
+
+	<!-- ************************ -->
+
+
+	<!-- ____________________________________________________________________________ -->
+	<!--                                                                              -->
+	<!--                             End of Brushes                                   -->
+	<SolidColorBrush x:Key="CellValueBackgroundSelected" Color="#FFE4F1BD"/>
+	<!-- ____________________________________________________________________________ -->
+	<SolidColorBrush x:Key="CellValueBackgroundFieldSelected" Color="#FFE4F1BD"/>
+	<SolidColorBrush x:Key="CellValueBorderSelectedBrush" Color="#00666666" />
+	<SolidColorBrush x:Key="CellValueBorderFieldSelectedBrush" Color="#FF666666" />
+	<SolidColorBrush x:Key="CellValueBackgroundPrimary" Color="#FFE4F1BD" />
+	<SolidColorBrush x:Key="CellValueBorderPrimaryBrush" Color="#00666666" />
+
+	<!-- Foreground -->
+	<SolidColorBrush x:Key="CellValueForeground" Color="#FF666666" />
+	<SolidColorBrush x:Key="CellValueForegroundHover" Color="#FF333333" />
+	<SolidColorBrush x:Key="CellValueForegroundActive" Color="#FF333333" />
+	<SolidColorBrush x:Key="CellValueForegroundSelected" Color="#FF333333" />
+	<SolidColorBrush x:Key="CellValueForegroundFieldSelected" Color="#FF000000" />
+	<SolidColorBrush x:Key="CellValueForegroundAlternate" Color="#FF333333" />
+	<SolidColorBrush x:Key="CellValueForegroundPrimary" Color="#FF333333" />
+
+	<!-- Foreground Styles -->
+	<Style x:Key="CellValueForegroundStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellValueForeground}" />
+	</Style>
+
+	<Style x:Key="CellValueForegroundActiveStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellValueForegroundActive}" />
+	</Style>
+
+	<Style x:Key="CellValueForegroundAlternateStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellValueForegroundAlternate}" />
+	</Style>
+
+	<Style x:Key="CellValueForegroundSelectedStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellValueForegroundSelected}" />
+	</Style>
+
+	<Style x:Key="CellValueForegroundFieldSelectedStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellValueForegroundFieldSelected}" />
+	</Style>
+
+	<Style x:Key="CellValueForegroundHoverStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellValueForegroundHover}" />
+	</Style>
+
+	<Style x:Key="CellValueForegroundPrimaryStyle">
+		<Setter Property="TextBlock.Foreground" Value="{StaticResource CellValueForegroundPrimary}" />
+		<Setter Property="TextBlock.FontWeight" Value="Bold" />
+	</Style>
+
+	<!-- Additional -->
+	<CornerRadius x:Key="CellValueCornerRadius" BottomLeft="0" BottomRight="0" TopLeft="0" TopRight="0" />
+	<Thickness x:Key="CellValueBorderThickness" Left="0" Top="0" Right="0" Bottom="0" />
+
+
+	<!-- Nested Content           -->
+
+	<LinearGradientBrush x:Key="NestedContentBackground" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Color="#FFFFFFFF" Offset="0.25" />
+			<GradientStop Color="#FFEEEEEE" Offset="1.2" />
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="NestedContentBackgroundBorder" Color="#661E350E" />
+
+	<!-- GroupByArea -->
+	<SolidColorBrush x:Key="GroupByAreaForeground" Color="#1E350E" />
+	<LinearGradientBrush x:Key="GroupByAreaBackground" StartPoint="0,0.5" EndPoint="1,0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop Color="sc#1, 0.848967135, 0.848967135, 0.848967135" Offset="0"/>
+				<GradientStop Color="sc#1, 0.694037557, 0.694037557, 0.694037557" Offset="1"/>
+			</GradientStopCollection>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="GroupByAreaBackgroundHighlight" StartPoint="0,0.5" EndPoint="1,0.5">
+		<LinearGradientBrush.GradientStops>
+			<GradientStopCollection>
+				<GradientStop Color="sc#1, 1, 1, 1" Offset="0"/>
+				<GradientStop Color="sc#0, 1, 1, 1" Offset="1"/>
+			</GradientStopCollection>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="GroupByLabelBackground" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Offset="0" Color="#FF99CA4D"/>
+			<GradientStop Offset="0.5" Color="#FF668928"/>
+			<GradientStop Offset="0.5" Color="#FF3C5817"/>
+			<GradientStop Offset="1" Color="#FF182F0C"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="GroupByLabelBackgroundBorder" Color="#FF587627" />
+	<SolidColorBrush x:Key="GroupByLabelForeground" Color="#FFffffff" />
+
+	<LinearGradientBrush x:Key="GroupByLabelHighlight" StartPoint="0,0" EndPoint="0,1">
+		<LinearGradientBrush.GradientStops>
+			<GradientStop Offset="0" Color="#FF99CA4D"/>
+			<GradientStop Offset="0.5" Color="#FF668928"/>
+			<GradientStop Offset="0.5" Color="#FF3C5817"/>
+			<GradientStop Offset="1" Color="#FF7BC00C"/>
+		</LinearGradientBrush.GradientStops>
+	</LinearGradientBrush>
+	<SolidColorBrush x:Key="GroupByLabelHighlightBorder" Color="#FF587627" />
+
+	<!-- Expandable Field Record Presenter -->
+	<LinearGradientBrush x:Key="ExpandableFieldLabelBackgroundVertical" StartPoint="0,0" EndPoint="1,0">
+		<GradientStop Offset="0" Color="#FF99CA4D"/>
+		<GradientStop Offset="0.5" Color="#ff668928"/>
+		<GradientStop Offset="0.5" Color="#FF3C5817"/>
+		<GradientStop Offset="1" Color="#FF3C5817"/>
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="ExpandableFieldLabelBackgroundHighlightVertical" StartPoint="1,0" EndPoint="0.5, 0">
+		<GradientStop Offset="0" Color="#FF6F952F"/>
+		<GradientStop Offset="0.25" Color="#FF6F952F"/>
+		<GradientStop Offset="1" Color="#FF6F952F"/>
+	</LinearGradientBrush>
+
+
+</ResourceDictionary>

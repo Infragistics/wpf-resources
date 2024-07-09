@@ -1,0 +1,1717 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	                xmlns:local="http://schemas.infragistics.com/xaml"
+	                xmlns:ig="http://schemas.infragistics.com/xaml"
+	                xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives"
+	                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+
+    <!-- *********************************  RESOURCES  ********************************* -->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Office2010Blue.Theme.Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+ 
+    <!-- *********************************  Localization Resources / WPF SPECIFIC  ********************************* --> 
+    <local:MapSRProvider x:Key="SR" />
+
+    <!-- ********************************** BRUSHES **********************************-->
+    <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Color_001}"/>
+    <SolidColorBrush x:Key="TransparentBrush" Color="{StaticResource Color_033}"/>
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="{StaticResource Color_005}"/>
+	
+    <!--  Slider Thumb Brushes -->
+    <LinearGradientBrush x:Key="SliderThumbBackgroundBrush" EndPoint="0.56,0.99" StartPoint="0.56,0.01">
+        <GradientStop Color="{StaticResource Color_029}" Offset="1"/>
+        <GradientStop Color="{StaticResource Color_032}"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="SliderThumbBorderBrush" Color="{StaticResource Color_027}"/>
+
+    <LinearGradientBrush x:Key="SliderThumbHoverBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="{StaticResource Color_018}"/>
+        <GradientStop Offset="0.23" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="0.75" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_019}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SliderThumbHoverBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+        <GradientStop Color="{StaticResource Color_014}" Offset="0.05"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="SliderThumbHoverInnerBorderBrush" Color="{StaticResource Color_019}"/>
+
+    <LinearGradientBrush x:Key="SliderThumbPressedBackgroundBrush" StartPoint="0,0 " EndPoint="0,1 ">
+        <GradientStop Offset="1" Color="{StaticResource Color_017}"/>
+        <GradientStop Color="{StaticResource Color_016}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="SliderThumbPressedBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="{StaticResource Color_012}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+    </LinearGradientBrush>
+	
+    <SolidColorBrush x:Key="SliderThumbFocusedBorderBrush" Color="{StaticResource Color_013}"/>
+	
+    <!--  Slider Brushes -->
+    <LinearGradientBrush x:Key="HSliderTrackBackgroundBrush" StartPoint="0.82,1" EndPoint="0.82,0.25">
+        <GradientStop Color="{StaticResource Color_026}" Offset="0.631"/>
+        <GradientStop Color="{StaticResource Color_032}" Offset="0.63"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="VSliderTrackBackgroundBrush" EndPoint="0.678,0.5" StartPoint="0.322,0.5">
+        <GradientStop Color="{StaticResource Color_026}" Offset="0.501"/>
+        <GradientStop Color="{StaticResource Color_032}" Offset="0.50"/>
+    </LinearGradientBrush>
+
+	<!-- Slider Selection Range Brushes / WPF SPECIFIC -->   
+    <LinearGradientBrush x:Key="SliderSelectionRangeBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+        <GradientStop Color="{StaticResource Color_014}" Offset="0.05"/>
+    </LinearGradientBrush>
+	
+    <!--  PreviewStyle Brushes -->	
+    <SolidColorBrush x:Key="PreviewStyleBackgroundBrush"  Color="{StaticResource Color_025}" Opacity="0.3"/>
+    <SolidColorBrush x:Key="PreviewStyleBorderBrush" Color="{StaticResource Color_026}"/>
+
+    <!--  ShadowStyle Brushes -->	
+    <SolidColorBrush x:Key="ShadowStyleBackgroundBrush" Color="{StaticResource Color_033}"/>
+    <SolidColorBrush x:Key="ShadowStyleBorderBrush" Color="{StaticResource Color_033}"/>
+	
+    <!--  Map Glyphs Brushes -->
+    <SolidColorBrush x:Key="MapGlyphBorderBrush" Color="{StaticResource Color_025}"/>
+    <SolidColorBrush x:Key="MapGlyphFocusedBackgroundBrush" Color="{StaticResource Color_024}"/>
+	
+    <!--  Map Button Brushes -->
+    <RadialGradientBrush x:Key="MapButtonBackgroundBrush" RadiusY="2.584" RadiusX="1" Center="0.559,1.898" GradientOrigin="0.559,1.898">
+        <GradientStop Color="{StaticResource Color_005}" Offset="0.287"/>
+        <GradientStop Color="{StaticResource Color_029}" Offset="0.779"/>
+        <GradientStop Color="{StaticResource Color_028}" Offset="1"/>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="MapButtonBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="{StaticResource Color_028}"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="MapButtonHoverBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Offset="0" Color="{StaticResource Color_018}"/>
+        <GradientStop Offset="0.23" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="0.75" Color="{StaticResource Color_017}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_019}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="MapButtonHoverBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+    	<GradientStop Offset="1" Color="{StaticResource Color_014}"/>
+    	<GradientStop Color="{StaticResource Color_015}"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="MapButtonHoverHighlightBorderBrush" Color="{StaticResource Color_019}"/>
+
+    <LinearGradientBrush x:Key="MapButtonPressedBackgroundBrush" StartPoint="0,0 " EndPoint="0,1 ">
+        <GradientStop Offset="1" Color="{StaticResource Color_017}"/>
+        <GradientStop Color="{StaticResource Color_016}"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="MapButtonPressedBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Offset="0" Color="{StaticResource Color_012}"/>
+        <GradientStop Offset="1" Color="{StaticResource Color_013}"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="MapButtonFocusedBorderBrush" Color="{StaticResource Color_013}"/>
+
+    <!--  Pane Brushes -->
+    <RadialGradientBrush x:Key="PaneBackgroundBrush" RadiusY="1.253" RadiusX="1" Center="0.558,1.167" GradientOrigin="0.558,1.167">
+        <GradientStop Color="{StaticResource Color_032}"/>
+        <GradientStop Color="{StaticResource Color_029}" Offset="0.804"/>
+        <GradientStop Color="{StaticResource Color_029}" Offset="1"/>
+    </RadialGradientBrush>
+
+    <LinearGradientBrush x:Key="PaneBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+        <GradientStop Color="{StaticResource Color_027}"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="PaneInnerBorderFill" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="{StaticResource Color_005}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_033}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="PaneHighlightBorderBrush" Color="{StaticResource Color_005}" Opacity="0.6"/>
+
+    <LinearGradientBrush x:Key="CenterCircleBackgroundBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{StaticResource Color_028}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="CenterCircleBorderBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <GradientStop Color="{StaticResource Color_033}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_005}" Offset="0.75"/>
+        <GradientStop Color="{StaticResource Color_005}" Offset="1"/>
+    </LinearGradientBrush>
+    <RadialGradientBrush x:Key="CenterCircleOverlayBackgroundBrush" RadiusY="2.584" RadiusX="1" Center="0.559,1.898" GradientOrigin="0.559,1.898">
+        <GradientStop Color="{StaticResource Color_005}" Offset="0.287"/>
+        <GradientStop Color="{StaticResource Color_030}" Offset="0.779"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </RadialGradientBrush>
+
+    <!--  Map Scale Brushes -->
+    <SolidColorBrush x:Key="ScalePrimaryBackgroundBrush" Color="{StaticResource Color_1002}"/>
+    <SolidColorBrush x:Key="ScalePrimaryBorderBrush" Color="{StaticResource Color_1002}"/>
+
+    <SolidColorBrush x:Key="ScaleSecondaryBackgroundBrush" Color="{StaticResource Color_1000}"/>
+    <SolidColorBrush x:Key="ScaleSecondaryBorderBrush" Color="{StaticResource Color_1000}"/>
+
+    <RadialGradientBrush x:Key="MapScalePaneBackgroundBrush" RadiusY="1.468" RadiusX="1.065" Center="0.504,0.009" GradientOrigin="0.504,0.009" >
+        <GradientStop Color="{StaticResource Color_032}" Offset="0.006"/>
+        <GradientStop Color="{StaticResource Color_030}" Offset="1"/>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="MapScalePaneBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{StaticResource Color_028}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--  Color Swatch Brushes -->
+    <SolidColorBrush x:Key="ColorSwatchSwatchBackgroundBrush" Color="{StaticResource Color_033}"/>
+    <SolidColorBrush x:Key="ColorSwatchSwatchBorderBrush" Color="{StaticResource Color_026}"/>
+
+    <RadialGradientBrush x:Key="MapColorSwatchPaneBackgroundBrush" RadiusY="1.468" RadiusX="1.065" Center="0.504,0.009" GradientOrigin="0.504,0.009">
+        <GradientStop Color="{StaticResource Color_005}" Offset="0.006"/>
+        <GradientStop Color="{StaticResource Color_028}" Offset="1"/>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="MapColorSwatchPaneBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{StaticResource Color_028}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <!--  MapThumbnailPane Brushes -->
+    <LinearGradientBrush x:Key="ThumbnailWorldBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0" Opacity="0.5">
+        <GradientStop Color="{StaticResource Color_028}" Offset="1"/>
+        <GradientStop Color="{StaticResource Color_027}"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ThumbnailWorldBorderBrush" Color="{StaticResource Color_005}"/>
+
+    <LinearGradientBrush x:Key="ThumbnailWindowBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1" Opacity="0.4">
+        <GradientStop Color="{StaticResource Color_025}"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ThumbnailWindowBorderBrush" Color="{StaticResource Color_026}"/>
+
+    <RadialGradientBrush x:Key="MapThumbnailPaneBackgroundBrush" RadiusY="1.468" RadiusX="1.065" Center="0.504,0.009" GradientOrigin="0.504,0.009">
+        <GradientStop Color="{StaticResource Color_032}" Offset="0.006"/>
+        <GradientStop Color="{StaticResource Color_030}" Offset="1"/>
+    </RadialGradientBrush>
+    <LinearGradientBrush x:Key="MapThumbnailPaneBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{StaticResource Color_028}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="MapThumbnailPaneHoverBackgroundBrush" Color="{StaticResource Color_033}" Opacity="0.5"/>
+	
+    <!--  MapViewport Brushes -->
+    <SolidColorBrush x:Key="ViewportDragBorderBrush" Color="{StaticResource Color_026}"/>
+
+    <SolidColorBrush x:Key="MapViewportBackgroundBrush" Color="{StaticResource Color_030}"/>
+    <LinearGradientBrush x:Key="MapViewportBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{StaticResource Color_028}" Offset="0"/>
+        <GradientStop Color="{StaticResource Color_027}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="MapViewportGridShadowBorderBrush" Color="{StaticResource Color_001}" Opacity="0.5"/>
+    <SolidColorBrush x:Key="GridStrokeBorderBrush" Color="{StaticResource Color_028}"/>
+    <SolidColorBrush x:Key="MapViewportFocusedBorderBrush" Color="{StaticResource Color_013}"/>
+
+    <!--  Map Brushes -->
+    <SolidColorBrush x:Key="MapForegroundBrush" Color="{StaticResource Color_005}"/>
+    <SolidColorBrush x:Key="MapLayerShadowBackgroundBrush" Color="{StaticResource Color_001}" Opacity="0"/>
+    <SolidColorBrush x:Key="MapLayerBorderBrush" Color="{StaticResource Color_025}"/>
+
+    <RadialGradientBrush x:Key="MapBackgroundBrush" RadiusY="1.468" RadiusX="1.065" Center="0.504,0.009" GradientOrigin="0.504,0.009">
+        <GradientStop Color="{StaticResource Color_032}" Offset="0.006"/>
+        <GradientStop Color="{StaticResource Color_030}" Offset="1"/>
+    </RadialGradientBrush>
+    <SolidColorBrush x:Key="MapBorderBrush" Color="{StaticResource Color_027}"/>
+	
+    <RadialGradientBrush x:Key="MapControlViewportViewportBackgroundBrush" RadiusY="1.468" RadiusX="1.065" Center="0.504,0.009" GradientOrigin="0.504,0.009">
+        <GradientStop Color="{StaticResource Color_032}" Offset="0.006"/>
+        <GradientStop Color="{StaticResource Color_030}" Offset="1"/>
+    </RadialGradientBrush>
+    <SolidColorBrush x:Key="MapControlViewportViewportBorderBrush" Color="{StaticResource Color_026}"/>
+
+    <!-- *********************************  SliderRepeatButton Style  ********************************* -->
+    <Style x:Key="SliderRepeatButtonStyle" TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Rectangle Fill="{StaticResource TransparentBrush}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- *********************************  ZoomRange Horizontal Thumb Style  ********************************* -->
+    <Style x:Key="HSliderThumbStyle" TargetType="Thumb">
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Height" Value="22"/>
+        <Setter Property="Width" Value="9"/>
+        <Setter Property="Background" Value="{StaticResource SliderThumbBackgroundBrush}"/>
+        <Setter Property="BorderBrush"  Value="{StaticResource SliderThumbBorderBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.6" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ThumbInnerStroke"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="ThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbHoverBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="ThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbHoverBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="ThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbPressedBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="ThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbPressedBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.55" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="ThumbDisabled" d:IsOptimized="True"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused"/>
+                                <VisualState x:Name="Unfocused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="HorizontalThumbContent" Height="13" Width="9">
+                            <Path x:Name="ThumbBackground" 
+                                  Data="M0.5,0.5 L8.5,0.5 L8.5,9.9374847 L4.5208335,13.31249 L0.5,9.9374847 z" 
+                                  Fill="{TemplateBinding Background}" 
+                                  Stroke="{TemplateBinding BorderBrush}" 
+                                  Height="13" Width="9"
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False"/>
+                            <Path x:Name="ThumbInnerStroke" 
+                                  Data="M0.5,0.5 L8.5,0.5 L8.5,9.9374847 L4.5208335,12.972734 L0.5,9.9374847 z" 
+                                  Stroke="{StaticResource SliderThumbHoverInnerBorderBrush}" 
+                                  Height="11" Width="7" 
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False" 
+                                  Opacity="0"/>
+                            <Path x:Name="ThumbFocused" 
+                                  Data="M0.5,0.5 L8.5,0.5 L8.5,9.9374847 L4.5208335,13.31249 L0.5,9.9374847 z" 
+                                  Fill="{StaticResource SliderThumbPressedBackgroundBrush}" 
+                                  Stroke="{StaticResource SliderThumbPressedBorderBrush}" 
+                                  Height="13" Width="9" 
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False" 
+                                  Visibility="Collapsed"/>
+                            <Path x:Name="ThumbDisabled" 
+                                  Data="M0.5,0.5 L8.5,0.5 L8.5,9.9374847 L4.5208335,13.31249 L0.5,9.9374847 z"
+                                  Fill="{StaticResource DisabledBackgroundBrush}" 
+                                  Height="13" Width="9" 
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False" 
+                                  Opacity="0"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- *********************************  ZoomRange Horizontal Thumb Up Style  ********************************* -->
+    <Style x:Key="HSliderUpThumbStyle" TargetType="Thumb" BasedOn="{StaticResource HSliderThumbStyle}">
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+    </Style>
+
+    <!-- *********************************  ZoomRange Horizontal Thumb Down Style  ********************************* -->
+    <Style x:Key="HSliderDownThumbStyle" TargetType="Thumb" BasedOn="{StaticResource HSliderThumbStyle}"/>
+
+    <!-- *********************************  ZoomRange Vertical Thumb Style  ********************************* -->
+    <Style x:Key="VSliderThumbStyle" TargetType="Thumb">
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Height" Value="9"/>
+        <Setter Property="Width" Value="22"/>
+        <Setter Property="Background" Value="{StaticResource SliderThumbBackgroundBrush}"/>
+        <Setter Property="BorderBrush"  Value="{StaticResource SliderThumbBorderBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Thumb">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.6" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="VThumbInnerStroke"/>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="VThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbHoverBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="VThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbHoverBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="VThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbPressedBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="VThumbBackground" >
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SliderThumbPressedBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="0.55" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="VThumbDisabled" d:IsOptimized="True"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Unfocused"/>
+                                <VisualState x:Name="Focused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid Height="9" Width="13">
+                            <Path x:Name="VThumbBackground" 
+                                  Data="M0.5,0.5 L8.625,0.5 L11.5,4 L8.625,7.5 L0.5,7.5 z" 
+                                  Fill="{TemplateBinding Background}" 
+                                  Stroke="{TemplateBinding BorderBrush}" 
+                                  Width="13" Height="9" 
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False"/>
+                            <Path x:Name="VThumbInnerStroke" 
+                                  Data="M0.5,0.5 L8.625,0.5 L11.5,4 L8.625,7.5 L0.5,7.5 z" 
+                                  Stroke="{StaticResource SliderThumbHoverInnerBorderBrush}" 
+                                  Width="11" Height="7" 
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False" 
+                                  Opacity="0"/>
+                            <Path x:Name="VThumbFocused" 
+                                  Data="M0.5,0.5 L8.625,0.5 L11.5,4 L8.625,7.5 L0.5,7.5 z"
+                                  Fill="{StaticResource SliderThumbPressedBackgroundBrush}" 
+                                  Stroke="{StaticResource SliderThumbPressedBorderBrush}"
+                                  Width="13" Height="9" 
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False" 
+                                  Visibility="Collapsed"/>
+                            <Path x:Name="VThumbDisabled" 
+                                  Data="M0.5,0.5 L8.625,0.5 L11.5,4 L8.625,7.5 L0.5,7.5 z" 
+                                  Fill="{StaticResource DisabledBackgroundBrush}" 
+                                  Width="13" Height="9" 
+                                  Stretch="Fill" 
+                                  UseLayoutRounding="False" 
+                                  Opacity="0"/>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- *********************************  ZoomRange Vertical Thumb Left Style  ********************************* -->
+    <Style x:Key="VSliderLeftThumbStyle" TargetType="Thumb" BasedOn="{StaticResource VSliderThumbStyle}">
+        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- *********************************  ZoomRange Vertical Thumb Right Style  ********************************* -->
+    <Style x:Key="VSliderRightThumbStyle" TargetType="Thumb" BasedOn="{StaticResource VSliderThumbStyle}"/>
+
+    <!-- *********************************  ZoomRange Slider Style  ********************************* -->
+    <Style x:Key="ZoomRangeSliderStyle" TargetType="Slider">
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource MapGlyphBorderBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Slider">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true" igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <TickBar x:Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Placement="Top" Grid.Row="0" Visibility="Collapsed"/>
+                            <TickBar x:Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Placement="Bottom" Grid.Row="2" Visibility="Collapsed"/>
+                            <Border x:Name="TrackBackground" Background="{StaticResource HSliderTrackBackgroundBrush}" Height="2" Grid.Row="1" VerticalAlignment="center">
+                                <Canvas Margin="-6,0">
+                                    <Rectangle x:Name="PART_SelectionRange" Fill="{StaticResource SliderSelectionRangeBackgroundBrush}" Height="2" Visibility="Hidden"/>
+                                </Canvas>
+                            </Border>
+                            <Track x:Name="PART_Track" Grid.Row="1">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb x:Name="Thumb" Style="{StaticResource HSliderThumbStyle}"/>
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="TickPlacement" Value="TopLeft">
+                            <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
+                            <Setter Property="Style" TargetName="Thumb" Value="{StaticResource HSliderUpThumbStyle}"/>
+                            <Setter Property="Margin" TargetName="TrackBackground" Value="5,2,5,0"/>
+                        </Trigger>
+                        <Trigger Property="TickPlacement" Value="BottomRight">
+                            <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
+                            <Setter Property="Style" TargetName="Thumb" Value="{StaticResource HSliderDownThumbStyle}"/>
+                            <Setter Property="Margin" TargetName="TrackBackground" Value="5,0,5,2"/>
+                        </Trigger>
+                        <Trigger Property="TickPlacement" Value="Both">
+                            <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                            <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="Foreground" TargetName="Thumb" Value="{StaticResource SliderThumbFocusedBorderBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Slider">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"
+                                    igPrim:XamlHelper.SnapsToDevicePixels="True">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition MinWidth="{TemplateBinding MinWidth}" Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TickBar x:Name="TopTick" Grid.Column="0" Fill="{TemplateBinding Foreground}" Placement="Left" Visibility="Collapsed" Width="4"/>
+                                    <TickBar x:Name="BottomTick" Grid.Column="2" Fill="{TemplateBinding Foreground}" Placement="Right" Visibility="Collapsed" Width="4"/>
+                                    <Border x:Name="TrackBackground" Background="{StaticResource VSliderTrackBackgroundBrush}" Grid.Column="1" HorizontalAlignment="center" Width="2">
+                                        <Canvas Margin="-1,-6">
+                                            <Rectangle x:Name="PART_SelectionRange" Fill="{StaticResource SliderSelectionRangeBackgroundBrush}" Visibility="Hidden" Width="2"/>
+                                        </Canvas>
+                                    </Border>
+                                    <Track x:Name="PART_Track" Grid.Column="1">
+                                        <Track.DecreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                        </Track.DecreaseRepeatButton>
+                                        <Track.IncreaseRepeatButton>
+                                            <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonStyle}"/>
+                                        </Track.IncreaseRepeatButton>
+                                        <Track.Thumb>
+                                            <Thumb x:Name="Thumb" Style="{StaticResource VSliderThumbStyle}"/>
+                                        </Track.Thumb>
+                                    </Track>
+                                </Grid>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="TickPlacement" Value="TopLeft">
+                                    <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
+                                    <Setter Property="Style" TargetName="Thumb" Value="{StaticResource VSliderLeftThumbStyle}"/>
+                                    <Setter Property="Margin" TargetName="TrackBackground" Value="2,5,0,5"/>
+                                </Trigger>
+                                <Trigger Property="TickPlacement" Value="BottomRight">
+                                    <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
+                                    <Setter Property="Style" TargetName="Thumb" Value="{StaticResource VSliderRightThumbStyle}"/>
+                                    <Setter Property="Margin" TargetName="TrackBackground" Value="0,5,2,5"/>
+                                </Trigger>
+                                <Trigger Property="TickPlacement" Value="Both">
+                                    <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
+                                    <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
+                                </Trigger>
+                                <Trigger Property="IsSelectionRangeEnabled" Value="true">
+                                    <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="true">
+                                    <Setter Property="Foreground" TargetName="Thumb" Value="{StaticResource SliderThumbFocusedBorderBrush}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- *********************************  Preview Style  ********************************* -->
+    <Style x:Key="PreviewStyle" TargetType="Path">
+        <Setter Property="Fill"  Value="{StaticResource PreviewStyleBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource PreviewStyleBorderBrush}"/>
+        <Setter Property="StrokeThickness" Value="0.8"/>
+    </Style>
+
+    <!-- *********************************  Text Style  ********************************* -->
+    <Style x:Key="TextStyle" TargetType="TextBlock">
+        <Setter Property="TextAlignment" Value="Left"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="FontSize" Value="10.0"/>
+    </Style>
+
+    <!-- *********************************  ShadowText Style  ********************************* -->
+    <Style x:Key="ShadowTextStyle" TargetType="TextBlock" BasedOn="{StaticResource TextStyle}">
+        <Setter Property="Foreground" Value="{StaticResource TransparentBrush}"/>
+    </Style>
+
+    <!-- *********************************  Shadow Style  ********************************* -->
+    <Style x:Key="ShadowStyle" TargetType="Path">
+        <Setter Property="Fill" Value="{StaticResource ShadowStyleBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource ShadowStyleBorderBrush}"/>		
+        <Setter Property="StrokeThickness" Value="2"/>
+    </Style>
+
+    <!-- *********************************  ZoomPaneButton Style  ********************************* -->
+    <Style x:Key="ZoomPaneButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource MapButtonBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MapButtonBorderBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MapButtonHoverBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Stroke">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MapButtonHoverBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ButtonHighlight" Storyboard.TargetProperty="Opacity">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MapButtonPressedBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="BaseShape" Storyboard.TargetProperty="Stroke">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MapButtonPressedBorderBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="DisabledVisualElement" Storyboard.TargetProperty="Opacity">
+                                            <SplineDoubleKeyFrame KeyTime="0" Value="0.6"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="FocusedVisualElement" d:IsOptimized="True"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Ellipse x:Name="BaseShape" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" />
+                        <Ellipse x:Name="ButtonHighlight" Margin="1" Stroke="{StaticResource MapButtonHoverHighlightBorderBrush}" StrokeThickness="1" Grid.ColumnSpan="2" Opacity="0"/>
+                        <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
+                        <Ellipse x:Name="FocusedVisualElement" Stroke="{StaticResource MapButtonFocusedBorderBrush}" StrokeThickness="1"  Opacity="0"/>
+                        <Ellipse x:Name="DisabledVisualElement" Fill="{StaticResource DisabledBackgroundBrush}" IsHitTestVisible="false" Opacity="0"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- *********************************  PanButton Style  ********************************* -->
+    <Style x:Key="PanButtonStyle" TargetType="Button">
+        <Setter Property="IsEnabled" Value="true"/>
+        <Setter Property="IsTabStop" Value="true"/>
+        <Setter Property="Foreground" Value="{StaticResource MapGlyphBorderBrush}"/>
+        <Setter Property="MinWidth" Value="12"/>
+        <Setter Property="MinHeight" Value="8"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Cursor" Value="Arrow"/>
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{StaticResource TransparentBrush}" x:Name="grid" igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard/>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="pathMouseOver" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="-3"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="pathMouseOver" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="3"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed">
+                                    <Storyboard>
+                                        <DoubleAnimationUsingKeyFrames
+											BeginTime="00:00:00"
+											Duration="00:00:00.0010000"
+											Storyboard.TargetName="pathMouseOver"
+											Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-3"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames
+											BeginTime="00:00:00"
+											Duration="00:00:00.0010000"
+											Storyboard.TargetName="pathMouseOver"
+											Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames
+											BeginTime="00:00:00"
+											Duration="00:00:00.0010000"
+											Storyboard.TargetName="path"
+											Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                                            <SplineDoubleKeyFrame KeyTime="00:00:00" Value="3"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MapGlyphFocusedBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pathMouseOver" Storyboard.TargetProperty="Fill">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource MapGlyphFocusedBackgroundBrush}"/>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Disabled"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <ContentPresenter
+                            Margin="4,5,4,4"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Visibility="Collapsed"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"/>
+                        <Path x:Name="path"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Height="8"
+                              Width="12"
+                              Stretch="Fill"
+                              Opacity="1"
+                              Data="M 68,30 C68,30 62,36 62,36 62,36 64,38 64,38 64,38 68,34 68,34 68,34 72,38 72,38 72,38 74,36 74,36 74,36 68,30 68,30 z"
+                              Fill="{TemplateBinding Foreground}"
+                              RenderTransformOrigin="0.5,0.5">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                        <Path x:Name="pathMouseOver"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              Stretch="Fill"
+                              Opacity="0"
+                              Data="M 68,30 C68,30 62,36 62,36 62,36 64,38 64,38 64,38 68,34 68,34 68,34 72,38 72,38 72,38 74,36 74,36 74,36 68,30 68,30 z"
+                              Width="12"
+                              Height="8"
+                              d:LayoutOverrides="Height"
+                              RenderTransformOrigin="0.5,0.5"
+                              Fill="{TemplateBinding Foreground}">
+                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>
+                        </Path>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- *********************************  MapZoomPane Style / WPF Modifications ********************************* -->
+    <Style x:Key="MapZoomPaneStyle" TargetType="local:MapZoomPane">
+        <Setter Property="Background" Value="{StaticResource PaneBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PaneBorderBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapZoomPane">
+                    <Border>
+                        <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                            <Grid x:Name="HorizontalRoot"/>
+                            <Grid x:Name="VerticalRoot"
+                                  Grid.ColumnSpan="1"
+                                  Grid.Column="0"
+                                  Grid.Row="1"
+                                  HorizontalAlignment="Center"
+                                  Width="42">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="32"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="32"/>
+                                </Grid.RowDefinitions>
+                                <Border x:Name="StrokeAndCenter"
+                                        Grid.Row="0"
+                                        BorderThickness="1,1,1,1"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        Grid.RowSpan="3"
+                                        CornerRadius="21"
+                                        Background="{TemplateBinding Background}"/>
+                                <Border x:Name="HighlightStroke"
+                                        Grid.RowSpan="3"
+                                        BorderThickness="1,1,1,1"
+                                        CornerRadius="20"
+                                        Margin="1,1,1,1"
+                                        BorderBrush="{StaticResource PaneHighlightBorderBrush}"/>
+                                <Rectangle Fill="{StaticResource VSliderTrackBackgroundBrush}" 
+                                           Width="2" 
+                                           HorizontalAlignment="Center" 
+                                           Grid.Row="1" 
+                                           Margin="0,2,0,1"/>
+                                <Slider x:Name="VerticalZoomRange"
+                                        Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Grid.Row="1"
+                                        Height="100"
+                                        Style="{StaticResource ZoomRangeSliderStyle}"/>
+                                <Grid x:Name="ZoomIn">
+                                    <Button x:Name="VerticalZoomInButton"
+                                            ToolTipService.ToolTip="{Binding ZoomIn, Source={StaticResource SR}}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Bottom"
+                                            Style="{StaticResource ZoomPaneButtonStyle}"
+                                            Margin="0,0,0,1">
+                                        <Path 
+											Width="8" Height="8"
+											Data="M 3,0 C3,0 3,3 3,3 3,3 0,3 0,3 0,3 0,5 0,5 0,5 3,5 3,5 3,5 3,8 3,8 3,8 5,8 5,8 5,8 5,5 5,5 5,5 8,5 8,5 8,5 8,3 8,3 8,3 5,3 5,3 5,3 5,0 5,0 5,0 3,0 3,0 z"
+											Stretch="Fill" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                    </Button>
+                                </Grid>
+                                <Grid x:Name="ZoomOut" Grid.Row="2">
+                                    <Button x:Name="VerticalZoomOutButton"
+                                            ToolTipService.ToolTip="{Binding ZoomOut, Source={StaticResource SR}}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Top"
+                                            Style="{StaticResource ZoomPaneButtonStyle}"
+                                            RenderTransformOrigin="0.5,0.5"
+                                            Margin="0,1,0,0">
+                                        <Rectangle Width="8" Height="2" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapZoomPane" BasedOn="{StaticResource MapZoomPaneStyle}" />
+
+    <!-- *********************************  MapPanPane Style / WPF Modifications  ********************************* -->
+    <Style x:Key="MapPanPaneStyle" TargetType="local:MapPanPane">
+        <Setter Property="Background" Value="{StaticResource PaneBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PaneBorderBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapPanPane">
+                    <Border>
+                        <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                            <Grid x:Name="HorizontalRoot">
+                            </Grid>
+                            <Grid x:Name="VerticalRoot"
+                                  Grid.ColumnSpan="1"
+                                  Grid.RowSpan="1"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Height="Auto">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse x:Name="BaseBg"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"
+                                         Margin="0,0,0,0"
+                                         Stroke="{TemplateBinding BorderBrush}"
+                                         Fill="{TemplateBinding Background}"/>
+                                <Ellipse x:Name="BaseInnerBorder"
+                                         Margin="1,1,1,1"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"
+                                         Stroke="{StaticResource PaneInnerBorderFill}"/>
+                                <Ellipse x:Name="CenterCircle"
+                                         Fill="{StaticResource CenterCircleBackgroundBrush}"
+                                         Stroke="{StaticResource CenterCircleBorderBrush}"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"
+                                         Margin="10,10,10,10"/>
+                                <Ellipse x:Name="CenterCircleBgOverlay"
+                                         Margin="12,12,12,12"
+                                         Fill="{StaticResource CenterCircleOverlayBackgroundBrush}"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"/>
+                                <Button x:Name="VerticalPanNorthButton"
+                                        Content="N"
+                                        ToolTipService.ToolTip="{Binding PanNorth, Source={StaticResource SR}}"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,17,0,3"
+                                        VerticalAlignment="Center"
+                                        Grid.Column="1"
+                                        Style="{StaticResource PanButtonStyle}"/>
+                                <Button x:Name="VerticalPanWestButton"
+                                        Content="W"
+                                        ToolTipService.ToolTip="{Binding PanWest, Source={StaticResource SR}}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="17,0,3,0"
+                                        Grid.Row="1"
+                                        Style="{StaticResource PanButtonStyle}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="VerticalPanEastButton"
+                                        Content="E"
+                                        ToolTipService.ToolTip="{Binding PanEast, Source={StaticResource SR}}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="3,0,17,0"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        Style="{StaticResource PanButtonStyle}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="VerticalPanSouthButton"
+                                        Content="S"
+                                        ToolTipService.ToolTip="{Binding PanSouth, Source={StaticResource SR}}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,3,0,19"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        Style="{StaticResource PanButtonStyle}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="VerticalFitButton"
+                                        ToolTipService.ToolTip="{Binding FitWindow, Source={StaticResource SR}}"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="5,10,5,10"
+                                        Visibility="Visible"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Style="{StaticResource ZoomPaneButtonStyle}">
+                                    <Path Width="8" Height="8"
+                                          Data="M 3,0 C3,0 3,3 3,3 3,3 0,3 0,3 0,3 0,5 0,5 0,5 3,5 3,5 3,5 3,8 3,8 3,8 5,8 5,8 5,8 5,5 5,5 5,5 8,5 8,5 8,5 8,3 8,3 8,3 5,3 5,3 5,3 5,0 5,0 5,0 3,0 3,0 z"
+                                          Stretch="Fill" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapPanPane" BasedOn="{StaticResource MapPanPaneStyle}"/>
+
+    <!-- *********************************  MapNavigationPane Style / WPF Modifications  ********************************* -->
+    <Style x:Key="MapNavigationPaneStyle" TargetType="local:MapNavigationPane">
+        <Setter Property="Background" Value="{StaticResource PaneBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PaneBorderBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapNavigationPane">
+                    <Grid igPrim:XamlHelper.SnapsToDevicePixels="True">
+                        <!-- Horizontal -->
+                        <Grid x:Name="HorizontalRoot">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!-- Horizontal ZoomControl -->
+                            <Grid x:Name="HorizontalZoomControl" Height="42" Margin="-6,0,0,0" VerticalAlignment="Center" Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="35"/>
+                                    <ColumnDefinition Width="*" MinWidth="49"/>
+                                    <ColumnDefinition Width="32"/>
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="StrokeAndCenter1"
+                                        Grid.Row="0"
+                                        BorderThickness="1,1,1,1"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        CornerRadius="0,21,21,0"
+                                        Background="{TemplateBinding Background}"
+                                        Margin="-7,0,0,0" Grid.ColumnSpan="3"/>
+                                <Border x:Name="HighlightStroke1" 
+                                        BorderThickness="1,1,1,1"
+                                        BorderBrush="{StaticResource PaneHighlightBorderBrush}"
+                                        CornerRadius="0,20,20,0"
+                                        Margin="-7,1,1,1"
+                                        Grid.ColumnSpan="3"/>
+                                <Button x:Name="HorizontalZoomOutButton"
+                                        Style="{StaticResource ZoomPaneButtonStyle}" 
+                                        ToolTipService.ToolTip="{Binding ZoomOut, Source={StaticResource SR}}"
+                                        Width="20" 
+                                        Height="20" 
+                                        HorizontalAlignment="Right" 
+                                        VerticalAlignment="Center" 
+                                        Margin="0,0,1,0">
+                                    <Rectangle Width="8" 
+                                               Height="2" 
+                                               Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                </Button>
+                                <Rectangle Fill="{StaticResource HSliderTrackBackgroundBrush}" 
+                                           Height="2" 
+                                           Margin="6,0" 
+                                           Grid.Column="1"/>
+                                <Slider x:Name="HorizontalZoomRange" 
+                                        HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Center" 
+                                        MinWidth="49" 
+                                        Orientation="Horizontal" Margin="0" d:LayoutOverrides="HorizontalAlignment, GridBox" Grid.Column="1" Style="{StaticResource ZoomRangeSliderStyle}" Width="49"/>
+                                <Button x:Name="HorizontalZoomInButton"
+                                        Style="{StaticResource ZoomPaneButtonStyle}" 
+                                        ToolTipService.ToolTip="{Binding ZoomIn, Source={StaticResource SR}}"
+                                        Width="20" 
+                                        Height="20" 
+                                        HorizontalAlignment="Left" 
+                                        VerticalAlignment="Center" 
+                                        Grid.Column="3" 
+                                        Margin="1,0,0,0">
+                                    <Path Width="8" Height="8"
+                                          Data="M 3,0 C3,0 3,3 3,3 3,3 0,3 0,3 0,3 0,5 0,5 0,5 3,5 3,5 3,5 3,8 3,8 3,8 5,8 5,8 5,8 5,5 5,5 5,5 8,5 8,5 8,5 8,3 8,3 8,3 5,3 5,3 5,3 5,0 5,0 5,0 3,0 3,0 z"
+                                          Stretch="Fill" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                </Button>
+                            </Grid>
+                            <!-- Horizontal PanControl -->
+                            <Grid x:Name="HorizontalPanControl" HorizontalAlignment="Center" VerticalAlignment="Center" Width="96" Height="96">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse x:Name="BaseBg_Copy"
+                                         Margin="0"
+                                         Stroke="{TemplateBinding BorderBrush}"
+                                         Fill="{TemplateBinding Background}" Grid.ColumnSpan="3" Grid.RowSpan="3" Width="96" Height="96"/>
+                                <Ellipse x:Name="BaseInnerBorder_Copy"
+                                         Margin="1"
+                                         Stroke="{StaticResource PaneInnerBorderFill}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+                                <Ellipse x:Name="CenterCircle_Copy"
+                                         Fill="{StaticResource CenterCircleBackgroundBrush}"
+                                         Stroke="{StaticResource CenterCircleBorderBrush}"
+                                         Margin="10" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+                                <Ellipse x:Name="CenterCircleBgOverlay_Copy"
+                                         Margin="12"
+                                         Fill="{StaticResource CenterCircleOverlayBackgroundBrush}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+                                <Button x:Name="HorizontalPanWestButton"
+                                        Style="{StaticResource PanButtonStyle}"
+                                        Width="20" 
+                                        Height="20" 
+                                        Content="W" 
+                                        ToolTipService.ToolTip="{Binding PanWest, Source={StaticResource SR}}"
+                                        Grid.Column="0" 
+                                        Grid.Row="1"
+                                        RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="HorizontalPanSouthButton"
+                                        Style="{StaticResource PanButtonStyle}" 
+                                        Width="20" 
+                                        Height="20"
+                                        Content="S" 
+                                        ToolTipService.ToolTip="{Binding PanSouth, Source={StaticResource SR}}"
+                                        Grid.Column="1" 
+                                        Grid.Row="2"
+                                        RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="HorizontalPanEastButton"
+                                        Style="{StaticResource PanButtonStyle}" 
+                                        Width="20" 
+                                        Height="20" 
+                                        Content="E" 
+                                        ToolTipService.ToolTip="{Binding PanEast, Source={StaticResource SR}}"
+                                        Grid.Column="2" 
+                                        Grid.Row="1"
+                                        RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="HorizontalPanNorthButton"
+                                        Style="{StaticResource PanButtonStyle}" 
+                                        Width="20" 
+                                        Height="20" 
+                                        Content="N" 
+                                        ToolTipService.ToolTip="{Binding PanNorth, Source={StaticResource SR}}"
+                                        Grid.Column="1" 
+                                        Grid.Row="0" VerticalAlignment="Bottom"/>
+                                <Button x:Name="HorizontalFitButton"
+                                        Style="{StaticResource ZoomPaneButtonStyle}" 
+                                        ToolTipService.ToolTip="{Binding FitWindow, Source={StaticResource SR}}"
+                                        Grid.Column="1" 
+                                        Grid.Row="1">
+                                    <Path Width="8" Height="8"
+                                          Data="M 3,0 C3,0 3,3 3,3 3,3 0,3 0,3 0,3 0,5 0,5 0,5 3,5 3,5 3,5 3,8 3,8 3,8 5,8 5,8 5,8 5,5 5,5 5,5 8,5 8,5 8,5 8,3 8,3 8,3 5,3 5,3 5,3 5,0 5,0 5,0 3,0 3,0 z"
+                                          Stretch="Fill" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                        <!-- Vertical -->
+                        <Grid x:Name="VerticalRoot">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <!-- Vertical ZoomControl -->
+                            <Grid x:Name="ZoomControl"
+                                  Grid.Column="0"
+                                  Width="42"
+                                  Grid.Row="1"
+                                  Margin="0,-5,0,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="34"/>
+                                    <RowDefinition Height="*" MinHeight="50"/>
+                                    <RowDefinition Height="32"/>
+                                </Grid.RowDefinitions>
+                                <Border x:Name="StrokeAndCenter"
+                                        Grid.Row="0"
+                                        BorderThickness="1,1,1,1"
+                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                        Grid.RowSpan="3"
+                                        CornerRadius="0,0,21,21"
+                                        Background="{TemplateBinding Background}"
+                                        Margin="0,-7,0,0"/>
+                                <Border x:Name="HighlightStroke"
+                                        Grid.RowSpan="3"
+                                        BorderThickness="1,1,1,1"
+                                        BorderBrush="{StaticResource PaneHighlightBorderBrush}"
+                                        CornerRadius="0,0,20,20"
+                                        Margin="1,-5,1,1"/>
+                                <Rectangle Fill="{StaticResource VSliderTrackBackgroundBrush}" Width="2" HorizontalAlignment="Center" Margin="0,2,0,1" Grid.Row="1"/>
+                                <Slider x:Name="VerticalZoomRange"
+                                        Orientation="Vertical"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Stretch"
+                                        Grid.Row="1"
+                                        Style="{StaticResource ZoomRangeSliderStyle}"
+                                        MinHeight="50"/>
+                                <Grid x:Name="ZoomIn">
+                                    <Button x:Name="VerticalZoomInButton"
+                                            ToolTipService.ToolTip="{Binding ZoomIn, Source={StaticResource SR}}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Bottom"
+                                            Style="{StaticResource ZoomPaneButtonStyle}"
+                                            Margin="0,0,0,1">
+                                        <Path 
+											Width="8" Height="8"
+											Data="M 3,0 C3,0 3,3 3,3 3,3 0,3 0,3 0,3 0,5 0,5 0,5 3,5 3,5 3,5 3,8 3,8 3,8 5,8 5,8 5,8 5,5 5,5 5,5 8,5 8,5 8,5 8,3 8,3 8,3 5,3 5,3 5,3 5,0 5,0 5,0 3,0 3,0 z"
+											Stretch="Fill" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                    </Button>
+                                </Grid>
+                                <Grid x:Name="ZoomOut" Grid.Row="2">
+                                    <Button x:Name="VerticalZoomOutButton"
+                                            ToolTipService.ToolTip="{Binding ZoomOut, Source={StaticResource SR}}"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Top"
+                                            Style="{StaticResource ZoomPaneButtonStyle}"
+                                            RenderTransformOrigin="0.5,0.5"
+                                            Margin="0,1,0,0">
+                                        <Rectangle Width="8" Height="2" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                            <!-- Vertical PanControl -->
+                            <Grid x:Name="PanControl"
+                                  Height="Auto"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  d:LayoutOverrides="Width, Height">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Ellipse x:Name="BaseBg"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"
+                                         Margin="0,0,0,0"
+                                         Stroke="{TemplateBinding BorderBrush}"
+                                         Fill="{TemplateBinding Background}"/>
+                                <Ellipse x:Name="BaseInnerBorder"
+                                         Margin="1,1,1,1"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"
+                                         Stroke="{StaticResource PaneInnerBorderFill}"/>
+                                <Ellipse x:Name="CenterCircle"
+                                         Fill="{StaticResource CenterCircleBackgroundBrush}"
+                                         Stroke="{StaticResource CenterCircleBorderBrush}"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"
+                                         Margin="10,10,10,10"/>
+                                <Ellipse x:Name="CenterCircleBgOverlay"
+                                         Margin="12,12,12,12"
+                                         Fill="{StaticResource CenterCircleOverlayBackgroundBrush}"
+                                         Grid.ColumnSpan="3"
+                                         Grid.RowSpan="3"/>
+                                <Button x:Name="VerticalPanNorthButton"
+                                        Content="N"
+                                        ToolTipService.ToolTip="{Binding PanNorth, Source={StaticResource SR}}"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,19,0,3"
+                                        VerticalAlignment="Center"
+                                        Grid.Column="1"
+                                        Style="{StaticResource PanButtonStyle}"/>
+                                <Button x:Name="VerticalPanWestButton"
+                                        Content="W"
+                                        ToolTipService.ToolTip="{Binding PanWest, Source={StaticResource SR}}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="17,0,3,0"
+                                        Grid.Row="1"
+                                        Style="{StaticResource PanButtonStyle}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="-90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="VerticalPanEastButton"
+                                        Content="E"
+                                        ToolTipService.ToolTip="{Binding PanEast, Source={StaticResource SR}}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Margin="3,0,17,0"
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        Style="{StaticResource PanButtonStyle}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform Angle="90"/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="VerticalPanSouthButton"
+                                        Content="S"
+                                        ToolTipService.ToolTip="{Binding PanSouth, Source={StaticResource SR}}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        Margin="0,3,0,19"
+                                        Grid.Column="1"
+                                        Grid.Row="2"
+                                        Style="{StaticResource PanButtonStyle}"
+                                        RenderTransformOrigin="0.5,0.5">
+                                    <Button.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </Button.RenderTransform>
+                                </Button>
+                                <Button x:Name="VerticalFitButton"
+                                        ToolTipService.ToolTip="{Binding FitWindow, Source={StaticResource SR}}"
+                                        VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Stretch"
+                                        Margin="5,8,5,8"
+                                        Visibility="Visible"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        Style="{StaticResource ZoomPaneButtonStyle}">
+                                    <Path Width="8" Height="8"
+                                          Data="M 3,0 C3,0 3,3 3,3 3,3 0,3 0,3 0,3 0,5 0,5 0,5 3,5 3,5 3,5 3,8 3,8 3,8 5,8 5,8 5,8 5,5 5,5 5,5 8,5 8,5 8,5 8,3 8,3 8,3 5,3 5,3 5,3 5,0 5,0 5,0 3,0 3,0 z"
+                                          Stretch="Fill" Fill="{StaticResource MapGlyphBorderBrush}"/>
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapNavigationPane" BasedOn="{StaticResource MapNavigationPaneStyle}"/>
+
+    <!-- *********************************  ScalePrimary Style  ********************************* -->
+    <Style x:Key="ScalePrimaryStyle" TargetType="Path">
+        <Setter Property="Fill" Value="{StaticResource ScalePrimaryBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource ScalePrimaryBorderBrush}"/>
+        <Setter Property="StrokeThickness" Value="1.8"/>
+    </Style>
+
+    <!-- *********************************  ScaleSecondary Style  ********************************* -->
+    <Style x:Key="ScaleSecondaryStyle" TargetType="Path">
+        <Setter Property="Fill" Value="{StaticResource ScaleSecondaryBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource ScaleSecondaryBorderBrush}"/>
+        <Setter Property="StrokeThickness" Value="1.8"/>
+    </Style>
+
+    <!-- *********************************  MapScalePane Style  ********************************* -->
+    <Style x:Key="MapScalePaneStyle" TargetType="local:MapScalePane">
+        <Setter Property="DisplayMode" Value="Bar"/>
+        <Setter Property="IsDisplaySubdivisions" Value="True"/>
+        <Setter Property="CornerRadius" Value="0, 0"/>
+        <Setter Property="PrimaryStyle" Value="{StaticResource ScalePrimaryStyle}"/>
+        <Setter Property="SecondaryStyle" Value="{StaticResource ScaleSecondaryStyle}"/>
+        <Setter Property="TextStyle" Value="{StaticResource TextStyle}"/>
+        <Setter Property="TextShadowStyle" Value="{StaticResource ShadowTextStyle}"/>
+        <Setter Property="ShadowOffset" Value="1.5, 1.5"/>
+        <Setter Property="ShadowStyle" Value="{StaticResource ShadowStyle}"/>
+        <Setter Property="Background" Value="{StaticResource MapScalePaneBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MapScalePaneBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapScalePane">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:1.0" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="0.4"/>
+                                        <DoubleAnimation Duration="0:0:2.0" Storyboard.TargetName="Foreground" Storyboard.TargetProperty="Opacity" To="0.6"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="Foreground" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="Background" 
+                                CornerRadius="0"
+                                Background="{TemplateBinding Background}"/>
+                        <Border x:Name="Foreground" 
+                                CornerRadius="0"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <ContentPresenter Grid.Row="0" Content="{TemplateBinding Content}"/>
+                                <ContentPresenter Grid.Row="1" x:Name="RootElement"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapScalePane" BasedOn="{StaticResource MapScalePaneStyle}"/>
+
+    <!-- *********************************  ColorSwatchSwatch Style  ********************************* -->
+    <Style x:Key="ColorSwatchSwatchStyle" TargetType="Path">
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Fill" Value="{StaticResource ColorSwatchSwatchBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource ColorSwatchSwatchBorderBrush}"/>
+    </Style>
+
+    <!-- *********************************  MapColorSwatchPane Style  ********************************* -->
+    <Style x:Key="MapColorSwatchPaneStyle" TargetType="local:MapColorSwatchPane">
+        <Setter Property="DisplayMode" Value="Swatch"/>
+        <Setter Property="LabelFormatString" Value="{}{0:F0}"/>
+        <Setter Property="SwatchStyle" Value="{StaticResource ColorSwatchSwatchStyle}"/>
+        <Setter Property="LeaderStyle" Value="{StaticResource ColorSwatchSwatchStyle}"/>
+        <Setter Property="TextStyle" Value="{StaticResource TextStyle}"/>
+        <Setter Property="TextShadowStyle" Value="{StaticResource ShadowTextStyle}"/>
+        <Setter Property="ShadowOffset" Value="1.5, 1.5"/>
+        <Setter Property="ShadowStyle" Value="{StaticResource ShadowStyle}"/>
+        <Setter Property="Background" Value="{StaticResource MapColorSwatchPaneBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MapColorSwatchPaneBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapColorSwatchPane">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:1.0" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="0.5"/>
+                                        <DoubleAnimation Duration="0:0:2.0" Storyboard.TargetName="Foreground" Storyboard.TargetProperty="Opacity" To="0.7"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetName="Background" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="Foreground" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="Background" 
+                                CornerRadius="0" 
+                                Background="{TemplateBinding Background}"/>
+                        <Border x:Name="Foreground" 
+                                CornerRadius="0" 
+                                Background="{StaticResource TransparentBrush}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                            <Grid >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <ContentPresenter Grid.Row="0" Content="{TemplateBinding Content}"/>
+                                <ContentPresenter Grid.Row="1" x:Name="RootElement"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapColorSwatchPane" BasedOn="{StaticResource MapColorSwatchPaneStyle}"/>
+
+    <!-- *********************************  ThumbnailWorld Style  ********************************* -->
+    <Style x:Key="ThumbnailWorldStyle" TargetType="Path">
+        <Setter Property="Fill" Value="{StaticResource ThumbnailWorldBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource ThumbnailWorldBorderBrush}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <!-- *********************************  ThumbnailWindow Style  ********************************* -->
+    <Style x:Key="ThumbnailWindowStyle" TargetType="Path">
+        <Setter Property="Fill" Value="{StaticResource ThumbnailWindowBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource ThumbnailWindowBorderBrush}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+    </Style>
+
+    <!-- *********************************  MapThumbnailPane Style  ********************************* -->
+    <Style x:Key="MapThumbnailPaneStyle" TargetType="local:MapThumbnailPane">
+        <Setter Property="WorldStyle" Value="{StaticResource ThumbnailWorldStyle}"/>
+        <Setter Property="WindowStyle" Value="{StaticResource ThumbnailWindowStyle}"/>
+        <Setter Property="PreviewStyle" Value="{StaticResource PreviewStyle}"/>
+        <Setter Property="Background" Value="{StaticResource MapThumbnailPaneBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MapThumbnailPaneBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapThumbnailPane">
+                    <Grid x:Name="RootVisual" Margin="{TemplateBinding Padding}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:1.0" Storyboard.TargetName="BackgroundVisual" Storyboard.TargetProperty="Opacity" To="0.4"/>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="MouseOverVisual" Storyboard.TargetProperty="Opacity" To="0.0"/>
+                                        <DoubleAnimation Duration="0:0:2.0" Storyboard.TargetName="RootElementVisual" Storyboard.TargetProperty="Opacity" To="0.8"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="BackgroundVisual" Storyboard.TargetProperty="Opacity" To="1"/>
+                                        <DoubleAnimation Duration="0:0:1.0" Storyboard.TargetName="MouseOverVisual" Storyboard.TargetProperty="Opacity" To="1.0"/>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="RootElementVisual" Storyboard.TargetProperty="Opacity" To="1"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ActionStates">
+                                <VisualState x:Name="Idle">
+                                    <Storyboard/>
+                                </VisualState>
+                                <VisualState x:Name="Panning">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.1" Storyboard.TargetName="PressedVisual" Storyboard.TargetProperty="Opacity" To="1.0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1.0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="0.0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="BackgroundVisual">
+                            <Border x:Name="NormalVisual" 
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"/>
+                            <Border x:Name="MouseOverVisual" 
+                                    CornerRadius="0" Opacity="0" 
+                                    Background="{StaticResource MapThumbnailPaneHoverBackgroundBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"/>
+                            <Border x:Name="PressedVisual" 
+                                    CornerRadius="0" Opacity="0" 
+                                    Background="{StaticResource MapThumbnailPaneHoverBackgroundBrush}" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"/>
+                            <Border x:Name="FocusVisual" 
+                                    CornerRadius="0" Opacity="0" 
+                                    BorderThickness="{TemplateBinding BorderThickness}"/>
+                        </Grid>
+                        <Border x:Name="RootElementVisual" 
+                                Opacity="1" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Padding="{TemplateBinding Padding}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <ContentPresenter Grid.Row="0" Content="{TemplateBinding Content}"/>
+                                <ContentPresenter Grid.Row="1" x:Name="RootElement"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapThumbnailPane" BasedOn="{StaticResource MapThumbnailPaneStyle}"/>
+
+    <!-- *********************************  ViewportDrag Style  ********************************* -->
+    <Style x:Key="ViewportDragStyle" TargetType="Path">
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Stroke" Value="{StaticResource ViewportDragBorderBrush}"/>
+    </Style>
+
+    <!-- *********************************  MapViewport Style  ********************************* -->
+    <Style x:Key="MapViewportStyle" TargetType="local:MapViewport">
+        <Setter Property="DragStyle" Value="{StaticResource ViewportDragStyle}"/>
+        <Setter Property="PreviewStyle" Value="{StaticResource PreviewStyle}"/>
+        <Setter Property="GridStroke" Value="{StaticResource GridStrokeBorderBrush}"/>
+        <Setter Property="GridStrokeThickness" Value="1"/>
+        <Setter Property="GridShadowStroke" Value="{StaticResource MapViewportGridShadowBorderBrush}"/>
+        <Setter Property="GridShadowOffset" Value="-0.75 -0.75"/>
+        <Setter Property="Background" Value="{StaticResource MapViewportBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MapViewportBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:MapViewport">
+                    <Grid Margin="{TemplateBinding Padding}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="ActionStates">
+                                <VisualState x:Name="Idle"/>
+                                <VisualState x:Name="Panning"/>
+                                <VisualState x:Name="Zooming"/>
+                                <VisualState x:Name="Selecting"/>
+                            </VisualStateGroup>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="1.0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unfocused">
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:0.2" Storyboard.TargetName="FocusVisual" Storyboard.TargetProperty="Opacity" To="0.0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Grid Margin="{TemplateBinding Padding}">
+                            <ContentPresenter x:Name="RootElement"/>
+                        </Grid>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Border x:Name="FocusVisual" Opacity="0" 
+                                BorderBrush="{StaticResource MapViewportFocusedBorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapViewport" BasedOn="{StaticResource MapViewportStyle}"/>
+
+    <!-- *********************************  BubbleGauge Style  ********************************* -->
+    <Style x:Key="BubbleGaugeStyle" TargetType="local:BubbleGauge">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:BubbleGauge">
+                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}">
+                        <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{TemplateBinding Content}">
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:BubbleGauge" BasedOn="{StaticResource BubbleGaugeStyle}"/>
+
+    <!-- *********************************  MapLayer Style  ********************************* -->
+    <Style x:Key="MapLayerStyle" TargetType="local:MapLayer">
+        <Setter Property="Foreground" Value="{StaticResource MapForegroundBrush}"/>
+        <Setter Property="FillMode" Value="RandomSelect"/>
+        <Setter Property="ShadowFill" Value="{StaticResource MapLayerShadowBackgroundBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource MapLayerBorderBrush}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="Brushes">
+            <Setter.Value>
+                <ig:BrushCollection>
+                    <SolidColorBrush Color="{StaticResource Color_1000}"/>
+                    <SolidColorBrush Color="{StaticResource Color_1001}"/>
+                    <SolidColorBrush Color="{StaticResource Color_1002}"/>
+                </ig:BrushCollection>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:MapLayer" BasedOn="{StaticResource MapLayerStyle}"/>
+
+    <!-- *********************************  Map Style  ********************************* -->
+    <Style x:Key="XamMapStyle" TargetType="local:XamMap">
+        <Setter Property="Foreground" Value="{StaticResource MapForegroundBrush}"/>
+        <Setter Property="WindowZoomMaximum" Value="15"/>
+        <Setter Property="Background" Value="{StaticResource MapBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource MapBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="ViewportBackground" Value="{StaticResource MapControlViewportViewportBackgroundBrush}" />
+        <Setter Property="ViewportBorderBrush" Value="{StaticResource MapControlViewportViewportBorderBrush}" />
+        <Setter Property="GridDisplayMode" Value="None" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamMap">
+                    <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Padding="{TemplateBinding Padding}">
+                        <ContentPresenter x:Name="RootElement">
+                        </ContentPresenter>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="local:XamMap" BasedOn="{StaticResource XamMapStyle}"/>
+
+</ResourceDictionary>

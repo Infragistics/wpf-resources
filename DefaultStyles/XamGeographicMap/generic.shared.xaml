@@ -1,0 +1,562 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ig="http://schemas.infragistics.com/xaml"
+    xmlns:shared="http://schemas.infragistics.com/xaml"
+    xmlns:local="http://schemas.infragistics.com/xaml"
+    xmlns:charts="http://schemas.infragistics.com/xaml" 
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+     
+  <ResourceDictionary.MergedDictionaries>
+    <ig:LegendTemplatesDictionary  />
+  </ResourceDictionary.MergedDictionaries>
+    
+  <!-- ******************* colors of series at index 1-10 *************** -->
+  <Color x:Key="Color_001">#FF8BDC5C</Color> 
+  <Color x:Key="Color_002">#FF8961A9</Color>
+  <Color x:Key="Color_003">#FF6DB1FF</Color>
+  <Color x:Key="Color_004">#FF82E9D9</Color>
+  <Color x:Key="Color_005">#FFEA3C63</Color>
+  <Color x:Key="Color_006">#FF735656</Color>
+  <Color x:Key="Color_007">#FFF8CE4F</Color>
+  <Color x:Key="Color_008">#FFA8A8B7</Color>
+  <Color x:Key="Color_009">#FFE051A9</Color>
+  <Color x:Key="Color_010">#FFFF903B</Color>
+  <!-- ******************* other colors ******************* -->
+  <Color x:Key="Color_011">#ff565656</Color>
+  <Color x:Key="Color_012">#ffee5879</Color>
+  <Color x:Key="Color_013">#FF666666</Color>
+  <Color x:Key="Color_014">#FF888888</Color>
+  <Color x:Key="Color_015">#26666666</Color>
+  <Color x:Key="Color_016">#66666666</Color>
+  <Color x:Key="Color_017">#F2FFFFFF</Color>
+  <Color x:Key="Color_018">#FFBBBBBB</Color>
+  <Color x:Key="Color_019">#8C666666</Color>
+  <Color x:Key="Color_020">#3F666666</Color>
+  <Color x:Key="Color_021">#FFFFFFFF</Color>
+  <Color x:Key="Color_022">#CC333333</Color>
+  <Color x:Key="Color_023">#FF482C74</Color>
+
+    <!-- ********************************** BRUSHES **********************************-->
+  <SolidColorBrush x:Key="ForegroundBrush" Color="{StaticResource Color_013}"/>
+  <SolidColorBrush x:Key="TransparentBrush" Color="Transparent" />
+  <SolidColorBrush x:Key="ChartBackgroundBrush" Color="{StaticResource Color_021}" />
+  <SolidColorBrush x:Key="PlotAreaBackgroundBrush" Color="Transparent" />
+  <SolidColorBrush x:Key="PlotAreaBorderBrush" Color="Transparent" />
+
+    <!--  GeographicMap Brushes  -->
+  <SolidColorBrush x:Key="GeoMapBackgroundBrush" Color="{StaticResource Color_021}"/>
+  <SolidColorBrush x:Key="GeoMapBorderBrush" Color="Transparent" />
+
+  <SolidColorBrush x:Key="PreviewPathBrush" Color="{StaticResource Color_016}"/>
+
+  <SolidColorBrush x:Key="WorldStroke" Color="{StaticResource Color_020}"/>
+  <SolidColorBrush x:Key="WindowStroke" Color="{StaticResource Color_019}"/>
+  
+  <!--  Series Brushes  -->
+  <!--<SolidColorBrush x:Key="SeriesPolylineStroke" Color="{StaticResource Color_001}" />-->
+  <!--<SolidColorBrush x:Key="SeriesPolygonFill" Color="{StaticResource Color_001}" />-->
+  <!--<SolidColorBrush x:Key="SeriesPolygonStroke" Color="{StaticResource Color_011}" />-->
+
+  <!--  Marker Brushes  -->
+  <!--<SolidColorBrush x:Key="MarkerBrush" Color="{StaticResource Color_001}" />-->
+  <!--<SolidColorBrush x:Key="MarkerOutlineBrush" Color="{StaticResource Color_011}" />-->
+
+  <!-- Tooltip Brushes -->
+  <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{StaticResource Color_017}"/>
+  <SolidColorBrush x:Key="TooltipBorderBrush" Color="{StaticResource Color_014}" />
+  <SolidColorBrush x:Key="TooltipPointerBackgroundBrush" Color="{StaticResource Color_017}" Opacity="0.8" />
+  <SolidColorBrush x:Key="TooltipLayerBrush" Color="{StaticResource Color_017}" />
+  <SolidColorBrush x:Key="TooltipLayerOutline" Color="{StaticResource Color_014}" />
+
+    <!--  HD Scatter Series  -->
+  <!--<Color x:Key="HotColor" >#ffee5879</Color>-->
+  <!--<Color x:Key="ColdColor">#ff8b5bb1</Color>-->
+ 
+  <!-- collection of fill brushes for series ******************* -->
+  <shared:BrushCollection x:Key="SeriesBrushes">
+      <SolidColorBrush Color="{StaticResource Color_001}" />
+      <SolidColorBrush Color="{StaticResource Color_002}" />
+      <SolidColorBrush Color="{StaticResource Color_003}" />
+      <SolidColorBrush Color="{StaticResource Color_004}" />
+      <SolidColorBrush Color="{StaticResource Color_005}" />
+      <SolidColorBrush Color="{StaticResource Color_006}" />
+      <SolidColorBrush Color="{StaticResource Color_007}" />
+      <SolidColorBrush Color="{StaticResource Color_008}" />
+      <SolidColorBrush Color="{StaticResource Color_009}" />
+      <SolidColorBrush Color="{StaticResource Color_010}" />
+  </shared:BrushCollection>
+
+  <!-- collection of outlines brushes for series ******************* -->
+  <shared:BrushCollection x:Key="SeriesOutlines">
+      <SolidColorBrush Color="{StaticResource Color_001}" />
+      <SolidColorBrush Color="{StaticResource Color_002}" />
+      <SolidColorBrush Color="{StaticResource Color_003}" />
+      <SolidColorBrush Color="{StaticResource Color_004}" />
+      <SolidColorBrush Color="{StaticResource Color_005}" />
+      <SolidColorBrush Color="{StaticResource Color_006}" />
+      <SolidColorBrush Color="{StaticResource Color_007}" />
+      <SolidColorBrush Color="{StaticResource Color_008}" />
+      <SolidColorBrush Color="{StaticResource Color_009}" />
+      <SolidColorBrush Color="{StaticResource Color_010}" />
+  </shared:BrushCollection>
+ 
+  <!-- collection of fill brushes for markers ******************* -->
+  <shared:BrushCollection x:Key="MarkerBrushes">
+    <SolidColorBrush Color="White"/>
+  </shared:BrushCollection>
+
+  <!-- collection of outline brushes for markers ******************* -->
+  <shared:BrushCollection x:Key="MarkerOutlines">
+    <SolidColorBrush Color="{StaticResource Color_001}" />
+    <SolidColorBrush Color="{StaticResource Color_002}" />
+    <SolidColorBrush Color="{StaticResource Color_003}" />
+    <SolidColorBrush Color="{StaticResource Color_004}" />
+    <SolidColorBrush Color="{StaticResource Color_005}" />
+    <SolidColorBrush Color="{StaticResource Color_006}" />
+    <SolidColorBrush Color="{StaticResource Color_007}" />
+    <SolidColorBrush Color="{StaticResource Color_008}" />
+    <SolidColorBrush Color="{StaticResource Color_009}" />
+    <SolidColorBrush Color="{StaticResource Color_010}" />
+  </shared:BrushCollection>
+
+  <SolidColorBrush x:Key="ChartTitleBrush" Color="{StaticResource Color_013}" />
+  <SolidColorBrush x:Key="ChartSubtitleBrush" Color="{StaticResource Color_013}" />
+
+    <!-- Axis Brushes -->
+  <SolidColorBrush x:Key="AxisLineStroke" Color="{StaticResource Color_016}"/>
+  <SolidColorBrush x:Key="AxisTickStroke" Color="{StaticResource Color_019}"/>
+  <SolidColorBrush x:Key="AxisMajorStrokeBrush" Color="{StaticResource Color_020}"/>
+  <SolidColorBrush x:Key="AxisMinorStroke" Color="Transparent"/>
+  <SolidColorBrush x:Key="AxisLabelsBrush" Color="{StaticResource Color_013}"/>
+  <SolidColorBrush x:Key="AxisTitleBrush" Color="{StaticResource Color_013}"/>
+  <SolidColorBrush x:Key="AxisStrokeBrush" Color="{StaticResource Color_019}"/>
+
+    <!-- *********************************  Dimensions  ********************************* -->
+  <!--<system:Double x:Key="TooltipBadgeWidth">8</system:Double>-->
+  <!--<system:Double x:Key="LegendItemBadgeWidth">12</system:Double>
+  <system:Double x:Key="LegendItemBadgeHeight">12</system:Double>
+  <system:Double x:Key="LegendItemBadgeWidthHalf">6</system:Double>
+  <system:Double x:Key="LegendItemBadgeHeightHalf">6</system:Double>-->
+  <!--<system:Double x:Key="LegendLineBadgeWidth">18</system:Double>
+  <system:Double x:Key="LegendLineNoBadgeSize">16</system:Double>
+  <system:Double x:Key="LegendLineBadgeHeight">16</system:Double>-->
+
+  <!-- *********************************  Strokes  ********************************* -->
+  <Thickness x:Key="TooltipBorderThickness">1</Thickness>
+  <Thickness x:Key="LegendBorderThickness">0 0 0 0</Thickness>
+  <CornerRadius x:Key="GeoMapCornerRadius">0</CornerRadius>
+
+  <system:Double x:Key="TickStrokeThickness">2</system:Double>
+  <system:Double x:Key="AxisStrokeThickness">2</system:Double>
+  <system:Double x:Key="MajorStrokeThickness">1</system:Double>
+  <system:Double x:Key="MinorStrokeThickness">1</system:Double>
+  <!--<system:Double x:Key="BadgeStrokeThickness">2</system:Double>-->
+  <system:Double x:Key="DefaultStrokeThickness">1</system:Double>
+  <system:Double x:Key="WindowStrokeThickness">1</system:Double>
+  <system:Double x:Key="WorldStrokeThickness">1</system:Double>
+  <!--<Thickness x:Key="BadgeThickness">2</Thickness>-->
+  <Thickness x:Key="DefaultBorderThickness">1 1 1 1</Thickness>
+  <system:Double x:Key="LineSeriesThickness">2</system:Double> 
+  <system:Double x:Key="SeriesThickness">2</system:Double>
+  <system:Double x:Key="MarkerThickness">2</system:Double>
+  
+  <!-- *********************************  Spacing  ********************************* -->
+  <Thickness x:Key="TooltipContentPadding">8</Thickness>
+  <Thickness x:Key="LegendItemMargin">4</Thickness>
+  <Thickness x:Key="LegendItemBadgeMargin">0</Thickness>
+  <!--<Thickness x:Key="LegendItemBadgeRightMargin">0 0 4 0</Thickness>-->
+
+    <!-- *********************************  Font Styles  ********************************* -->
+  <system:Double x:Key="ChartSmallFontSize">11</system:Double>
+  <system:Double x:Key="ChartTitleFontSize">16</system:Double>
+  <FontFamily x:Key="ChartFontFamily">Verdana</FontFamily>
+
+  <!-- *********************************  Converters  ********************************* -->
+  <local:ImageUriConverter x:Key="GetImageConverter" />
+  <local:ResourceUriToFrozenImageBrushConverter x:Key="ResourceUriToFrozenImageBrushConverter" />
+  <ig:PaletteConverter x:Key="PaletteConverter"/>
+  <!--this converter sync Series.ShapeStyle with legend item for shape series -->
+  <ig:StyleVisibilityConverter x:Key="StyleVisibilityConverter"/>
+
+  <!--  ********************************* String Resource Provider *********************************  -->
+  <ig:SRProvider x:Key="Strings" />
+
+  <!-- ************************************************ Marker Templates ***********************************************-->
+  <DataTemplate x:Key="CircleMarkerTemplate">
+    <Path Stretch="Fill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+          Fill="{Binding ActualItemBrush}" 
+          Stroke="{Binding ActualItemOutline}" 
+          StrokeThickness="{Binding Series.MarkerThickness}">
+      <Path.Data>
+        <PathGeometry>
+          <PathGeometry.Figures>
+            <PathFigure StartPoint="0,0" >
+              <PathFigure.Segments>
+                <ArcSegment Size="4,4" RotationAngle="0" IsLargeArc="True" SweepDirection="Clockwise" Point="0,1"/>
+                <ArcSegment Size="4,4" RotationAngle="0" IsLargeArc="False" SweepDirection="Clockwise" Point="0,0"/>
+              </PathFigure.Segments>
+            </PathFigure >
+          </PathGeometry.Figures>
+        </PathGeometry>
+      </Path.Data>
+    </Path>
+  </DataTemplate>
+
+  <DataTemplate x:Key="TriangleMarkerTemplate">
+    <Polygon Points="0, 0 4, 8 8, 0" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}" />
+  </DataTemplate>
+
+  <DataTemplate x:Key="PyramidMarkerTemplate">
+    <Polygon Points="0, 8 4, 0 8, 8" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}" />
+  </DataTemplate>
+
+  <DataTemplate x:Key="SquareMarkerTemplate">
+    <Polygon Points="0 0 0 8 8 8 8 0" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}"/>
+  </DataTemplate>
+
+  <DataTemplate x:Key="DiamondMarkerTemplate">
+    <Polygon Points="0 4 4 8 8 4 4 0" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}" />
+  </DataTemplate>
+
+  <DataTemplate x:Key="PentagonMarkerTemplate">
+    <Polygon Points="4 0 0.1956 2.764 1.65 7.236 6.35 7.236 7.8044 2.764" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}"/>
+  </DataTemplate>
+
+  <DataTemplate x:Key="HexagonMarkerTemplate">
+    <Polygon Points="4 0 0.536 2 0.536 6 4 8 7.464 6 7.464 2" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}"/>
+  </DataTemplate>
+
+  <DataTemplate x:Key="TetragramMarkerTemplate">
+    <Polygon Points="4 0 2.5856 2.5856 0 4 2.5856 5.4144 4 8 5.4144 5.4144 8 4 5.4144 2.5856" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}"/>
+  </DataTemplate>
+
+  <DataTemplate x:Key="PentagramMarkerTemplate">
+    <Polygon Points="4 0 2.8244 2.382 0.1956 2.764 2.098 4.618 1.6488 7.236 4 6 6.3512 7.236 5.902 4.618 7.8044 2.764 5.1756 2.382" Stretch="Fill" Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}"/>
+  </DataTemplate>
+
+  <DataTemplate x:Key="HexagramMarkerTemplate">
+    <Polygon Points="4 0 3 2.268 0.536 2 2 4 0.536 6 3 5.732 4 8 5 5.732 7.464 6 6 4 7.464 2 5 2.268" Stretch="Fill"  Fill="{Binding ActualItemBrush}" Stroke="{Binding ActualItemOutline}" StrokeThickness="{Binding Series.MarkerThickness}"/>
+  </DataTemplate>
+
+  <!-- *********************************  ToolTip Style  ********************************* -->
+  <Style x:Key="ToolTipStyle" TargetType="ContentControl">
+    <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}"/>
+    <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}"/>
+    <Setter Property="FontSize" Value="{StaticResource ChartSmallFontSize}"/>
+    <Setter Property="FontFamily" Value="{StaticResource ChartFontFamily}"/>
+    <Setter Property="Padding" Value="{StaticResource TooltipContentPadding}"/>
+    <Setter Property="BorderThickness" Value="{StaticResource TooltipBorderThickness}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ContentControl">
+          <Grid>
+            <Border Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}">
+              <StackPanel Orientation="Horizontal" Margin="{TemplateBinding Padding}">
+                <ContentPresenter Content="{Binding}" 
+                                  ContentTemplate="{Binding Series.ActualLegendItemBadgeTemplate}"/>
+                <!--<ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}"/>-->
+                <!-- NOTE-MT shifted FontFamily/FontSize from ToolTip -->
+                <ContentControl FontSize="{TemplateBinding FontSize}" 
+                                FontFamily="{TemplateBinding FontFamily}" >
+                  <ContentControl.Resources>
+                    <Style TargetType="ContentControl">
+                      <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+                    </Style>
+                  </ContentControl.Resources>
+                  <ContentPresenter Content="{TemplateBinding Content}"/>
+                </ContentControl>
+              </StackPanel>
+            </Border>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+    
+  <!-- ************************************************ Legend Item Templates **********************************************-->
+  <!-- Basic LegendItemTemplate - used by BasicLegend with all series except Bubble Series-->
+  <DataTemplate x:Key="LegendItemTemplate">
+    <StackPanel Orientation="Horizontal"
+                Margin="{StaticResource LegendItemMargin}"
+                Visibility="{Binding Series.Visibility}"
+                VerticalAlignment="Top">
+      <ContentPresenter Content="{Binding}" 
+                        Margin="{StaticResource LegendItemBadgeMargin}"
+                        ContentTemplate="{Binding Series.ActualLegendItemBadgeTemplate}"/>
+      <ContentControl Foreground="{Binding Series.ActualLegend.ItemsForeground}"
+                      FontStretch="{Binding Series.ActualLegend.ItemsFontStretch}"
+                      FontStyle="{Binding Series.ActualLegend.ItemsFontStyle}"
+                      FontWeight="{Binding Series.ActualLegend.ItemsFontWeight}"
+                      FontSize="{Binding Series.ActualLegend.ItemsFontSize}"
+                      FontFamily="{Binding Series.ActualLegend.ItemsFontFamily}">
+        <ContentPresenter Content="{Binding Series.Title, TargetNullValue=Series Title}"/>
+      </ContentControl>
+    </StackPanel>
+  </DataTemplate>
+
+
+  <!--this PathGeometry is shared with LegendItem[type]BadgeTemplate -->
+  <EllipseGeometry x:Key="LegendItemPathGeometry" Center="6 6" RadiusX="6" RadiusY="6" />
+
+  <!--this Style shares properties of LegendItemContainer between LegendItem[type]BadgeTemplate
+    also it ensure all badges have the same size -->
+  <!--<Style TargetType="Grid" x:Key="LegendItemContainerStyle">
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="Width" Value="{StaticResource LegendItemBadgeWidth}" />
+    <Setter Property="Height" Value="{StaticResource LegendItemBadgeHeight}" />
+  </Style>-->
+
+  <!--  ********************************** GeographicMapImagery **********************************  -->
+  <Style TargetType="local:GeographicMapImagery">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:GeographicMapImagery">
+          <ig:XamMultiScaleImage x:Name="MultiScaleImage" />
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!--  ********************************** PreviewPathStyle **********************************  -->
+  <Style x:Key="PreviewPathStyle" TargetType="Path">
+    <Setter Property="Fill" Value="{StaticResource PreviewPathBrush}"/>
+    <Setter Property="Opacity" Value="0.4"/>
+  </Style>
+
+  <!--  ********************************** CrosshairLineStyle **********************************  -->
+  <Style x:Key="CrosshairLineStyle" TargetType="Line">
+    <Setter Property="Stroke"          Value="{x:Static ig:Defaults.CrosshairLineBrush}"/>
+    <Setter Property="StrokeThickness" Value="{x:Static ig:Defaults.CrosshairLineThickness}"/>
+    <Setter Property="shared:SafeSetters.Setters">
+      <Setter.Value>
+        <shared:SafeSetterCollection>
+          <shared:SafeSetter PropertyName="Effect">
+            <shared:SafeSetter.ValueAsXamlString>
+              &lt;DropShadowEffect xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" Opacity="0.3"/&gt;
+            </shared:SafeSetter.ValueAsXamlString>
+          </shared:SafeSetter>
+        </shared:SafeSetterCollection>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!--  ********************************** XamGeographicMap **********************************  -->
+  <Style TargetType="local:XamGeographicMap">
+    <Setter Property="Brushes" Value="{StaticResource SeriesBrushes}" />
+    <Setter Property="Outlines" Value="{StaticResource SeriesOutlines}" />
+    <Setter Property="MarkerBrushes" Value="{StaticResource MarkerBrushes}" />
+    <Setter Property="MarkerOutlines" Value="{StaticResource MarkerOutlines}" />
+    <Setter Property="TitleMargin" Value="0 0 0 5" />
+    <Setter Property="TitleFontStyle" Value="Normal" />
+    <Setter Property="TitleFontStretch" Value="Normal" />
+    <Setter Property="TitleFontWeight" Value="Normal" />
+    <Setter Property="TitleHorizontalAlignment" Value="Center" />
+    <Setter Property="TitleForeground" Value="{StaticResource ChartTitleBrush}" />
+    <Setter Property="TitleFontFamily" Value="{StaticResource ChartFontFamily}" />
+    <Setter Property="TitleFontSize" Value="{StaticResource ChartTitleFontSize}" />
+    <Setter Property="SubtitleMargin" Value="0 0 0 5" />
+    <Setter Property="SubtitleFontStyle" Value="Normal" />
+    <Setter Property="SubtitleFontStretch" Value="Normal" />
+    <Setter Property="SubtitleFontWeight" Value="Normal" />
+    <Setter Property="SubtitleHorizontalAlignment" Value="Center" />
+    <Setter Property="SubtitleForeground" Value="{StaticResource ChartSubtitleBrush}" />
+    <Setter Property="SubtitleFontFamily" Value="{StaticResource ChartFontFamily}" />
+    <Setter Property="SubtitleFontSize" Value="{StaticResource ChartSmallFontSize}" />
+    <Setter Property="Background" Value="{StaticResource GeoMapBackgroundBrush}" />
+    <Setter Property="PlotAreaBackground" Value="{StaticResource PlotAreaBackgroundBrush}" />
+    <Setter Property="PlotAreaBorderBrush" Value="{StaticResource PlotAreaBorderBrush}" />
+    <Setter Property="CircleMarkerTemplate" Value="{StaticResource CircleMarkerTemplate}"/>
+    <Setter Property="TriangleMarkerTemplate" Value="{StaticResource TriangleMarkerTemplate}"/>
+    <Setter Property="PyramidMarkerTemplate" Value="{StaticResource PyramidMarkerTemplate}"/>
+    <Setter Property="SquareMarkerTemplate" Value="{StaticResource SquareMarkerTemplate}"/>
+    <Setter Property="DiamondMarkerTemplate" Value="{StaticResource DiamondMarkerTemplate}"/>
+    <Setter Property="PentagonMarkerTemplate" Value="{StaticResource PentagonMarkerTemplate}"/>
+    <Setter Property="HexagonMarkerTemplate" Value="{StaticResource HexagonMarkerTemplate}"/>
+    <Setter Property="TetragramMarkerTemplate" Value="{StaticResource TetragramMarkerTemplate}"/>
+    <Setter Property="PentagramMarkerTemplate" Value="{StaticResource PentagramMarkerTemplate}"/>
+    <Setter Property="HexagramMarkerTemplate" Value="{StaticResource HexagramMarkerTemplate}"/>
+    <Setter Property="PreviewPathStyle" Value="{StaticResource PreviewPathStyle}"/>
+    <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}"/>
+    <Setter Property="CrosshairLineStyle" Value="{StaticResource CrosshairLineStyle}"/>
+    <Setter Property="CrosshairVisibility" Value="Collapsed" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate>
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{StaticResource GeoMapCornerRadius}" Background="{TemplateBinding Background}">
+            <ContentPresenter x:Name="ContentPresenter" Margin="{TemplateBinding Padding}" />
+          </Border>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="DefaultInteraction" Value="DragPan" />
+    <Setter Property="DragModifier" Value="Control" />
+    <Setter Property="Zoomable" Value="True" />
+    <Setter Property="WindowRectMinWidth" Value="0.000005"/>
+    <Setter Property="WindowRectMinHeight" Value="0.000005"/>
+    <Setter Property="OverviewPlusDetailPaneVisibility" Value="Visible" />
+    <Setter Property="WindowResponse" Value="Immediate" />
+    <Setter Property="OverviewPlusDetailPaneStyle">
+      <Setter.Value>
+        <Style TargetType="ig:XamOverviewPlusDetailPane">
+          <Setter Property="ZoomTo100ButtonVisibility" Value="Collapsed" />
+          <Setter Property="InteractionStatesToolVisibility" Value="Visible" />
+          <Setter Property="ScaleToFitButtonToolTip" Value="{Binding OPD_ScaleToFit_SeriesViewer, Source={StaticResource Strings}}" />
+          <Setter Property="ZoomLevelLargeChange" Value="0.2" />
+          <!-- thumbnail area of the whole world in the OverviewPlusDetailPane-->
+          <Setter Property="WorldStyle">
+            <Setter.Value>
+              <Style TargetType="Path">
+                <Setter Property="Stroke" Value="{StaticResource WorldStroke}"/>
+                <Setter Property="StrokeThickness" Value="{StaticResource WorldStrokeThickness}" />
+                <Setter Property="Fill" Value="{Binding Source='Resources/OPDThumbnail.png', Converter={StaticResource ResourceUriToFrozenImageBrushConverter}}" />
+              </Style>
+            </Setter.Value>
+          </Setter>
+          <!-- visible area of the world in the OverviewPlusDetailPane-->
+          <Setter Property="WindowStyle">
+            <Setter.Value>
+              <Style TargetType="Path">
+                <Setter Property="Stroke" Value="{StaticResource WindowStroke}"/>
+                <Setter Property="StrokeThickness" Value="{StaticResource WindowStrokeThickness}" />
+                <Setter Property="Fill" Value="Transparent"/>
+              </Style>
+            </Setter.Value>
+          </Setter>
+        </Style>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+    <!--  ********************************** ShapePath Styles **********************************  -->
+    <!--<Style TargetType="Path" x:Key="ShapePathBaseStyle">
+        <Setter Property="StrokeThickness" Value="{Binding Series.Thickness}" />
+    </Style>-->
+
+    <!--<Style TargetType="Path" x:Key="ShapePathGeoStyle" BasedOn="{StaticResource ShapePathBaseStyle}">
+        <Setter Property="Fill" Value="{Binding Series.ActualBrush}" />
+        <Setter Property="Stroke" Value="{StaticResource SeriesPolygonStroke}" />
+    </Style>-->
+
+    <!--<Style TargetType="Path" x:Key="ShapePolylineGeoStyle" BasedOn="{StaticResource ShapePathBaseStyle}">
+        <Setter Property="Fill" Value="Transparent" />
+        <Setter Property="Stroke" Value="{Binding Series.ActualOutline}" /> 
+    </Style>-->
+    <!--Note do not create implicit style for TargetType="Path" -->
+    
+    <!--  ********************************** SERIES **********************************  -->
+    <!--Series Base Style-->
+    <Style x:Key="SeriesStyle" TargetType="ig:Series">
+        <Setter Property="MinWidth" Value="8" />
+        <Setter Property="MinHeight" Value="8" />
+        <Setter Property="Thickness" Value="{StaticResource SeriesThickness}" />
+        <!-- do not set a default value for Outline, or else the XamDataChart.Outlines property will be ineffective. -->
+        <Setter Property="LegendItemTemplate" Value="{StaticResource LegendItemTemplate}" />
+        <Setter Property="Template">
+          <Setter.Value>
+            <ControlTemplate TargetType="ig:Series">
+              <Grid>
+                <Canvas x:Name="RootCanvas" />
+              </Grid>
+            </ControlTemplate>
+          </Setter.Value>
+        </Setter>
+    </Style>
+
+   <!--Series Style With Background Image-->
+   <Style x:Key="SeriesStyleWithBackgroundImage" TargetType="ig:Series" BasedOn="{StaticResource SeriesStyle}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ig:Series">
+                    <Grid>
+                        <Image x:Name="RootImage" />
+                        <Canvas x:Name="RootCanvas" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+   </Style>
+
+   <!--Geographic Symbol Series-->
+   <Style TargetType="local:GeographicSymbolSeries" BasedOn="{StaticResource SeriesStyle}">
+        <Setter Property="MarkerType" Value="{x:Static ig:Defaults.MarkerSeries_MarkerType}" />
+        <!--<Setter Property="MarkerBrush"   Value="{x:Static ig:Defaults.GeographicSymbolSeries_MarkerBrush}" />-->
+        <!--<Setter Property="MarkerOutline" Value="{x:Static ig:Defaults.GeographicSymbolSeries_MarkerOutline}" />-->
+        <!--<Setter Property="Brush"         Value="{x:Static ig:Defaults.GeographicSymbolSeries_Brush}" />-->
+        <!--<Setter Property="Outline"       Value="{x:Static ig:Defaults.GeographicSymbolSeries_Outline}" />-->
+    </Style>
+    <!--Geographic Proportional Symbol Series-->
+    <Style TargetType="local:GeographicProportionalSymbolSeries" BasedOn="{StaticResource SeriesStyle}">
+        <Setter Property="MarkerType" Value="{x:Static ig:Defaults.MarkerSeries_MarkerType}" />
+       <!--<Setter Property="MarkerBrush"   Value="{x:Static ig:Defaults.GeographicSymbolSeries_MarkerBrush}" />-->
+        <!--<Setter Property="MarkerOutline" Value="{x:Static ig:Defaults.GeographicSymbolSeries_MarkerOutline}" />-->
+        <!--<Setter Property="Brush"         Value="{x:Static ig:Defaults.GeographicSymbolSeries_Brush}" />-->
+        <!--<Setter Property="Outline"       Value="{x:Static ig:Defaults.GeographicSymbolSeries_Outline}" />-->
+    </Style>
+
+    <!--Geographic Shape (Path) Series-->
+    <Style TargetType="local:GeographicShapeSeries" BasedOn="{StaticResource SeriesStyle}" >
+        <!--<Setter Property="Brush"           Value="{x:Static ig:Defaults.GeographicShapeSeries_Brush}" />-->
+        <!--<Setter Property="Outline"         Value="{x:Static ig:Defaults.GeographicShapeSeries_Outline}" />-->
+        <Setter Property="Thickness"       Value="{x:Static ig:Defaults.GeographicShapeSeries_Thickness}" />
+        <Setter Property="MarkerOutline"   Value="{x:Static ig:Defaults.GeographicShapeSeries_MarkerOutline}" />
+        <!--<Setter Property="MarkerBrush"     Value="{x:Static ig:Defaults.GeographicShapeSeries_MarkerBrush}" />-->
+        <Setter Property="MarkerThickness" Value="{x:Static ig:Defaults.GeographicShapeSeries_MarkerThickness}" />
+        <Setter Property="MarkerType"      Value="{x:Static ig:Defaults.GeographicShapeSeries_MarkerType}" />
+        <Setter Property="MarkerFillMode"  Value="{x:Static ig:Defaults.GeographicShapeSeries_MarkerFillMode}" />
+    </Style>
+
+    <!--Geographic Shape Control Series-->
+    <Style TargetType="local:GeographicShapeControlSeries" BasedOn="{StaticResource SeriesStyle}" >
+        <!--<Setter Property="Brush"         Value="{x:Static ig:Defaults.GeographicShapeSeries_Brush}" />-->
+        <!--<Setter Property="Outline"       Value="{x:Static ig:Defaults.GeographicShapeSeries_Outline}" />-->
+        <Setter Property="Thickness"     Value="{x:Static ig:Defaults.GeographicShapeSeries_Thickness}" />
+    </Style>
+
+    <!--Geographic Polyline Series-->
+    <Style TargetType="local:GeographicPolylineSeries" BasedOn="{StaticResource SeriesStyle}" >
+        <!--<Setter Property="Outline"   Value="{x:Static ig:Defaults.GeographicPolylineSeries_Outline}" />-->
+        <Setter Property="Thickness" Value="{x:Static ig:Defaults.GeographicPolylineSeries_Thickness}" />
+    </Style>
+    
+    <!--Geographic Contour Line Series -->
+    <Style TargetType="local:GeographicContourLineSeries" BasedOn="{StaticResource SeriesStyle}" >
+        <!--<Setter Property="Brush"     Value="{x:Static ig:Defaults.GeographicContourSeries_Brush}" />-->
+        <!--<Setter Property="Outline"   Value="{x:Static ig:Defaults.GeographicContourSeries_Brush}" />-->
+        <Setter Property="Thickness" Value="{x:Static ig:Defaults.GeographicContourSeries_Thickness}" />
+    </Style>
+
+    <!--Geographic Scatter Area Series-->
+    <Style TargetType="local:GeographicScatterAreaSeries" BasedOn="{StaticResource SeriesStyleWithBackgroundImage}">
+        <!--<Setter Property="Brush"   Value="{x:Static ig:Defaults.GeographicAreaSeries_Brush}" />-->
+    </Style>
+
+    <!--Geographic High Density Scatter Series--> 
+    <Style TargetType="local:GeographicHighDensityScatterSeries" BasedOn="{StaticResource SeriesStyle}">
+        <Setter Property="HeatMaximumColor" Value="{x:Static ig:Defaults.HighDensityScatterSeries_HeatMaximumColor}" />
+        <Setter Property="HeatMinimumColor" Value="{x:Static ig:Defaults.HighDensityScatterSeries_HeatMinimumColor}" />
+        <!-- these properties are used only in LegendItem's BadgeTemplate -->
+        <Setter Property="Brush"            Value="{x:Static ig:Defaults.HighDensityScatterSeries_HeatMaximumBrush}" />
+        <Setter Property="Outline"          Value="{x:Static ig:Defaults.HighDensityScatterSeries_HeatMinimumBrush}" />
+        <Setter Property="Resolution"       Value="{x:Static ig:Defaults.HighDensityScatterSeries_Resolution}" />
+    </Style>
+
+    <!-- Geographic Tile Series -->
+    <Style TargetType="local:GeographicTileSeries" BasedOn="{StaticResource SeriesStyle}">
+        <!-- these properties are used only in LegendItem's BadgeTemplate -->
+        <Setter Property="Outline"   Value="{x:Static ig:Defaults.TileSeries_Outline}" />
+        <Setter Property="Brush"     Value="{x:Static ig:Defaults.TileSeries_Brush}" />
+    </Style>
+
+    <!-- Chart's Tile Series -->
+    <Style TargetType="charts:TileSeries" BasedOn="{StaticResource SeriesStyleWithBackgroundImage}"> <!--@Graham shouldn't it be BasedOn SeriesStyle ?-->
+        <!-- these properties are used only in LegendItem's BadgeTemplate -->
+        <Setter Property="Outline"   Value="{x:Static ig:Defaults.TileSeries_Outline}" />
+        <Setter Property="Brush"     Value="{x:Static ig:Defaults.TileSeries_Brush}" />
+    </Style>
+
+</ResourceDictionary>
