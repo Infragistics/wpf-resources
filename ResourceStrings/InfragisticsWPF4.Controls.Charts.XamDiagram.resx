@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddAction" xml:space="preserve">
+    <value>Add Items</value>
+  </data>
+  <data name="AddActionLongDescription" xml:space="preserve">
+    <value>One or more items are added.</value>
+  </data>
+  <data name="BasicShapesToolboxCategoryHeader" xml:space="preserve">
+    <value>Basic Shapes</value>
+  </data>
+  <data name="ChevronToolboxShapeTitle" xml:space="preserve">
+    <value>Chevron</value>
+  </data>
+  <data name="CircleToolboxShapeTitle" xml:space="preserve">
+    <value>Circle</value>
+  </data>
+  <data name="ConnectionCapSizeExtraColossal" xml:space="preserve">
+    <value>Colossal</value>
+  </data>
+  <data name="ConnectionCapSizeExtraJumbo" xml:space="preserve">
+    <value>Jumbo</value>
+  </data>
+  <data name="ConnectionCapSizeExtraLarge" xml:space="preserve">
+    <value>Extra Large</value>
+  </data>
+  <data name="ConnectionCapSizeLarge" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="ConnectionCapSizeMedium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="ConnectionCapSizeSmall" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="ConnectionCapSizeVerySmall" xml:space="preserve">
+    <value>Very Small</value>
+  </data>
+  <data name="ConnectionsToolboxCategoryHeader" xml:space="preserve">
+    <value>Connections</value>
+  </data>
+  <data name="ConnectionText" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="ContextMenuBringForwardCommand" xml:space="preserve">
+    <value>Forward</value>
+  </data>
+  <data name="ContextMenuBringForwardCommandFull" xml:space="preserve">
+    <value>Bring Forward</value>
+  </data>
+  <data name="ContextMenuBringToFrontCommand" xml:space="preserve">
+    <value>To Front</value>
+  </data>
+  <data name="ContextMenuBringToFrontCommandFull" xml:space="preserve">
+    <value>Bring To Front</value>
+  </data>
+  <data name="ContextMenuConnectionEndPointX" xml:space="preserve">
+    <value>End X</value>
+  </data>
+  <data name="ContextMenuConnectionEndPointY" xml:space="preserve">
+    <value>End Y</value>
+  </data>
+  <data name="ContextMenuConnectionHeaderTitle" xml:space="preserve">
+    <value>Line</value>
+  </data>
+  <data name="ContextMenuConnectionStartPointX" xml:space="preserve">
+    <value>Start X</value>
+  </data>
+  <data name="ContextMenuConnectionStartPointY" xml:space="preserve">
+    <value>Start Y</value>
+  </data>
+  <data name="ContextMenuConnectionTypeRightAngle" xml:space="preserve">
+    <value>Right-Angle</value>
+  </data>
+  <data name="ContextMenuConnectionTypeStraight" xml:space="preserve">
+    <value>Straight</value>
+  </data>
+  <data name="ContextMenuCopyCommand" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="ContextMenuCutCommand" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="ContextMenuDeleteCommand" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ContextMenuFontSizeValidationMessage" xml:space="preserve">
+    <value>Font size must be between 1 and 3700.</value>
+  </data>
+  <data name="ContextMenuGeneralHeaderTitle" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="ContextMenuLineDashType" xml:space="preserve">
+    <value>Dash Type</value>
+  </data>
+  <data name="ContextMenuLineEnd" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="ContextMenuLineEndSize" xml:space="preserve">
+    <value>End Size</value>
+  </data>
+  <data name="ContextMenuLineStart" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="ContextMenuLineStartSize" xml:space="preserve">
+    <value>StartSize</value>
+  </data>
+  <data name="ContextMenuLineStroke" xml:space="preserve">
+    <value>Stroke</value>
+  </data>
+  <data name="ContextMenuLineThickness" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="ContextMenuPasteCommand" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="ContextMenuSendBackwardCommand" xml:space="preserve">
+    <value>Backward</value>
+  </data>
+  <data name="ContextMenuSendBackwardCommandFull" xml:space="preserve">
+    <value>Send Backward</value>
+  </data>
+  <data name="ContextMenuSendToBackCommand" xml:space="preserve">
+    <value>To Back</value>
+  </data>
+  <data name="ContextMenuSendToBackCommandFull" xml:space="preserve">
+    <value>Send To Back</value>
+  </data>
+  <data name="ContextMenuShapeFill" xml:space="preserve">
+    <value>Fill</value>
+  </data>
+  <data name="ContextMenuShapeHeaderTitle" xml:space="preserve">
+    <value>Shape</value>
+  </data>
+  <data name="ContextMenuShapeHeight" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="ContextMenuShapeOpacity" xml:space="preserve">
+    <value>Opacity</value>
+  </data>
+  <data name="ContextMenuShapeStartPointX" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="ContextMenuShapeStartPointY" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="ContextMenuShapeWidth" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="ContextMenuSizeHeaderTitle" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="ContextMenuTextHeaderTitle" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="CrossToolboxShapeTitle" xml:space="preserve">
+    <value>Cross</value>
+  </data>
+  <data name="CutAction" xml:space="preserve">
+    <value>Cut Items</value>
+  </data>
+  <data name="CutActionLongDescription" xml:space="preserve">
+    <value>One or more items are cut.</value>
+  </data>
+  <data name="DeleteAction" xml:space="preserve">
+    <value>Delete Items</value>
+  </data>
+  <data name="DeleteActionLongDescription" xml:space="preserve">
+    <value>One or more items are deleted.</value>
+  </data>
+  <data name="DiagramItemsSourceInUse" xml:space="preserve">
+    <value>Operation is not valid while ItemsSource is in use.</value>
+  </data>
+  <data name="DropAction" xml:space="preserve">
+    <value>Drop on Diagram</value>
+  </data>
+  <data name="DropActionLongDescription" xml:space="preserve">
+    <value>An item is dropped onto the diagram.</value>
+  </data>
+  <data name="EllipseToolboxShapeTitle" xml:space="preserve">
+    <value>Ellipse</value>
+  </data>
+  <data name="HeptagonToolboxShapeTitle" xml:space="preserve">
+    <value>Heptagon</value>
+  </data>
+  <data name="HexagonToolboxShapeTitle" xml:space="preserve">
+    <value>Hexagon</value>
+  </data>
+  <data name="LabelToolboxShapeTitle" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="MaintainAspectRatioText" xml:space="preserve">
+    <value>Maintain Aspect Ratio</value>
+  </data>
+  <data name="MoveAction" xml:space="preserve">
+    <value>Move Items</value>
+  </data>
+  <data name="MoveActionLongDescription" xml:space="preserve">
+    <value>One or more items are moved.</value>
+  </data>
+  <data name="OctagonToolboxShapeTitle" xml:space="preserve">
+    <value>Octagon</value>
+  </data>
+  <data name="OptionsPaneEditItemsAction" xml:space="preserve">
+    <value>Options Pane Edit Items</value>
+  </data>
+  <data name="OptionsPaneEditItemsActionLongDescription" xml:space="preserve">
+    <value>One or more items are edited in the options pane.</value>
+  </data>
+  <data name="PasteAction" xml:space="preserve">
+    <value>Paste Items</value>
+  </data>
+  <data name="PasteActionLongDescription" xml:space="preserve">
+    <value>One or more items are pasted.</value>
+  </data>
+  <data name="PentagonToolboxShapeTitle" xml:space="preserve">
+    <value>Pentagon</value>
+  </data>
+  <data name="RectangleToolboxShapeTitle" xml:space="preserve">
+    <value>Rectangle</value>
+  </data>
+  <data name="RefreshLayoutAction" xml:space="preserve">
+    <value>Refresh Layout</value>
+  </data>
+  <data name="RefreshLayoutActionLongDescription" xml:space="preserve">
+    <value>The layout is refreshed.</value>
+  </data>
+  <data name="ReplaceAction" xml:space="preserve">
+    <value>Replace Items</value>
+  </data>
+  <data name="ReplaceActionLongDescription" xml:space="preserve">
+    <value>One or more items are replaced.</value>
+  </data>
+  <data name="ResizeAction" xml:space="preserve">
+    <value>Resize Items</value>
+  </data>
+  <data name="ResizeActionLongDescription" xml:space="preserve">
+    <value>One or more items are resized.</value>
+  </data>
+  <data name="RhombusToolboxShapeTitle" xml:space="preserve">
+    <value>Rhombus</value>
+  </data>
+  <data name="RightAngleToolboxConnectionTitle" xml:space="preserve">
+    <value>Right Angle</value>
+  </data>
+  <data name="RightMirroredTriangleToolboxShapeTitle" xml:space="preserve">
+    <value>Right Triangle Mirrored</value>
+  </data>
+  <data name="RightTriangleToolboxShapeTitle" xml:space="preserve">
+    <value>Right Triangle</value>
+  </data>
+  <data name="RoundedRectangleToolboxShapeTitle" xml:space="preserve">
+    <value>Rounded Rectangle</value>
+  </data>
+  <data name="SquareToolboxShapeTitle" xml:space="preserve">
+    <value>Square</value>
+  </data>
+  <data name="StraightToolboxConnectionTitle" xml:space="preserve">
+    <value>Straight</value>
+  </data>
+  <data name="ThinCrossToolboxShapeTitle" xml:space="preserve">
+    <value>Thin Cross</value>
+  </data>
+  <data name="ToolboxHeader" xml:space="preserve">
+    <value>Toolbox</value>
+  </data>
+  <data name="TriangleToolboxShapeTitle" xml:space="preserve">
+    <value>Triangle</value>
+  </data>
+</root>
