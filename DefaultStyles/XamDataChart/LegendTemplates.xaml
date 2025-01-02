@@ -39,7 +39,7 @@
                       Content="{Binding}">
       <ContentPresenter.ContentTemplate>
         <DataTemplate>
-          <Ellipse Stroke="{Binding ItemOutline}" Fill="{Binding ItemBrush}"/>
+          <Ellipse Stroke="{Binding ActualItemBadgeOutline}" Fill="{Binding ItemBrush}"/>
         </DataTemplate>
       </ContentPresenter.ContentTemplate>
     </ContentPresenter>
@@ -82,13 +82,13 @@
             Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
            Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}" >
         <Ellipse Style="{StaticResource LegendItemBadgeStretchStyle}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"
+                 Fill="{Binding ActualItemBadgeBrush}"
                  Opacity="{Binding Series.ActualAreaFillOpacity}"
                  Stroke="Transparent"
                  StrokeThickness="{Binding Series.ActualThickness}"/>
         <Ellipse Style="{StaticResource LegendItemBadgeStretchStyle}"
                  Fill="Transparent"
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Stroke="{Binding ActualItemBadgeOutline}"
                  StrokeThickness="{Binding Series.ActualThickness}"  />
           <!-- MT: not using StrokeDashArray="{Binding Series.DashArray}" StrokeDashCap="{Binding Series.DashCap}"
           because they dash array make legend badge shape look like they are incomplete -->
@@ -100,8 +100,8 @@
           Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}" >
       <Ellipse Style="{StaticResource LegendItemBadgeStretchStyle}"
-               Fill="{Binding Series.ActualLegendItemBadgeBrush}"
-               Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+               Fill="{Binding ActualItemBadgeBrush}"
+               Stroke="{Binding ActualItemBadgeOutline}"
                StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}" />
     </Grid>
   </DataTemplate>
@@ -138,7 +138,7 @@
           Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
       <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
             StrokeThickness="{Binding Series.ActualThickness}"
-            Stroke="{Binding Series.ActualLegendItemBadgeBrush}"
+            Stroke="{Binding Series.ActualBrush}"
             StrokeEndLineCap="{Binding Series.EndCap}"
             StrokeStartLineCap="{Binding Series.StartCap}"
             StrokeDashArray="{Binding Series.DashArray}"
@@ -163,7 +163,7 @@
           Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
           Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
       <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
-            Stroke="{Binding Series.ActualLegendItemBadgeBrush}" 
+            Stroke="{Binding ActualItemBadgeBrush}" 
             StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
             VerticalAlignment="Center"/>   
     </Grid>
@@ -175,7 +175,7 @@
           Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
           Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
       <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
-            Stroke="{Binding Series.ActualLegendItemBadgeBrush}"
+            Stroke="{Binding ActualItemBadgeBrush}"
             StrokeThickness="{Binding Series.ActualThickness}"
             StrokeEndLineCap="{Binding Series.EndCap}"
             StrokeStartLineCap="{Binding Series.StartCap}"
@@ -189,7 +189,7 @@
           Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}" 
           Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
       <Line X1="0" Y1="2" Y2="2" X2="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
-            Stroke="{Binding Series.ActualLegendItemBadgeBrush}"
+            Stroke="{Binding ActualItemBadgeBrush}"
             StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
             VerticalAlignment="Center"/>
     </Grid>
@@ -205,11 +205,11 @@
       <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}"
                  StrokeThickness="{Binding Series.ActualThickness}"
                  Stroke="Transparent"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"
+                 Fill="{Binding ActualItemBadgeBrush}"
                  Opacity="{Binding Series.ActualAreaFillOpacity}"/> 
       <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}"
                  StrokeThickness="{Binding Series.ActualThickness}"
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Stroke="{Binding ActualItemBadgeOutline}"
                  Fill="Transparent" />
           <!-- MT: not using StrokeDashArray="{Binding Series.DashArray}" StrokeDashCap="{Binding Series.DashCap}"
           because they dash array make legend badge shape look like they are incomplete -->
@@ -221,8 +221,8 @@
          Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}">
       <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}"
                  StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/>
+                 Stroke="{Binding ActualItemBadgeOutline}"
+                 Fill="{Binding ActualItemBadgeBrush}"/>
     </Grid>
   </DataTemplate>
 
@@ -237,7 +237,7 @@
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="0.5*"/>
           </Grid.ColumnDefinitions>
-          <Rectangle Grid.Column="0" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.ActualLegendItemBadgeBrush}"    />
+          <Rectangle Grid.Column="0" Stroke="Transparent" StrokeThickness="0" Fill="{Binding ActualItemBadgeBrush}"    />
           <Rectangle Grid.Column="1" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.NegativeBrush}"  />
         </Grid>
         <!--MT: ignoring positive/negative outlines because this shape is too small to render them-->
@@ -246,7 +246,7 @@
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="0.5*"/>
           </Grid.ColumnDefinitions>
-          <Rectangle Grid.Column="0" Stroke="{Binding Series.ActualLegendItemBadgeOutline}"   StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
+          <Rectangle Grid.Column="0" Stroke="{Binding ActualItemBadgeOutline}"   StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
           <Rectangle Grid.Column="1" Stroke="{Binding Series.NegativeOutline}" StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
         </Grid>--> 
       </Grid>
@@ -256,8 +256,8 @@
     <Grid Style="{StaticResource LegendItemBadgeContainerStyle}" >
       <Rectangle Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
                  Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}" 
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="{Binding ActualItemBadgeBrush}" 
+                 Stroke="{Binding ActualItemBadgeOutline}"
                  StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"/>
     </Grid>
   </DataTemplate>
@@ -273,7 +273,7 @@
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="0.5*"/>
           </Grid.ColumnDefinitions>
-          <Rectangle Grid.Column="0" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.ActualLegendItemBadgeBrush}"    />
+          <Rectangle Grid.Column="0" Stroke="Transparent" StrokeThickness="0" Fill="{Binding ActualItemBadgeBrush}"    />
           <Rectangle Grid.Column="1" Stroke="Transparent" StrokeThickness="0" Fill="{Binding Series.NegativeBrush}"  />
         </Grid>
         <!--MT: ignoring positive/negative outlines because this shape is too small to render them-->
@@ -282,7 +282,7 @@
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="0.5*"/>
           </Grid.ColumnDefinitions>
-          <Rectangle Grid.Column="0" Stroke="{Binding Series.ActualLegendItemBadgeOutline}" StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
+          <Rectangle Grid.Column="0" Stroke="{Binding ActualItemBadgeOutline}" StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
           <Rectangle Grid.Column="1" Stroke="{Binding Series.NegativeBrush}" StrokeThickness="{Binding Series.ActualThickness}" Fill="Transparent"  />
         </Grid>--> 
       </Grid>
@@ -292,8 +292,8 @@
     <Grid Style="{StaticResource LegendItemBadgeContainerStyle}" >
       <Rectangle Width="{x:Static local:Defaults.LegendBadge_ShapeWidth}"
                  Height="{x:Static local:Defaults.LegendBadge_ShapeHeight}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}" 
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
+                 Fill="{Binding ActualItemBadgeBrush}" 
+                 Stroke="{Binding ActualItemBadgeOutline}"
                  StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"/>
     </Grid>
   </DataTemplate>
@@ -310,8 +310,8 @@
         </Grid.RowDefinitions>
       <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Row="1"
                  StrokeThickness="{Binding Series.ActualThickness}"
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/> 
+                 Stroke="{Binding ActualItemBadgeOutline}"
+                 Fill="{Binding ActualItemBadgeBrush}"/> 
     </Grid>
   </DataTemplate>
   <DataTemplate x:Key="LegendBadgeTemplate_BarShape_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.ActualAreaFillOpacity-->
@@ -325,8 +325,8 @@
         </Grid.RowDefinitions>
       <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Row="1"
                  StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/>
+                 Stroke="{Binding ActualItemBadgeOutline}"
+                 Fill="{Binding ActualItemBadgeBrush}"/>
     </Grid>
   </DataTemplate>
   
@@ -342,8 +342,8 @@
       </Grid.ColumnDefinitions>
       <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Column="1"
                  StrokeThickness="{Binding Series.ActualThickness}"
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/> 
+                 Stroke="{Binding ActualItemBadgeOutline}"
+                 Fill="{Binding ActualItemBadgeBrush}"/> 
     </Grid>
   </DataTemplate>
   <DataTemplate x:Key="LegendBadgeTemplate_ColumnShape_Simplified"> <!-- no Series.DashArray, Series.ActualThickness, Series.ActualAreaFillOpacity-->
@@ -357,8 +357,8 @@
       </Grid.ColumnDefinitions>
       <Rectangle Style="{StaticResource LegendItemBadgeStretchStyle}" Grid.Column="1"
                  StrokeThickness="{x:Static local:Defaults.LegendBadge_ShapeThickness}"
-                 Stroke="{Binding Series.ActualLegendItemBadgeOutline}"
-                 Fill="{Binding Series.ActualLegendItemBadgeBrush}"/>
+                 Stroke="{Binding ActualItemBadgeOutline}"
+                 Fill="{Binding ActualItemBadgeBrush}"/>
     </Grid>
   </DataTemplate>
   

@@ -25,7 +25,7 @@
     <!-- ======================== -->
     <ResourceDictionary.MergedDictionaries>
         <!-- Need absolute reference as mentioned here: https://connect.microsoft.com/VisualStudio/feedback/details/487563/generic-xaml-relative-source-path-doesnt-work?wa=wsignin1.0 -->
-        <ResourceDictionary Source="generic.shared.xaml" />
+        <ResourceDictionary Source="/Infragistics.WPF.Controls.Editors.XamCalendar;component/Themes/generic.shared.xaml" />
      </ResourceDictionary.MergedDictionaries>
      
      

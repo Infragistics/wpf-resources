@@ -498,7 +498,7 @@
 								IsInFieldChooser="{TemplateBinding IsSourceFromFieldChooser}"
 								IsInGroupByArea="{TemplateBinding IsSourceFromGroupByArea}"
 								Opacity=".5"/>
-                            <!--JJD 1/06/16 - v23.2 Field Grouping -->
+                            <!--JJD 1/06/16 - Field Grouping -->
                             <igDP:FieldGroupLabelPresenter
 								x:Name="fieldGroupLabelPresenter"
 								FieldGroup="{TemplateBinding FieldGroup}"
@@ -519,7 +519,7 @@
 							<Setter TargetName="labelPresenter" Property="Visibility" Value="Collapsed"/>
 							<Setter TargetName="cellPresenter" Property="Visibility" Value="Visible"/>
 						</Trigger>
-                        <!--JJD 1/06/16 - v23.2 Field Grouping -->
+                        <!--JJD 1/06/16 - Field Grouping -->
                         <Trigger Property="IsFieldGroup" Value="true">
                             <Setter TargetName="fieldGroupLabelPresenter" Property="Visibility" Value="Visible"/>
 							<Setter TargetName="labelPresenter" Property="Visibility" Value="Collapsed"/>

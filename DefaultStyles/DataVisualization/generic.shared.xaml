@@ -5,6 +5,7 @@
     xmlns:System="clr-namespace:System;assembly=mscorlib" 
     xmlns:igPrimitives="http://schemas.infragistics.com/xaml/primitives" 
     xmlns:local="http://schemas.infragistics.com/xaml"
+    xmlns:layouts="http://schemas.infragistics.com/xaml"
     xmlns:ig="http://schemas.infragistics.com/xaml"
     xmlns:maps="http://schemas.infragistics.com/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -1267,4 +1268,17 @@
     </Setter>
   </Style>
   <Style BasedOn="{StaticResource XamMultiScaleImageStyle}" TargetType="maps:XamMultiScaleImage" />
+
+  <Style TargetType="{x:Type layouts:XamPopup}">
+
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type layouts:XamPopup}">
+          <ContentControl x:Name="PART_CONTENT">
+
+          </ContentControl>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
 </ResourceDictionary>

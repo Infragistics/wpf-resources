@@ -764,7 +764,7 @@
 
   <!-- Discrete LegendItemTemplate - used by ItemLegend with Bubble Series-->
   <DataTemplate x:Key="DiscreteLegendItemTemplate">
-    <StackPanel Orientation="Horizontal" Margin="{StaticResource LegendItemMargin}" Visibility="{Binding Series.Visibility}">
+    <StackPanel Orientation="Horizontal" Background="Transparent" Margin="{StaticResource LegendItemMargin}" Visibility="{Binding Series.Visibility}">
       <ContentPresenter Content="{Binding}" 
                         ContentTemplate="{Binding Series.ActualLegendItemBadgeTemplate}"
                         Margin="{StaticResource LegendItemBadgeMargin}"/>
@@ -774,7 +774,7 @@
                       FontWeight="{Binding Series.ActualLegend.ItemsFontWeight}"
                       FontSize="{Binding Series.ActualLegend.ItemsFontSize}"
                       FontFamily="{Binding Series.ActualLegend.ItemsFontFamily}">
-        <ContentPresenter Content="{Binding ItemLabel, TargetNullValue=Series Item}"/>
+        <ContentPresenter Content="{Binding LegendLabel, TargetNullValue=Series Item}"/>
       </ContentControl>
     </StackPanel>
   </DataTemplate>
@@ -1050,6 +1050,8 @@
     <Setter Property="ShadowDirection" Value="315"/>
     <!-- do not set a default value for Outline, or else the XamDataChart.Outlines property will be ineffective. -->
     <Setter Property="LegendItemTemplate" Value="{StaticResource LegendItemTemplate}" />
+    <Setter Property="DiscreteLegendItemTemplate" Value="{StaticResource DiscreteLegendItemTemplate}"/>
+    
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="local:Series">
@@ -2084,9 +2086,97 @@
     <Setter Property="CrosshairsAnnotationXAxisTextColor"  Value="{x:Static local:Defaults.CrosshairXAxisAnnotationTextColor}"/>
     
   </Style>
-    
 
-  <!-- ************ Shape Styles for Scatter(*)Series ******************* -->
+
+    <!-- ******************* Data Pie Chart Style ******************* -->
+    <Style TargetType="local:XamDataPieChart">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:XamDataPieChart">
+                    <local:XamDataChart x:Name="DataChart" Background="{TemplateBinding Background}" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Brushes" Value="{StaticResource ChartBrushes}" />
+        <Setter Property="Outlines" Value="{StaticResource ChartOutlines}" />
+        <Setter Property="MarkerBrushes" Value="{StaticResource MarkerBrushes}" />
+        <Setter Property="MarkerOutlines" Value="{StaticResource MarkerOutlines}" />
+        <Setter Property="Background" Value="{StaticResource ChartBackgroundBrush}" />
+        <Setter Property="TitleForeground" Value="{StaticResource AxisTitleBrush}" />
+        <Setter Property="TitleFontSize" Value="{StaticResource ChartTitleFontSize}" />
+        <Setter Property="TitleFontStyle" Value="{x:Static shared:FontDefaults.ChartFontStyle}" />
+        <Setter Property="TitleFontFamily" Value="{x:Static shared:FontDefaults.ChartFontFamily}" />
+        <Setter Property="TitleAlignment" Value="Center" />
+        <Setter Property="TitleMargin" Value="0 0 0 5" />
+        <Setter Property="SubtitleForeground" Value="{StaticResource AxisTitleBrush}" />
+        <Setter Property="SubtitleFontSize" Value="{StaticResource ChartSmallFontSize}" />
+        <Setter Property="SubtitleFontStyle" Value="{x:Static shared:FontDefaults.ChartFontStyle}" />
+        <Setter Property="SubtitleFontFamily" Value="{x:Static shared:FontDefaults.ChartFontFamily}" />
+        <Setter Property="SubtitleAlignment" Value="Center" />
+        <Setter Property="SubtitleMargin" Value="0 0 0 5" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <!--<Setter Property="Resolution" Value="1" />-->
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}" />
+
+        <Setter Property="ValueAxisMajorStroke" Value="{x:Null}" />
+        <Setter Property="ValueAxisTickLength" Value="0" />
+        <Setter Property="ValueAxisLabelFontSize" Value="{x:Static shared:FontDefaults.ChartFontSize}" />
+        <Setter Property="ValueAxisLabelFontFamily" Value="{x:Static shared:FontDefaults.ChartFontFamily}" />
+        <Setter Property="ValueAxisLabelMargin" Value="{x:Static shared:FontDefaults.ChartYAxisLabelsMargin}" />
+        <Setter Property="ValueAxisLabelForeground" Value="{StaticResource AxisLabelsBrush}" />
+        <Setter Property="ValueAxisTitleFontSize" Value="{x:Static shared:FontDefaults.ChartFontSize}" />
+        <Setter Property="ValueAxisTitleFontFamily" Value="{x:Static shared:FontDefaults.ChartFontFamily}" />
+        <Setter Property="ValueAxisTitleAngle" Value="-90" />
+        <Setter Property="ValueAxisLabelVisibility" Value="Collapsed" />
+        <Setter Property="ValueAxisTitleForeground" Value="{StaticResource AxisTitleBrush}" />
+        <Setter Property="AngleAxisLabelFontSize" Value="{x:Static shared:FontDefaults.ChartFontSize}" />
+        <Setter Property="AngleAxisLabelFontFamily" Value="{x:Static shared:FontDefaults.ChartFontFamily}" />
+        <Setter Property="AngleAxisLabelMargin" Value="{x:Static shared:FontDefaults.ChartXAxisLabelsMargin}" />
+        <Setter Property="AngleAxisLabelForeground" Value="{StaticResource AxisLabelsBrush}" />
+        <Setter Property="AngleAxisTitleFontSize" Value="{x:Static shared:FontDefaults.ChartFontSize}" />
+        <Setter Property="AngleAxisTitleFontFamily" Value="{x:Static shared:FontDefaults.ChartFontFamily}" />
+        <Setter Property="AngleAxisTitleAngle" Value="0" />
+        <Setter Property="AngleAxisTitleForeground" Value="{StaticResource AxisTitleBrush}" />
+        <Setter Property="AngleAxisLabelVisibility" Value="Collapsed" />
+
+
+        <Setter Property="AngleAxisTickLength"          Value="{x:Static local:AxisDefaults.CategoryAxis_TickLength}" />
+        <Setter Property="AngleAxisTickStrokeThickness" Value="{x:Static local:AxisDefaults.Axis_TickStroke}" />
+        <Setter Property="AngleAxisTickStroke"          Value="{x:Null}" />
+        <Setter Property="AngleAxisStroke"              Value="Transparent" />
+        <Setter Property="AngleAxisMajorStroke" Value="Transparent" />
+
+        <Setter Property="ValueAxisTickStrokeThickness" Value="{x:Static local:AxisDefaults.Axis_TickStroke}" />
+        <Setter Property="ValueAxisTickStroke" Value="{x:Null}" />
+        <Setter Property="ValueAxisStroke" Value="Transparent" />
+        <Setter Property="ValueAxisStrokeThickness" Value="{x:Static local:AxisDefaults.Axis_LineStroke}" />
+        <Setter Property="ValueAxisMajorStroke" Value="Transparent" />
+        <Setter Property="ValueAxisMajorStrokeThickness" Value="{x:Static local:AxisDefaults.Axis_MajorStroke}" />
+        <Setter Property="ValueAxisMinorStrokeThickness" Value="{x:Static local:AxisDefaults.Axis_MinorStroke}" />
+
+        <Setter Property="AutoCalloutsVisible" Value="True"
+                />
+        <!--<Setter Property="CalloutCollisionMode" Value="RadialOutsideEnd" />-->
+
+        <!--<Setter Property="HighlightedLegendItemVisibility" Value="Collapsed" />-->
+        <Setter Property="DataToolTipGroupingMode" Value="Grouped" />
+        <Setter Property="DataToolTipGroupedPositionModeX" Value="TrackRight" />
+        <Setter Property="CrosshairsDisplayMode" Value="None" />
+        <Setter Property="CalloutsUseItemColorForOutline" Value="True" />
+        <Setter Property="CalloutsStrokeThickness" Value="2" />
+        <Setter Property="CalloutsBackground" Value="White" />
+        <Setter Property="IsHorizontalZoomEnabled" Value="False" />
+        <Setter Property="IsVerticalZoomEnabled" Value="False" />
+        <Setter Property="CalloutsUseAutoContrastingLabelColors" Value="True" />
+        <Setter Property="AnimateSeriesWhenAxisRangeChanges" Value="True" />
+
+        <Setter Property="HighlightingMode" Value="FadeOthersSpecific" />
+        <Setter Property="HighlightingBehavior" Value="NearestItemsAndSeries" />
+    </Style>
+
+
+    <!-- ************ Shape Styles for Scatter(*)Series ******************* -->
   <Style TargetType="local:ShapeControl" x:Key="ShapeStyle_ScatterControlSeries"> 
     <!-- TODO add ScatterControlSeries.ShapeThickness property and bind it in this template 
       because Series.Thickness (double) does not affect BorderThickness property: --> 

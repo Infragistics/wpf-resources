@@ -4,12 +4,26 @@
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
     <!--                             IMPORTANT NOTE:                                -->
     <!--                                                                            -->
-    <!-- Do not place any resources in this file as it gets overwritten in the      -->
-    <!-- pre-build step with the appropriate platform-specific ResourceDictionary   -->
-    <!-- (i.e., generic.sl.xaml or generic.wpf.xaml).  Shared resources should      -->
-    <!-- be placed in generic.shared.xaml which is merged into each platform        -->
-    <!-- specific ResourceDictionary                                                -->
+    <!-- Only place WPF-specific resources in this ResourceDictionary.  This file   -->
+    <!-- gets copied in the pre-build step so that it overwrites generic.xaml       -->
+    <!-- (which by default has no content).                                         -->
+    <!--                                                                            -->
+    <!-- Note that this ResourceDictionary merges in the contents of                -->
+    <!-- generic.shared.xaml which contains resources that work in both SL and WPF. -->
     <!--                                                                            -->
     <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+    
+    <!-- ======================== -->
+    <!-- Shared Resources         -->
+    <!-- ======================== -->
+    <ResourceDictionary.MergedDictionaries>
+        <!-- Need absolute reference as mentioned here: https://connect.microsoft.com/VisualStudio/feedback/details/487563/generic-xaml-relative-source-path-doesnt-work?wa=wsignin1.0 -->
+        <ResourceDictionary Source="/Infragistics.WPF.Controls.SchedulesDialogs;component/Themes/generic.shared.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- ======================== -->
+    <!-- WPF-specific Resources   -->
+    <!-- ======================== -->
 
 </ResourceDictionary>
