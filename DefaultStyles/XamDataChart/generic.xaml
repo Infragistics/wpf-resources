@@ -145,6 +145,9 @@
   <!-- ******************* Crosshair variables ******************* -->
   <Thickness     x:Key="CrosshairTooltipItemPadding">0 4 0 4</Thickness>
 
+  <!-- ******************* UserAnnotation variables ******************* -->
+  <!--<Thickness     x:Key="UserAnnotationToolTipItemPadding">0 4 0 4</Thickness>-->
+
   <!-- ******************* Series/Axis Strokes ******************* -->
   <!--<System:Double x:Key="AxisTickStrokeThickness">2</System:Double>-->
   <!--<System:Double x:Key="AxisLineStrokeThickness">2</System:Double>-->
@@ -359,7 +362,36 @@
     </StackPanel>
   </DataTemplate>
 
-  <!-- ******************* ToolTipStyle NoBadge ******************* -->
+    <!-- ******************* UserAnnotationToolTipItemTemplate ******************* -->
+    <DataTemplate x:Key="UserAnnotationToolTipItemTemplate">
+        <StackPanel Orientation="Vertical">
+            <!--<TextBlock x:Name="TitleText" Text="{Binding Title}"/>-->
+            <!--<StackPanel Orientation="Horizontal">-->
+                <!--<ContentPresenter 
+                    Content="{Binding ItemContext}" 
+                    DataContext="{Binding ItemContext}" 
+                    ContentTemplate="{Binding Series.ActualLegendItemBadgeTemplate}" />-->
+            <ContentControl 
+                FontSize="{Binding AnnotationFontSize}" 
+                FontFamily="{Binding AnnotationFontFamily}">
+                <ContentPresenter Content="{Binding CalloutContent}"/>
+            </ContentControl>
+            <ContentControl 
+                    Grid.Row="0" 
+                    FontSize="{x:Static shared:FontDefaults.ChartFontSize}" 
+                    FontFamily="{x:Static shared:FontDefaults.ChartFontFamily}">
+                    <ContentControl.Resources>
+                        <Style TargetType="ContentControl">
+                            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+                        </Style>
+                    </ContentControl.Resources>
+                    <ContentPresenter Content="{Binding SubContent}" />
+                </ContentControl>
+            <!--</StackPanel>-->            
+        </StackPanel>
+    </DataTemplate>
+
+    <!-- ******************* ToolTipStyle NoBadge ******************* -->
   <Style x:Key="ToolTipNoBadgeStyle" TargetType="ContentControl">
     <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}" />
     <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}" />
@@ -391,8 +423,45 @@
       </Setter.Value>
     </Setter>
   </Style>
-  
-  <!-- ******************* Legend Style ******************* -->
+
+    <!-- ******************* ToolTipStyle UserAnnotation ******************* -->
+    <Style x:Key="ToolTipUserAnnotationStyle" TargetType="ContentControl">
+        <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+        <Setter Property="FontSize" Value="{x:Static shared:FontDefaults.ChartFontSize}"/>
+        <Setter Property="FontFamily" Value="{x:Static shared:FontDefaults.ChartFontFamily}"/>        
+        <Setter Property="BorderThickness" Value="{StaticResource TooltipBorderThickness}"/>
+        <Setter Property="Padding" Value="{StaticResource TooltipContentPadding}"/>
+        <!--<Setter Property="Margin" Value="80"/>-->
+        <!--<Setter Property="CornerRadius" Value="8, 8, 8, 8"/>-->
+        <!--<Setter Property="ToolTipCornerRadius" Value="{Binding ToolTipCornerRadius}"/>-->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <!--<Border 
+                        BorderBrush="Transparent"
+                        Background="Transparent"
+                        BorderThickness="{TemplateBinding BorderThickness}">-->                    
+                        <!--<StackPanel Orientation="Horizontal">-->
+                            <!--<ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}"/>-->
+                            <!-- NOTE-MT shifted FontFamily/FontSize from ToolTip -->
+                            <ContentControl Grid.Row="0" FontSize="{TemplateBinding FontSize}" FontFamily="{TemplateBinding FontFamily}">
+                                <ContentControl.Resources>
+                                    <Style TargetType="ContentControl">
+                                        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+                                    </Style>
+                                </ContentControl.Resources>
+                                <ContentPresenter Margin="{TemplateBinding Padding}" Content="{TemplateBinding Content}"/>
+                            </ContentControl>
+                        <!--</StackPanel>-->
+                    <!--</Border>-->
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ******************* Legend Style ******************* -->
     <Style TargetType="local:XamDataLegend">
         <Setter Property="Background" Value="{StaticResource LegendBackgroundBrush}"/>
         <Setter Property="BorderBrush" Value="{StaticResource LegendBorderBrush}"/>
@@ -401,7 +470,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:XamDataLegend">
-                    <Grid HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
+                    <Grid HorizontalAlignment="Stretch">
                         <Border BorderThickness="{TemplateBinding ActualBorderThickness}"
                                 BorderBrush="{TemplateBinding ActualBorderBrush}"
                                 Background="{TemplateBinding ActualBackground}" 
@@ -882,6 +951,7 @@
     <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipStyle}"/>
     <Setter Property="CrosshairTooltipStyle" Value="{StaticResource ToolTipNoBadgeStyle}" />
     <Setter Property="CrosshairTooltipItemTemplate" Value="{StaticResource CrosshairTooltipItemTemplate}" />
+    <Setter Property="UserAnnotationToolTipItemTemplate" Value="{StaticResource UserAnnotationToolTipItemTemplate}" />
     <Setter Property="DefaultAxisStroke"      Value="{x:Static local:AxisDefaults.Axis_LineBrush}"/>
     <Setter Property="DefaultAxisMajorStroke" Value="{x:Static local:AxisDefaults.Axis_MajorBrush}"/>
     <Setter Property="DefaultAxisMinorStroke" Value="{x:Static local:AxisDefaults.Axis_MinorBrush}"/>
@@ -1793,7 +1863,59 @@
     </Setter>
   </Style>
 
-  <!-- ******************* ItemToolTipLayer Style ******************* -->
+    <!-- ******************* User Annotation Pointer Tooltip Style ******************* -->
+    <Style x:Key="UserAnnotationPointerToolTipStyle" TargetType="local:PointerTooltip">
+        <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="0, 0, 0, 0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:PointerTooltip">
+                    <Canvas x:Name="PART_RootCanvas">
+                        <Border 
+                            x:Name="UserAnnotationContentBorder"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <ContentControl
+                                  Canvas.Left="{Binding Path=ActualBoxTopLeftPosition.X, RelativeSource={RelativeSource TemplatedParent}}"
+                                  Canvas.Top="{Binding Path=ActualBoxTopLeftPosition.Y, RelativeSource={RelativeSource TemplatedParent}}"
+                                  x:Name="PART_CONTENT" Style="{TemplateBinding ToolTipStyle}">
+                                <!--<ContentPresenter Content="{TemplateBinding Content}" />-->
+                                <!-- NOTE-MT shifted FontFamily/FontSize from ToolTip -->
+                                <ContentControl Grid.Row="0" 
+                                                FontSize="{x:Static shared:FontDefaults.ChartFontSize}" 
+                                                FontFamily="{x:Static shared:FontDefaults.ChartFontFamily}" >
+                                    <ContentControl.Resources>
+                                        <Style TargetType="ContentControl">
+                                            <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+                                        </Style>
+                                    </ContentControl.Resources>
+                                    <ContentPresenter Content="{TemplateBinding Content}" />
+                                </ContentControl>
+                            </ContentControl>
+                        </Border>
+                        
+                        <Polygon x:Name="PART_POINTER"
+                   Fill="{TemplateBinding Background}"
+                   StrokeLineJoin="Bevel"
+                   Visibility="{TemplateBinding PointerVisibility}">
+                        </Polygon>
+                        <Polyline x:Name="PART_POINTEROUTLINE"
+                    StrokeLineJoin="Bevel"
+                    Stroke="{TemplateBinding BorderBrush}"
+                    StrokeThickness="{TemplateBinding BorderThickness}"
+                    Visibility="{TemplateBinding PointerVisibility}">
+                        </Polyline>
+                    </Canvas>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- ******************* ItemToolTipLayer Style ******************* -->
   <Style TargetType="local:ItemToolTipLayer" BasedOn="{StaticResource Series}" >
     <Setter Property="Brush" Value="{StaticResource TooltipLayerBrush}" />
     <Setter Property="Outline" Value="{StaticResource TooltipLayerOutline}" />
@@ -1818,6 +1940,15 @@
         <!--<Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendBadgeTemplate_CircleShape_MatchSeries}"/>-->
         <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipNoBadgeStyle}" />
         <Setter Property="PointerToolTipStyle" Value="{StaticResource PointerToolTipStyle}" />
+    </Style>
+
+    <!-- ******************* UserAnnotationToolTipLayer Style ******************* -->
+    <Style TargetType="local:UserAnnotationToolTipLayer" BasedOn="{StaticResource Series}" >
+        <Setter Property="Brush" Value="{StaticResource TooltipLayerBrush}" />
+        <Setter Property="Outline" Value="{StaticResource TooltipLayerOutline}" />              
+        <!--<Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendBadgeTemplate_CircleShape_MatchSeries}"/>-->
+        <Setter Property="ToolTipStyle" Value="{StaticResource ToolTipUserAnnotationStyle}" />
+        <Setter Property="PointerToolTipStyle" Value="{StaticResource UserAnnotationPointerToolTipStyle}" />
     </Style>
 
     <!-- ******************* PieChartBase Style ******************* -->

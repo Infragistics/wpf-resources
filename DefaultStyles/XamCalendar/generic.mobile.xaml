@@ -5,8 +5,8 @@
 	xmlns:igPrimLocal="http://schemas.infragistics.com/xaml/primitives"
 	xmlns:sys="clr-namespace:System;assembly=mscorlib"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives;assembly=InfragisticsWP7.v25.1" 
-    xmlns:ig="http://schemas.infragistics.com/xaml;assembly=InfragisticsWP7.v25.1">
+    xmlns:igPrim="http://schemas.infragistics.com/xaml/primitives;assembly=InfragisticsWP7.v25.2" 
+    xmlns:ig="http://schemas.infragistics.com/xaml;assembly=InfragisticsWP7.v25.2">
 
 	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<!--                             IMPORTANT NOTE:                                -->
