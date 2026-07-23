@@ -197,185 +197,185 @@
   <Style BasedOn="{StaticResource ActiveNodeIndicatorStyle}" TargetType="igPrimDT:ActiveNodeIndicator" />
 
   <!--  ********************************** XamDataTreeNodeControl Style **********************************  -->
-    <Style x:Key="XamDataTreeNodeControlStyle" TargetType="igDT:XamDataTreeNodeControl">
-        <Setter Property="Background" Value="{StaticResource TreeNodeBackgroundBrush}" />
-        <Setter Property="BorderBrush" Value="{StaticResource TreeNodeBorderBrush}" />
-        <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
-        <Setter Property="CheckBoxStyle" Value="{StaticResource CheckBoxStyle}" />
-        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
-        <Setter Property="FontSize" Value="{StaticResource FontSize}" />
-        <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
-        <Setter Property="HorizontalContentAlignment" Value="Left" />
-        <Setter Property="IsTabStop" Value="False" />
-        <Setter Property="MinHeight" Value="24" />
-        <Setter Property="Padding" Value="8 0 8 2" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="igDT:XamDataTreeNodeControl">
-                    <Grid Background="{StaticResource TransparentBrush}">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="MouseOver">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="hoverBorder" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Visibility>Visible</Visibility>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="Disabled">
-                                    <Storyboard>
-                                        <DoubleAnimation Duration="0" Storyboard.TargetName="main" Storyboard.TargetProperty="Opacity" To="0.3" />
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="ExpandedIconStates">
-                                <VisualState x:Name="HideIcons" />
-                                <VisualState x:Name="ShowCollapsedIcon">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="CollapsedIcon" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Visibility>Visible</Visibility>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="ShowExpandedIcon">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ExpandedIcon" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Visibility>Visible</Visibility>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="ActiveStates">
-                                <VisualState x:Name="Inactive" />
-                                <VisualState x:Name="Active">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ActiveBorder" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Visibility>Visible</Visibility>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="SelectedStates">
-                                <VisualState x:Name="NotSelected" />
-                                <VisualState x:Name="Selected">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="SelectedBorder" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Visibility>Visible</Visibility>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contentControl" Storyboard.TargetProperty="Foreground">
-                                            <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ActiveForegroundBrush}" />
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="EndLines">
-                                <VisualState x:Name="None">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="LineTerminator" Storyboard.TargetProperty="NodeLineEnd">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <igDT:NodeLineTemination>None</igDT:NodeLineTemination>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="TShape">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="LineTerminator" Storyboard.TargetProperty="NodeLineEnd">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <igDT:NodeLineTemination>TShape</igDT:NodeLineTemination>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="LShape">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="LineTerminator" Storyboard.TargetProperty="NodeLineEnd">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <igDT:NodeLineTemination>LShape</igDT:NodeLineTemination>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                            <VisualStateGroup x:Name="DropStates">
-                                <VisualState x:Name="NoDrop" />
-                                <VisualState x:Name="DropOnto">
-                                    <Storyboard>
-                                        <DoubleAnimation Duration="0" Storyboard.TargetName="DropOntoElem" Storyboard.TargetProperty="Opacity" To="1" />
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="DropBefore">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropBeforeElem" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Visibility>Visible</Visibility>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                                <VisualState x:Name="DropAfter">
-                                    <Storyboard>
-                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropAfterElem" Storyboard.TargetProperty="Visibility">
-                                            <DiscreteObjectKeyFrame KeyTime="0">
-                                                <DiscreteObjectKeyFrame.Value>
-                                                    <Visibility>Visible</Visibility>
-                                                </DiscreteObjectKeyFrame.Value>
-                                            </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                        <Grid x:Name="main">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="24" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition />
-                                <ColumnDefinition Width="auto" />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-                            <Rectangle Grid.ColumnSpan="6" Fill="{StaticResource TransparentBrush}" />
-                            <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
-                            <igPrimDT:NodeLineControl x:Name="lineControl" Node="{Binding Node}" />
-                            <igPrimDT:NodeLineTerminator x:Name="LineTerminator" Grid.Column="1" Node="{Binding Node, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <igPrimDT:ExpansionIndicator x:Name="ExpansionIndicator"
+  <Style x:Key="XamDataTreeNodeControlStyle" TargetType="igDT:XamDataTreeNodeControl">
+    <Setter Property="Background" Value="{StaticResource TreeNodeBackgroundBrush}" />
+    <Setter Property="BorderBrush" Value="{StaticResource TreeNodeBorderBrush}" />
+    <Setter Property="BorderThickness" Value="{StaticResource DefaultBorderThickness}" />
+    <Setter Property="CheckBoxStyle" Value="{StaticResource CheckBoxStyle}" />
+    <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+    <Setter Property="FontSize" Value="{StaticResource FontSize}" />
+    <Setter Property="Foreground" Value="{StaticResource ForegroundBrush}" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="IsTabStop" Value="False" />
+    <Setter Property="MinHeight" Value="24" />
+    <Setter Property="Padding" Value="8 0 8 2" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="igDT:XamDataTreeNodeControl">
+          <Grid Background="{StaticResource TransparentBrush}">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="MouseOver">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="hoverBorder" Storyboard.TargetProperty="Visibility">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <Storyboard>
+                    <DoubleAnimation Duration="0" Storyboard.TargetName="main" Storyboard.TargetProperty="Opacity" To="0.3" />
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="ExpandedIconStates">
+                <VisualState x:Name="HideIcons" />
+                <VisualState x:Name="ShowCollapsedIcon">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="CollapsedIcon" Storyboard.TargetProperty="Visibility">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="ShowExpandedIcon">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ExpandedIcon" Storyboard.TargetProperty="Visibility">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="ActiveStates">
+                <VisualState x:Name="Inactive" />
+                <VisualState x:Name="Active">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="ActiveBorder" Storyboard.TargetProperty="Visibility">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="SelectedStates">
+                <VisualState x:Name="NotSelected" />
+                <VisualState x:Name="Selected">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="SelectedBorder" Storyboard.TargetProperty="Visibility">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="contentControl" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource ActiveForegroundBrush}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="EndLines">
+                <VisualState x:Name="None">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="LineTerminator" Storyboard.TargetProperty="NodeLineEnd">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <igDT:NodeLineTemination>None</igDT:NodeLineTemination>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="TShape">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="LineTerminator" Storyboard.TargetProperty="NodeLineEnd">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <igDT:NodeLineTemination>TShape</igDT:NodeLineTemination>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="LShape">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetName="LineTerminator" Storyboard.TargetProperty="NodeLineEnd">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <igDT:NodeLineTemination>LShape</igDT:NodeLineTemination>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="DropStates">
+                <VisualState x:Name="NoDrop" />
+                <VisualState x:Name="DropOnto">
+                  <Storyboard>
+                    <DoubleAnimation Duration="0" Storyboard.TargetName="DropOntoElem" Storyboard.TargetProperty="Opacity" To="1" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="DropBefore">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropBeforeElem" Storyboard.TargetProperty="Visibility">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="DropAfter">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="DropAfterElem" Storyboard.TargetProperty="Visibility">
+                      <DiscreteObjectKeyFrame KeyTime="0">
+                        <DiscreteObjectKeyFrame.Value>
+                          <Visibility>Visible</Visibility>
+                        </DiscreteObjectKeyFrame.Value>
+                      </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid x:Name="main">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition />
+              </Grid.ColumnDefinitions>
+              <Rectangle Grid.ColumnSpan="6" Fill="{StaticResource TransparentBrush}" />
+              <Border x:Name="Bd" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+              <igPrimDT:NodeLineControl x:Name="lineControl" Node="{Binding Node}" />
+              <igPrimDT:NodeLineTerminator x:Name="LineTerminator" Grid.Column="1" Node="{Binding Node, RelativeSource={RelativeSource TemplatedParent}}" />
+              <igPrimDT:ExpansionIndicator x:Name="ExpansionIndicator"
                                            Grid.Column="1"
                                            IsExpanded="{Binding Node.IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"
                                            IsTabStop="False"
                                            Style="{StaticResource ExpansionIndicatorStyle}"
                                            Visibility="{Binding Node.HasChildren, Converter={StaticResource BoolToVis}, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <CheckBox x:Name="Checkbox"
+              <CheckBox x:Name="Checkbox"
                         Grid.Column="2"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -384,108 +384,103 @@
                         IsThreeState="{Binding Node.NodeLayout.CheckBoxSettings.IsCheckBoxThreeStateResolved}"
                         Style="{StaticResource CheckBoxStyle}"
                         Visibility="{Binding Node.NodeLayout.CheckBoxSettings.CheckBoxVisibilityResolved}" />
-                            <ContentControl x:Name="ExpandedIcon"
+              <ContentControl x:Name="ExpandedIcon"
                               Grid.Column="4"
                               HorizontalContentAlignment="Center"
                               VerticalContentAlignment="Center"
                               IsTabStop="False"
                               Visibility="Collapsed"
                               Margin="0 0 6 0"/>
-                            <ContentControl x:Name="CollapsedIcon"
+              <ContentControl x:Name="CollapsedIcon"
                               Grid.Column="4"
                               HorizontalContentAlignment="Center"
                               VerticalContentAlignment="Center"
                               IsTabStop="False"
                               Visibility="Collapsed"
                               Margin="0 0 6 0"/>
-                            <Border x:Name="hoverBorder"
+              <Border x:Name="hoverBorder"
                       Grid.Column="5"
                       Background="{StaticResource TreeNodeHoverBackgroundBrush}"
                       BorderBrush="{StaticResource TreeNodeHoverBorderBrush}"
                       BorderThickness="{TemplateBinding BorderThickness}"
                       Visibility="Collapsed" />
-                            <Border x:Name="SelectedBorder"
+              <Border x:Name="SelectedBorder"
                       Grid.Column="5"
                       Background="{StaticResource TreeNodeSelectedBackgroundBrush}"
                       BorderBrush="{StaticResource TreeNodeSelectedBorderBrush}"
                       BorderThickness="{TemplateBinding BorderThickness}"
                       Visibility="Collapsed" />
-                            <igPrimDT:ActiveNodeIndicator x:Name="ActiveBorder"
+              <igPrimDT:ActiveNodeIndicator x:Name="ActiveBorder"
                                             Grid.Column="5"
                                             Margin="0"
                                             IsTabStop="false"
                                             Style="{StaticResource ActiveNodeIndicatorStyle}"
                                             Visibility="Collapsed" />
-                            <ContentControl x:Name="contentControl" Grid.Column="5"
-                              Foreground="{TemplateBinding Foreground}"
-                              Margin="{TemplateBinding Padding}"
-                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" >
-                                <ContentPresenter x:Name="ContentPresenter" />
-                            </ContentControl>
-
-                        </Grid>
-                        <Grid x:Name="DropBeforeElem" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
-                            <Grid.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform />
-                                    <SkewTransform />
-                                    <RotateTransform />
-                                    <TranslateTransform Y="-3" />
-                                </TransformGroup>
-                            </Grid.RenderTransform>
-                            <Rectangle x:Name="bar" Height="1" Fill="{StaticResource DropIndicatorBackgroundBrush}" />
-                            <Path x:Name="arrowLeft"
+              <ContentControl x:Name="contentControl" Grid.Column="5" Foreground="{TemplateBinding Foreground}" >
+              </ContentControl>
+              <ContentPresenter x:Name="ContentPresenter" Grid.Column="5" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+              </Grid>
+              <Grid x:Name="DropBeforeElem" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+              <Grid.RenderTransform>
+                <TransformGroup>
+                  <ScaleTransform />
+                  <SkewTransform />
+                  <RotateTransform />
+                  <TranslateTransform Y="-3" />
+                </TransformGroup>
+              </Grid.RenderTransform>
+              <Rectangle x:Name="bar" Height="1" Fill="{StaticResource DropIndicatorBackgroundBrush}" />
+              <Path x:Name="arrowLeft"
                     Width="6"
                     Height="7"
                     HorizontalAlignment="Left"
                     Data="{StaticResource IndicatorLeftIcon}"
                     Fill="{StaticResource DropIndicatorBackgroundBrush}"
                     Stretch="Fill" />
-                            <Path x:Name="arrowRight"
+              <Path x:Name="arrowRight"
                     Width="6"
                     Height="7"
                     HorizontalAlignment="Right"
                     Data="{StaticResource IndicatorRightIcon}"
                     Fill="{StaticResource DropIndicatorBackgroundBrush}"
                     Stretch="Fill" />
-                        </Grid>
-                        <Grid x:Name="DropAfterElem" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
-                            <Grid.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform />
-                                    <SkewTransform />
-                                    <RotateTransform />
-                                    <TranslateTransform Y="4" />
-                                </TransformGroup>
-                            </Grid.RenderTransform>
-                            <Rectangle x:Name="bar1" Height="1" Fill="{StaticResource DropIndicatorBackgroundBrush}"  />
-                            <Path x:Name="arrowLeft1"
+            </Grid>
+            <Grid x:Name="DropAfterElem" VerticalAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
+              <Grid.RenderTransform>
+                <TransformGroup>
+                  <ScaleTransform />
+                  <SkewTransform />
+                  <RotateTransform />
+                  <TranslateTransform Y="4" />
+                </TransformGroup>
+              </Grid.RenderTransform>
+              <Rectangle x:Name="bar1" Height="1" Fill="{StaticResource DropIndicatorBackgroundBrush}"  />
+              <Path x:Name="arrowLeft1"
                     Width="6"
                     Height="7"
                     HorizontalAlignment="Left"
                     Data="{StaticResource IndicatorLeftIcon}"
                     Fill="{StaticResource DropIndicatorBackgroundBrush}"
                     Stretch="Fill" />
-                            <Path x:Name="arrowRight1"
+              <Path x:Name="arrowRight1"
                     Width="6"
                     Height="7"
                     HorizontalAlignment="Right"
                     Data="{StaticResource IndicatorRightIcon}"
                     Fill="{StaticResource DropIndicatorBackgroundBrush}"
                     Stretch="Fill" />
-                        </Grid>
-                        <Rectangle x:Name="DropOntoElem"
+            </Grid>
+            <Rectangle x:Name="DropOntoElem"
                        IsHitTestVisible="False"
                        Opacity="0"
                        Stroke="{StaticResource DropIndicatorBorderBrush}"
                        StrokeThickness="1" />
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style BasedOn="{StaticResource XamDataTreeNodeControlStyle}" TargetType="igDT:XamDataTreeNodeControl" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style BasedOn="{StaticResource XamDataTreeNodeControlStyle}" TargetType="igDT:XamDataTreeNodeControl" />
 
   <!--  ********************************** NodeLineControl Style **********************************  -->
   <Style x:Key="NodeLineControlStyle" TargetType="igPrimDT:NodeLineControl">

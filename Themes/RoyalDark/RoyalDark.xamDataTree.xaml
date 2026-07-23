@@ -229,7 +229,7 @@
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="Disabled">
-                                    <Storyboard>
+                                    <Storyboard>                                        
                                         <DoubleAnimation Duration="0" Storyboard.TargetName="main" Storyboard.TargetProperty="Opacity" To="0.3" />
                                     </Storyboard>
                                 </VisualState>
@@ -283,7 +283,7 @@
                                                     <Visibility>Visible</Visibility>
                                                 </DiscreteObjectKeyFrame.Value>
                                             </DiscreteObjectKeyFrame>
-                                        </ObjectAnimationUsingKeyFrames>
+                                        </ObjectAnimationUsingKeyFrames>                                        
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
@@ -325,8 +325,8 @@
                             <VisualStateGroup x:Name="DropStates">
                                 <VisualState x:Name="NoDrop" />
                                 <VisualState x:Name="DropOnto">
-                                    <Storyboard>
-                                        <DoubleAnimation Duration="0" Storyboard.TargetName="DropOntoElem" Storyboard.TargetProperty="Opacity" To="1" />
+                                    <Storyboard>                                        
+                                        <DoubleAnimation Duration="0" Storyboard.TargetName="DropOntoElem" Storyboard.TargetProperty="Opacity" To="1" /> 
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="DropBefore">
@@ -413,13 +413,9 @@
                                                           IsTabStop="false"
                                                           Style="{StaticResource ActiveNodeIndicatorStyle}"
                                                           Visibility="Collapsed" />
-                            <ContentControl x:Name="contentControl" Grid.Column="5"
-                Foreground="{TemplateBinding Foreground}"
-                Margin="{TemplateBinding Padding}"
-                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" >
-                                <ContentPresenter x:Name="ContentPresenter" />
+                            <ContentControl x:Name="contentControl" Grid.Column="5" Foreground="{TemplateBinding Foreground}" >
                             </ContentControl>
+                            <ContentPresenter x:Name="ContentPresenter" Grid.Column="5" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                         </Grid>
                         <Grid x:Name="DropBeforeElem" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Visibility="Collapsed">
                             <Grid.RenderTransform>
@@ -480,7 +476,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+     </Style>
     <Style BasedOn="{StaticResource XamDataTreeNodeControlStyle}" TargetType="igDT:XamDataTreeNodeControl" />
 
     <!--  ********************************** NodeLineControl Style **********************************  -->
