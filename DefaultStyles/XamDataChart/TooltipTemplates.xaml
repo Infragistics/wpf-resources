@@ -72,6 +72,25 @@
         </Grid>
     </DataTemplate>
 
+    <DataTemplate x:Key="VerticalRangeCategorySeriesTooltipTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Content="{Binding YAxisLabel}" Grid.ColumnSpan="2"/>
+            <TextBlock Text="{Binding Series.Title, StringFormat='{}{0}: '}" Grid.Row="1" Foreground="{Binding Series.SafeActualBrush}"/>
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="{Binding ItemLow, StringFormat='{}{0:0.##}'}"/>
+                <TextBlock FontWeight="Bold" Text="{Binding ItemHigh, StringFormat=' - {0:0.##}'}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
     <DataTemplate x:Key="ScatterBaseTooltipTemplate">
         <Grid>
             <Grid.RowDefinitions>

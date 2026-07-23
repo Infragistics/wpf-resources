@@ -1034,6 +1034,14 @@
         <Setter Property="RadiusY" Value="2.0"/>
     </Style>
 
+    <Style TargetType="local:RangeBarSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="RadiusX" Value="2.0"/>
+        <Setter Property="RadiusY" Value="2.0"/>
+        <Setter Property="ShadowDirection" Value="45"/>
+    </Style>
+
     <Style TargetType="local:StepLineSeries" BasedOn="{StaticResource Series}">
         <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
         <Setter Property="MarkerType" Value="Automatic"/>

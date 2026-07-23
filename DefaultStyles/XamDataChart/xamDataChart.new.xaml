@@ -1230,6 +1230,13 @@
         <Setter Property="MarkerType" Value="None"/>
     </Style>
 
+    <Style TargetType="local:RangeBarSeries" BasedOn="{StaticResource Series}">
+        <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemRectBadgeTemplate}"/>
+        <Setter Property="MarkerType" Value="None"/>
+        <Setter Property="Thickness" Value="1"/>
+        <Setter Property="ShadowDirection" Value="45"/>
+    </Style>
+
     <Style TargetType="local:StepLineSeries" BasedOn="{StaticResource Series}">
         <Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendItemLineBadgeTemplate}"/>
         <Setter Property="MarkerType" Value="Automatic"/>
