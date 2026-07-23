@@ -1708,27 +1708,6 @@
                 ScaleX="{Binding ElementName=LegendScaleSlider, Path=Value, Mode=TwoWay}"
                 ScaleY="{Binding ElementName=LegendScaleSlider, Path=Value, Mode=TwoWay}aticResource LegendBadgeTemplate_LineMarkless_MatchSeries}"/>-->
   </Style>
-
-  <Style TargetType="local:DataAnnotationShapeLayer" BasedOn="{StaticResource Series}" x:Key="DataAnnotationShapeLayer">
-    <Setter Property="AreaFillOpacity" Value="{x:Static local:Defaults.DataAnnotationShapeFillOpacity}"/>
-    <Setter Property="Thickness" Value="{x:Static local:Defaults.DataAnnotationShapeThickness}"/>
-  </Style>
-
-  <Style TargetType="local:DataAnnotationStripLayer" BasedOn="{StaticResource DataAnnotationShapeLayer}">
-  </Style>
-
-  <Style TargetType="local:DataAnnotationSliceLayer" BasedOn="{StaticResource DataAnnotationShapeLayer}">
-  </Style>
-
-  <Style TargetType="local:DataAnnotationLineLayer" BasedOn="{StaticResource DataAnnotationShapeLayer}">
-  </Style>
-
-  <Style TargetType="local:DataAnnotationRectLayer" BasedOn="{StaticResource DataAnnotationShapeLayer}">
-  </Style>
-
-  <Style TargetType="local:DataAnnotationBandLayer" BasedOn="{StaticResource DataAnnotationShapeLayer}">
-  </Style>
-
   <Style TargetType="local:ValueLayer" BasedOn="{StaticResource Series}">
     <Setter Property="Thickness" Value="{x:Static local:Defaults.Series_Thickness}"/>
   </Style>
@@ -1749,11 +1728,7 @@
     <!--<Setter Property="LegendItemBadgeTemplate" Value="{StaticResource LegendBadgeTemplate_CircleShape_MatchSeries}"/>-->
   </Style>
 
-  <Style TargetType="local:TrendLineLayer" BasedOn="{StaticResource Series}" >
-
-  </Style>
-
-    <!-- ******************* Pointer Tooltip Style ******************* -->
+  <!-- ******************* Pointer Tooltip Style ******************* -->
   <Style x:Key="PointerToolTipStyle" TargetType="local:PointerTooltip">
       <Setter Property="Background" Value="{StaticResource TooltipBackgroundBrush}" />
       <Setter Property="BorderBrush" Value="{StaticResource TooltipBorderBrush}" />
