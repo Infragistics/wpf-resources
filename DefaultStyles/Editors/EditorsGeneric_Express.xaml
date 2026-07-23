@@ -69,7 +69,7 @@
                             Background="{TemplateBinding Background}"
                             BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}"
-                            Padding="{TemplateBinding Padding}" Margin="-2,0,0,0">
+                            Padding="{TemplateBinding Padding}">
                         <!-- SSP 10/3/07 BR25672 Took the Margin="{TemplateBinding Padding}" code out of Border element above
 								and instead added Padding="{TemplateBinding Padding}" to the TextBox below. Padding should not
 								be outside the border and the background. It should be inside the border and around the editor's
@@ -96,6 +96,7 @@
 							IsReadOnly="{TemplateBinding ReadOnly}"
 							MaxLength="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ValueConstraint.MaxLength, Mode=OneWay}"
 							Padding="0"
+                            Margin="-2,0,0,0"
                             Background="Transparent"
 							BorderBrush="Transparent"
 							BorderThickness="0,0,0,0"
